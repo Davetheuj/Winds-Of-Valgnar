@@ -573,6 +573,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yEnd: 28
   yStart: 300
-  speed: 40
+  speed: 35
   scale: 0
   startTime: 4

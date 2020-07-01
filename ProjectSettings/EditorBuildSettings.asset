@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Intro1/Intro1.unity
+    guid: 4e18eb7f0e9e39c42b47a68695178f3c
+  - enabled: 1
+    path: Assets/Scenes/GameStart.unity
+    guid: 097a30679cb2a8340b068b0bfc659501
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 77c378ae71fa2974c812180c8df299d5
+  - enabled: 1
+    path: Assets/Zones/AlphaZone/AlphaZoneScene.unity
+    guid: fa54b7535180b4304ad07edd6445c5b2
+  - enabled: 1
+    path: Assets/Zones/CryptOfTheAncients/CryptOfTheAncients.unity
+    guid: a87d38f1fa4a8284fb72d42cb9549a21
+  m_configObjects: {}

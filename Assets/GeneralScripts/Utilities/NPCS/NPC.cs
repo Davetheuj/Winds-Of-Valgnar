@@ -11,7 +11,7 @@ public class NPC : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
     public int experience;
-    public byte state =0;//0 for alive 1 for dead
+    public byte state =0;//0 for dead 1 for neutral 2 for aggressive
 
     public StatusController statusController;
     
@@ -30,15 +30,15 @@ public class NPC : MonoBehaviour
     void Update()
     {
         angleFromPlayerForward = Mathf.Acos(Vector3.Dot(playerTransform.forward.normalized, (playerTransform.position-gameObject.transform.position).normalized));
-        if(currentHealth <= 0 && state!= 1)
+        if(currentHealth <= 0 && state!= 0)
         {
-            state = 1;//npc is dead
+            state = 0;//npc is dead
 
         }
 
-        if(state == 1)
+        if(state == 0)
         {
-            WaitAndDestroy();
+            Destroy(this.gameObject);
         }
 
     }
@@ -61,13 +61,5 @@ public class NPC : MonoBehaviour
             }
         }
     }
-    IEnumerator WaitAndDestroy()
-    {
-
-        yield return new WaitForSecondsRealtime(1.5f);
-        Destroy(gameObject);
-
-
-
-    }
+    
 }

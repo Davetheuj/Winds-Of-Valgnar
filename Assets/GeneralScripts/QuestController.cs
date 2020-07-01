@@ -26,7 +26,7 @@ public class QuestController : MonoBehaviour
     {
         if(quest.stepSize == quest.currentStep)//quest complete
         {
-            consoleManager.AddConsoleMessage1($"You have completed {quest.name}!");
+            consoleManager.AddConsoleMessage1($"You have completed {quest.questName}!");
         }
     } 
 

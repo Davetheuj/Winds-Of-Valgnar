@@ -1084,7 +1084,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -5407,7 +5407,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   experience: 0
-  state: 0
+  state: 1
   statusController: {fileID: 0}
 --- !u!1001 &755846204
 PrefabInstance:
@@ -6470,7 +6470,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   experience: 0
-  state: 0
+  state: 1
   statusController: {fileID: 0}
 --- !u!4 &1055410461 stripped
 Transform:
@@ -14288,7 +14288,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   experience: 0
-  state: 0
+  state: 1
   statusController: {fileID: 0}
 --- !u!4 &1840283625 stripped
 Transform:
@@ -15518,9 +15518,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   queryLines1:
   - How do I get off this island?
+  - I talked to the goblin...
+  - Is there anything else I should know?
   responseLines1:
   - There is a portal on the other side of the island. Perhaps you could investigate
     it and see what there is to find.
+  - Thanks for doing that for me
+  - Not that I can think of.
   queryLines2:
   - How do I get off this island?
   responseLines2:
@@ -15563,6 +15567,24 @@ CapsuleCollider:
   m_Height: 0.06
   m_Direction: 2
   m_Center: {x: -0.008395168, y: -0.0046761353, z: 0.0005482426}
+--- !u!114 &3220819486922068215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3220819486922068211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8408942f3650bba4c96436ba75d6188a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: Tutorial
+  dialogueLineCounter: 0
+  dialogueLineIndex: 1
+  journalEntry: 
+  stepInQuest: 1
+  nonProgressText: I can tell that you haven't...
 --- !u!114 &3220819486922068217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15578,7 +15600,7 @@ MonoBehaviour:
   questName: Tutorial
   questSeries: 
   numberInSeries: 0
-  stepSize: 1
+  stepSize: 2
   currentStep: 0
   rewardCoins: 0
   rewardXP: 0

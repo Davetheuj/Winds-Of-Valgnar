@@ -129,8 +129,9 @@ public class PlayerTargeting : MonoBehaviour
     {
         targetMarker.SetActive(true);
 
-        targetMarker.transform.SetParent(currentTarget.transform);
-        targetMarker.transform.localPosition = new Vector3(0, .05f, 0);
+        //targetMarker.transform.SetParent(currentTarget.transform);
+        //targetMarker.transform.localPosition = new Vector3(0, .05f, 0);
+        targetMarker.transform.position = currentTarget.transform.position;
     }
 
     public void PositionNPCTargetUIToWorld(GameObject rayHitObject)

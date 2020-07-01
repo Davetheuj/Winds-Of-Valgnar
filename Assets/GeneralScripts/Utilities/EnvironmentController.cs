@@ -7,6 +7,7 @@ public class EnvironmentController : MonoBehaviour
 
     public Light lightSource;
     public Material skyboxMaterial;
+   
 
     public Vector4 dayColor;
     public Vector4 sunriseColor;
@@ -33,6 +34,7 @@ public class EnvironmentController : MonoBehaviour
     void Start()
     {
         lightSource.transform.localEulerAngles = new Vector3(-45, -90, -90);
+        
     }
 
     // Update is called once per frame

@@ -45105,9 +45105,9 @@ MonoBehaviour:
   currentMana: 500
   currentHealth: 500
   maxHealth: 500
-  maxMana: 500
-  maxIntellect: 50
-  currentIntellect: 50
+  maxMana: 5000
+  maxIntellect: 500
+  currentIntellect: 500
   time: 0
   statusController: {fileID: 1995853259}
   currentStrength: 0

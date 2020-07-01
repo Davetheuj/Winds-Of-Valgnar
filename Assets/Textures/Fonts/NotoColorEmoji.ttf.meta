@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: f44f473fcf08e40cebce5c6177207f7a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Color Emoji2016GOOGnoto-emoji20180713beta
+  fontNames:
+  - Noto Color Emoji2016GOOGnoto-emoji20180713beta
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

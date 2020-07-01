@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 53b4027476bfb4ea598d773620de480c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Serif Hebrew2001GOOGnoto-fonts20170411ccf1b90dd419
+  fontNames:
+  - Noto Serif Hebrew2001GOOGnoto-fonts20170411ccf1b90dd419
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 168b0453609f24a3eba7053d1350c85b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

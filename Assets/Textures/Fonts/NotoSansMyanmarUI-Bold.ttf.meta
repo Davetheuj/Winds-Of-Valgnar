@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: e3e87e680e82047279b06f2ad5bed3c0
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Sans Myanmar UI110uh
+  fontNames:
+  - Noto Sans Myanmar UI110uh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: add144456daef4f188c089a2c5b099cc, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

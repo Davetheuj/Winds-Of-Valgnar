@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: d47b9dc59b9f54a1f90e4c5d8e9f9634
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Serif107uh
+  fontNames:
+  - Noto Serif107uh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b831d1543a5b4428fb5e87e834fc7e5b, type: 3}
+  - {fileID: 12800000, guid: ad126308b817c4b0cb318ee7828369f2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 97863754a7bdf47238fd020f5a7d73cb
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Sans Telugu UI105uh
+  fontNames:
+  - Noto Sans Telugu UI105uh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 93e6d5f8b69f04009add5e074ba9bcc9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: d8d820c57bf624179a04c1507043a82d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Serif Malayalam101uh
+  fontNames:
+  - Noto Serif Malayalam101uh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 08826f1dcf74f410fa23c434d05e0c88, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

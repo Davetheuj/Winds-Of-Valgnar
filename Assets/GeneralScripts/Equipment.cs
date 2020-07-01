@@ -1,0 +1,47 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class Equipment : MonoBehaviour
+{
+    public int slotType;
+    public EquipmentController equipment;
+    public int[] shapeKeyValues = new int[6];
+    
+
+    public int modifierHitPoints;
+    public int modifierMana;
+    public int modifierStrength;
+    public int modifierIntelligence;
+    public int modifierWisdom;
+    public int modifierDexterity;
+    public int modifierSpirit;
+    public int modifierResolve;
+    public int modifierLuck;
+    public int modifierCharisma;
+
+    public int resistanceArmor;
+    public int resistanceHoly;
+    public int resistanceVoid;
+    public int resistanceFire;
+    public int resistanceWater;
+    public int resistanceElectric;
+    public int resistanceEarth;
+
+    
+
+    private void Start()
+    {
+        equipment = GameObject.Find("GUI").transform.Find("EquipmentCanvas").Find("EquipmentPanel").GetComponent<EquipmentController>();
+       
+
+        
+
+    }
+
+   
+
+    
+}

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: f2233b78d810b4cd79f7a46bec7709f7
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Serif Devanagari101uh
+  fontNames:
+  - Noto Serif Devanagari101uh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c856f99d9896146b888fccbee7d34c0d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 392796e4f2ca944d7972a6d7c667b2b8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Sans Lao103uh
+  fontNames:
+  - Noto Sans Lao103uh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 285d0fd70d2474d91be338c8bd2af7bb, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

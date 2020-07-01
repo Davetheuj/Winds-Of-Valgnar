@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 564736317e6024cf79373462cf4b878d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Sans Tamil107uh
+  fontNames:
+  - Noto Sans Tamil107uh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4e5eab6a77b7547e6bb0f5414fff0f93, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

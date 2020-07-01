@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: c1c45edcaa6594dbf911cc94468c75a6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Serif Bengali101uh
+  fontNames:
+  - Noto Serif Bengali101uh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a4e3312bc907640f6bb14566becb6e8e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

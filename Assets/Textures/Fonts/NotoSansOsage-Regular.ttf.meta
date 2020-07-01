@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: eb8c40cab692049d29c5a651c6a5df61
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Sans Osage2000GOOGnoto-source2017091590ef993387c0
+  fontNames:
+  - Noto Sans Osage2000GOOGnoto-source2017091590ef993387c0
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

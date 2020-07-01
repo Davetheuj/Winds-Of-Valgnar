@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: b0ff0eeea065e4e2d9e1c8cda84b5753
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Sans Cham102uh
+  fontNames:
+  - Noto Sans Cham102uh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5f4687547d8a4480dba479d8bb73781c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

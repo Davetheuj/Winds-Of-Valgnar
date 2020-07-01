@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: e1a373b02d570466592493e3e8d492bf
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Sans Tibetan101uh
+  fontNames:
+  - Noto Sans Tibetan101uh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ac7d3199da96542cc9153c21eafb3e25, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

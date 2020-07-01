@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 9a4ef0b91bc26478a904dbc14ab28082
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Serif Armenian2040GOOGnoto-fonts20170220a8a215d2e889
+  fontNames:
+  - Noto Serif Armenian2040GOOGnoto-fonts20170220a8a215d2e889
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 02e5e2fe467c2479e81a0e083ace5db8, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

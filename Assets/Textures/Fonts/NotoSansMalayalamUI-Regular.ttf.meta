@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: fe4036b4578fc41fdaad70b626259ee5
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Sans Malayalam UI104uh
+  fontNames:
+  - Noto Sans Malayalam UI104uh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 74b8ac8aa6103452a9e3a9e31d0c431e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

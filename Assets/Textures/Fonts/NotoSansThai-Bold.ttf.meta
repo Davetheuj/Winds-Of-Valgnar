@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: de3ef8ff7113744858853d10b3b8a00e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Sans Thai104uh
+  fontNames:
+  - Noto Sans Thai104uh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5d318ba00a5804c54a7f6898f15f6f76, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

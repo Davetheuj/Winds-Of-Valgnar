@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: ce28de11e68314f2f87117d882dbb98e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Sans Bengali103uh
+  fontNames:
+  - Noto Sans Bengali103uh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1fb725e80ad0d44c59138f26e9e1cf91, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

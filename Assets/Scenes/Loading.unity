@@ -25218,6 +25218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InventoryPanel: {fileID: 1467245195}
   StatsPanel: {fileID: 1840090659}
+  statsPanelController: {fileID: 2044583842}
   AbilitiesPanel: {fileID: 838299241}
   JournalPanel: {fileID: 1009759338}
   EquipmentPanel: {fileID: 1995469859}
@@ -33260,6 +33261,7 @@ MonoBehaviour:
   NPCName: {fileID: 1100650625}
   questController: {fileID: 5899831225901927795}
   journalController: {fileID: 5899831225901927794}
+  consoleManager: {fileID: 0}
   displayedQueries: []
   dialoguePanel: {fileID: 396913230}
   isShowing: 0
@@ -36588,7 +36590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1840090660
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41040,6 +41042,7 @@ GameObject:
   - component: {fileID: 2044583840}
   - component: {fileID: 2044583839}
   - component: {fileID: 2044583841}
+  - component: {fileID: 2044583842}
   m_Layer: 0
   m_Name: StatsPanel
   m_TagString: Untagged
@@ -41125,6 +41128,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7443c7414bcdf4516aa7da61e5a3647b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2044583842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044583837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303662576c17b3b4a83e92d0e07c3c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pS: {fileID: 5899831225901927802}
+  strength: {fileID: 1787986604}
+  dexterity: {fileID: 1633290719}
+  wisdom: {fileID: 599285054}
+  luck: {fileID: 542919628}
+  charisma: {fileID: 1556130933}
+  resolve: {fileID: 1668202778}
+  intellect: {fileID: 755625037}
+  spirit: {fileID: 1814943986}
+  alchemy: {fileID: 1914970126}
+  pickpocketing: {fileID: 477917848}
+  woodcutting: {fileID: 778756717}
+  crafting: {fileID: 1550378163}
+  smithing: {fileID: 599182677}
+  fishing: {fileID: 1471975878}
+  enchanting: {fileID: 2034003144}
+  cooking: {fileID: 1187737369}
+  mana: {fileID: 1112063053}
+  health: {fileID: 1148670841}
+  renown: {fileID: 1480475393}
+  popularity: {fileID: 319912592}
+  honor: {fileID: 2023156089}
+  playerName: {fileID: 555150690}
 --- !u!1 &2044988743
 GameObject:
   m_ObjectHideFlags: 0

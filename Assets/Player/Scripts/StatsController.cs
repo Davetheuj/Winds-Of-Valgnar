@@ -137,4 +137,10 @@ public class StatsController : MonoBehaviour
 
 }
 
+    
+    public bool CheckIfLevelGained(int xp, int currentLevel)
+    {
+        return false;//
+    }
+
 }

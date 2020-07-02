@@ -8,6 +8,7 @@ public class InterfaceController : MonoBehaviour
 {
     public GameObject InventoryPanel;
     public GameObject StatsPanel;
+    public StatsPanelController statsPanelController;
     public GameObject AbilitiesPanel;
     public GameObject JournalPanel;
     public GameObject EquipmentPanel;
@@ -37,6 +38,7 @@ public class InterfaceController : MonoBehaviour
     }
     public void StatsToggle()
     {
+        statsPanelController.UpdateStatsUI();
         StatsPanel.SetActive(!StatsPanel.activeSelf);
     }
     public void AbilitiesToggle()

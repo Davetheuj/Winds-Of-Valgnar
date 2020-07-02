@@ -290,10 +290,13 @@ public class DialoguePanelController : MonoBehaviour
         }
        else if(controller.NPCQuests[lineCounter] != null && lineIndex == controller.questLineCounters[lineCounter])
         {
+            if (!questController.CheckQuestRequirements(controller.NPCQuests[lineCounter]))
+            {
+                return false;
+            }
+            questController.AddQuest(controller.NPCQuests[lineCounter]);
             //Quest newQuest = new Quest(controller.NPCQuests[lineCounter]);
-            Quest newQuest = questHolder.gameObject.AddComponent<Quest>();
-            newQuest.CopyValues(controller.NPCQuests[lineCounter]);
-            questController.questList.Add(newQuest);
+          
             journalController.CreateNewEntry(controller.NPCQuests[lineCounter].journalEntry1,0);
             //controller.NPCQuests[lineCounter] = null; 
            

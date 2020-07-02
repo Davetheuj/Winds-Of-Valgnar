@@ -91,9 +91,6 @@ public class SaveLoadManager : MonoBehaviour
            go.transform.position = new Vector3(loadedZone.NPCSPositionX[npcCounter], loadedZone.NPCSPositionY[npcCounter], loadedZone.NPCSPositionZ[npcCounter]);
            go.transform.rotation = new Quaternion(loadedZone.NPCSRotationX[npcCounter], loadedZone.NPCSRotationY[npcCounter], loadedZone.NPCSRotationZ[npcCounter], loadedZone.NPCSRotationW[npcCounter]);
             npcCounter++;
-
-
-
         }
         //NPC Dialogue Controllers
         int npcDialogueCounter = 0;
@@ -105,6 +102,7 @@ public class SaveLoadManager : MonoBehaviour
                 npcDialogueCounter++;
         }
         //Ground Items
+        //Spawners
     }
   public void LoadZone(string zoneName)
     {

@@ -53,6 +53,17 @@ public class SerializableStatsController
     public int renown;
     public int popularity;
     public int honor;
+
+    public int xpAlchemy;
+    public int xpPickpocketing;
+    public int xpSmithing;
+    public int xpCrafting;
+    public int xpCooking;
+    public int xpFishing;
+    public int xpWoodcutting;
+    public int xpEnchanting;
+           
+    public int generalXP;
     public SerializableStatsController(StatsController loadedStats)
     {
         zoneName = loadedStats.zoneName;
@@ -102,5 +113,16 @@ public class SerializableStatsController
         renown = loadedStats.renown;
         popularity = loadedStats.popularity;
 
-    }
+        xpAlchemy = loadedStats.xpAlchemy;
+        xpPickpocketing = loadedStats.xpPickpocketing;
+        xpSmithing = loadedStats.xpSmithing;
+        xpCrafting = loadedStats.xpCrafting;
+        xpCooking = loadedStats.xpCooking;
+        xpFishing = loadedStats.xpFishing;
+        xpWoodcutting = loadedStats.xpWoodcutting;
+        xpEnchanting = loadedStats.xpEnchanting;
+
+        generalXP = loadedStats.generalXP;
+
+}
 }

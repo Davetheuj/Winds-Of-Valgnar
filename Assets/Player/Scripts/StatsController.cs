@@ -54,6 +54,16 @@ public class StatsController : MonoBehaviour
     public int popularity;
     public int honor;
 
+    public int xpAlchemy;
+    public int xpPickpocketing;
+    public int xpSmithing;
+    public int xpCrafting;
+    public int xpCooking;
+    public int xpFishing;
+    public int xpWoodcutting;
+    public int xpEnchanting;
+
+    public int generalXP;
 
 
     // Update is called once per frame
@@ -135,12 +145,30 @@ public class StatsController : MonoBehaviour
         renown = loadedStats.renown;
         popularity = loadedStats.popularity;
 
-}
+        xpAlchemy = loadedStats.xpAlchemy;
+        xpPickpocketing = loadedStats.xpPickpocketing;
+        xpSmithing = loadedStats.xpSmithing;
+        xpCrafting = loadedStats.xpCrafting;
+        xpCooking = loadedStats.xpCooking;
+        xpFishing = loadedStats.xpFishing;
+        xpWoodcutting = loadedStats.xpWoodcutting;
+        xpEnchanting = loadedStats.xpEnchanting;
+
+        generalXP = loadedStats.generalXP;
+
+    }
 
     
     public bool CheckIfLevelGained(int xp, int currentLevel)
     {
-        return false;//
+        if(xp < (80*currentLevel)+((int) Mathf.Pow(currentLevel, 2))+((int)Mathf.Pow(currentLevel-1, 2)))
+        {
+            return false;//
+        }
+        else
+        {
+            return true;
+        }
     }
 
 }

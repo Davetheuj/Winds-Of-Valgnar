@@ -9,7 +9,8 @@ public class QuestPerpetuator : MonoBehaviour
     public int dialogueLineCounter;
     public int dialogueLineIndex;
     public string journalEntry;
-    public int stepInQuest;
+    public int minStepInQuest;
+    public int maxStepInQuest;
     public string nonProgressText;
     
 }

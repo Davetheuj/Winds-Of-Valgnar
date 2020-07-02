@@ -315,10 +315,13 @@ public class DialoguePanelController : MonoBehaviour
                     if (quest.questName == perp.questName)
                     {
                         Debug.Log("Quest has been accepted previously");
-                        if (quest.currentStep == perp.stepInQuest)
+                        if ((quest.currentStep >= perp.minStepInQuest) && (quest.currentStep <= perp.maxStepInQuest))
                         {
                             Debug.Log("Correct step");
-                            journalController.CreateNewEntry(perp.journalEntry,0);
+                            if (perp.journalEntry != "")
+                            {
+                                journalController.CreateNewEntry(perp.journalEntry, 0);
+                            }
                             quest.currentStep += 1;
                             questController.CheckForCompletion(quest);
                             return true;

@@ -16,6 +16,8 @@ public class DialoguePanelController : MonoBehaviour
     public TMP_Text NPCName;
     public QuestController questController;
     public JournalController journalController;
+
+    public ConsoleManager consoleManager;
    
    
     public List<GameObject> displayedQueries;
@@ -324,6 +326,13 @@ public class DialoguePanelController : MonoBehaviour
                             if (perp.journalEntry != "")
                             {
                                 journalController.CreateNewEntry(perp.journalEntry, 0);
+                            }
+                            if(perp.consoleEntries.Count>0)
+                            {
+                                foreach(string entry in perp.consoleEntries)
+                                {
+                                    consoleManager.AddConsoleMessage1(entry);
+                                }
                             }
                             quest.currentStep += 1;
                             questController.CheckForCompletion(quest);

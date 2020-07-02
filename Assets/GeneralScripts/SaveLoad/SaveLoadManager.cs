@@ -72,6 +72,7 @@ public class SaveLoadManager : MonoBehaviour
 
 
         statusController.UpdateStatusUI();
+        
         WoVBinarySerializer.ClearTempSaves(player.GetComponent<StatsController>().playerName);
         Debug.Log("Loaded the player");
 

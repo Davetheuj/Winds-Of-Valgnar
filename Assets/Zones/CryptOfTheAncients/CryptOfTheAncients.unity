@@ -682,7 +682,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   experience: 0
-  state: 0
+  state: 1
   statusController: {fileID: 0}
 --- !u!95 &195741489
 Animator:
@@ -735,7 +735,8 @@ MonoBehaviour:
   dialogueLineCounter: 0
   dialogueLineIndex: 0
   journalEntry: I've talked to the goblin! I should head back to Esmerelda.
-  stepInQuest: 0
+  minStepInQuest: 0
+  maxStepInQuest: 0
   nonProgressText: Like I said before, fuck dat hoe.
 --- !u!114 &195741492
 MonoBehaviour:

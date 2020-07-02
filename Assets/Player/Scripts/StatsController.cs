@@ -50,6 +50,10 @@ public class StatsController : MonoBehaviour
     public int Woodcutting;
     public int Enchanting;
 
+    public int renown;
+    public int popularity;
+    public int honor;
+
 
 
     // Update is called once per frame
@@ -126,6 +130,10 @@ public class StatsController : MonoBehaviour
      Fishing = loadedStats.Fishing;
      Woodcutting = loadedStats.Woodcutting;
      Enchanting = loadedStats.Enchanting;
+
+        honor = loadedStats.honor;
+        renown = loadedStats.renown;
+        popularity = loadedStats.popularity;
 
 }
 

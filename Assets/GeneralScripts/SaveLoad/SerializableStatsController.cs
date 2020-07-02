@@ -50,6 +50,9 @@ public class SerializableStatsController
     public int Woodcutting;
     public int Enchanting;
 
+    public int renown;
+    public int popularity;
+    public int honor;
     public SerializableStatsController(StatsController loadedStats)
     {
         zoneName = loadedStats.zoneName;
@@ -95,6 +98,9 @@ public class SerializableStatsController
         Fishing = loadedStats.Fishing;
         Woodcutting = loadedStats.Woodcutting;
         Enchanting = loadedStats.Enchanting;
+        honor = loadedStats.honor;
+        renown = loadedStats.renown;
+        popularity = loadedStats.popularity;
 
     }
 }

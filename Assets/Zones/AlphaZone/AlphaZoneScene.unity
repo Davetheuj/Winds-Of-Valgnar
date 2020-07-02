@@ -15502,7 +15502,7 @@ MonoBehaviour:
   maxHealth: 5000
   currentHealth: 5000
   experience: 0
-  state: 0
+  state: 1
   statusController: {fileID: 0}
 --- !u!114 &3220819486922068213
 MonoBehaviour:
@@ -15583,7 +15583,8 @@ MonoBehaviour:
   dialogueLineCounter: 0
   dialogueLineIndex: 1
   journalEntry: 
-  stepInQuest: 1
+  minStepInQuest: 1
+  maxStepInQuest: 1
   nonProgressText: I can tell that you haven't...
 --- !u!114 &3220819486922068217
 MonoBehaviour:
@@ -15607,6 +15608,27 @@ MonoBehaviour:
   rewardItems: []
   journalEntry1: I should go see what's up with that portal
   isRepeatable: 0
+  manaReq: 0
+  healthReq: 0
+  intellectReq: 0
+  strengthReq: 0
+  wisdomReq: 0
+  dexterityReq: 0
+  spiritReq: 0
+  resolveReq: 0
+  luckReq: 0
+  charismaReq: 0
+  AlchemyReq: 0
+  PickpocketingReq: 0
+  SmithingReq: 0
+  CraftingReq: 0
+  CookingReq: 0
+  FishingReq: 0
+  WoodcuttingReq: 0
+  EnchantingReq: 0
+  renownReq: 0
+  popularityReq: 0
+  honorReq: 0
 --- !u!1001 &4846529411784788536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15753,7 +15775,7 @@ MonoBehaviour:
   maxHealth: 1000
   currentHealth: 1000
   experience: 0
-  state: 0
+  state: 1
   statusController: {fileID: 0}
 --- !u!136 &4846529411784788540
 CapsuleCollider:
@@ -15785,7 +15807,8 @@ MonoBehaviour:
   dialogueLineCounter: 0
   dialogueLineIndex: 0
   journalEntry: 
-  stepInQuest: 0
+  minStepInQuest: 0
+  maxStepInQuest: 0
   nonProgressText: 
 --- !u!4 &5006512735132802335 stripped
 Transform:

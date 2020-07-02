@@ -21,6 +21,28 @@ public class Quest : MonoBehaviour
 
     public bool isRepeatable;
 
+    public int manaReq;
+    public int healthReq;
+    public int intellectReq;
+    public int strengthReq;
+    public int wisdomReq;
+    public int dexterityReq;
+    public int spiritReq;
+    public int resolveReq;
+    public int luckReq;
+    public int charismaReq;
+    public int AlchemyReq;
+    public int PickpocketingReq;
+    public int SmithingReq;
+    public int CraftingReq;
+    public int CookingReq;
+    public int FishingReq;
+    public int WoodcuttingReq;
+    public int EnchantingReq;
+    public int renownReq;
+    public int popularityReq;
+    public int honorReq;
+
     public void CopyValues(Quest oldQuest)
     {
         this.questName = oldQuest.questName;
@@ -33,8 +55,29 @@ public class Quest : MonoBehaviour
         this.rewardItems = oldQuest.rewardItems;
         this.journalEntry1 = oldQuest.journalEntry1;
         this.isRepeatable = oldQuest.isRepeatable;
-      
-    }
+        this.manaReq = oldQuest.manaReq;
+        this.healthReq = oldQuest.healthReq;
+        this.intellectReq = oldQuest.intellectReq;
+        this.strengthReq = oldQuest.strengthReq;
+        this.wisdomReq = oldQuest.wisdomReq;
+        this.dexterityReq = oldQuest.dexterityReq;
+        this.spiritReq = oldQuest.spiritReq;
+        this.resolveReq = oldQuest.resolveReq;
+        this.luckReq = oldQuest.luckReq;
+        this.charismaReq = oldQuest.charismaReq;
+        this.AlchemyReq = oldQuest.AlchemyReq;
+        this.PickpocketingReq = oldQuest.PickpocketingReq;
+        this.SmithingReq = oldQuest.SmithingReq;
+        this.CraftingReq = oldQuest.CraftingReq;
+        this.CookingReq = oldQuest.CookingReq;
+        this.FishingReq = oldQuest.FishingReq;
+        this.WoodcuttingReq = oldQuest.WoodcuttingReq;
+        this.EnchantingReq = oldQuest.EnchantingReq;
+    this.renownReq = oldQuest.renownReq;
+    this.popularityReq = oldQuest.popularityReq;
+    this.honorReq = oldQuest.honorReq;
+
+}
 
    /* public void Start()
     {
@@ -52,8 +95,29 @@ public class Quest : MonoBehaviour
         rewardXP = loadedQuest.rewardXP;
         journalEntry1 = loadedQuest.journalEntry1;
         isRepeatable = loadedQuest.isRepeatable;
-        
-        if(loadedQuest.rewardItems == null || loadedQuest.rewardItems.Count <= 0)
+        manaReq = loadedQuest.manaReq;
+        healthReq = loadedQuest.healthReq;
+        intellectReq = loadedQuest.intellectReq;
+        strengthReq = loadedQuest.strengthReq;
+        wisdomReq = loadedQuest.wisdomReq;
+        dexterityReq = loadedQuest.dexterityReq;
+        spiritReq = loadedQuest.spiritReq;
+        resolveReq = loadedQuest.resolveReq;
+        luckReq = loadedQuest.luckReq;
+        charismaReq = loadedQuest.charismaReq;
+        AlchemyReq = loadedQuest.AlchemyReq;
+        PickpocketingReq = loadedQuest.PickpocketingReq;
+        SmithingReq = loadedQuest.SmithingReq;
+        CraftingReq = loadedQuest.CraftingReq;
+        CookingReq = loadedQuest.CookingReq;
+        FishingReq = loadedQuest.FishingReq;
+        WoodcuttingReq = loadedQuest.WoodcuttingReq;
+        EnchantingReq = loadedQuest.EnchantingReq;
+        honorReq = loadedQuest.honorReq;
+        popularityReq = loadedQuest.popularityReq;
+        renownReq = loadedQuest.renownReq;
+
+        if (loadedQuest.rewardItems == null || loadedQuest.rewardItems.Count <= 0)
         {
             return;
         }

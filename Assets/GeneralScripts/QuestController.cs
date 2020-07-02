@@ -68,7 +68,26 @@ public class QuestController : MonoBehaviour
     }
     public bool CheckQuestRequirements(Quest q)
     {
-        if ()
+        if ((q.manaReq>pS.maxMana )||(q.healthReq>pS.maxHealth)||
+            (q.intellectReq>pS.maxIntellect)||
+            (q.strengthReq>pS.maxStrength)||
+            (q.wisdomReq>pS.maxWisdom)||
+            (q.dexterityReq>pS.maxDexterity)||
+            (q.spiritReq>pS.maxSpirit)||
+            (q.resolveReq>pS.maxResolve)||
+            (q.luckReq>pS.maxLuck)||
+            (q.charismaReq>pS.maxCharisma)||
+            (q.AlchemyReq>pS.Alchemy)||
+            (q.PickpocketingReq>pS.Pickpocketing)||
+            (q.SmithingReq>pS.Smithing)||
+            (q.CraftingReq>pS.Crafting)||
+            (q.CookingReq>pS.Cooking)||
+            (q.FishingReq > pS.Fishing)||
+            (q.WoodcuttingReq >pS.Woodcutting)||
+            (q.EnchantingReq >pS.Enchanting)||
+            (q.honorReq>pS.honor)||
+            (q.popularityReq>pS.popularity)||
+            (q.renownReq >pS.renown))
         {
             return false;
         }

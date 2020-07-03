@@ -9,10 +9,14 @@ public class SceneSwitcher : MonoBehaviour
     public Vector3 destination; //set this in the inspector in the script attached to the portal
     public GameObject target;
     public SaveLoadManager manager;
+    public bool needsDestination;
     public void OnLevelWasLoaded(int level)
     {
-
-        gameObject.transform.position = destination;
+        if (needsDestination)
+        {
+            gameObject.transform.position = destination;
+            needsDestination = false;
+        }
         target.SetActive(false);
         manager.LoadZone();
     }

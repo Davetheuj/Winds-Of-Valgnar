@@ -9170,7 +9170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1312232108
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12224,7 +12224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1312741620
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15668,6 +15668,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Z'Heed
       objectReference: {fileID: 0}
+    - target: {fileID: 3486834789844501761, guid: 8a3cd53c72b3845b8a30f20d2fb4451f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 448354575946168082, guid: 8a3cd53c72b3845b8a30f20d2fb4451f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15942,6 +15947,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AnotherFemTest 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8079541184254830973, guid: 4b258fc8f694f114fa4de8704635f330,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8079541184254604637, guid: 4b258fc8f694f114fa4de8704635f330,
         type: 3}

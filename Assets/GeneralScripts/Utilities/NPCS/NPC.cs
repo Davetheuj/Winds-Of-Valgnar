@@ -93,9 +93,9 @@ public class NPC : MonoBehaviour
 
         moveDirection.y = Physics.gravity.y;
         characterController.Move(moveDirection*Time.deltaTime*moveSpeed);
-        Quaternion lookDirection = new Quaternion();
-        lookDirection.SetLookRotation(player.transform.position - transform.position, new Vector3(0, 1, 0));
-        transform.rotation = Quaternion.Lerp(transform.rotation, lookDirection, Time.deltaTime*10f);
+        float lookDirection;
+        lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(player.transform.position-transform.position).eulerAngles.y,moveSpeed*Time.deltaTime) ;
+        transform.rotation = Quaternion.Euler(0, lookDirection, 0);
     }
 
 
@@ -119,10 +119,10 @@ public class NPC : MonoBehaviour
 
     private void DealDamageToPlayer()
     {
-        int damageDealt = (int)(UnityEngine.Random.value * 10);
+        int damageDealt = (int)(UnityEngine.Random.value * 30);
         player.GetComponent<StatsController>().currentHealth -= damageDealt;
         statusController.UpdateStatusUI();
-        statusController.SpawnDamageText(damageDealt, player, 0, 0);
+        statusController.SpawnDamageText(damageDealt, player, 0, 14);
     }
     private void SpawnItem()
     {

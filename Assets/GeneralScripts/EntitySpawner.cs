@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EntitySpawner : MonoBehaviour
 {
-    public List<GameObject> entities = new List<GameObject>();
+    public GameObject entity;
     public float time;
     public bool isSpawned;
     public float spawnTime;
@@ -12,6 +12,7 @@ public class EntitySpawner : MonoBehaviour
     public Vector3 spawnOffset;
     public int spawnCount;
     public int maxSpawns;
+    
 
     public void Update()
     {
@@ -41,12 +42,12 @@ public class EntitySpawner : MonoBehaviour
     {
         time = loadedSpawner.time;
         isSpawned = loadedSpawner.isSpawned;
-        spawnCount = loadedSpawner.spawnCount;
+        spawnCount = loadedSpawner.spawnCount; 
     }
 
     private void SpawnEntity()
     {
-
+        entity.SetActive(true);
     }
 
 }

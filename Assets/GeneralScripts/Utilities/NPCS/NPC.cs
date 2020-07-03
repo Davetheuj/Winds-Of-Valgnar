@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,14 +7,26 @@ public class NPC : MonoBehaviour
 {
     public string npcName;
     public float angleFromPlayerForward; //used for calculating targetable objects for the player
-    public Transform playerTransform;
+    public GameObject player;
     public float NPCPanelOffset;
     public int maxHealth;
     public int currentHealth;
+    public float attackRange;
+    public float attackDelay;
+    public float attackTimer;
+    public float neutralPositionTimer;
+    public float moveSpeed;
+    public float baseAgroRange;
+    //public List<NPCAttack> (max damage, cast chance, attack delays, animation clips)
     public int experience;
-    public byte state =0;//0 for dead 1 for neutral 2 for aggressive
+    public byte state =0;//0 for dead 1 for neutral 2 for aggressive 3 for looking at player 4 looking at spawn
+    private Vector3 spawnLocation;
+    private Vector3 moveDirection;
+
 
     public StatusController statusController;
+
+    private CharacterController characterController;
     
 
    
@@ -22,25 +35,67 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerTransform = GameObject.Find("Player").transform;
+        player = GameObject.Find("Player");
         statusController = GameObject.Find("Status").GetComponent<StatusController>();
+       characterController = this.gameObject.GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
-        angleFromPlayerForward = Mathf.Acos(Vector3.Dot(playerTransform.forward.normalized, (playerTransform.position-gameObject.transform.position).normalized));
+        moveDirection = new Vector3();
+        angleFromPlayerForward = Mathf.Acos(Vector3.Dot(player.transform.forward.normalized, (player.transform.position-gameObject.transform.position).normalized));
         if(currentHealth <= 0 && state!= 0)
         {
             state = 0;//npc is dead
 
         }
 
-        if(state == 0)
+        if(state == 0)//dead
         {
-            Destroy(this.gameObject);
+            try
+            {
+                gameObject.transform.parent.GetComponent<EntitySpawner>().isSpawned = false;
+            }catch(NullReferenceException e)
+            {
+                Debug.Log("gameObject's parent does not have an entitySpawner Component attached");
+                
+            }
+           this.gameObject.SetActive(false);
+            return;
+        }
+        CheckAggresion();
+        if(state == 1)//aggressive
+        {
+            if (CheckIfInAttackRange())
+            {
+                if(attackTimer >= attackDelay)
+                {
+                    DealDamageToPlayer();
+                    attackTimer = 0;
+                }
+                else 
+                { 
+                    attackTimer += Time.deltaTime;
+                }
+            }
+            else //not in attack range
+            {
+                moveDirection = Vector3.Normalize(player.transform.position - transform.position);
+                attackTimer += Time.deltaTime;
+            }
+
+        }
+        else if(state == 2)//neutral
+        {
+
         }
 
+        moveDirection.y = Physics.gravity.y;
+        characterController.Move(moveDirection*Time.deltaTime*moveSpeed);
+        Quaternion lookDirection = new Quaternion();
+        lookDirection.SetLookRotation(player.transform.position - transform.position, new Vector3(0, 1, 0));
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookDirection, Time.deltaTime*10f);
     }
 
 
@@ -48,7 +103,7 @@ public class NPC : MonoBehaviour
     public void DealDamageToNpc(int damage)
     {
         currentHealth -= damage;
-        statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, (transform.position-playerTransform.position).magnitude);
+        statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, (transform.position-player.transform.position).magnitude);
         if (statusController.targeting.currentTarget == this.gameObject)
         {
             if (currentHealth >= 0)
@@ -57,9 +112,48 @@ public class NPC : MonoBehaviour
             }
             else
             {
-                statusController.UpdateTargetNPCHealthBar(currentHealth, maxHealth);
+                statusController.UpdateTargetNPCHealthBar(0, maxHealth);
             }
         }
     }
+
+    private void DealDamageToPlayer()
+    {
+        int damageDealt = (int)(UnityEngine.Random.value * 10);
+        player.GetComponent<StatsController>().currentHealth -= damageDealt;
+        statusController.UpdateStatusUI();
+        statusController.SpawnDamageText(damageDealt, player, 0, 0);
+    }
+    private void SpawnItem()
+    {
+
+    }
+    private void GrantXPToPlayer()
+    {
+
+    }
+    private void CheckAggresion()
+    {
+        if ((transform.position - player.transform.position).magnitude <= baseAgroRange)
+        {
+            state = 1;
+        }
+        else
+        {
+            state = 2;
+        }
+    }
+    private bool CheckIfInAttackRange()
+    {
+        if((transform.position - player.transform.position).magnitude <= attackRange)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     
 }

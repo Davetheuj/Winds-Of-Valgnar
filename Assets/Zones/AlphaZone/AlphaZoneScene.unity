@@ -5402,18 +5402,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba78a355548443d9a2fc2fca142632c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Kobold
+  npcName: Elder Kobold
   angleFromPlayerForward: 0
   player: {fileID: 0}
-  NPCPanelOffset: 8
+  NPCPanelOffset: 8.99
   maxHealth: 100
   currentHealth: 100
-  attackRange: 0
-  attackDelay: 0
+  attackRange: 5
+  attackDelay: 5
   attackTimer: 0
   neutralPositionTimer: 0
-  moveSpeed: 0
-  baseAgroRange: 0
+  moveSpeed: 50
+  baseAgroRange: 15
   experience: 0
   state: 1
   statusController: {fileID: 0}
@@ -6471,18 +6471,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba78a355548443d9a2fc2fca142632c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Kobold Youth
+  npcName: Elder Kobold
   angleFromPlayerForward: 0
   player: {fileID: 0}
-  NPCPanelOffset: 7
+  NPCPanelOffset: 8.99
   maxHealth: 100
   currentHealth: 100
-  attackRange: 0
-  attackDelay: 0
+  attackRange: 5
+  attackDelay: 5
   attackTimer: 0
   neutralPositionTimer: 0
-  moveSpeed: 0
-  baseAgroRange: 0
+  moveSpeed: 50
+  baseAgroRange: 15
   experience: 0
   state: 1
   statusController: {fileID: 0}
@@ -8193,7 +8193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312232107}
   m_LocalRotation: {x: -0, y: 0.68992996, z: -0, w: 0.7238762}
-  m_LocalPosition: {x: -228.32594, y: -172.92926, z: 427.03748}
+  m_LocalPosition: {x: -228.32594, y: -167.76, z: 427.03748}
   m_LocalScale: {x: 1.2499505, y: 1.24995, z: 1.2499505}
   m_Children:
   - {fileID: 1312008129}
@@ -9170,7 +9170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &1312232108
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9184,7 +9184,7 @@ CapsuleCollider:
   m_Radius: 1.9811134
   m_Height: 4.756241
   m_Direction: 1
-  m_Center: {x: 0.27162683, y: 2.3114383, z: -3.3534264e-10}
+  m_Center: {x: 0.27162683, y: 2.3114383, z: 0}
 --- !u!137 &1312232109
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -9289,22 +9289,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0018204902, y: 0.00031731743, z: 0.000033613294}
     m_Extent: {x: 0.0099917, y: 0.024905257, z: 0.023416523}
   m_DirtyAABB: 0
---- !u!54 &1312232110
-Rigidbody:
+--- !u!143 &1312232110
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312232107}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Height: 4.7
+  m_Radius: 1.9
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0.27, y: 2.3, z: 0}
 --- !u!1 &1312232787
 GameObject:
   m_ObjectHideFlags: 0
@@ -10944,7 +10946,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312741619}
   m_LocalRotation: {x: -0, y: 0.9156201, z: -0, w: 0.40204468}
-  m_LocalPosition: {x: -240.08485, y: -174.29926, z: 404.18942}
+  m_LocalPosition: {x: -240.08485, y: -172.1, z: 404.18942}
   m_LocalScale: {x: 1.1045508, y: 1.10455, z: 1.1045508}
   m_Children:
   - {fileID: 1312446385}
@@ -12224,7 +12226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &1312741620
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12235,7 +12237,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 2.3425164
+  m_Radius: 1.02
   m_Height: 5.059979
   m_Direction: 1
   m_Center: {x: 0.0032039734, y: 2.2536972, z: -0.21230009}
@@ -12343,22 +12345,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0018204902, y: 0.00031731743, z: 0.000033613294}
     m_Extent: {x: 0.0099917, y: 0.024905257, z: 0.023416523}
   m_DirtyAABB: 0
---- !u!54 &1312741622
-Rigidbody:
+--- !u!143 &1312741622
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312741619}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Height: 5.05
+  m_Radius: 1
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 2.2, z: -0.2}
 --- !u!1 &1312741849
 GameObject:
   m_ObjectHideFlags: 0
@@ -14306,7 +14310,7 @@ MonoBehaviour:
   attackTimer: 0
   neutralPositionTimer: 0
   moveSpeed: 50
-  baseAgroRange: 50
+  baseAgroRange: 15
   experience: 0
   state: 1
   statusController: {fileID: 0}

@@ -69,10 +69,7 @@ public class SampleSpellControl : MonoBehaviour
     {
 
         print("Collider name: " + col.gameObject.name);
-        if (time < .1f)
-        {
-            return;
-        }
+        
 
         if (col.gameObject.Equals(target))
         {

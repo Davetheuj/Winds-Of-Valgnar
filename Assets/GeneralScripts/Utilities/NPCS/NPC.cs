@@ -22,6 +22,7 @@ public class NPC : MonoBehaviour
     public byte state =0;//0 for dead 1 for neutral 2 for aggressive 3 for looking at player 4 looking at spawn
     private Vector3 spawnLocation;
     private Vector3 moveDirection;
+    private Animator animator;
 
 
     public StatusController statusController;
@@ -38,6 +39,7 @@ public class NPC : MonoBehaviour
         player = GameObject.Find("Player");
         statusController = GameObject.Find("Status").GetComponent<StatusController>();
        characterController = this.gameObject.GetComponent<CharacterController>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
    
@@ -71,6 +73,7 @@ public class NPC : MonoBehaviour
             {
                 if(attackTimer >= attackDelay)
                 {
+                    animator.Play("attack1");
                     DealDamageToPlayer();
                     attackTimer = 0;
                 }

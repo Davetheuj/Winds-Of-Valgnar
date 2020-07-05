@@ -45072,7 +45072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skyboxMaterial: {fileID: 0}
   isDead: 0
-  lerpModifier: 0.05
+  lerpModifier: 0.025
 --- !u!114 &5899831225901927798
 MonoBehaviour:
   m_ObjectHideFlags: 0

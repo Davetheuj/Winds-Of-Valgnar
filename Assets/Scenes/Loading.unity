@@ -1738,7 +1738,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1309518547}
   m_HandleRect: {fileID: 1309518546}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -44909,6 +44909,7 @@ GameObject:
   - component: {fileID: 5899831225901927793}
   - component: {fileID: 5899831225901927794}
   - component: {fileID: 5899831225901927795}
+  - component: {fileID: 5899831225901927797}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -44981,6 +44982,7 @@ MonoBehaviour:
   destination: {x: 222, y: 10, z: 117}
   target: {fileID: 187951591}
   manager: {fileID: 1218049576}
+  needsDestination: 0
 --- !u!114 &5899831225901927794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45056,6 +45058,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5899831225901927797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5899831225901927789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d381954f1344e9149bb29acee8d0c819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skyboxMaterial: {fileID: 0}
+  isDead: 0
+  lerpModifier: 0.05
 --- !u!114 &5899831225901927798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45175,6 +45192,15 @@ MonoBehaviour:
   renown: 0
   popularity: 0
   honor: 0
+  xpAlchemy: 0
+  xpPickpocketing: 0
+  xpSmithing: 0
+  xpCrafting: 0
+  xpCooking: 0
+  xpFishing: 0
+  xpWoodcutting: 0
+  xpEnchanting: 0
+  generalXP: 0
 --- !u!114 &5899831225901927804
 MonoBehaviour:
   m_ObjectHideFlags: 0

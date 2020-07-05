@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 1.1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 383bb2e5dca2d5940951f85a333fe356, type: 2}
@@ -3109,7 +3109,7 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.24
+  m_Intensity: 0.97
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5409,7 +5409,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   attackRange: 5
-  attackDelay: 5
+  attackDelay: 1
   attackTimer: 0
   neutralPositionTimer: 0
   moveSpeed: 50
@@ -6478,7 +6478,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   attackRange: 5
-  attackDelay: 5
+  attackDelay: 1
   attackTimer: 0
   neutralPositionTimer: 0
   moveSpeed: 50
@@ -14306,7 +14306,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   attackRange: 5
-  attackDelay: 5
+  attackDelay: 1
   attackTimer: 0
   neutralPositionTimer: 0
   moveSpeed: 50

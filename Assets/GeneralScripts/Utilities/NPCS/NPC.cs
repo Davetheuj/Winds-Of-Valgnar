@@ -8,21 +8,32 @@ public class NPC : MonoBehaviour
     public string npcName;
     public float angleFromPlayerForward; //used for calculating targetable objects for the player
     public GameObject player;
+    public bool isDefaultAgro;
+    public bool isStationary;
     public float NPCPanelOffset;
     public int maxHealth;
     public int currentHealth;
     public float attackRange;
     public float attackDelay;
     public float attackTimer;
-    public float neutralPositionTimer;
+    private float neutralPositionTimer;
     public float moveSpeed;
+    private float actualMoveSpeed;
     public float baseAgroRange;
+    private float lookDirection;
+    public int roamRadius;
     //public List<NPCAttack> (max damage, cast chance, attack delays, animation clips)
     public int experience;
     public byte state =0;//0 for dead 1 for neutral 2 for aggressive 3 for looking at player 4 looking at spawn
-    private Vector3 spawnLocation;
+    public Vector3 spawnLocation;
     private Vector3 moveDirection;
     private Animator animator;
+    private Vector3 neutralLocation;
+    private bool needsNeutralLocation;
+   
+
+    
+
 
 
     public StatusController statusController;
@@ -38,8 +49,12 @@ public class NPC : MonoBehaviour
     {
         player = GameObject.Find("Player");
         statusController = GameObject.Find("Status").GetComponent<StatusController>();
-       characterController = this.gameObject.GetComponent<CharacterController>();
+       characterController = gameObject.GetComponent<CharacterController>();
         animator = gameObject.GetComponent<Animator>();
+        if (!isDefaultAgro)
+        {
+            state = 1;
+        }
     }
 
    
@@ -66,15 +81,21 @@ public class NPC : MonoBehaviour
            this.gameObject.SetActive(false);
             return;
         }
-        CheckAggresion();
+        if (isDefaultAgro)
+        {
+            CheckAggresion();
+        }
         if(state == 1)//aggressive
         {
-            if (CheckIfInAttackRange())
+            actualMoveSpeed = moveSpeed;
+            lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(player.transform.position - transform.position).eulerAngles.y, moveSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(0, lookDirection, 0);
+            if (CheckIfInAttackRange()) //is in attack range
             {
                 if(attackTimer >= attackDelay)
                 {
                     animator.Play("attack1");
-                    DealDamageToPlayer();
+                    DealDamageToPlayer(30);
                     attackTimer = 0;
                 }
                 else 
@@ -91,14 +112,45 @@ public class NPC : MonoBehaviour
         }
         else if(state == 2)//neutral
         {
+            actualMoveSpeed = moveSpeed / 2f;
+            if (isStationary)
+            {
+
+            }
+            else if (needsNeutralLocation)
+            {
+                neutralLocation = spawnLocation + new Vector3((UnityEngine.Random.value-.5f) * roamRadius*2, 0, UnityEngine.Random.value * roamRadius);
+                Debug.Log($"Netural Location = {neutralLocation}");
+                needsNeutralLocation = false;
+            }
+            else
+            {
+                if (neutralPositionTimer >= 5f) {
+                   
+                    lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(neutralLocation - transform.position).eulerAngles.y, Time.deltaTime*2);
+                    transform.rotation = Quaternion.Euler(0, lookDirection, 0);
+                    Debug.Log("rotating");
+                    moveDirection = transform.forward;
+                    neutralPositionTimer += Time.deltaTime;
+                    if ((transform.position-neutralLocation).magnitude < 5 || neutralPositionTimer > 10)
+                    {
+                        needsNeutralLocation = true;
+                        neutralPositionTimer = 0;
+                    }
+                }
+                else
+                {
+                    neutralPositionTimer += Time.deltaTime;
+                }
+            }
 
         }
 
         moveDirection.y = Physics.gravity.y;
-        characterController.Move(moveDirection*Time.deltaTime*moveSpeed);
-        float lookDirection;
-        lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(player.transform.position-transform.position).eulerAngles.y,moveSpeed*Time.deltaTime) ;
-        transform.rotation = Quaternion.Euler(0, lookDirection, 0);
+        characterController.Move(moveDirection*Time.deltaTime*actualMoveSpeed);
+        
+        
+        
     }
 
 
@@ -120,9 +172,9 @@ public class NPC : MonoBehaviour
         }
     }
 
-    private void DealDamageToPlayer()
+    private void DealDamageToPlayer(int maxDamage)
     {
-        int damageDealt = (int)(UnityEngine.Random.value * 30);
+        int damageDealt = (int)(UnityEngine.Random.value * maxDamage);
         player.GetComponent<StatsController>().currentHealth -= damageDealt;
         statusController.UpdateStatusUI();
         statusController.SpawnDamageText(damageDealt, player, 0, 14);

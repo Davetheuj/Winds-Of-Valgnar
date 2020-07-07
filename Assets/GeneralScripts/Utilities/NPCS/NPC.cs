@@ -31,6 +31,7 @@ public class NPC : MonoBehaviour
     private Vector3 neutralLocation;
     private bool needsNeutralLocation;
     private bool needsAnimationChange;
+    private bool wasOutOfRange;
    
 
     
@@ -93,21 +94,34 @@ public class NPC : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, lookDirection, 0);
             if (CheckIfInAttackRange()) //is in attack range
             {
-                if(attackTimer >= attackDelay)
+                if (needsAnimationChange || wasOutOfRange)
+                {
+                    animator.Play("idle_battle");
+                    needsAnimationChange = false;
+                    wasOutOfRange = false;
+                }
+                
+                if (attackTimer >= attackDelay)
                 {
                     animator.Play("attack1");
                     DealDamageToPlayer(30);
                     attackTimer = 0;
+                    Wait(.05f);
+                    animator.Play("idle_battle");
                 }
                 else 
-                { 
+                {
+                    
+                    
                     attackTimer += Time.deltaTime;
                 }
             }
             else //not in attack range
             {
+                animator.Play("run");
                 moveDirection = Vector3.Normalize(player.transform.position - transform.position);
                 attackTimer += Time.deltaTime;
+                wasOutOfRange = true;
             }
 
         }
@@ -130,7 +144,7 @@ public class NPC : MonoBehaviour
                     if (needsAnimationChange)
                     {
                         
-                        animator.Play("run");
+                        animator.Play("walk");
                         
                         
                         needsAnimationChange = false;
@@ -151,14 +165,14 @@ public class NPC : MonoBehaviour
                 {
                     if (needsAnimationChange)
                     {
-                        animator.Play("walk");
+                        animator.Play("idle");
                         needsAnimationChange = false;
                     }
 
                     neutralPositionTimer += Time.deltaTime;
                     if(neutralPositionTimer >= 5f)
                     {
-                        Debug.Log("needs animation change");
+                        
                         needsAnimationChange = true;
                     }
                 }
@@ -211,10 +225,18 @@ public class NPC : MonoBehaviour
     {
         if ((transform.position - player.transform.position).magnitude <= baseAgroRange)
         {
+            if(state == 2)
+            {
+                needsAnimationChange = true;
+            }
             state = 1;
         }
         else
         {
+            if(state == 1)
+            {
+                needsAnimationChange = true;
+            }
             state = 2;
         }
     }
@@ -230,5 +252,15 @@ public class NPC : MonoBehaviour
         }
     }
 
-    
+    IEnumerator Wait(float time)
+    {
+
+        yield return new WaitForSecondsRealtime(time);
+       
+
+
+
+    }
+
+
 }

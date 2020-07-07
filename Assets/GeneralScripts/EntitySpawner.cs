@@ -47,7 +47,14 @@ public class EntitySpawner : MonoBehaviour
 
     private void SpawnEntity()
     {
-        entity.SetActive(true);
+        var component = entity.GetComponent<NPC>();
+        if (component != null)
+        {
+            entity.SetActive(true);
+            component.state = 1;
+           component.currentHealth = component.maxHealth;
+        }
+            
     }
 
 }

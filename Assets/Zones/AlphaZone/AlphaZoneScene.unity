@@ -1982,12 +1982,12 @@ Transform:
   m_GameObject: {fileID: 74684246}
   m_LocalRotation: {x: -0, y: 0.7840265, z: -0, w: 0.6207274}
   m_LocalPosition: {x: 145.03394, y: 8.129999, z: 313.51587}
-  m_LocalScale: {x: 1.3433511, y: 1.34335, z: 1.3433511}
+  m_LocalScale: {x: 1.3433516, y: 1.34335, z: 1.3433516}
   m_Children:
   - {fileID: 74861480}
   - {fileID: 74887976}
-  m_Father: {fileID: 1759555371}
-  m_RootOrder: 2
+  m_Father: {fileID: 1897360710}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 103.261, z: 0}
 --- !u!4 &74898260
 Transform:
@@ -5419,6 +5419,10 @@ MonoBehaviour:
   experience: 0
   state: 1
   spawnLocation: {x: 142, y: 10, z: 325}
+  deltaNeutralMaxTime: 0
+  neutralPositionMaxTime: 0
+  neutPosTimeRandModifier: 0
+  maxIdleTime: 0
   statusController: {fileID: 0}
 --- !u!1001 &755846204
 PrefabInstance:
@@ -6491,6 +6495,10 @@ MonoBehaviour:
   experience: 0
   state: 1
   spawnLocation: {x: 130, y: 6, z: 302}
+  deltaNeutralMaxTime: 0
+  neutralPositionMaxTime: 0
+  neutPosTimeRandModifier: 0
+  maxIdleTime: 0
   statusController: {fileID: 0}
 --- !u!4 &1055410461 stripped
 Transform:
@@ -8205,7 +8213,7 @@ Transform:
   - {fileID: 1312008129}
   - {fileID: 1312005363}
   m_Father: {fileID: 1759555371}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 87.249, z: 0}
 --- !u!4 &1311982051
 Transform:
@@ -10958,7 +10966,7 @@ Transform:
   - {fileID: 1312446385}
   - {fileID: 1312470107}
   m_Father: {fileID: 1759555371}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 132.58801, z: 0}
 --- !u!4 &1312512221
 Transform:
@@ -13847,9 +13855,9 @@ Transform:
   m_Children:
   - {fileID: 6670655288330205641}
   - {fileID: 371111210}
-  - {fileID: 74896982}
   - {fileID: 1312511513}
   - {fileID: 1311980987}
+  - {fileID: 1897360710}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14316,12 +14324,16 @@ MonoBehaviour:
   attackRange: 7.5
   attackDelay: 3
   attackTimer: 0
-  moveSpeed: 30
+  moveSpeed: 20
   baseAgroRange: 10
-  roamRadius: 50
+  roamRadius: 30
   experience: 0
   state: 1
   spawnLocation: {x: 145, y: 8, z: 313}
+  deltaNeutralMaxTime: 1
+  neutralPositionMaxTime: 15
+  neutPosTimeRandModifier: 6
+  maxIdleTime: 3
   statusController: {fileID: 0}
 --- !u!4 &1840283625 stripped
 Transform:
@@ -14646,6 +14658,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7491d8cd5b59c4926b249f322158c67a, type: 3}
+--- !u!1 &1897360709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1897360710}
+  - component: {fileID: 1897360711}
+  m_Layer: 0
+  m_Name: GoblinSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1897360710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897360709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 74896982}
+  m_Father: {fileID: 1759555371}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1897360711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897360709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19343347d02debe47a8ae6b918fdcdec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 74684246}
+  time: 0
+  isSpawned: 1
+  spawnTime: 10
+  spawnRadius: 5
+  spawnOffset: {x: 0, y: 0, z: 0}
+  spawnCount: 0
+  maxSpawns: 10000
 --- !u!1001 &1905726168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15545,6 +15609,10 @@ MonoBehaviour:
   experience: 0
   state: 1
   spawnLocation: {x: 0, y: 0, z: 0}
+  deltaNeutralMaxTime: 0
+  neutralPositionMaxTime: 0
+  neutPosTimeRandModifier: 0
+  maxIdleTime: 0
   statusController: {fileID: 0}
 --- !u!114 &3220819486922068213
 MonoBehaviour:
@@ -15833,6 +15901,10 @@ MonoBehaviour:
   experience: 0
   state: 1
   spawnLocation: {x: 0, y: 0, z: 0}
+  deltaNeutralMaxTime: 0
+  neutralPositionMaxTime: 0
+  neutPosTimeRandModifier: 0
+  maxIdleTime: 0
   statusController: {fileID: 0}
 --- !u!136 &4846529411784788540
 CapsuleCollider:

@@ -32,6 +32,12 @@ public class NPC : MonoBehaviour
     private bool needsNeutralLocation;
     private bool needsAnimationChange;
     private bool wasOutOfRange;
+    private Vector3 deltaNeutralLocation; 
+    private float deltaRoamTimer;
+    public float deltaNeutralMaxTime;
+    public float neutralPositionMaxTime;
+    public float neutPosTimeRandModifier;
+    public float maxIdleTime;
    
 
     
@@ -57,6 +63,8 @@ public class NPC : MonoBehaviour
         {
             state = 1;
         }
+        
+            neutralLocation = spawnLocation;
     }
 
    
@@ -106,8 +114,8 @@ public class NPC : MonoBehaviour
                     animator.Play("attack1");
                     DealDamageToPlayer(30);
                     attackTimer = 0;
-                    Wait(.05f);
-                    animator.Play("idle_battle");
+                   // Wait(.05f);
+                    //animator.Play("idle_battle");
                 }
                 else 
                 {
@@ -135,7 +143,8 @@ public class NPC : MonoBehaviour
             else if (needsNeutralLocation)
             {
                 neutralLocation = spawnLocation + new Vector3((UnityEngine.Random.value-.5f) * roamRadius*2, 0, UnityEngine.Random.value * roamRadius);
-              
+                deltaNeutralLocation = neutralLocation;
+                deltaRoamTimer = 0;
                 needsNeutralLocation = false;
             }
             else
@@ -149,15 +158,21 @@ public class NPC : MonoBehaviour
                         
                         needsAnimationChange = false;
                     }
-                    lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(neutralLocation - transform.position).eulerAngles.y, Time.deltaTime*3);
+                    if (deltaRoamTimer > deltaNeutralMaxTime)
+                    {
+                        deltaNeutralLocation = (new Vector3(1,0,1) * (UnityEngine.Random.value -.5f)*10) + neutralLocation;
+                        deltaRoamTimer = 0;
+                    }
+                    lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(deltaNeutralLocation - transform.position).eulerAngles.y, Time.deltaTime*3);
                     transform.rotation = Quaternion.Euler(0, lookDirection, 0);
                   
                     moveDirection = transform.forward;
                     neutralPositionTimer += Time.deltaTime;
-                    if ((transform.position-neutralLocation).magnitude < 1 || neutralPositionTimer > 15)
+                    deltaRoamTimer += Time.deltaTime;
+                    if ((transform.position-neutralLocation).magnitude < 1 || neutralPositionTimer > neutralPositionMaxTime)
                     {
                         needsNeutralLocation = true;
-                        neutralPositionTimer = (UnityEngine.Random.value-.5f)*6;
+                        neutralPositionTimer = (UnityEngine.Random.value-.5f)*neutPosTimeRandModifier;
                         needsAnimationChange = true;
                     }
                 }
@@ -170,7 +185,7 @@ public class NPC : MonoBehaviour
                     }
 
                     neutralPositionTimer += Time.deltaTime;
-                    if(neutralPositionTimer >= 5f)
+                    if(neutralPositionTimer >= maxIdleTime)
                     {
                         
                         needsAnimationChange = true;

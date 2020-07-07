@@ -5418,7 +5418,7 @@ MonoBehaviour:
   roamRadius: 50
   experience: 0
   state: 1
-  spawnLocation: {x: -228.3259, y: -167.76, z: 427.0375}
+  spawnLocation: {x: 142, y: 10, z: 325}
   statusController: {fileID: 0}
 --- !u!1001 &755846204
 PrefabInstance:
@@ -6490,7 +6490,7 @@ MonoBehaviour:
   roamRadius: 50
   experience: 0
   state: 1
-  spawnLocation: {x: -240.0849, y: -172.1, z: 404.1894}
+  spawnLocation: {x: 130, y: 6, z: 302}
   statusController: {fileID: 0}
 --- !u!4 &1055410461 stripped
 Transform:
@@ -14321,7 +14321,7 @@ MonoBehaviour:
   roamRadius: 50
   experience: 0
   state: 1
-  spawnLocation: {x: -225.892, y: -169.23, z: 415.2234}
+  spawnLocation: {x: 145, y: 8, z: 313}
   statusController: {fileID: 0}
 --- !u!4 &1840283625 stripped
 Transform:

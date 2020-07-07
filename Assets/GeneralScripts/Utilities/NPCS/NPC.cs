@@ -30,6 +30,7 @@ public class NPC : MonoBehaviour
     private Animator animator;
     private Vector3 neutralLocation;
     private bool needsNeutralLocation;
+    private bool needsAnimationChange;
    
 
     
@@ -120,27 +121,46 @@ public class NPC : MonoBehaviour
             else if (needsNeutralLocation)
             {
                 neutralLocation = spawnLocation + new Vector3((UnityEngine.Random.value-.5f) * roamRadius*2, 0, UnityEngine.Random.value * roamRadius);
-                Debug.Log($"Netural Location = {neutralLocation}");
+              
                 needsNeutralLocation = false;
             }
             else
             {
                 if (neutralPositionTimer >= 5f) {
-                   
-                    lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(neutralLocation - transform.position).eulerAngles.y, Time.deltaTime*2);
+                    if (needsAnimationChange)
+                    {
+                        
+                        animator.Play("run");
+                        
+                        
+                        needsAnimationChange = false;
+                    }
+                    lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(neutralLocation - transform.position).eulerAngles.y, Time.deltaTime*3);
                     transform.rotation = Quaternion.Euler(0, lookDirection, 0);
-                    Debug.Log("rotating");
+                  
                     moveDirection = transform.forward;
                     neutralPositionTimer += Time.deltaTime;
-                    if ((transform.position-neutralLocation).magnitude < 5 || neutralPositionTimer > 10)
+                    if ((transform.position-neutralLocation).magnitude < 1 || neutralPositionTimer > 15)
                     {
                         needsNeutralLocation = true;
-                        neutralPositionTimer = 0;
+                        neutralPositionTimer = (UnityEngine.Random.value-.5f)*6;
+                        needsAnimationChange = true;
                     }
                 }
                 else
                 {
+                    if (needsAnimationChange)
+                    {
+                        animator.Play("walk");
+                        needsAnimationChange = false;
+                    }
+
                     neutralPositionTimer += Time.deltaTime;
+                    if(neutralPositionTimer >= 5f)
+                    {
+                        Debug.Log("needs animation change");
+                        needsAnimationChange = true;
+                    }
                 }
             }
 

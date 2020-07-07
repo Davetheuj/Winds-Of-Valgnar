@@ -1487,6 +1487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b29076777ac454d84038e0886c836a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoneName: 
+  playerName: 
   currentMana: 500
   currentHealth: 500
   maxHealth: 500
@@ -1496,7 +1498,6 @@ MonoBehaviour:
   time: 0
   statusController: {fileID: 0}
   currentStrength: 0
-  currentIntelligence: 0
   currentWisdom: 0
   currentDexterity: 0
   currentSpirit: 15
@@ -1504,7 +1505,6 @@ MonoBehaviour:
   currentLuck: 0
   currentCharisma: 0
   maxStrength: 0
-  maxIntelligence: 0
   maxWisdom: 0
   maxDexterity: 0
   maxSpirit: 15
@@ -1519,6 +1519,18 @@ MonoBehaviour:
   Fishing: 0
   Woodcutting: 0
   Enchanting: 0
+  renown: 0
+  popularity: 0
+  honor: 0
+  xpAlchemy: 0
+  xpPickpocketing: 0
+  xpSmithing: 0
+  xpCrafting: 0
+  xpCooking: 0
+  xpFishing: 0
+  xpWoodcutting: 0
+  xpEnchanting: 0
+  generalXP: 0
 --- !u!114 &8242111346471692190
 MonoBehaviour:
   m_ObjectHideFlags: 0

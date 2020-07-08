@@ -22,7 +22,7 @@ public class EntitySpawner : MonoBehaviour
         }
         if (time > spawnTime)
         {
-            if (spawnCount + 1 >= maxSpawns)
+            if ((spawnCount + 1 >= maxSpawns) && (maxSpawns > 0))
             {
                 this.gameObject.SetActive(false);
                 return;

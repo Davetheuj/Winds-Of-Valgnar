@@ -6486,7 +6486,7 @@ MonoBehaviour:
   NPCPanelOffset: 8.99
   maxHealth: 100
   currentHealth: 100
-  attackRange: 7.5
+  attackRange: 5
   attackDelay: 3
   attackTimer: 0
   moveSpeed: 30

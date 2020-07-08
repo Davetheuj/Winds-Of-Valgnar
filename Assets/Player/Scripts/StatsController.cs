@@ -22,6 +22,7 @@ public class StatsController : MonoBehaviour
     public float time;
 
     public StatusController statusController;
+    public EquipmentController equipmentController;
 
     public int currentStrength;
     

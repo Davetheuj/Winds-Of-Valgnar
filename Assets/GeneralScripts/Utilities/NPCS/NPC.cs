@@ -17,10 +17,13 @@ public class NPC : MonoBehaviour
     public float attackDelay;
     public float attackTimer;
     private float neutralPositionTimer;
+    [Tooltip("Default 20ish")]
     public float moveSpeed;
     private float actualMoveSpeed;
+    [Tooltip("Default 5ish")]
     public float baseAgroRange;
     private float lookDirection;
+    [Tooltip("Default 30ish")]
     public int roamRadius;
     //public List<NPCAttack> (max damage, cast chance, attack delays, animation clips)
     public int experience;
@@ -32,27 +35,19 @@ public class NPC : MonoBehaviour
     private bool needsNeutralLocation;
     private bool needsAnimationChange;
     private bool wasOutOfRange;
-    private Vector3 deltaNeutralLocation; 
+    private Vector3 deltaNeutralLocation;
     private float deltaRoamTimer;
+    [Tooltip("Default 2")]
     public float deltaNeutralMaxTime;
+    [Tooltip("Default 15")]
     public float neutralPositionMaxTime;
+    [Tooltip("Default 6")]
     public float neutPosTimeRandModifier;
+    [Tooltip("Default 5ish")]
     public float maxIdleTime;
-   
-
-    
-
-
-
     public StatusController statusController;
-
     private CharacterController characterController;
     
-
-   
-    
-
-    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");

@@ -53,6 +53,8 @@ public class EntitySpawner : MonoBehaviour
             entity.SetActive(true);
             component.state = 1;
            component.currentHealth = component.maxHealth;
+            entity.transform.SetPositionAndRotation(component.spawnLocation, entity.transform.rotation);
+
         }
             
     }

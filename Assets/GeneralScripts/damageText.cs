@@ -31,7 +31,7 @@ public class damageText : MonoBehaviour
         transform.LookAt(cam.transform);
         transform.Rotate(new Vector3(0, 180, 0));
 
-        gameObject.GetComponent<TMP_Text>().fontSize = gameObject.GetComponent<TMP_Text>().fontSize / 1.025f ;
+        gameObject.GetComponent<TMP_Text>().fontSize -= Time.deltaTime*gameObject.GetComponent<TMP_Text>().fontSize;
         
 
         if (time > 1.5f)

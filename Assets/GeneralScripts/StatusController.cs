@@ -80,7 +80,9 @@ public class StatusController : MonoBehaviour
 
     public void SpawnDamageText(int damage, GameObject parent, float damagePanelOffset, float distance)
     {
-        damageText.transform.SetPositionAndRotation(new Vector3(0, damagePanelOffset-damagePanelOffset/10, 0), parent.transform.rotation);
+        damageText.transform.position = new Vector3(0, damagePanelOffset - damagePanelOffset / 10, 0);//, parent.transform.rotation);
+        damageText.transform.LookAt(GameObject.Find("Main Camera").GetComponent<Camera>().transform, new Vector3(0,1,0));
+        damageText.transform.Rotate(new Vector3(0, 180, 0));
         damageText.GetComponent<TMP_Text>().text = $"{damage}";
         damageText.GetComponent<TMP_Text>().fontSize = distance;
        

@@ -227,7 +227,10 @@ public class NPC : MonoBehaviour
     {
         isAttacked = true;
         currentHealth -= damage;
-       statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, (transform.position-player.transform.position).magnitude);
+        Debug.Log($"player position {player.transform.position}" +
+            $"npc position: {transform.position}" +
+            $"Resulting font size: {(transform.position-player.transform.position).magnitude}");
+       statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, (transform.position-player.transform.position).magnitude*1.75f);
         //statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, 14);
         if (statusController.targeting.currentTarget == this.gameObject)
         {

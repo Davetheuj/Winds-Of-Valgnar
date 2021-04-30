@@ -9,6 +9,7 @@ public class NPC : MonoBehaviour
     public float angleFromPlayerForward; //used for calculating targetable objects for the player
     public GameObject player;
     public bool isDefaultAgro;
+    private bool isAttacked;
     public bool isStationary;
     public float NPCPanelOffset;
     public int maxHealth;
@@ -47,9 +48,22 @@ public class NPC : MonoBehaviour
     public float maxIdleTime;
     public StatusController statusController;
     private CharacterController characterController;
+
+    //PATHFINDING
+    private bool isStuck;
+    private float stuckTimer;
+    public float maxStuckTime;
+    private Ray stuckRay;
+    private RaycastHit stuckHit;
+    private GameObject stuckHitObject;
+    private Vector3 stuckLocation;
+    private float minTravelDistance;
+
+
     
     void Start()
     {
+        
         player = GameObject.Find("Player");
         statusController = GameObject.Find("Status").GetComponent<StatusController>();
        characterController = gameObject.GetComponent<CharacterController>();
@@ -109,8 +123,7 @@ public class NPC : MonoBehaviour
                     animator.Play("attack1");
                     DealDamageToPlayer(30);
                     attackTimer = 0;
-                   // Wait(.05f);
-                    //animator.Play("idle_battle");
+              
                 }
                 else 
                 {
@@ -121,10 +134,21 @@ public class NPC : MonoBehaviour
             }
             else //not in attack range
             {
+                if (CheckIfStuck())
+                {
+                    FindNewPath();
+                }
                 animator.Play("run");
                 moveDirection = Vector3.Normalize(player.transform.position - transform.position);
                 attackTimer += Time.deltaTime;
                 wasOutOfRange = true;
+            }
+            if (isAttacked)
+            {
+                if ((transform.position - spawnLocation).magnitude >= roamRadius * 3)
+                {
+                    isAttacked = false;
+                }
             }
 
         }
@@ -201,8 +225,10 @@ public class NPC : MonoBehaviour
 
     public void DealDamageToNpc(int damage)
     {
+        isAttacked = true;
         currentHealth -= damage;
-        statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, (transform.position-player.transform.position).magnitude);
+       statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, (transform.position-player.transform.position).magnitude);
+        //statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, 14);
         if (statusController.targeting.currentTarget == this.gameObject)
         {
             if (currentHealth >= 0)
@@ -233,12 +259,13 @@ public class NPC : MonoBehaviour
     }
     private void CheckAggresion()
     {
-        if ((transform.position - player.transform.position).magnitude <= baseAgroRange)
+        if ((transform.position - player.transform.position).magnitude <= baseAgroRange || (isAttacked))
         {
             if(state == 2)
             {
                 needsAnimationChange = true;
             }
+           
             state = 1;
         }
         else
@@ -254,9 +281,10 @@ public class NPC : MonoBehaviour
     {
         if((transform.position - player.transform.position).magnitude <= attackRange)
         {
+           
             return true;
         }
-        else
+        else 
         {
             return false;
         }
@@ -272,5 +300,31 @@ public class NPC : MonoBehaviour
 
     }
 
+    private bool CheckIfStuck()
+    {
+        stuckTimer += Time.deltaTime;
+        if(stuckTimer >= maxStuckTime)
+        {
+            if ((stuckLocation - transform.position).magnitude <= minTravelDistance)
+            {
+                Debug.Log($"{gameObject.name} is stuck.");
+                return true;
+               
+            }
+            else {
+                stuckLocation = transform.position;
+                stuckTimer = 0;
+            }
+
+        }
+        return false;
+
+    }
+
+    public Vector3 FindNewPath()
+    {
+        return new Vector3(0, 0, 0);
+    }
+    
 
 }

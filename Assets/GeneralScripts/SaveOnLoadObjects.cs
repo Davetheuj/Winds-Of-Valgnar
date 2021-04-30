@@ -19,7 +19,14 @@ public class SaveOnLoadObjects : MonoBehaviour
         {
             Debug.Log(e);
         }
-        SceneManager.LoadScene(manager.player.GetComponent<StatsController>().zoneName);
+        try
+        {
+            SceneManager.LoadScene(manager.player.GetComponent<StatsController>().zoneName);
+        }
+        catch (Exception e)
+        {
+            SceneManager.LoadScene("AlphaZoneScene");
+        }
         
     }
 

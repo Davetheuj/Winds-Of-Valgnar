@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 334581628860332204}
   - component: {fileID: 334581628860332195}
   - component: {fileID: 334581628860332194}
+  - component: {fileID: 6322674493026617527}
   m_Layer: 0
   m_Name: AbilityButton (31)
   m_TagString: Untagged
@@ -143,3 +144,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d0e8a98743d404eb91ad7bb088471c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6322674493026617527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334581628860332192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c940f4e7301461ba7bdc6ce0768d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 1414222583094221135, guid: 579acb24e5df15849bd00b3b6dad1dcd, type: 3}
+  manaCost: 0
+  healthCost: 0
+  isTargeted: 1
+  currentAbility: {fileID: 0}

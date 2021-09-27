@@ -136,8 +136,16 @@ public class DialoguePanelController : MonoBehaviour
     {
         if (isShowing)
         {
+            try
+            {
+                if ((player.position - NPC.transform.position).magnitude > dialogueDisappearDistance)
+                {
+                    isShowing = false;
+                    dialoguePanel.SetActive(false);
 
-            if ((player.position - NPC.transform.position).magnitude > dialogueDisappearDistance)
+                }
+            }
+            catch (MissingReferenceException)
             {
                 isShowing = false;
                 dialoguePanel.SetActive(false);

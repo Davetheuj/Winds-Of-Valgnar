@@ -230,7 +230,12 @@ public class NPC : MonoBehaviour
         Debug.Log($"player position {player.transform.position}" +
             $"npc position: {transform.position}" +
             $"Resulting font size: {(transform.position-player.transform.position).magnitude}");
-       statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, (transform.position-player.transform.position).magnitude*1.75f);
+        float fontSize = (transform.position - player.transform.position).magnitude * 2f;
+        if(fontSize < 12)
+        {
+        fontSize = 12;
+        }
+       statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, fontSize);
         //statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, 14);
         if (statusController.targeting.currentTarget == this.gameObject)
         {
@@ -250,7 +255,7 @@ public class NPC : MonoBehaviour
         int damageDealt = (int)(UnityEngine.Random.value * maxDamage);
         player.GetComponent<StatsController>().currentHealth -= damageDealt;
         statusController.UpdateStatusUI();
-        statusController.SpawnDamageText(damageDealt, player, 0, 14);
+        statusController.SpawnDamageText(damageDealt, player, 0, 12);
     }
     private void SpawnItem()
     {

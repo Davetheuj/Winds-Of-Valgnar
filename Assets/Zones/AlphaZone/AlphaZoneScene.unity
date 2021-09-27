@@ -5424,6 +5424,7 @@ MonoBehaviour:
   neutPosTimeRandModifier: 0
   maxIdleTime: 0
   statusController: {fileID: 0}
+  maxStuckTime: 0
 --- !u!1001 &755846204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6500,6 +6501,7 @@ MonoBehaviour:
   neutPosTimeRandModifier: 0
   maxIdleTime: 0
   statusController: {fileID: 0}
+  maxStuckTime: 0
 --- !u!4 &1055410461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1267492505033089365, guid: 7491d8cd5b59c4926b249f322158c67a,
@@ -14335,6 +14337,7 @@ MonoBehaviour:
   neutPosTimeRandModifier: 6
   maxIdleTime: 3
   statusController: {fileID: 0}
+  maxStuckTime: 0
 --- !u!4 &1840283625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1267492505033089365, guid: 7491d8cd5b59c4926b249f322158c67a,
@@ -15614,6 +15617,7 @@ MonoBehaviour:
   neutPosTimeRandModifier: 0
   maxIdleTime: 0
   statusController: {fileID: 0}
+  maxStuckTime: 0
 --- !u!114 &3220819486922068213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15906,6 +15910,7 @@ MonoBehaviour:
   neutPosTimeRandModifier: 0
   maxIdleTime: 0
   statusController: {fileID: 0}
+  maxStuckTime: 0
 --- !u!136 &4846529411784788540
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16047,17 +16052,17 @@ PrefabInstance:
     - target: {fileID: 8079541184254604637, guid: 4b258fc8f694f114fa4de8704635f330,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -88.50198
+      value: 323.2
       objectReference: {fileID: 0}
     - target: {fileID: 8079541184254604637, guid: 4b258fc8f694f114fa4de8704635f330,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -157.03926
+      value: 24.41
       objectReference: {fileID: 0}
     - target: {fileID: 8079541184254604637, guid: 4b258fc8f694f114fa4de8704635f330,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 381.11334
+      value: 355.23
       objectReference: {fileID: 0}
     - target: {fileID: 8079541184254604637, guid: 4b258fc8f694f114fa4de8704635f330,
         type: 3}
@@ -16113,6 +16118,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.7396068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8079541184254604571, guid: 4b258fc8f694f114fa4de8704635f330,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8079541184254604571, guid: 4b258fc8f694f114fa4de8704635f330,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b258fc8f694f114fa4de8704635f330, type: 3}

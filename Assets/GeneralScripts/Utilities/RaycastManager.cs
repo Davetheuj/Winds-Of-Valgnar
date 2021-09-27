@@ -66,6 +66,7 @@ public RectTransform quickInspectItemPanelTransform;
             {
                 if (Input.GetMouseButtonDown(0))
                 {
+                    //Debug.Log("Attemping to pick up " + rayHitObject.name);
                     InitiateItemPickup(rayHitObject);
                     return;
                 }

@@ -86,8 +86,9 @@ public class PhysicalCamera : MonoBehaviour
     {
         Transform target = CameraFollowObject.transform;
 
-        float step = CameraMoveSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        //  float step = CameraMoveSpeed * Time.deltaTime;
+        //transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        transform.position = target.position;
       
         
     }

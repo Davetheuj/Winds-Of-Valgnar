@@ -99,12 +99,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startDelay: 0
-  positionList: []
-  positionLerpSpeedList: []
-  rotationList: []
-  rotationLerpSpeedList: []
-  transitionTimeList: []
+  positionList:
+  - {x: 0.5, y: 0, z: 0.5}
+  positionLerpSpeedList:
+  - 20
+  rotationList:
+  - {x: 0, y: 0, z: 0}
+  rotationLerpSpeedList:
+  - 1
+  transitionTimeList:
+  - 0.3
   isFinished: 0
-  resetTime: 0
-  finalPositionLerpSpeed: 0
-  finalRotationLerpSpeed: 0
+  resetTime: 1
+  finalPositionLerpSpeed: 500
+  finalRotationLerpSpeed: 1

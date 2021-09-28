@@ -45,9 +45,9 @@ public class LungeTRController : MonoBehaviour
         if (startDelay <= 0)
         {
             //sets the camera position
-            parentObject.localPosition = Vector3.Lerp(parentObject.position, initialPosition+positionList[counter], positionLerpSpeedList[counter] * Time.deltaTime);
+            parentObject.localPosition = Vector3.Lerp(parentObject.localPosition, initialPosition+positionList[counter], positionLerpSpeedList[counter] * Time.deltaTime);
             //sets the camera rotatiom
-            parentObject.localRotation = Quaternion.Euler(Vector3.Lerp(parentObject.rotation.eulerAngles, initialRotation+rotationList[counter], rotationLerpSpeedList[counter] * Time.deltaTime));
+            parentObject.localRotation = Quaternion.Euler(Vector3.Lerp(parentObject.localRotation.eulerAngles, initialRotation+rotationList[counter], rotationLerpSpeedList[counter] * Time.deltaTime));
             //keeping track of time
             transitionTimeList[counter] -= Time.deltaTime;
             //checking to see if property change is needed

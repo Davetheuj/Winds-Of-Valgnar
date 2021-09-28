@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AbilityInstantiator : MonoBehaviour
 {
-
+    //!!! asign the ability in the editor !!!
     public GameObject ability;
     public int manaCost;
     public int healthCost;

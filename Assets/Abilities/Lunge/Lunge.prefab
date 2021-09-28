@@ -27,7 +27,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5032182158708744075}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -43,3 +44,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad6b74d41d83d4cb3c4288c573c83a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  weapon: {fileID: 0}
+  rotationY: 0
+  translationSpeed: 0
+  rotationSpeed: 0
+  strengthModifier: 0
+  abilityName: Lunge
+  spellType: 0
+  damage: 0
+  player: {fileID: 0}
+  console: {fileID: 0}
+--- !u!1 &2706566761181555078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5032182158708744075}
+  - component: {fileID: 4994162191592630943}
+  m_Layer: 0
+  m_Name: LungeTRController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5032182158708744075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2706566761181555078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1444658278221977031}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4994162191592630943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2706566761181555078}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559c96906b8a14d4693e7835e01c1c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 0
+  positionList: []
+  positionLerpSpeedList: []
+  rotationList: []
+  rotationLerpSpeedList: []
+  transitionTimeList: []
+  isFinished: 0
+  resetTime: 0
+  finalPositionLerpSpeed: 0
+  finalRotationLerpSpeed: 0

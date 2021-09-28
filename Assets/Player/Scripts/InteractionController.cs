@@ -153,7 +153,7 @@ public class InteractionController : MonoBehaviour
     {
       
 
-        if (abilityInstantiator != null)//now to check 
+        if (abilityInstantiator != null)//now to check ability prereqs
         {
             if (abilityInstantiator.isTargeted && targeting.currentTarget == null)
             {

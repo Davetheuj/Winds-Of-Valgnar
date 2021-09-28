@@ -20,6 +20,7 @@ public class PlayerAnimator : MonoBehaviour
         float speedPercent = new Vector3(playerControl.moveDirection.x, 0, playerControl.moveDirection.z).magnitude;
         animator.SetFloat("SpeedPercent", speedPercent, .02f, Time.deltaTime);
        
+       
 
         
     }

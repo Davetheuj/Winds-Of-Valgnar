@@ -100,16 +100,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDelay: 0
   positionList:
-  - {x: 0.5, y: 0, z: 0.5}
+  - {x: 0.3, y: 0, z: 0.5}
   positionLerpSpeedList:
-  - 20
+  - 30
   rotationList:
   - {x: 0, y: 0, z: 0}
   rotationLerpSpeedList:
   - 1
   transitionTimeList:
-  - 0.3
+  - 0.2
   isFinished: 0
-  resetTime: 1
+  resetTime: 0.3
   finalPositionLerpSpeed: 500
   finalRotationLerpSpeed: 1
+  animator: {fileID: 0}

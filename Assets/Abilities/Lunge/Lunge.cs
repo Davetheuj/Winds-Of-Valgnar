@@ -26,6 +26,8 @@ public class Lunge : MonoBehaviour
 
     public ConsoleManager console;
 
+    private Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,7 @@ public class Lunge : MonoBehaviour
         damage = (int)(player.GetComponent<StatsController>().currentStrength / strengthModifier);
    
        
+
         console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
         console.AddConsoleMessage1($"You <color={Colors.cyan}>{abilityName}</color>!");
 
@@ -52,9 +55,6 @@ public class Lunge : MonoBehaviour
 
         //increase time
         time += Time.deltaTime;
-        //update position
-        
-      
 
         //DESTROY THE OBJECT
         if (time > 30)

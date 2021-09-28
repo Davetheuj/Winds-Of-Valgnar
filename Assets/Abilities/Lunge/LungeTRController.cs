@@ -26,6 +26,8 @@ public class LungeTRController : MonoBehaviour
 
     private bool initialized;
 
+    public Animator animator;
+
 
     
     void Update()
@@ -38,6 +40,7 @@ public class LungeTRController : MonoBehaviour
 
         if (transitionTimeList[transitionTimeList.Count - 1] <= 0) //if the final transition timer has expired
         {
+            animator.SetBool("ShouldAnimate", true);
             Destroy(this.gameObject);
             return;
         }
@@ -71,6 +74,9 @@ public class LungeTRController : MonoBehaviour
         transitionTimeList.Add(resetTime);
         positionLerpSpeedList.Add(finalPositionLerpSpeed);
         rotationLerpSpeedList.Add(finalRotationLerpSpeed);
+
+        animator = this.gameObject.GetComponentInParent<Animator>();
+        animator.SetBool("ShouldAnimate", false);
 
     }
 }

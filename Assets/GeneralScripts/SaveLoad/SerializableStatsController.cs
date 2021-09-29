@@ -64,6 +64,8 @@ public class SerializableStatsController
     public int xpEnchanting;
            
     public int generalXP;
+
+    public int level;
     public SerializableStatsController(StatsController loadedStats)
     {
         zoneName = loadedStats.zoneName;
@@ -123,6 +125,8 @@ public class SerializableStatsController
         xpEnchanting = loadedStats.xpEnchanting;
 
         generalXP = loadedStats.generalXP;
+
+        level = loadedStats.level;
 
 }
 }

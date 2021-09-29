@@ -52,10 +52,10 @@ MonoBehaviour:
   rotationY: 0
   translationSpeed: 40.78
   rotationSpeed: 79.6
-  intellectModifier: 3.01
+  intellectModifier: 1
   abilityName: Miasma
   spellType: 0
-  damage: 37
+  damage: 500
   player: {fileID: 0}
   console: {fileID: 0}
 --- !u!198 &1752153422302598817

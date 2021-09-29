@@ -14,6 +14,15 @@ public class NPC : MonoBehaviour
     public float NPCPanelOffset;
     public int maxHealth;
     public int currentHealth;
+
+    public int xpGranted;
+    public int honorGranted;
+    public int popularityGranted;
+    public int renownGranted;
+
+    public List<GameObject> drops;
+    public List<float> dropRates;
+
     public float attackRange;
     public float attackDelay;
     public float attackTimer;
@@ -27,7 +36,7 @@ public class NPC : MonoBehaviour
     [Tooltip("Default 30ish")]
     public int roamRadius;
     //public List<NPCAttack> (max damage, cast chance, attack delays, animation clips)
-    public int experience;
+    
     public byte state =0;//0 for dead 1 for neutral 2 for aggressive 3 for looking at player 4 looking at spawn
     public Vector3 spawnLocation;
     private Vector3 moveDirection;
@@ -48,6 +57,9 @@ public class NPC : MonoBehaviour
     public float maxIdleTime;
     public StatusController statusController;
     private CharacterController characterController;
+    private StatsController playerStats;
+
+    private ConsoleManager console;
 
     //PATHFINDING
     private bool isStuck;
@@ -65,8 +77,10 @@ public class NPC : MonoBehaviour
     {
         
         player = GameObject.Find("Player");
+        playerStats = player.GetComponent<StatsController>();
         statusController = GameObject.Find("Status").GetComponent<StatusController>();
        characterController = gameObject.GetComponent<CharacterController>();
+        console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
         animator = gameObject.GetComponent<Animator>();
         if (!isDefaultAgro)
         {
@@ -83,7 +97,23 @@ public class NPC : MonoBehaviour
         angleFromPlayerForward = Mathf.Acos(Vector3.Dot(player.transform.forward.normalized, (player.transform.position-gameObject.transform.position).normalized));
         if(currentHealth <= 0 && state!= 0)
         {
+           
             state = 0;//npc is dead
+            playerStats.generalXP += xpGranted;
+            console.AddConsoleMessage1($"<color={Colors.tan}>{npcName}</color> has died!");
+            console.AddConsoleMessage1($"You have gained <color={Colors.magenta}>{xpGranted}</color> XP!");
+            int xpLeft = playerStats.CheckIfLevelGained(playerStats.generalXP, playerStats.level);
+            while (xpLeft <= 0) //level gained
+            {
+                playerStats.level += 1;
+                playerStats.generalXP = -1 * xpLeft;
+                xpLeft = playerStats.CheckIfLevelGained(playerStats.generalXP, playerStats.level);
+                console.AddConsoleMessage1($"You are now level <color={Colors.gold}>{playerStats.level}</color>!");
+            }
+            playerStats.honor += honorGranted;
+            playerStats.renown += renownGranted;
+            playerStats.popularity += popularityGranted;
+           
 
         }
 

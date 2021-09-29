@@ -65,6 +65,7 @@ public class StatsController : MonoBehaviour
     public int xpEnchanting;
 
     public int generalXP;
+    public int level = 1;
 
 
     // Update is called once per frame
@@ -163,19 +164,18 @@ public class StatsController : MonoBehaviour
 
         generalXP = loadedStats.generalXP;
 
+        level = loadedStats.level;
+
     }
 
-    
-    public bool CheckIfLevelGained(int xp, int currentLevel)
-    {
-        if(xp < (80*currentLevel)+((int) Mathf.Pow(currentLevel, 2))+((int)Mathf.Pow(currentLevel-1, 2)))
-        {
-            return false;//
-        }
-        else
-        {
-            return true;
-        }
+    /*@
+     * Returns the xp until the next level
+     */
+    public int CheckIfLevelGained(int xp, int currentLevel)
+    {     
+            return ((80 * currentLevel) + ((int)Mathf.Pow(currentLevel, 2)) + ((int)Mathf.Pow(currentLevel - 1, 2))) - xp;
     }
+
+
 
 }

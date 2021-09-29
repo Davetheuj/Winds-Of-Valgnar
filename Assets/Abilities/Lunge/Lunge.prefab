@@ -110,7 +110,7 @@ MonoBehaviour:
   transitionTimeList:
   - 0.2
   isFinished: 0
-  resetTime: 0.3
+  resetTime: 0.2
   finalPositionLerpSpeed: 500
   finalRotationLerpSpeed: 1
   animator: {fileID: 0}

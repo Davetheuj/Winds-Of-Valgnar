@@ -6,6 +6,7 @@ using System;
 
 public class StatsController : MonoBehaviour
 {
+    public ConsoleManager console;
     public string zoneName;
     public string playerName;
     public int currentMana = 500;
@@ -104,6 +105,10 @@ public class StatsController : MonoBehaviour
     public int generalXP;
     public int level = 1;
 
+    void Start()
+    {
+        console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -253,6 +258,40 @@ public class StatsController : MonoBehaviour
             return ((80 * currentLevel) + ((int)Mathf.Pow(currentLevel, 2)) + ((int)Mathf.Pow(currentLevel - 1, 2))) - xp;
     }
 
+    public void GrantXPAndCheckIfLevelGained(int xp, string baseStatName)
+    {
+        int totalXP = xp;
+        System.Reflection.FieldInfo skillLevel, skillXP;
+        try
+        {
+            
+            skillLevel = this.GetType().GetField(baseStatName);
+            Debug.Log((int)skillLevel.GetValue(this));
+            skillXP = this.GetType().GetField("xp" + baseStatName);
+        }
+        catch (Exception e)
+        {
+            Debug.Log($"Could not find skill matching {baseStatName}");
+            return;
+        }
+        Debug.Log(skillXP.GetValue(this));
+        Debug.Log((int)skillXP.GetValue(this));
+        totalXP += (int)skillXP.GetValue(this);
+
+        skillXP.SetValue(this, totalXP);
+
+
+        int xpLeft = CheckIfLevelGained(totalXP, (int)skillLevel.GetValue(this));
+        while (xpLeft <= 0) //level gained
+        {
+            skillLevel.SetValue(this, (int)skillLevel.GetValue(this) + 1);
+            skillXP.SetValue(this, xpLeft*-1);
+            xpLeft = CheckIfLevelGained((int)skillXP.GetValue(this), (int)skillLevel.GetValue(this));
+            console.AddConsoleMessage1($"You are now level <color={Colors.gold}> {(int)skillLevel.GetValue(this)}</color> in {baseStatName}!");
+
+        }
+        
+    }
 
 
 }

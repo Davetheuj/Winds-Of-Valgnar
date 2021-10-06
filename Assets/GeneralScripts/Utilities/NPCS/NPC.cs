@@ -99,17 +99,7 @@ public class NPC : MonoBehaviour
         {
            
             state = 0;//npc is dead
-            playerStats.generalXP += xpGranted;
             console.AddConsoleMessage1($"<color={Colors.tan}>{npcName}</color> has died!");
-            console.AddConsoleMessage1($"You have gained <color={Colors.magenta}>{xpGranted}</color> XP!");
-            int xpLeft = playerStats.CheckIfLevelGained(playerStats.generalXP, playerStats.level);
-            while (xpLeft <= 0) //level gained
-            {
-                playerStats.level += 1;
-                playerStats.generalXP = -1 * xpLeft;
-                xpLeft = playerStats.CheckIfLevelGained(playerStats.generalXP, playerStats.level);
-                console.AddConsoleMessage1($"You are now level <color={Colors.gold}>{playerStats.level}</color>!");
-            }
             playerStats.honor += honorGranted;
             playerStats.renown += renownGranted;
             playerStats.popularity += popularityGranted;

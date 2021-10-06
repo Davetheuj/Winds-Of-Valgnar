@@ -50,7 +50,7 @@ public class SerializableStatsController
     public int Woodcutting;
     public int Enchanting;
 
-    public int shortSword;
+    public int Short_Sword;
     public int longSword;
     public int greatSword;
     public int shield;
@@ -82,7 +82,7 @@ public class SerializableStatsController
     public int xpWoodcutting;
     public int xpEnchanting;
 
-    public int xpshortSword;
+    public int xpShort_Sword;
     public int xplongSword;
     public int xpgreatSword;
     public int xpshield;
@@ -153,7 +153,7 @@ public class SerializableStatsController
         renown = loadedStats.renown;
         popularity = loadedStats.popularity;
 
-    shortSword = loadedStats.shortSword;
+    Short_Sword = loadedStats.Short_Sword;
     longSword = loadedStats.longSword;
     greatSword  = loadedStats.greatSword;
     shield = loadedStats.shield;
@@ -181,7 +181,7 @@ public class SerializableStatsController
         xpWoodcutting = loadedStats.xpWoodcutting;
         xpEnchanting = loadedStats.xpEnchanting;
 
-        xpshortSword = loadedStats.xpshortSword;
+        xpShort_Sword = loadedStats.xpShort_Sword;
         xplongSword = loadedStats.xplongSword;
         xpgreatSword = loadedStats.xpgreatSword;
         xpshield = loadedStats.xpshield;

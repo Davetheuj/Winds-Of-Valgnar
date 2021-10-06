@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+using System.Text;
 
 public class StatsController : MonoBehaviour
 {
@@ -50,7 +50,7 @@ public class StatsController : MonoBehaviour
     public int Woodcutting;
     public int Enchanting;
 
-    public int shortSword;
+    public int Short_Sword;
     public int longSword;
     public int greatSword;
     public int shield;
@@ -83,7 +83,7 @@ public class StatsController : MonoBehaviour
     public int xpWoodcutting;
     public int xpEnchanting;
 
-    public int xpshortSword;
+    public int xpShort_Sword;
     public int xplongSword;
     public int xpgreatSword;
     public int xpshield;
@@ -189,7 +189,7 @@ public class StatsController : MonoBehaviour
      Woodcutting = loadedStats.Woodcutting;
      Enchanting = loadedStats.Enchanting;
 
-        shortSword = loadedStats.shortSword;
+        Short_Sword = loadedStats.Short_Sword;
         longSword = loadedStats.longSword;
         greatSword = loadedStats.greatSword;
         shield = loadedStats.shield;
@@ -221,7 +221,7 @@ public class StatsController : MonoBehaviour
         xpWoodcutting = loadedStats.xpWoodcutting;
         xpEnchanting = loadedStats.xpEnchanting;
 
-        xpshortSword = loadedStats.xpshortSword;
+        xpShort_Sword = loadedStats.xpShort_Sword;
         xplongSword = loadedStats.xplongSword;
         xpgreatSword = loadedStats.xpgreatSword;
         xpshield = loadedStats.xpshield;
@@ -281,10 +281,25 @@ public class StatsController : MonoBehaviour
             skillLevel.SetValue(this, (int)skillLevel.GetValue(this) + 1);
             skillXP.SetValue(this, xpLeft*-1);
             xpLeft = CheckIfLevelGained((int)skillXP.GetValue(this), (int)skillLevel.GetValue(this));
-            console.AddConsoleMessage1($"You are now level <color={Colors.gold}> {(int)skillLevel.GetValue(this)}</color> in {baseStatName}!");
+            console.AddConsoleMessage1($"You are now level <color={Colors.gold}> {(int)skillLevel.GetValue(this)}</color> in {getStatName(baseStatName)}s!");
 
         }
         
+    }
+
+    private string getStatName(string original)
+    {
+        String[] array = original.Split('_');
+        StringBuilder newString = new StringBuilder();
+        for(int i = 0; i<array.Length; i++)
+        {
+            newString.Append(array[i]);
+            if(i!=array.Length - 1)
+            {
+                newString.Append(" ");
+            }
+        }
+        return newString.ToString();
     }
 
 

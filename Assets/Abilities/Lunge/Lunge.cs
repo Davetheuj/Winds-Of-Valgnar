@@ -35,7 +35,7 @@ public class Lunge : MonoBehaviour
         player = GameObject.Find("Player");
         weapon = GameObject.Find("Hand_R").GetComponentInChildren<Item>().gameObject;
         damage = (int)(player.GetComponent<StatsController>().currentStrength / strengthModifier);
-        player.GetComponent<StatsController>().GrantXPAndCheckIfLevelGained(100, "shortSword");
+        player.GetComponent<StatsController>().GrantXPAndCheckIfLevelGained(100, "Short_Sword");
    
        
 

@@ -50,6 +50,25 @@ public class SerializableStatsController
     public int Woodcutting;
     public int Enchanting;
 
+    public int shortSword;
+    public int longSword;
+    public int greatSword;
+    public int shield;
+    public int axe;
+    public int greatAxe;
+    public int staff;
+    public int wand;
+    public int heavyArmor;
+    public int mediumArmor;
+    public int lightArmor;
+    public int bow;
+    public int throwingKnife;
+    public int crossBow;
+    public int throwingDagger;
+    public int destruction;
+    public int illusion;
+    public int restoration;
+
     public int renown;
     public int popularity;
     public int honor;
@@ -62,7 +81,26 @@ public class SerializableStatsController
     public int xpFishing;
     public int xpWoodcutting;
     public int xpEnchanting;
-           
+
+    public int xpshortSword;
+    public int xplongSword;
+    public int xpgreatSword;
+    public int xpshield;
+    public int xpaxe;
+    public int xpgreatAxe;
+    public int xpstaff;
+    public int xpwand;
+    public int xpheavyArmor;
+    public int xpmediumArmor;
+    public int xplightArmor;
+    public int xpbow;
+    public int xpthrowingKnife;
+    public int xpcrossBow;
+    public int xpthrowingDagger;
+    public int xpdestruction;
+    public int xpillusion;
+    public int xprestoration;
+
     public int generalXP;
 
     public int level;
@@ -115,7 +153,26 @@ public class SerializableStatsController
         renown = loadedStats.renown;
         popularity = loadedStats.popularity;
 
-        xpAlchemy = loadedStats.xpAlchemy;
+    shortSword = loadedStats.shortSword;
+    longSword = loadedStats.longSword;
+    greatSword  = loadedStats.greatSword;
+    shield = loadedStats.shield;
+    axe = loadedStats.axe;
+    greatAxe = loadedStats.greatAxe;
+    staff = loadedStats.staff;
+    wand = loadedStats.wand;
+    heavyArmor = loadedStats.heavyArmor;
+    mediumArmor = loadedStats.mediumArmor;
+    lightArmor = loadedStats.lightArmor;
+    bow = loadedStats.bow;
+    throwingKnife = loadedStats.throwingKnife;
+    crossBow = loadedStats.crossBow;
+    throwingDagger = loadedStats.throwingDagger;
+    destruction = loadedStats.destruction;
+    illusion = loadedStats.illusion;
+    restoration = loadedStats.restoration;
+
+    xpAlchemy = loadedStats.xpAlchemy;
         xpPickpocketing = loadedStats.xpPickpocketing;
         xpSmithing = loadedStats.xpSmithing;
         xpCrafting = loadedStats.xpCrafting;
@@ -123,6 +180,27 @@ public class SerializableStatsController
         xpFishing = loadedStats.xpFishing;
         xpWoodcutting = loadedStats.xpWoodcutting;
         xpEnchanting = loadedStats.xpEnchanting;
+
+        xpshortSword = loadedStats.xpshortSword;
+        xplongSword = loadedStats.xplongSword;
+        xpgreatSword = loadedStats.xpgreatSword;
+        xpshield = loadedStats.xpshield;
+        xpaxe = loadedStats.xpaxe;
+        xpgreatAxe = loadedStats.xpgreatAxe;
+        xpstaff = loadedStats.xpstaff;
+        xpwand = loadedStats.xpwand;
+        xpheavyArmor = loadedStats.xpheavyArmor;
+        xpmediumArmor = loadedStats.xpmediumArmor;
+        xplightArmor = loadedStats.xplightArmor;
+        xpbow = loadedStats.xpbow;
+        xpthrowingKnife = loadedStats.xpthrowingKnife;
+        xpcrossBow = loadedStats.xpcrossBow;
+        xpthrowingDagger = loadedStats.xpthrowingDagger;
+        xpdestruction = loadedStats.xpdestruction;
+        xpillusion = loadedStats.xpillusion;
+        xprestoration = loadedStats.xprestoration;
+
+
 
         generalXP = loadedStats.generalXP;
 

@@ -25,7 +25,6 @@ public class StatsController : MonoBehaviour
     public EquipmentController equipmentController;
 
     public int currentStrength;
-    
     public int currentWisdom;
     public int currentDexterity;
     public int currentSpirit = 15;
@@ -34,7 +33,6 @@ public class StatsController : MonoBehaviour
     public int currentCharisma;
 
     public int maxStrength;
-  
     public int maxWisdom;
     public int maxDexterity;
     public int maxSpirit = 15;
@@ -43,13 +41,33 @@ public class StatsController : MonoBehaviour
     public int maxCharisma;
 
     public int Alchemy;
-    public int Pickpocketing;
+    public int Pickpocketing; 
     public int Smithing;
     public int Crafting;
     public int Cooking;
     public int Fishing;
     public int Woodcutting;
     public int Enchanting;
+
+    public int shortSword;
+    public int longSword;
+    public int greatSword;
+    public int shield;
+    public int axe;
+    public int greatAxe;
+    public int staff;
+    public int wand;
+    public int heavyArmor;
+    public int mediumArmor;
+    public int lightArmor;
+    public int bow;
+    public int throwingKnife;
+    public int crossBow;
+    public int throwingDagger;
+    public int destruction;
+    public int illusion;
+    public int restoration;
+
 
     public int renown;
     public int popularity;
@@ -63,6 +81,25 @@ public class StatsController : MonoBehaviour
     public int xpFishing;
     public int xpWoodcutting;
     public int xpEnchanting;
+
+    public int xpshortSword;
+    public int xplongSword;
+    public int xpgreatSword;
+    public int xpshield;
+    public int xpaxe;
+    public int xpgreatAxe;
+    public int xpstaff;
+    public int xpwand;
+    public int xpheavyArmor;
+    public int xpmediumArmor;
+    public int xplightArmor;
+    public int xpbow;
+    public int xpthrowingKnife;
+    public int xpcrossBow;
+    public int xpthrowingDagger;
+    public int xpdestruction;
+    public int xpillusion;
+    public int xprestoration;
 
     public int generalXP;
     public int level = 1;
@@ -149,6 +186,25 @@ public class StatsController : MonoBehaviour
      Woodcutting = loadedStats.Woodcutting;
      Enchanting = loadedStats.Enchanting;
 
+        shortSword = loadedStats.shortSword;
+        longSword = loadedStats.longSword;
+        greatSword = loadedStats.greatSword;
+        shield = loadedStats.shield;
+        axe = loadedStats.axe;
+        greatAxe = loadedStats.greatAxe;
+        staff = loadedStats.staff;
+        wand = loadedStats.wand;
+        heavyArmor = loadedStats.heavyArmor;
+        mediumArmor = loadedStats.mediumArmor;
+        lightArmor = loadedStats.lightArmor;
+        bow = loadedStats.bow;
+        throwingKnife = loadedStats.throwingKnife;
+        crossBow = loadedStats.crossBow;
+        throwingDagger = loadedStats.throwingDagger;
+        destruction = loadedStats.destruction;
+        illusion = loadedStats.illusion;
+        restoration = loadedStats.restoration;
+
         honor = loadedStats.honor;
         renown = loadedStats.renown;
         popularity = loadedStats.popularity;
@@ -161,6 +217,27 @@ public class StatsController : MonoBehaviour
         xpFishing = loadedStats.xpFishing;
         xpWoodcutting = loadedStats.xpWoodcutting;
         xpEnchanting = loadedStats.xpEnchanting;
+
+        xpshortSword = loadedStats.xpshortSword;
+        xplongSword = loadedStats.xplongSword;
+        xpgreatSword = loadedStats.xpgreatSword;
+        xpshield = loadedStats.xpshield;
+        xpaxe = loadedStats.xpaxe;
+        xpgreatAxe = loadedStats.xpgreatAxe;
+        xpstaff = loadedStats.xpstaff;
+        xpwand = loadedStats.xpwand;
+        xpheavyArmor = loadedStats.xpheavyArmor;
+        xpmediumArmor = loadedStats.xpmediumArmor;
+        xplightArmor = loadedStats.xplightArmor;
+        xpbow = loadedStats.xpbow;
+        xpthrowingKnife = loadedStats.xpthrowingKnife;
+        xpcrossBow = loadedStats.xpcrossBow;
+        xpthrowingDagger = loadedStats.xpthrowingDagger;
+        xpdestruction = loadedStats.xpdestruction;
+        xpillusion = loadedStats.xpillusion;
+        xprestoration = loadedStats.xprestoration;
+
+
 
         generalXP = loadedStats.generalXP;
 

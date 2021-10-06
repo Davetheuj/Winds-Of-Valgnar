@@ -90,10 +90,7 @@ public class JournalController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CreateNewEntry("This is an entry",1);
-        CreateNewEntry("This is another entry",1);
-        CreateNewEntry("This is a final entry",1);
-        CreateNewEntry("But wait, there's more!",1);
+
     }
 
     // Update is called once per frame

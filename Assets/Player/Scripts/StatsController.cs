@@ -102,8 +102,6 @@ public class StatsController : MonoBehaviour
     public int xpillusion;
     public int xprestoration;
 
-    public int generalXP;
-    public int level = 1;
 
     void Start()
     {
@@ -243,10 +241,6 @@ public class StatsController : MonoBehaviour
         xprestoration = loadedStats.xprestoration;
 
 
-
-        generalXP = loadedStats.generalXP;
-
-        level = loadedStats.level;
 
     }
 

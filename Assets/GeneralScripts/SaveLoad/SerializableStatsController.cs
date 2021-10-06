@@ -202,9 +202,5 @@ public class SerializableStatsController
 
 
 
-        generalXP = loadedStats.generalXP;
-
-        level = loadedStats.level;
-
 }
 }

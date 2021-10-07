@@ -279,7 +279,8 @@ public class StatsController : MonoBehaviour
             skillLevel.SetValue(this, (int)skillLevel.GetValue(this) + 1);
             skillXP.SetValue(this, xpLeft*-1);
             xpLeft = CheckIfLevelGained((int)skillXP.GetValue(this), (int)skillLevel.GetValue(this));
-            console.AddConsoleMessage1($"You are now level <color={Colors.gold}> {(int)skillLevel.GetValue(this)}</color> in {getStatName(baseStatName)}s!");
+            console.AddConsoleMessage1($"Your skill has increased with {getStatName(baseStatName)}!");
+            console.AddConsoleMessage1($"You are now level <color={Colors.gold}> {(int)skillLevel.GetValue(this)}</color>!");
 
         }
         

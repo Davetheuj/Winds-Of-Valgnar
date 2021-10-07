@@ -50,28 +50,29 @@ public class SerializableStatsController
     public int Woodcutting;
     public int Enchanting;
 
-    public int Short_Sword;
-    public int longSword;
-    public int greatSword;
-    public int shield;
-    public int axe;
-    public int greatAxe;
-    public int staff;
-    public int wand;
-    public int heavyArmor;
-    public int mediumArmor;
-    public int lightArmor;
-    public int bow;
-    public int throwingKnife;
-    public int crossBow;
-    public int throwingDagger;
-    public int destruction;
-    public int illusion;
-    public int restoration;
+    public int Short_Swords;
+    public int Long_Swords;
+    public int Great_Swords;
+    public int Shields;
+    public int Axes;
+    public int Blunt_Weapons;
+    public int Great_Axes;
+    public int Staves;
+    public int Wands;
+    public int Heavy_Armors;
+    public int Medium_Armors;
+    public int Light_Armors;
+    public int Bows;
+    public int Throwing_Knives;
+    public int Cross_Bows;
+    public int Throwing_Daggers;
+    public int Destruction;
+    public int Illusion;
+    public int Restoration;
 
+    public int honor;
     public int renown;
     public int popularity;
-    public int honor;
 
     public int xpAlchemy;
     public int xpPickpocketing;
@@ -82,28 +83,26 @@ public class SerializableStatsController
     public int xpWoodcutting;
     public int xpEnchanting;
 
-    public int xpShort_Sword;
-    public int xplongSword;
-    public int xpgreatSword;
-    public int xpshield;
-    public int xpaxe;
-    public int xpgreatAxe;
-    public int xpstaff;
-    public int xpwand;
-    public int xpheavyArmor;
-    public int xpmediumArmor;
-    public int xplightArmor;
-    public int xpbow;
-    public int xpthrowingKnife;
-    public int xpcrossBow;
-    public int xpthrowingDagger;
-    public int xpdestruction;
-    public int xpillusion;
-    public int xprestoration;
+    public int xpShort_Swords;
+    public int xpLong_Swords;
+    public int xpGreat_Swords;
+    public int xpShields;
+    public int xpAxes;
+    public int xpBlunt_Weapons;
+    public int xpGreat_Axes;
+    public int xpStaves;
+    public int xpWands;
+    public int xpHeavy_Armors;
+    public int xpMedium_Armors;
+    public int xpLight_Armors;
+    public int xpBows;
+    public int xpThrowing_Knives;
+    public int xpCross_Bows;
+    public int xpThrowing_Daggers;
+    public int xpDestruction;
+    public int xpIllusion;
+    public int xpRestoration;
 
-    public int generalXP;
-
-    public int level;
     public SerializableStatsController(StatsController loadedStats)
     {
         zoneName = loadedStats.zoneName;
@@ -124,7 +123,6 @@ public class SerializableStatsController
 
 
         currentStrength = loadedStats.currentStrength;
-
         currentWisdom = loadedStats.currentWisdom;
         currentDexterity = loadedStats.currentDexterity;
         currentSpirit = loadedStats.currentSpirit;
@@ -133,7 +131,6 @@ public class SerializableStatsController
         currentCharisma = loadedStats.currentLuck;
 
         maxStrength = loadedStats.maxStrength;
-
         maxWisdom = loadedStats.maxWisdom; ;
         maxDexterity = loadedStats.maxDexterity;
         maxSpirit = loadedStats.maxSpirit;
@@ -149,30 +146,32 @@ public class SerializableStatsController
         Fishing = loadedStats.Fishing;
         Woodcutting = loadedStats.Woodcutting;
         Enchanting = loadedStats.Enchanting;
+
+        Short_Swords = loadedStats.Short_Swords;
+        Long_Swords = loadedStats.Long_Swords;
+        Great_Swords = loadedStats.Great_Swords;
+        Shields = loadedStats.Shields;
+        Axes = loadedStats.Axes;
+        Blunt_Weapons = loadedStats.Blunt_Weapons;
+        Great_Axes = loadedStats.Great_Axes;
+        Staves = loadedStats.Staves;
+        Wands = loadedStats.Wands;
+        Heavy_Armors = loadedStats.Heavy_Armors;
+        Medium_Armors = loadedStats.Medium_Armors;
+        Light_Armors = loadedStats.Light_Armors;
+        Bows = loadedStats.Bows;
+        Throwing_Knives = loadedStats.Throwing_Knives;
+        Cross_Bows = loadedStats.Cross_Bows;
+        Throwing_Daggers = loadedStats.Throwing_Daggers;
+        Destruction = loadedStats.Destruction;
+        Illusion = loadedStats.Illusion;
+        Restoration = loadedStats.Restoration;
+
         honor = loadedStats.honor;
         renown = loadedStats.renown;
         popularity = loadedStats.popularity;
 
-    Short_Sword = loadedStats.Short_Sword;
-    longSword = loadedStats.longSword;
-    greatSword  = loadedStats.greatSword;
-    shield = loadedStats.shield;
-    axe = loadedStats.axe;
-    greatAxe = loadedStats.greatAxe;
-    staff = loadedStats.staff;
-    wand = loadedStats.wand;
-    heavyArmor = loadedStats.heavyArmor;
-    mediumArmor = loadedStats.mediumArmor;
-    lightArmor = loadedStats.lightArmor;
-    bow = loadedStats.bow;
-    throwingKnife = loadedStats.throwingKnife;
-    crossBow = loadedStats.crossBow;
-    throwingDagger = loadedStats.throwingDagger;
-    destruction = loadedStats.destruction;
-    illusion = loadedStats.illusion;
-    restoration = loadedStats.restoration;
-
-    xpAlchemy = loadedStats.xpAlchemy;
+        xpAlchemy = loadedStats.xpAlchemy;
         xpPickpocketing = loadedStats.xpPickpocketing;
         xpSmithing = loadedStats.xpSmithing;
         xpCrafting = loadedStats.xpCrafting;
@@ -181,26 +180,27 @@ public class SerializableStatsController
         xpWoodcutting = loadedStats.xpWoodcutting;
         xpEnchanting = loadedStats.xpEnchanting;
 
-        xpShort_Sword = loadedStats.xpShort_Sword;
-        xplongSword = loadedStats.xplongSword;
-        xpgreatSword = loadedStats.xpgreatSword;
-        xpshield = loadedStats.xpshield;
-        xpaxe = loadedStats.xpaxe;
-        xpgreatAxe = loadedStats.xpgreatAxe;
-        xpstaff = loadedStats.xpstaff;
-        xpwand = loadedStats.xpwand;
-        xpheavyArmor = loadedStats.xpheavyArmor;
-        xpmediumArmor = loadedStats.xpmediumArmor;
-        xplightArmor = loadedStats.xplightArmor;
-        xpbow = loadedStats.xpbow;
-        xpthrowingKnife = loadedStats.xpthrowingKnife;
-        xpcrossBow = loadedStats.xpcrossBow;
-        xpthrowingDagger = loadedStats.xpthrowingDagger;
-        xpdestruction = loadedStats.xpdestruction;
-        xpillusion = loadedStats.xpillusion;
-        xprestoration = loadedStats.xprestoration;
+        xpShort_Swords = loadedStats.xpShort_Swords;
+        xpLong_Swords = loadedStats.xpLong_Swords;
+        xpGreat_Swords = loadedStats.xpGreat_Swords;
+        xpShields = loadedStats.xpShields;
+        xpAxes = loadedStats.xpAxes;
+        xpBlunt_Weapons = loadedStats.xpBlunt_Weapons;
+        xpGreat_Axes = loadedStats.xpGreat_Axes;
+        xpStaves = loadedStats.xpStaves;
+        xpWands = loadedStats.xpWands;
+        xpHeavy_Armors = loadedStats.xpHeavy_Armors;
+        xpMedium_Armors = loadedStats.xpMedium_Armors;
+        xpLight_Armors = loadedStats.xpLight_Armors;
+        xpBows = loadedStats.xpBows;
+        xpThrowing_Knives = loadedStats.xpThrowing_Knives;
+        xpCross_Bows = loadedStats.xpCross_Bows;
+        xpThrowing_Daggers = loadedStats.xpThrowing_Daggers;
+        xpDestruction = loadedStats.xpDestruction;
+        xpIllusion = loadedStats.xpIllusion;
+        xpRestoration = loadedStats.xpRestoration;
 
 
 
-}
+    }
 }

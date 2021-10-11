@@ -5,32 +5,60 @@ using UnityEngine.SceneManagement;
 
 public class SpatialTRController : MonoBehaviour
 {
-    
-
+    [SerializeField]
+    private string animationName;
     // public bool isLooping; haven't added this yet dont worry about it
     public float startDelay; //how long it will take before the camera motion starts
+    public float initialStartDelay;
     public List<Vector3> positionList; //list of positions for the camera to interpolate between
     public List<float> positionLerpSpeedList; //a factor controling the spped at which the camera will interpolate (positional)
     public List<Vector3> rotationList; //list of rotations for the camera to interpolate between
     public List<float> rotationLerpSpeedList; //a factor controlling the speed at which the camera will interpolate (rotational)
     public List<float> transitionTimeList; //the time spent lerping towards each position/rotation/intensity/smoothness
-    private Transform gameObject; //set automatically in MonoBehaviour.Start()
+    private Transform parentObject; //set automatically in MonoBehaviour.Start()
     private int counter; //a counter to tell which properties to lerp towards.
     public bool isFinished;
+    private Vector3 initialPosition;
+    private Vector3 initialRotation;
+    public float resetTime; //how much time is spent transitioning between the 2nd to final and final rotation and position
+    public float finalPositionLerpSpeed;
+    public float finalRotationLerpSpeed;
+
+    private bool initialized;
+
+    public Animator animator;
+
+
+
     void Update()
     {
+        if (!initialized)
+        {
+            setInitialValues();
+            initialized = true;
+        }
+
         if (transitionTimeList[transitionTimeList.Count - 1] <= 0) //if the final transition timer has expired
         {
-            Destroy(this);
+            animator.SetBool("ShouldAnimate", true);
+            this.enabled = false;
+            initialized = false;
+
+            positionList.RemoveAt(positionList.Count-1);
+            rotationList.RemoveAt(rotationList.Count - 1);
+            transitionTimeList.RemoveAt(transitionTimeList.Count - 1);
+            positionLerpSpeedList.RemoveAt(positionLerpSpeedList.Count - 1);
+            rotationLerpSpeedList.RemoveAt(rotationLerpSpeedList.Count - 1);
+
             return;
         }
 
-        if (startDelay < 0)
+        if (startDelay <= 0)
         {
             //sets the camera position
-            gameObject.position = Vector3.Lerp(gameObject.position, positionList[counter], positionLerpSpeedList[counter] * Time.deltaTime);
+            parentObject.localPosition = Vector3.Lerp(parentObject.localPosition, initialPosition + positionList[counter], positionLerpSpeedList[counter] * Time.deltaTime);
             //sets the camera rotatiom
-            gameObject.rotation = Quaternion.Euler(Vector3.Lerp(gameObject.rotation.eulerAngles, rotationList[counter], rotationLerpSpeedList[counter] * Time.deltaTime));
+            parentObject.localRotation = Quaternion.Euler(Vector3.Lerp(parentObject.localRotation.eulerAngles, initialRotation + rotationList[counter], rotationLerpSpeedList[counter] * Time.deltaTime));
             //keeping track of time
             transitionTimeList[counter] -= Time.deltaTime;
             //checking to see if property change is needed
@@ -42,9 +70,22 @@ public class SpatialTRController : MonoBehaviour
         }
         startDelay -= Time.deltaTime;
     }
-    private void Start()
+    private void setInitialValues()
     {
-        //setting some initial properties. Shader properties are saved at runtime so will be altered usually.
-        gameObject = this.gameObject.transform;
+        startDelay = initialStartDelay;
+        counter = 0;
+        parentObject = this.gameObject.transform;
+        initialPosition = parentObject.localPosition;
+        initialRotation = parentObject.localRotation.eulerAngles;
+
+        positionList.Add(initialPosition);
+        rotationList.Add(initialRotation);
+        transitionTimeList.Add(resetTime);
+        positionLerpSpeedList.Add(finalPositionLerpSpeed);
+        rotationLerpSpeedList.Add(finalRotationLerpSpeed);
+
+        animator = this.gameObject.GetComponentInParent<Animator>();
+        animator.SetBool("ShouldAnimate", false);
+
     }
 }

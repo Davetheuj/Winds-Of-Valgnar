@@ -37371,8 +37371,120 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 898636132714816541, guid: e04507b77d61fcd4599598aa7385c676,
+        type: 3}
+      propertyPath: classification
+      value: '"Short_Swords"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5552361926028216408, guid: e04507b77d61fcd4599598aa7385c676,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5552361926028216408, guid: e04507b77d61fcd4599598aa7385c676,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e04507b77d61fcd4599598aa7385c676, type: 3}
+--- !u!1 &1865434854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4479989640100468894, guid: e04507b77d61fcd4599598aa7385c676,
+    type: 3}
+  m_PrefabInstance: {fileID: 1865434853}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1865434855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865434854}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e56dc9595d1ab4b8ce62612cbdc4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: Lunge
+  startDelay: 0
+  positionList:
+  - {x: 0.3, y: 0, z: 0.5}
+  positionLerpSpeedList:
+  - 30
+  rotationList:
+  - {x: 0, y: 0, z: 0}
+  rotationLerpSpeedList:
+  - 0
+  transitionTimeList:
+  - 0.2
+  isFinished: 0
+  resetTime: 0.2
+  finalPositionLerpSpeed: 500
+  finalRotationLerpSpeed: 0
+  animator: {fileID: 0}
+--- !u!114 &1865434856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865434854}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559c96906b8a14d4693e7835e01c1c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 0
+  positionList:
+  - {x: 0.3, y: 0, z: 0.5}
+  positionLerpSpeedList:
+  - 30
+  rotationList:
+  - {x: 0, y: 0, z: 0}
+  rotationLerpSpeedList:
+  - 1
+  transitionTimeList:
+  - 0.2
+  isFinished: 0
+  resetTime: 0.2
+  finalPositionLerpSpeed: 500
+  finalRotationLerpSpeed: 1
+  animator: {fileID: 0}
+--- !u!114 &1865434857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865434854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbed939254cf84614a9a6a5f95e91f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotType: 0
+  equipment: {fileID: 0}
+  shapeKeyValues: 000000000000000000000000000000000000000000000000
+  modifierHitPoints: 0
+  modifierMana: 0
+  modifierStrength: 0
+  modifierIntelligence: 0
+  modifierWisdom: 0
+  modifierDexterity: 0
+  modifierSpirit: 0
+  modifierResolve: 0
+  modifierLuck: 0
+  modifierCharisma: 0
+  resistanceArmor: 0
+  resistanceHoly: 0
+  resistanceVoid: 0
+  resistanceFire: 0
+  resistanceWater: 0
+  resistanceElectric: 0
+  resistanceEarth: 0
+  animations: []
+  weaponType: '"Short_Swords"'
 --- !u!1001 &1867860552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45278,17 +45390,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b29076777ac454d84038e0886c836a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  console: {fileID: 0}
+  statusController: {fileID: 1995853259}
+  equipmentController: {fileID: 300811376}
   zoneName: AlphaZoneScene
   playerName: TestPlayer
+  time: 0
   currentMana: 5000
   currentHealth: 500
   maxHealth: 500
   maxMana: 5000
-  maxIntellect: 50
   currentIntellect: 50
-  time: 0
-  statusController: {fileID: 1995853259}
-  equipmentController: {fileID: 300811376}
   currentStrength: 0
   currentWisdom: 0
   currentDexterity: 0
@@ -45296,6 +45408,7 @@ MonoBehaviour:
   currentResolve: 15
   currentLuck: 0
   currentCharisma: 0
+  maxIntellect: 50
   maxStrength: 0
   maxWisdom: 0
   maxDexterity: 0
@@ -45311,9 +45424,28 @@ MonoBehaviour:
   Fishing: 0
   Woodcutting: 0
   Enchanting: 0
+  Short_Swords: 0
+  Long_Swords: 0
+  Great_Swords: 0
+  Shields: 0
+  Axes: 0
+  Blunt_Weapons: 0
+  Great_Axes: 0
+  Staves: 0
+  Wands: 0
+  Heavy_Armors: 0
+  Medium_Armors: 0
+  Light_Armors: 0
+  Bows: 0
+  Throwing_Knives: 0
+  Cross_Bows: 0
+  Throwing_Daggers: 0
+  Destruction: 0
+  Illusion: 0
+  Restoration: 0
+  honor: 0
   renown: 0
   popularity: 0
-  honor: 0
   xpAlchemy: 0
   xpPickpocketing: 0
   xpSmithing: 0
@@ -45322,7 +45454,25 @@ MonoBehaviour:
   xpFishing: 0
   xpWoodcutting: 0
   xpEnchanting: 0
-  generalXP: 0
+  xpShort_Swords: 0
+  xpLong_Swords: 0
+  xpGreat_Swords: 0
+  xpShields: 0
+  xpAxes: 0
+  xpBlunt_Weapons: 0
+  xpGreat_Axes: 0
+  xpStaves: 0
+  xpWands: 0
+  xpHeavy_Armors: 0
+  xpMedium_Armors: 0
+  xpLight_Armors: 0
+  xpBows: 0
+  xpThrowing_Knives: 0
+  xpCross_Bows: 0
+  xpThrowing_Daggers: 0
+  xpDestruction: 0
+  xpIllusion: 0
+  xpRestoration: 0
 --- !u!114 &5899831225901927804
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LungeTRController : MonoBehaviour
 {
-
-
     // public bool isLooping; haven't added this yet dont worry about it
     public float startDelay; //how long it will take before the camera motion starts
     public List<Vector3> positionList; //list of positions for the camera to interpolate between
@@ -17,7 +15,6 @@ public class LungeTRController : MonoBehaviour
     private Transform parentObject; //set automatically in MonoBehaviour.Start()
     private int counter; //a counter to tell which properties to lerp towards.
     public bool isFinished;
-
     private Vector3 initialPosition;
     private Vector3 initialRotation;
     public float resetTime; //how much time is spent transitioning between the 2nd to final and final rotation and position

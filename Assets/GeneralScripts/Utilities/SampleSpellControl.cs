@@ -37,8 +37,8 @@ public class SampleSpellControl : MonoBehaviour
         transform.SetPositionAndRotation(player.transform.position,player.transform.rotation);
         console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
         console.AddConsoleMessage1($"You cast <color={Colors.cyan}>{abilityName}</color> at <color={Colors.tan}>{target.GetComponent<NPC>().npcName}</color>!");
+       
 
-      
     }
 
         // Update is called once per frame
@@ -77,6 +77,7 @@ public class SampleSpellControl : MonoBehaviour
             damage = (int) (damage * Random.value);
             target.GetComponent<NPC>().DealDamageToNpc(damage);
             console.AddConsoleMessage1($"<color={Colors.cyan}>{abilityName}</color> deals <color={Colors.red}>{damage}</color> damage to <color={Colors.tan}>{target.GetComponent<NPC>().npcName}</color>!");
+            player.GetComponent<StatsController>().GrantXPAndCheckIfLevelGained(damage*4, "Destruction");
             StartCoroutine(WaitAndDestroy());
 
         }

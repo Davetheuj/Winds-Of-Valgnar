@@ -121,7 +121,7 @@ public class StatsController : MonoBehaviour
         }
         if(currentHealth <= 0)
         {
-            Debug.Log("toggling isDead");
+          
             this.gameObject.GetComponent<DeathController>().ExecuteDeathRoutine();
             this.gameObject.GetComponent<DeathController>().isDead = true;
         }

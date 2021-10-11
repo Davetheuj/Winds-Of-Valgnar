@@ -30,15 +30,21 @@ public class Equipment : MonoBehaviour
     public int resistanceElectric;
     public int resistanceEarth;
 
+    public SpatialTRController[] animations; //Attach the TR controller scripts to the equipment in the editor
+
+    public string weaponType;
     
 
     private void Start()
     {
-        equipment = GameObject.Find("GUI").transform.Find("EquipmentCanvas").Find("EquipmentPanel").GetComponent<EquipmentController>();
-       
+        //equipment = GameObject.Find("EquipmentPanel").GetComponent<EquipmentController>();
 
-        
+        animations = this.gameObject.GetComponents<SpatialTRController>();
+    }
 
+    public void SelectAndEnableRandomAnimation()
+    {
+        animations[0].enabled = true;
     }
 
    

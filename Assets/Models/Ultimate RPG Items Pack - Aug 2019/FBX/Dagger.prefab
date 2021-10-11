@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5552361926028216408}
   - component: {fileID: 5552361926028216410}
   - component: {fileID: 5552361926028216409}
+  - component: {fileID: 898636132714816541}
   m_Layer: 0
   m_Name: Dagger
   m_TagString: Untagged
@@ -60,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7188760151319342503, guid: 66c609434fda2479dbf29501ddfec59d, type: 3}
+  - {fileID: 2100000, guid: 53aad9b06b40461499828b7564aff6d4, type: 2}
   - {fileID: -6477940958727351939, guid: 66c609434fda2479dbf29501ddfec59d, type: 3}
   - {fileID: -8367705006879899164, guid: 66c609434fda2479dbf29501ddfec59d, type: 3}
   - {fileID: 763599606711622024, guid: 66c609434fda2479dbf29501ddfec59d, type: 3}
@@ -128,3 +129,15 @@ MonoBehaviour:
   inventoryButtonPrefab: {fileID: 0}
   toolTip: {fileID: 0}
   toolTipText: {fileID: 0}
+--- !u!114 &898636132714816541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4479989640100468894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d34789efef51694d8ea17a34c75f741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

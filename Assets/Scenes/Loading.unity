@@ -37410,7 +37410,7 @@ MonoBehaviour:
   startDelay: 0
   initialStartDelay: 0
   positionList:
-  - {x: 0.5, y: 0, z: 1}
+  - {x: 0.25, y: 0, z: 1.5}
   positionLerpSpeedList:
   - 10
   rotationList:
@@ -37418,12 +37418,12 @@ MonoBehaviour:
   rotationLerpSpeedList:
   - 0
   transitionTimeList:
-  - 0.2
+  - 0.3
   isFinished: 0
   resetTime: 0.2
-  finalPositionLerpSpeed: 500
+  finalPositionLerpSpeed: 20
   finalRotationLerpSpeed: 0
-  animator: {fileID: 0}
+  animator: {fileID: 608270359656543198}
 --- !u!114 &1865434857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45134,13 +45134,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2.09
-  m_Radius: 0.32
+  m_Height: 1.8
+  m_Radius: 0.88
   m_SlopeLimit: 60.16
   m_StepOffset: 0.4
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.16, z: 0}
+  m_Center: {x: 0, y: 0.11, z: 0}
 --- !u!114 &5899831225901927791
 MonoBehaviour:
   m_ObjectHideFlags: 0

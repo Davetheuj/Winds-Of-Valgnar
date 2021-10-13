@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,7 +15,9 @@ public class SpatialTRController : MonoBehaviour
     public List<float> positionLerpSpeedList; //a factor controling the spped at which the camera will interpolate (positional)
     public List<Vector3> rotationList; //list of rotations for the camera to interpolate between
     public List<float> rotationLerpSpeedList; //a factor controlling the speed at which the camera will interpolate (rotational)
-    public List<float> transitionTimeList; //the time spent lerping towards each position/rotation/intensity/smoothness
+    [SerializeField]
+    private List<float> transitionTimeList; //the time spent lerping towards each position/rotation/intensity/smoothness
+    private List<float> realTransitionTimeList = new List<float>();
     private Transform parentObject; //set automatically in MonoBehaviour.Start()
     private int counter; //a counter to tell which properties to lerp towards.
     public bool isFinished;
@@ -38,15 +41,28 @@ public class SpatialTRController : MonoBehaviour
             initialized = true;
         }
 
-        if (transitionTimeList[transitionTimeList.Count - 1] <= 0) //if the final transition timer has expired
+        if (realTransitionTimeList[realTransitionTimeList.Count - 1] <= 0) //if the final transition timer has expired
         {
             animator.SetBool("ShouldAnimate", true);
             this.enabled = false;
             initialized = false;
+            
+            try //attempt to disable the trigger from the weapon this is attached to if we have one
+            {
+                gameObject.GetComponent<Weapon>().isAttacking = false;
+            }
+            catch (Exception e)
+            {
+                Debug.Log("No collider component attached to this gameobject (in SpatialTRController.cs)");
+            }
+
+            parentObject.localPosition = positionList[positionList.Count - 1];
+            parentObject.localRotation = Quaternion.Euler(rotationList[rotationList.Count - 1]);
+
 
             positionList.RemoveAt(positionList.Count-1);
             rotationList.RemoveAt(rotationList.Count - 1);
-            transitionTimeList.RemoveAt(transitionTimeList.Count - 1);
+            realTransitionTimeList.RemoveAt(realTransitionTimeList.Count - 1);
             positionLerpSpeedList.RemoveAt(positionLerpSpeedList.Count - 1);
             rotationLerpSpeedList.RemoveAt(rotationLerpSpeedList.Count - 1);
 
@@ -60,18 +76,23 @@ public class SpatialTRController : MonoBehaviour
             //sets the camera rotatiom
             parentObject.localRotation = Quaternion.Euler(Vector3.Lerp(parentObject.localRotation.eulerAngles, initialRotation + rotationList[counter], rotationLerpSpeedList[counter] * Time.deltaTime));
             //keeping track of time
-            transitionTimeList[counter] -= Time.deltaTime;
+           realTransitionTimeList[counter] -= Time.deltaTime;
             //checking to see if property change is needed
-            if (transitionTimeList[counter] <= 0)
+            if (realTransitionTimeList[counter] <= 0)
             {
+                Debug.Log($"Finished {counter} transition");
+                
                 counter++;
             }
-
+            return;
         }
         startDelay -= Time.deltaTime;
     }
     private void setInitialValues()
     {
+       
+        realTransitionTimeList.Clear();
+        realTransitionTimeList.AddRange(transitionTimeList);
         startDelay = initialStartDelay;
         counter = 0;
         parentObject = this.gameObject.transform;
@@ -79,8 +100,12 @@ public class SpatialTRController : MonoBehaviour
         initialRotation = parentObject.localRotation.eulerAngles;
 
         positionList.Add(initialPosition);
+        foreach (Vector3 f in positionList)
+        {
+            Debug.Log($"{f}");
+        }
         rotationList.Add(initialRotation);
-        transitionTimeList.Add(resetTime);
+        realTransitionTimeList.Add(resetTime);
         positionLerpSpeedList.Add(finalPositionLerpSpeed);
         rotationLerpSpeedList.Add(finalRotationLerpSpeed);
 

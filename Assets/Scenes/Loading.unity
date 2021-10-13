@@ -37394,7 +37394,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1865434853}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1865434855
+--- !u!114 &1865434856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37406,12 +37406,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e56dc9595d1ab4b8ce62612cbdc4cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationName: Lunge
+  animationName: 
   startDelay: 0
+  initialStartDelay: 0
   positionList:
-  - {x: 0.3, y: 0, z: 0.5}
+  - {x: 0.5, y: 0, z: 1}
   positionLerpSpeedList:
-  - 30
+  - 10
   rotationList:
   - {x: 0, y: 0, z: 0}
   rotationLerpSpeedList:
@@ -37422,34 +37423,6 @@ MonoBehaviour:
   resetTime: 0.2
   finalPositionLerpSpeed: 500
   finalRotationLerpSpeed: 0
-  animator: {fileID: 0}
---- !u!114 &1865434856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865434854}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 559c96906b8a14d4693e7835e01c1c08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startDelay: 0
-  positionList:
-  - {x: 0.3, y: 0, z: 0.5}
-  positionLerpSpeedList:
-  - 30
-  rotationList:
-  - {x: 0, y: 0, z: 0}
-  rotationLerpSpeedList:
-  - 1
-  transitionTimeList:
-  - 0.2
-  isFinished: 0
-  resetTime: 0.2
-  finalPositionLerpSpeed: 500
-  finalRotationLerpSpeed: 1
   animator: {fileID: 0}
 --- !u!114 &1865434857
 MonoBehaviour:

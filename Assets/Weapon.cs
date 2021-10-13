@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public string classification;
+    public bool isAttacking;
 
 
     // Start is called before the first frame update
@@ -21,11 +22,12 @@ public class Weapon : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.GetComponent<NPC>() != null)
+        if(isAttacking && col.gameObject.GetComponent<NPC>() != null)
         {
             NPC npc = col.gameObject.GetComponent<NPC>();
 
             npc.DealDamageToNpc(10);
+            isAttacking = false;
         }
 
     }

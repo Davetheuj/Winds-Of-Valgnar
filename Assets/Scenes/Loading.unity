@@ -37374,7 +37374,22 @@ PrefabInstance:
     - target: {fileID: 898636132714816541, guid: e04507b77d61fcd4599598aa7385c676,
         type: 3}
       propertyPath: classification
-      value: '"Short_Swords"'
+      value: Short_Swords
+      objectReference: {fileID: 0}
+    - target: {fileID: 898636132714816541, guid: e04507b77d61fcd4599598aa7385c676,
+        type: 3}
+      propertyPath: classMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 898636132714816541, guid: e04507b77d61fcd4599598aa7385c676,
+        type: 3}
+      propertyPath: weaponStrength
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 898636132714816541, guid: e04507b77d61fcd4599598aa7385c676,
+        type: 3}
+      propertyPath: NPCResistanceModifier
+      value: resistanceMelee
       objectReference: {fileID: 0}
     - target: {fileID: 5552361926028216408, guid: e04507b77d61fcd4599598aa7385c676,
         type: 3}

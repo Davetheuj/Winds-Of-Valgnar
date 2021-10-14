@@ -58,7 +58,7 @@ public class SampleSpellControl : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.LookRotation(target.transform.position+(new Vector3(0,target.GetComponent<NPC>().NPCPanelOffset/2,0))-transform.position,  Vector3.up), step);
         
         //DESTROY THE OBJECT
-        if (time > 30)
+        if (time > 30 || target.GetComponent<NPC>().state ==0) //if the time has expired or the npc is dead
             {
                 Destroy(gameObject);
             }

@@ -15,6 +15,13 @@ public class NPC : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
 
+    public int baseAttackStrength;
+
+    public float resistanceMelee;
+    public float resistanceRanged;
+    public float resistanceMagic;
+
+
     public int xpGranted;
     public int honorGranted;
     public int popularityGranted;
@@ -141,7 +148,7 @@ public class NPC : MonoBehaviour
                 if (attackTimer >= attackDelay)
                 {
                     animator.Play("attack1");
-                    DealDamageToPlayer(30);
+                    DealDamageToPlayer(baseAttackStrength);
                     attackTimer = 0;
               
                 }

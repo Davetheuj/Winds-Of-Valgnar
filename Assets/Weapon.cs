@@ -5,30 +5,49 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public string classification;
+    public float classMultiplier;
+    public string NPCResistanceModifier;
     public bool isAttacking;
 
+    private int damage;
+    [SerializeField]
+    private float weaponStrength;
 
-    // Start is called before the first frame update
-    void Start()
+    private ConsoleManager console;
+    private StatsController playerStats;
+    [SerializeField]
+    private int experienceModifier = 1;
+
+    private void Start()
     {
-        
+        console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
+        playerStats = GameObject.Find("Player").GetComponent<StatsController>();
+        Debug.Log("playerStats value set");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     void OnTriggerEnter(Collider col)
     {
         if(isAttacking && col.gameObject.GetComponent<NPC>() != null)
         {
             NPC npc = col.gameObject.GetComponent<NPC>();
 
-            npc.DealDamageToNpc(10);
+            damage = CalculateDamage(npc);
+            npc.DealDamageToNpc(damage);
+            console.AddConsoleMessage1($"You deal {damage} damage to {npc.npcName}!");
+
+            this.gameObject.GetComponentInParent<StatsController>().GrantXPAndCheckIfLevelGained(damage * experienceModifier, classification);
             isAttacking = false;
         }
 
+    }
+
+    private int CalculateDamage(NPC npc)
+    {
+        float classificationStat = (float)((int)playerStats.GetType().GetField(classification).GetValue(playerStats));
+        float damageBeforeResistances = classMultiplier * classificationStat;
+        float resistedDamage = ((float)npc.GetType().GetField(NPCResistanceModifier).GetValue(npc) / 100) * damageBeforeResistances;
+
+        int maxDamage = (int)(damageBeforeResistances - resistedDamage); 
+        return ((int)(Random.Range(0, maxDamage)));
     }
 }

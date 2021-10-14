@@ -80,8 +80,6 @@ public class SpatialTRController : MonoBehaviour
             //checking to see if property change is needed
             if (realTransitionTimeList[counter] <= 0)
             {
-                Debug.Log($"Finished {counter} transition");
-                
                 counter++;
             }
             return;
@@ -100,10 +98,6 @@ public class SpatialTRController : MonoBehaviour
         initialRotation = parentObject.localRotation.eulerAngles;
 
         positionList.Add(initialPosition);
-        foreach (Vector3 f in positionList)
-        {
-            Debug.Log($"{f}");
-        }
         rotationList.Add(initialRotation);
         realTransitionTimeList.Add(resetTime);
         positionLerpSpeedList.Add(finalPositionLerpSpeed);

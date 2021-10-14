@@ -22,7 +22,6 @@ public class Weapon : MonoBehaviour
     {
         console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
         playerStats = GameObject.Find("Player").GetComponent<StatsController>();
-        Debug.Log("playerStats value set");
     }
     
     void OnTriggerEnter(Collider col)

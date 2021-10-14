@@ -1223,9 +1223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drops:
   - {fileID: 822137197117925851, guid: ebcd5302157f64051a5a83d2adc25d54, type: 3}
-  - {fileID: 7273221990343407296, guid: 5ff2f0697fecbef4780187a670bda908, type: 3}
   dropWeights:
-  - 1
   - 1
   dropsPerDeath: 1
   hasUnconditionableDrops: 0

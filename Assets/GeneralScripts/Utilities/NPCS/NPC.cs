@@ -126,16 +126,26 @@ public class NPC : MonoBehaviour
 
         if(state == 0)//dead
         {
-           
+            try {
                 dropSpawner.SpawnDrops();
-                gameObject.transform.parent.GetComponent<EntitySpawner>().isSpawned = false;
-            //}catch(NullReferenceException e)
-            //{
-            //    Debug.Log($"{npcName} 's parent does not have an entitySpawner Component attached");
+            }
+            catch (NullReferenceException e)
+            {
+                Debug.Log($"{npcName} 's parent does not have an dropSpawner Component attached");
 
-                
-            //}
-           this.gameObject.SetActive(false);
+
+            }
+            try
+            {
+                gameObject.transform.parent.GetComponent<EntitySpawner>().isSpawned = false;
+            }
+            catch (NullReferenceException e)
+            {
+                Debug.Log($"{npcName} 's parent does not have an entitySpawner Component attached");
+
+
+            }
+        this.gameObject.SetActive(false);
             return;
         }
         if (isDefaultAgro)

@@ -27,8 +27,7 @@ public class NPC : MonoBehaviour
     public int popularityGranted;
     public int renownGranted;
 
-    public List<GameObject> drops;
-    public List<float> dropRates;
+
 
     public float attackRange;
     public float attackDelay;
@@ -68,6 +67,8 @@ public class NPC : MonoBehaviour
 
     private ConsoleManager console;
 
+    private DropSpawner dropSpawner;
+
     //PATHFINDING
     private bool isStuck;
     private float stuckTimer;
@@ -95,6 +96,15 @@ public class NPC : MonoBehaviour
         }
         
             neutralLocation = spawnLocation;
+
+        try 
+        {
+          dropSpawner = GetComponent<DropSpawner>();
+        }
+        catch(MissingComponentException e)
+        {
+            Debug.Log($"{npcName} doesn't have a drop spawner attached");
+        }
     }
 
    
@@ -116,14 +126,15 @@ public class NPC : MonoBehaviour
 
         if(state == 0)//dead
         {
-            try
-            {
+           
+                dropSpawner.SpawnDrops();
                 gameObject.transform.parent.GetComponent<EntitySpawner>().isSpawned = false;
-            }catch(NullReferenceException e)
-            {
-                Debug.Log("gameObject's parent does not have an entitySpawner Component attached");
+            //}catch(NullReferenceException e)
+            //{
+            //    Debug.Log($"{npcName} 's parent does not have an entitySpawner Component attached");
+
                 
-            }
+            //}
            this.gameObject.SetActive(false);
             return;
         }

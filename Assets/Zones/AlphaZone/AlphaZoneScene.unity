@@ -1065,6 +1065,7 @@ GameObject:
   - component: {fileID: 74684248}
   - component: {fileID: 74684249}
   - component: {fileID: 74684247}
+  - component: {fileID: 74684250}
   m_Layer: 0
   m_Name: Goblin_rouge_r
   m_TagString: Creature
@@ -1208,6 +1209,27 @@ CapsuleCollider:
   m_Height: 5.059978
   m_Direction: 1
   m_Center: {x: 0.0032039562, y: 2.2536933, z: -0.21230012}
+--- !u!114 &74684250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74684246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04cdc4dad8a0f574b9a61b2749b3ce52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - {fileID: 822137197117925851, guid: ebcd5302157f64051a5a83d2adc25d54, type: 3}
+  - {fileID: 7273221990343407296, guid: 5ff2f0697fecbef4780187a670bda908, type: 3}
+  dropWeights:
+  - 1
+  - 1
+  dropsPerDeath: 1
+  hasUnconditionableDrops: 0
+  unconditionableDrops: []
 --- !u!1 &74684308
 GameObject:
   m_ObjectHideFlags: 0
@@ -5410,13 +5432,20 @@ MonoBehaviour:
   NPCPanelOffset: 8.99
   maxHealth: 100
   currentHealth: 100
+  baseAttackStrength: 0
+  resistanceMelee: 0
+  resistanceRanged: 0
+  resistanceMagic: 0
+  xpGranted: 0
+  honorGranted: 0
+  popularityGranted: 0
+  renownGranted: 0
   attackRange: 7.5
   attackDelay: 3
   attackTimer: 0
   moveSpeed: 30
   baseAgroRange: 10
   roamRadius: 50
-  experience: 0
   state: 1
   spawnLocation: {x: 142, y: 10, z: 325}
   deltaNeutralMaxTime: 0
@@ -6487,13 +6516,20 @@ MonoBehaviour:
   NPCPanelOffset: 8.99
   maxHealth: 100
   currentHealth: 100
+  baseAttackStrength: 0
+  resistanceMelee: 0
+  resistanceRanged: 0
+  resistanceMagic: 0
+  xpGranted: 0
+  honorGranted: 0
+  popularityGranted: 0
+  renownGranted: 0
   attackRange: 5
   attackDelay: 3
   attackTimer: 0
   moveSpeed: 30
   baseAgroRange: 10
   roamRadius: 50
-  experience: 0
   state: 1
   spawnLocation: {x: 130, y: 6, z: 302}
   deltaNeutralMaxTime: 0
@@ -14323,13 +14359,20 @@ MonoBehaviour:
   NPCPanelOffset: 8.99
   maxHealth: 100
   currentHealth: 100
+  baseAttackStrength: 0
+  resistanceMelee: 0
+  resistanceRanged: 0
+  resistanceMagic: 0
+  xpGranted: 0
+  honorGranted: 0
+  popularityGranted: 0
+  renownGranted: 0
   attackRange: 7.5
   attackDelay: 3
   attackTimer: 0
   moveSpeed: 20
   baseAgroRange: 10
   roamRadius: 30
-  experience: 0
   state: 1
   spawnLocation: {x: 145, y: 8, z: 313}
   deltaNeutralMaxTime: 1
@@ -15603,13 +15646,20 @@ MonoBehaviour:
   NPCPanelOffset: 0
   maxHealth: 5000
   currentHealth: 5000
+  baseAttackStrength: 0
+  resistanceMelee: 0
+  resistanceRanged: 0
+  resistanceMagic: 0
+  xpGranted: 0
+  honorGranted: 0
+  popularityGranted: 0
+  renownGranted: 0
   attackRange: 0
   attackDelay: 0
   attackTimer: 0
   moveSpeed: 0
   baseAgroRange: 0
   roamRadius: 0
-  experience: 0
   state: 1
   spawnLocation: {x: 0, y: 0, z: 0}
   deltaNeutralMaxTime: 0
@@ -15896,13 +15946,20 @@ MonoBehaviour:
   NPCPanelOffset: 0
   maxHealth: 1000
   currentHealth: 1000
+  baseAttackStrength: 0
+  resistanceMelee: 0
+  resistanceRanged: 0
+  resistanceMagic: 0
+  xpGranted: 0
+  honorGranted: 0
+  popularityGranted: 0
+  renownGranted: 0
   attackRange: 0
   attackDelay: 0
   attackTimer: 0
   moveSpeed: 0
   baseAgroRange: 0
   roamRadius: 0
-  experience: 0
   state: 1
   spawnLocation: {x: 0, y: 0, z: 0}
   deltaNeutralMaxTime: 0

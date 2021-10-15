@@ -33,7 +33,9 @@ public class DropSpawner : MonoBehaviour
         {
             foreach(GameObject drop in unconditionableDrops)
             {
-                Instantiate(drop, this.transform);
+                GameObject newDrop = Instantiate(drop, this.transform);
+                newDrop.transform.SetParent(GameObject.Find("Environment").transform);
+                newDrop.transform.position = this.transform.position;
             }
         }
     }

@@ -156,9 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa69dea8b83294a6aa640e242b44e1a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemModel: {fileID: 0}
-  itemName: 
-  weight: 
+  modelPrefab: {fileID: 822137197117925851, guid: ebcd5302157f64051a5a83d2adc25d54,
+    type: 3}
+  itemName: Potion of Wisdom
+  weight: .1
   info: 
   baseItemInfoPanel: {fileID: 0}
   baseItemNameText: {fileID: 0}

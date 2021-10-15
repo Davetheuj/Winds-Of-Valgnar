@@ -1223,11 +1223,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drops:
   - {fileID: 822137197117925851, guid: ebcd5302157f64051a5a83d2adc25d54, type: 3}
+  - {fileID: 436903254234092842, guid: a94ae73b5223819449d33b381ee56465, type: 3}
   dropWeights:
   - 1
+  - 10
   dropsPerDeath: 1
-  hasUnconditionableDrops: 0
-  unconditionableDrops: []
+  hasUnconditionableDrops: 1
+  unconditionableDrops:
+  - {fileID: 436903254234092842, guid: a94ae73b5223819449d33b381ee56465, type: 3}
 --- !u!1 &74684308
 GameObject:
   m_ObjectHideFlags: 0

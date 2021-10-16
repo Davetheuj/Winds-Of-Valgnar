@@ -42,6 +42,8 @@ public RectTransform quickInspectItemPanelTransform;
     public ErrorScript errorScript;
 
     public DialoguePanelController dialogueController;
+
+    public ConsoleManager console;
     // Update is called once per frame
     void Update()
     {
@@ -61,9 +63,13 @@ public RectTransform quickInspectItemPanelTransform;
             var rayHitObject = hit.transform.gameObject;
             //Debug.Log("hit with " + rayHitObject.name);
 
+
+
             //Item sequence
-            if (rayHitObject.GetComponent<Item>() != null)
+           if (rayHitObject.GetComponent<Item>() != null)
             {
+                Item item = rayHitObject.GetComponent<Item>();
+
                 if (Input.GetMouseButtonDown(0))
                 {
                     //Debug.Log("Attemping to pick up " + rayHitObject.name);
@@ -79,7 +85,14 @@ public RectTransform quickInspectItemPanelTransform;
 
                 oldObject = rayHitObject;
 
-                quickInspectItemPaneltext.SetText(rayHitObject.GetComponent<Item>().name);
+                if (item.isStackable && item.quantity > 1)
+                {
+                    quickInspectItemPaneltext.SetText($"{item.itemName} x {item.quantity}");
+                }
+                else
+                {
+                    quickInspectItemPaneltext.SetText(item.itemName);
+                }
 
                 PositionItemPanelToMouse();
 
@@ -142,6 +155,10 @@ public RectTransform quickInspectItemPanelTransform;
         }
 
     }
+    void Start()
+    {
+        console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
+    }
 
     public void PositionNPCUIToWorld(GameObject rayHitObject)
     {
@@ -164,6 +181,18 @@ public RectTransform quickInspectItemPanelTransform;
 
     public void InitiateItemPickup(GameObject hitObject)
     {
+        Item item = hitObject.GetComponent<Item>();
+        if(hitObject.GetComponent<CurrencyPickup>() != null)
+        {
+            if (hitObject.GetComponent<Item>().itemName == "Coins") {
+                inventoryController.coins += hitObject.GetComponent<Item>().quantity;
+            }
+            //can add additional currencies here
+            console.AddConsoleMessage1($"{item.quantity} {item.itemName} have been added to your inventory");
+            DestroyImmediate(hitObject);
+            return;
+        }
+
         var inventorySlot = inventoryController.GetFirstEmptySlot();
         if (inventorySlot == null)
         {
@@ -173,8 +202,19 @@ public RectTransform quickInspectItemPanelTransform;
        
 
             var inventoryObject = Instantiate(hitObject.GetComponent<Item>().inventoryButtonPrefab, inventorySlot.transform);
+        if (item.quantity > 1)
+        {
+            console.AddConsoleMessage1($"{item.quantity} {item.itemName} have been added to your inventory!");
+        }
+        else
+        {
+            console.AddConsoleMessage1($"{item.itemName} has been added to your inventory!");
+        }
         inventoryObject.transform.localPosition = new Vector3(0, 0, 0);
         inventoryObject.transform.localScale = new Vector3(1,1,1);
+
+        //Check for quest components here
+
         Destroy(hitObject);
 
 

@@ -122,8 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30177e32a7dc14e9c89a39bf0226bbae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Potion of Wisdom
+  itemName: Potion of Wisdom
   isStackable: 0
+  quantity: 0
   inventoryButtonPrefab: {fileID: 5308953661767106379, guid: 81370bbe492de47a09b766ace5b6cc10,
     type: 3}
   toolTip: {fileID: 0}

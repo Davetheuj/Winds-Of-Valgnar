@@ -6,8 +6,7 @@ public class InventoryController : MonoBehaviour
 {
    
     public GameObject[] slots = new GameObject[30];
-
-    // Start is called before the first frame update
+    public int coins;
    
 
     public GameObject GetFirstEmptySlot()

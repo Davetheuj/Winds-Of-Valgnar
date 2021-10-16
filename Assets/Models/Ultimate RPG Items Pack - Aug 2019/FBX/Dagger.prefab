@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8443195627978330299}
   - component: {fileID: 2742913019247619138}
   - component: {fileID: 5552361926028216408}
-  - component: {fileID: 5552361926028216410}
   - component: {fileID: 5552361926028216409}
   - component: {fileID: 898636132714816541}
   m_Layer: 0
@@ -100,18 +99,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 8443918408634770226, guid: 66c609434fda2479dbf29501ddfec59d, type: 3}
---- !u!114 &5552361926028216410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4479989640100468894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67509a1c618fc4fd4826117a9dadf2eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5552361926028216409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,3 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d34789efef51694d8ea17a34c75f741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  classification: 
+  classMultiplier: 0
+  NPCResistanceModifier: 
+  isAttacking: 0
+  weaponStrength: 0
+  experienceModifier: 1

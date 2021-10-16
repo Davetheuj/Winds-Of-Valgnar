@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -2268951039368025790}
   - component: {fileID: 8086253244049490937}
   - component: {fileID: -729763325448878029}
+  - component: {fileID: -2475404744144490077}
   m_Layer: 0
   m_Name: Coin_Skull
   m_TagString: Untagged
@@ -112,8 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30177e32a7dc14e9c89a39bf0226bbae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Coins
-  isStackable: 0
+  itemName: Coins
+  isStackable: 1
+  quantity: 50
   inventoryButtonPrefab: {fileID: 0}
   toolTip: {fileID: 0}
   toolTipText: {fileID: 0}
@@ -133,6 +135,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!114 &-2475404744144490077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436903254234092842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a01c0c0e3b4d14f97ca431def8c647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4208644782523875178
 GameObject:
   m_ObjectHideFlags: 0

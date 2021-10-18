@@ -20,6 +20,11 @@ public class damageText : MonoBehaviour
 
     }
 
+    void OnDisable() //this will happen when the npc it's attached to becomes disabled (dead)
+    {
+        Destroy(this.gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {

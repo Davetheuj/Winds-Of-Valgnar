@@ -167,6 +167,10 @@ public RectTransform quickInspectItemPanelTransform;
         ((ViewportPosition.x * CanvasRect.sizeDelta.x) - (CanvasRect.sizeDelta.x * 0.5f)),
         ((ViewportPosition.y * CanvasRect.sizeDelta.y) - (CanvasRect.sizeDelta.y * 0.5f)));
         HoverNPCPanelTransform.anchoredPosition = WorldObject_ScreenPosition - new Vector2(NPCPanelXOffset, 0);
+        //var anchoredPosition = WorldObject_ScreenPosition - new Vector2(NPCPanelXOffset, 0);
+        //anchoredPosition.x = Mathf.Clamp(anchoredPosition.x, 0f, Screen.width);
+        //anchoredPosition.y = Mathf.Clamp(anchoredPosition.y, 0f, Screen.height);
+        //HoverNPCPanelTransform.anchoredPosition = anchoredPosition;
         showHoverNPCPanel = true;
         HoverNPCPanelTransform.gameObject.SetActive(true);
 

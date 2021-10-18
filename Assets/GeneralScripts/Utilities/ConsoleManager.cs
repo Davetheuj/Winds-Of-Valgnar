@@ -13,8 +13,7 @@ public class ConsoleManager : MonoBehaviour
  
     public GameObject consolePanel;
 
-    public float time;
-    int i = 0;
+
 
     public void AddConsoleMessage1(string richTextMessage)
     {
@@ -36,16 +35,11 @@ public class ConsoleManager : MonoBehaviour
 
     }
 
-    void Update()
+    void Start()
     {
-        time += Time.deltaTime;
        
-        if (i == 0)
-        {
             AddConsoleMessage1("Welcome to Valgnar!");
-            i += 1;
-        }
-       
+
 
     }
 

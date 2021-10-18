@@ -51,7 +51,7 @@ public class SpatialTRController : MonoBehaviour
             {
                 gameObject.GetComponent<Weapon>().isAttacking = false;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Debug.Log("No collider component attached to this gameobject (in SpatialTRController.cs)");
             }

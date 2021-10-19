@@ -55,6 +55,8 @@ public class PlayerTargeting : MonoBehaviour
 
             time = 0;
 
+           
+
 		}
 		if (Input.GetKeyDown(KeyCode.Tab))
 		{
@@ -83,13 +85,14 @@ public class PlayerTargeting : MonoBehaviour
 			
 
 		}
-        if(currentTarget != null && currentTarget.GetComponent<NPC>().angleFromPlayerForward > 1.6f)
+        if(currentTarget != null && currentTarget.GetComponent<NPC>().angleFromPlayerForward > 1.6f && currentTarget.GetComponent<NPC>().state != 0)
         {
             PositionNPCTargetUIToWorld(currentTarget);
             targetMarker.SetActive(true);
         }
         else
         {
+            currentTarget = null;
             targetMarker.SetActive(false);
             TargetNPCPanelTransform.gameObject.SetActive(false);
         }
@@ -130,7 +133,7 @@ public class PlayerTargeting : MonoBehaviour
         targetMarker.SetActive(true);
 
         targetMarker.transform.SetParent(currentTarget.transform);
-        targetMarker.transform.localPosition = new Vector3(0, .05f, 0);
+        targetMarker.transform.localPosition = new Vector3(0, .025f, 0);
         targetMarker.transform.position = currentTarget.transform.position;
     }
 

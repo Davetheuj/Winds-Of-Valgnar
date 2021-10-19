@@ -32834,7 +32834,6 @@ MonoBehaviour:
     type: 3}
   currentMessage: {fileID: 0}
   consolePanel: {fileID: 51008969}
-  time: 0
 --- !u!114 &1668817147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45134,7 +45133,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.8
-  m_Radius: 0.88
+  m_Radius: 0.34
   m_SlopeLimit: 60.16
   m_StepOffset: 0.4
   m_SkinWidth: 0.08

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.GeneralScripts.Math;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -73,14 +74,13 @@ public class NPC : MonoBehaviour
     private bool isStuck;
     private float stuckTimer;
     public float maxStuckTime;
-    private Ray stuckRay;
-    private RaycastHit stuckHit;
-    private GameObject stuckHitObject;
     private Vector3 stuckLocation;
     private float minTravelDistance;
+    private List<Vector3> unstuckPath;
+    private int unstuckPathCounter;
 
+    public GameObject debugMarker;
 
-    
     void Start()
     {
         
@@ -155,8 +155,7 @@ public class NPC : MonoBehaviour
         if(state == 1)//aggressive
         {
             actualMoveSpeed = moveSpeed;
-            lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(player.transform.position - transform.position).eulerAngles.y, moveSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Euler(0, lookDirection, 0);
+
             if (CheckIfInAttackRange()) //is in attack range
             {
                 if (needsAnimationChange || wasOutOfRange)
@@ -182,12 +181,36 @@ public class NPC : MonoBehaviour
             }
             else //not in attack range
             {
-                if (CheckIfStuck())
+                if (!isStuck && CheckIfStuck())
                 {
-                    FindNewPath();
+                    isStuck = true;
+                    unstuckPath = FindNewPath();
+                    unstuckPathCounter = 1;
                 }
                 animator.Play("run");
-                moveDirection = Vector3.Normalize(player.transform.position - transform.position);
+                if (!isStuck)
+                {
+                    lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(player.transform.position - transform.position).eulerAngles.y, moveSpeed * Time.deltaTime);
+                    transform.rotation = Quaternion.Euler(0, lookDirection, 0);
+                    moveDirection = Vector3.Normalize(player.transform.position - transform.position);
+                }
+                else //now following the path layed out by the FindNewPath() function
+                {
+                    if ((transform.position - unstuckPath[unstuckPathCounter]).magnitude < 5f){
+                        Debug.Log("Now moving towards new unstuck location");
+                        unstuckPathCounter++;
+                        if(unstuckPathCounter == unstuckPath.Count - 1)
+                        {
+                            isStuck = false;
+                            Debug.Log("Npc is no longer stuck");
+                        }
+                    }
+                    lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(unstuckPath[unstuckPathCounter] - transform.position).eulerAngles.y, 5*moveSpeed * Time.deltaTime);
+                    transform.rotation = Quaternion.Euler(0, lookDirection, 0);
+                    moveDirection = Vector3.Normalize(unstuckPath[unstuckPathCounter] - transform.position);
+
+                }
+               
                 attackTimer += Time.deltaTime;
                 wasOutOfRange = true;
             }
@@ -361,15 +384,16 @@ public class NPC : MonoBehaviour
         stuckTimer += Time.deltaTime;
         if(stuckTimer >= maxStuckTime)
         {
+            stuckTimer = 0;
             if ((stuckLocation - transform.position).magnitude <= minTravelDistance)
             {
-                Debug.Log($"{gameObject.name} is stuck.");
+                Debug.Log($"{gameObject.name} is stuck. (NPC.cs CheckIfStuck()");
+                
                 return true;
                
             }
             else {
                 stuckLocation = transform.position;
-                stuckTimer = 0;
             }
 
         }
@@ -377,9 +401,91 @@ public class NPC : MonoBehaviour
 
     }
 
-    public Vector3 FindNewPath()
+    public List<Vector3> FindNewPath()
     {
-        return new Vector3(0, 0, 0);
+        List<Vector3> path1Locations = new List<Vector3>();
+        List<Vector3> path2Locations = new List<Vector3>();
+        bool foundRightPath = false;
+        bool foundLeftPath = false;
+        Vector3 finalPos = player.gameObject.transform.position;
+        Vector3 currentPos = transform.position;
+        Vector3 initialPos = currentPos;
+        Vector3 rotatedPos;
+        Collider collider = null;
+        float localRadius = this.gameObject.GetComponent<CharacterController>().radius;
+
+        path1Locations.Add(initialPos);
+        path2Locations.Add(initialPos);
+        int aCounter = 0;
+
+        while(!foundRightPath && aCounter<50)
+        {
+            //cast a ray to identify the object that is currently being collided with
+            if (Physics.Linecast(currentPos,finalPos, out RaycastHit hitInfo))
+            {
+                collider = hitInfo.collider;
+                if(collider.gameObject.name == "Player")
+                {
+                    foundRightPath = true;
+                    path1Locations.Add(finalPos);
+                    continue;
+                }
+                Debug.Log(collider.gameObject.name);
+                rotatedPos = (Quaternion.AngleAxis(30, Vector3.up) * (currentPos - collider.transform.position));
+                currentPos = collider.ClosestPoint(rotatedPos + collider.transform.position) + (localRadius*3 * rotatedPos.normalized);
+                path1Locations.Add(currentPos);
+            }
+            else
+            {
+                foundRightPath = true;
+                path1Locations.Add(finalPos);
+            }
+            aCounter++;
+        }
+        Debug.Log($"Found Right Path - {path1Locations.Count - 2} intermediate points - {Pathing.PathLength(path1Locations)} length");
+        currentPos = initialPos;
+        while (!foundLeftPath && aCounter<100)
+        {
+            //cast a ray to identify the object that is currently being collided with
+            if (Physics.Linecast(currentPos, finalPos, out RaycastHit hitInfo))
+            {
+                collider = hitInfo.collider;
+                if (collider.gameObject.name == "Player")
+                {
+                    foundLeftPath = true;
+                    path2Locations.Add(finalPos);
+                    continue;
+                }
+                rotatedPos = (Quaternion.AngleAxis(-30, Vector3.up) * (currentPos - collider.transform.position));
+                currentPos = collider.ClosestPoint(rotatedPos + collider.transform.position) + (localRadius*3 * rotatedPos.normalized);
+                path2Locations.Add(currentPos);
+            }
+            else
+            {
+                foundLeftPath = true;
+                path2Locations.Add(finalPos);
+            }
+            aCounter++;
+        }
+        Debug.Log($"Found Left Path - {path2Locations.Count - 2} intermediate points - {Pathing.PathLength(path2Locations)} length");
+        if (Pathing.PathLength(path1Locations) <= Pathing.PathLength(path2Locations)){
+            foreach (Vector3 pos in path1Locations)
+            {
+                Debug.Log(pos);
+                GameObject.Instantiate(debugMarker, pos, this.transform.rotation);
+            }
+            return path1Locations;
+        }
+        else
+        {
+            foreach (Vector3 pos in path2Locations)
+            {
+                Debug.Log(pos);
+                GameObject.Instantiate(debugMarker, pos, this.transform.rotation);
+            }
+            return path2Locations;
+        }
+
     }
     
 

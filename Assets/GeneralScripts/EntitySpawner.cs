@@ -13,7 +13,10 @@ public class EntitySpawner : MonoBehaviour
     public int spawnCount;
     public int maxSpawns;
     
-
+    public void Start()
+    {
+        entity = transform.GetComponentInChildren<NPC>().gameObject;
+    }
     public void Update()
     {
         if (isSpawned)

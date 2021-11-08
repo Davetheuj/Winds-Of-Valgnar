@@ -73,9 +73,10 @@ public class NPC : MonoBehaviour
     //PATHFINDING
     private bool isStuck;
     private float stuckTimer;
+    private float lastStuckCheckTime;
     public float maxStuckTime;
     private Vector3 stuckLocation;
-    private float minTravelDistance;
+    public float minTravelDistance;
     private List<Vector3> unstuckPath;
     private int unstuckPathCounter;
 
@@ -196,13 +197,16 @@ public class NPC : MonoBehaviour
                 }
                 else //now following the path layed out by the FindNewPath() function
                 {
-                    if ((transform.position - unstuckPath[unstuckPathCounter]).magnitude < 5f){
+                    if ((transform.position - unstuckPath[unstuckPathCounter]).magnitude < 2f){
                         Debug.Log("Now moving towards new unstuck location");
                         unstuckPathCounter++;
                         if(unstuckPathCounter == unstuckPath.Count - 1)
                         {
                             isStuck = false;
+                            unstuckPathCounter = 1;
+                            
                             Debug.Log("Npc is no longer stuck");
+                            return;
                         }
                     }
                     lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(unstuckPath[unstuckPathCounter] - transform.position).eulerAngles.y, 5*moveSpeed * Time.deltaTime);
@@ -381,7 +385,8 @@ public class NPC : MonoBehaviour
 
     private bool CheckIfStuck()
     {
-        stuckTimer += Time.deltaTime;
+        stuckTimer += Time.time - lastStuckCheckTime;
+        lastStuckCheckTime = Time.time;
         if(stuckTimer >= maxStuckTime)
         {
             stuckTimer = 0;
@@ -418,7 +423,7 @@ public class NPC : MonoBehaviour
         path2Locations.Add(initialPos);
         int aCounter = 0;
 
-        while(!foundRightPath && aCounter<50)
+        while(!foundRightPath && aCounter<500)
         {
             //cast a ray to identify the object that is currently being collided with
             if (Physics.Linecast(currentPos,finalPos, out RaycastHit hitInfo))
@@ -432,7 +437,7 @@ public class NPC : MonoBehaviour
                 }
                 Debug.Log(collider.gameObject.name);
                 rotatedPos = (Quaternion.AngleAxis(30, Vector3.up) * (currentPos - collider.transform.position));
-                currentPos = collider.ClosestPoint(rotatedPos + collider.transform.position) + (localRadius*3 * rotatedPos.normalized);
+                currentPos = collider.ClosestPoint(rotatedPos + collider.transform.position) + (localRadius*3.5f * rotatedPos.normalized);
                 path1Locations.Add(currentPos);
             }
             else
@@ -444,7 +449,7 @@ public class NPC : MonoBehaviour
         }
         Debug.Log($"Found Right Path - {path1Locations.Count - 2} intermediate points - {Pathing.PathLength(path1Locations)} length");
         currentPos = initialPos;
-        while (!foundLeftPath && aCounter<100)
+        while (!foundLeftPath && aCounter<1000)
         {
             //cast a ray to identify the object that is currently being collided with
             if (Physics.Linecast(currentPos, finalPos, out RaycastHit hitInfo))
@@ -457,7 +462,7 @@ public class NPC : MonoBehaviour
                     continue;
                 }
                 rotatedPos = (Quaternion.AngleAxis(-30, Vector3.up) * (currentPos - collider.transform.position));
-                currentPos = collider.ClosestPoint(rotatedPos + collider.transform.position) + (localRadius*3 * rotatedPos.normalized);
+                currentPos = collider.ClosestPoint(rotatedPos + collider.transform.position) + (localRadius*3.5f * rotatedPos.normalized);
                 path2Locations.Add(currentPos);
             }
             else
@@ -472,7 +477,7 @@ public class NPC : MonoBehaviour
             foreach (Vector3 pos in path1Locations)
             {
                 Debug.Log(pos);
-                GameObject.Instantiate(debugMarker, pos, this.transform.rotation);
+                //GameObject.Instantiate(debugMarker, pos + new Vector3(0, 1, 0), this.transform.rotation);
             }
             return path1Locations;
         }
@@ -481,7 +486,7 @@ public class NPC : MonoBehaviour
             foreach (Vector3 pos in path2Locations)
             {
                 Debug.Log(pos);
-                GameObject.Instantiate(debugMarker, pos, this.transform.rotation);
+                //GameObject.Instantiate(debugMarker, pos+new Vector3(0,1,0), this.transform.rotation);
             }
             return path2Locations;
         }

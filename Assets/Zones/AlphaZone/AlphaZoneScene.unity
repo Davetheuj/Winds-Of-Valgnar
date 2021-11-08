@@ -5449,7 +5449,8 @@ MonoBehaviour:
   neutPosTimeRandModifier: 6
   maxIdleTime: 3
   statusController: {fileID: 0}
-  maxStuckTime: 0
+  maxStuckTime: 0.5
+  minTravelDistance: 0.5
   debugMarker: {fileID: 822137197117925851, guid: ebcd5302157f64051a5a83d2adc25d54,
     type: 3}
 --- !u!1001 &755846204
@@ -6587,7 +6588,8 @@ MonoBehaviour:
   neutPosTimeRandModifier: 6
   maxIdleTime: 3
   statusController: {fileID: 0}
-  maxStuckTime: 0
+  maxStuckTime: 0.5
+  minTravelDistance: 0.5
   debugMarker: {fileID: 822137197117925851, guid: ebcd5302157f64051a5a83d2adc25d54,
     type: 3}
 --- !u!4 &1055410461 stripped
@@ -14454,7 +14456,8 @@ MonoBehaviour:
   neutPosTimeRandModifier: 6
   maxIdleTime: 3
   statusController: {fileID: 0}
-  maxStuckTime: 0
+  maxStuckTime: 0.5
+  minTravelDistance: 0.5
   debugMarker: {fileID: 822137197117925851, guid: ebcd5302157f64051a5a83d2adc25d54,
     type: 3}
 --- !u!4 &1840283625 stripped
@@ -15766,6 +15769,7 @@ MonoBehaviour:
   maxIdleTime: 0
   statusController: {fileID: 0}
   maxStuckTime: 0
+  minTravelDistance: 0
   debugMarker: {fileID: 0}
 --- !u!114 &3220819486922068213
 MonoBehaviour:
@@ -16067,6 +16071,7 @@ MonoBehaviour:
   maxIdleTime: 0
   statusController: {fileID: 0}
   maxStuckTime: 0
+  minTravelDistance: 0
   debugMarker: {fileID: 0}
 --- !u!136 &4846529411784788540
 CapsuleCollider:

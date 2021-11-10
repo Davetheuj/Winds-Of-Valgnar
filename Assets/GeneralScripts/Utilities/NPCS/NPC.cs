@@ -186,6 +186,10 @@ public class NPC : MonoBehaviour
                 {
                     isStuck = true;
                     unstuckPath = FindNewPath();
+                    if(unstuckPath.Count ==2)
+                    {
+                        isStuck = false;
+                    }
                     unstuckPathCounter = 1;
                 }
                 animator.Play("run");

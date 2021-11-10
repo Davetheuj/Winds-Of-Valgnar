@@ -13,7 +13,6 @@ namespace Assets.GeneralScripts.Math
         public static float PathLength(List<Vector3> points)
         {
             float pathLength = 0;
-            Debug.Log(points.Count);
             for(int i = 1; i<points.Count; i++)
             {
                 pathLength += (points[i] - points[i-1]).magnitude;

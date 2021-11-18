@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Zones/CryptOfTheAncients/CryptOfTheAncients.unity
     guid: a87d38f1fa4a8284fb72d42cb9549a21
+  - enabled: 1
+    path: Assets/Scenes/HDRDemo.unity
+    guid: 9fca8f9f55dd47a4fb37f8b934422fe2
+  - enabled: 1
+    path: Assets/Scenes/HDRForest/HDRForest.unity
+    guid: a27eb6d35e50fa446b0ca728e00f7a71
   m_configObjects: {}

@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Palm Leaf D
   m_Shader: {fileID: 4800000, guid: d268ac7157a151b46b83fc8c0168f20d, type: 3}
-  m_ShaderKeywords: EFFECT_BUMP GEOM_TYPE_LEAF
+  m_ShaderKeywords: EFFECT_BUMP GEOM_TYPE_LEAF _WINDQUALITY_PALM
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -119,3 +119,4 @@ Material:
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _ReflectColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _SpecColor: {r: 0.81928736, g: 1, b: 0.2216981, a: 1}
+  m_BuildTextureStacks: []

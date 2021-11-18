@@ -8,6 +8,7 @@ public class SaveOnLoadObjects : MonoBehaviour
     // Start is called before the first frame update
     public SaveLoadManager manager;
     public List<GameObject> objectList = new List<GameObject>();
+    public String startScene;
     void Start()
     {
         DontDestroyOnLoad(this);
@@ -21,7 +22,8 @@ public class SaveOnLoadObjects : MonoBehaviour
         }
         try
         {
-            SceneManager.LoadScene(manager.player.GetComponent<StatsController>().zoneName);
+            //SceneManager.LoadScene(manager.player.GetComponent<StatsController>().zoneName);
+            SceneManager.LoadScene(startScene);
         }
         catch (Exception e)
         {

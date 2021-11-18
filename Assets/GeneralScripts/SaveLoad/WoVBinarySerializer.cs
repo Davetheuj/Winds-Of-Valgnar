@@ -29,6 +29,7 @@ public static class WoVBinarySerializer
         PlayerData data = new PlayerData(player);
         formatter.Serialize(stream, data);
         stream.Close();
+        Debug.Log(Application.persistentDataPath);
     }
 
     public static PlayerData LoadPlayer(GameObject player)

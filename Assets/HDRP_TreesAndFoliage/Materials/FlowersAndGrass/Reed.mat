@@ -20,10 +20,10 @@ Material:
     RenderType: TransparentCutout
   disabledShaderPasses:
   - TransparentBackface
-  - RayTracingPrepass
+  - MOTIONVECTORS
   - TransparentDepthPrepass
   - TransparentDepthPostpass
-  - MOTIONVECTORS
+  - RayTracingPrepass
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -171,13 +171,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
-    - Vector1_23D08BB4: 1
+    - Vector1_23D08BB4: 0.6
     - Vector1_2CD4FC07: 1
-    - Vector1_55065035: 1
+    - Vector1_55065035: 0.8
     - Vector1_5BE9E0E0: 2
-    - Vector1_925ABDA8: 0
-    - Vector1_95B4B49D: 0
+    - Vector1_925ABDA8: 0.5
+    - Vector1_95B4B49D: -0.5
     - Vector1_B19CC00A: 1
     - _AORemapMax: 1
     - _AORemapMin: 0.93495935
@@ -196,6 +197,7 @@ Material:
     - _Anisotropy: 0
     - _BlendMode: 0
     - _CoatMask: 0
+    - _ConservativeDepthOffsetEnable: 0
     - _Cull: 2
     - _CullMode: 0
     - _CullModeForward: 0
@@ -225,7 +227,8 @@ Material:
     - _DistortionVectorBias: -1
     - _DistortionVectorScale: 2
     - _DoubleSidedEnable: 1
-    - _DoubleSidedNormalMode: 2
+    - _DoubleSidedGIMode: 0
+    - _DoubleSidedNormalMode: 0
     - _Drag: 1
     - _DstBlend: 0
     - _EmissiveColorMode: 1
@@ -334,13 +337,13 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_963FF00B: {r: 1, g: 1, b: 1, a: 1}
+    - Color_963FF00B: {r: 0.7764136, g: 0.8207547, b: 0.70848167, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 2.2888926e+38, g: 1.2389358e-26, b: 7.69327e-37,
         a: 0.00018220427}
-    - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
+    - _DoubleSidedConstants: {r: -1, g: -1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
@@ -371,4 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 11
+  version: 12
+  hdPluginSubTargetMaterialVersions:
+    m_Keys: []
+    m_Values: 

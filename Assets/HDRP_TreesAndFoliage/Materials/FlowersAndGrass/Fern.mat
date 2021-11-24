@@ -10,9 +10,8 @@ Material:
   m_Name: Fern
   m_Shader: {fileID: -6465566751694194690, guid: 3c2601c6b607063439dffbd72264ed7f,
     type: 3}
-  m_ShaderKeywords: _ADD_PRECOMPUTED_VELOCITY _ALPHATEST_ON _DISABLE_SSR_TRANSPARENT
-    _DOUBLESIDED_ON
-  m_LightmapFlags: 2
+  m_ShaderKeywords: _ALPHATEST_ON _DISABLE_SSR_TRANSPARENT _DOUBLESIDED_ON
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: 2475
@@ -29,7 +28,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_56EC9351:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 9b8e0a6c5b06b1f4b9b6d302f25a5d9a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_7F2BA736:
@@ -172,18 +171,19 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
-    - Vector1_23D08BB4: 0
+    - Vector1_23D08BB4: 0.6
     - Vector1_2CD4FC07: 1
-    - Vector1_55065035: 1
+    - Vector1_55065035: 0.8
     - Vector1_5BE9E0E0: 2
-    - Vector1_925ABDA8: 0
+    - Vector1_925ABDA8: 0.5
     - Vector1_95B4B49D: 0
     - Vector1_B19CC00A: 2
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
-    - _AddPrecomputedVelocity: 1
+    - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 1
@@ -197,6 +197,7 @@ Material:
     - _Anisotropy: 0
     - _BlendMode: 0
     - _CoatMask: 0
+    - _ConservativeDepthOffsetEnable: 0
     - _Cull: 2
     - _CullMode: 0
     - _CullModeForward: 0
@@ -226,6 +227,7 @@ Material:
     - _DistortionVectorBias: -1
     - _DistortionVectorScale: 2
     - _DoubleSidedEnable: 1
+    - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
     - _Drag: 1
     - _DstBlend: 0
@@ -372,4 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 11
+  version: 12
+  hdPluginSubTargetMaterialVersions:
+    m_Keys: []
+    m_Values: 

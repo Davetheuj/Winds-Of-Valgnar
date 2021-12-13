@@ -9,8 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: pine_bark
   m_Shader: {fileID: 4800000, guid: fc1758f2506fc844e9a6299de888d515, type: 3}
-  m_ShaderKeywords: _ADD_PRECOMPUTED_VELOCITY _DISABLE_SSR _METALLICGLOSSMAP _WIND2_ON
-    _WINDQUALITY_NONE _WIND_ON
+  m_ShaderKeywords: _WIND_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -108,7 +107,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - WindSpeedFloat2: 0.5
+    - WindSpeedFloat2: 0.407
     - WindStrenghtFloat2: 0.75
     - WindTurbulenceFloat2: 0.1
     - _AO_power: 0.733
@@ -119,7 +118,7 @@ Material:
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
     - _AmbientPower: 0.349
-    - _AmbientStrength: 0
+    - _AmbientStrength: 0.293
     - _BillboardKwToggle: 0
     - _BillboardShadowFade: 0.5
     - _BlendMode: 0
@@ -198,7 +197,7 @@ Material:
     - _Color0: {r: 1, g: 1, b: 1, a: 0}
     - _CustomColorHigh: {r: 0.5808823, g: 0.3540672, b: 0.2520004, a: 0}
     - _CustomColorLow: {r: 0.1691176, g: 0.1082284, b: 0.08082827, a: 0}
-    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _HueVariationColor: {r: 1, g: 0.5, b: 0, a: 0.1}

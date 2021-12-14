@@ -39,21 +39,19 @@ This ReadMe should give you an understanding of the game's philosophy and archit
 		SoundController?
 
 		
-	c. Zones:
-
+### Zones
 		NPCS
 		Items
 		Lighting
 		Terrain
 
 
-	d. Saving and Loading:
-
+### Saving and Loading
 		Player Data
 		Zone Data
 			Temporary Zone Data
 			Permanent Zone Data
 
-	e. GUI:
+### GUI
 
-	f. Rendering:
+### Rendering

@@ -15,7 +15,7 @@ This ReadMe should give you an understanding of the game's philosophy and archit
 		Development Releases: Itch.io
 		Production Releases: Steam
 		
-## The Player:
+## The Player
 
 		The Player GameObject (and it's associated scripts) can be found in the "Loading" scene before 
 		the game starts and in the "DontDestroyOnLoad" scene while the game is running.
@@ -28,9 +28,9 @@ This ReadMe should give you an understanding of the game's philosophy and archit
 ### Camera
 ### Model
 ### Stats
-### 	Major
-### 	Minor
-### 	Tertiary
+ 	Major
+ 	Minor
+ 	Tertiary
 ### Inventory
 ### Equipment
 ### Journal

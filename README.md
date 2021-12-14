@@ -3,11 +3,11 @@ Welcome to Winds of Valgnar, a first person fantasy RPG!
 
 This ReadMe should give you an understanding of the game's philosophy and architecture.
 
-## Philosophy
+# Philosophy
 	
-## Architecture
+# Architecture
 
-### Technologies:
+## Technologies:
 		Unity Editor 2021.2.3f1
 		Visual Studio
 		Git
@@ -15,14 +15,16 @@ This ReadMe should give you an understanding of the game's philosophy and archit
 		Development Releases: Itch.io
 		Production Releases: Steam
 		
-### The Player:
+## The Player:
 
-		The Player GameObject (and it's associated scripts) can be found in the "Loading" scene before the game starts and in the "DontDestroyOnLoad" scene while the game is running.
-		The player consists of a camera, a capsule collider, and a model that is not rendered but which contains some basic animations and bones that objects such as weapons can be attached to.
+		The Player GameObject (and it's associated scripts) can be found in the "Loading" scene before 
+		the game starts and in the "DontDestroyOnLoad" scene while the game is running.
+		The player consists of a camera, a capsule collider, and a model that is not rendered but which 
+		contains some basic animations and bones that objects such as weapons can be attached to.
 		
 		Below are the main scripts that comprise the "Player".
 
-####CharacterController
+### CharacterController
 		Camera
 		Model
 		Stats

@@ -6,6 +6,7 @@ This ReadMe should give you an understanding of the game's philosophy and archit
 1. Philosophy
 	
 2. Architecture
+
 	a. Technologies:
 		Unity Editor 2021.2.3f1
 		Visual Studio
@@ -13,6 +14,7 @@ This ReadMe should give you an understanding of the game's philosophy and archit
 		Deploying on Windows 10+ with minor support for Mac and Linux
 		
 	b. The Player:
+
 		The Player GameObject (and it's associated scripts) can be found in the "Loading" scene before the game starts and in the "DontDestroyOnLoad" scene while the game is running.
 		The player consists of a camera, a capsule collider, and a model that is not rendered but which contains some basic animations and bones that objects such as weapons can be attached to.
 		
@@ -33,6 +35,7 @@ This ReadMe should give you an understanding of the game's philosophy and archit
 
 		
 	c. Zones:
+
 		NPCS
 		Items
 		Lighting
@@ -40,6 +43,7 @@ This ReadMe should give you an understanding of the game's philosophy and archit
 
 
 	d. Saving and Loading:
+
 		Player Data
 		Zone Data
 			Temporary Zone Data

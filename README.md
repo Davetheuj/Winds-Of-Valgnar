@@ -25,33 +25,33 @@ This ReadMe should give you an understanding of the game's philosophy and archit
 		Below are the main scripts that comprise the "Player".
 
 ### CharacterController
-		Camera
-		Model
-		Stats
-			Major
-			Minor
-			Tertiary
-		Inventory
-		Equipment
-		Journal
-		Quests
-		Abilities
-		SoundController?
+### Camera
+### Model
+### Stats
+### 	Major
+### 	Minor
+### 	Tertiary
+### Inventory
+### Equipment
+### Journal
+### Quests
+### Abilities
+### SoundController?
 
 		
-### Zones
+## Zones
 		NPCS
 		Items
 		Lighting
 		Terrain
 
 
-### Saving and Loading
+## Saving and Loading
 		Player Data
 		Zone Data
 			Temporary Zone Data
 			Permanent Zone Data
 
-### GUI
+## GUI
 
-### Rendering
+## Rendering

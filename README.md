@@ -3,11 +3,11 @@ Welcome to Winds of Valgnar, a first person fantasy RPG!
 
 This ReadMe should give you an understanding of the game's philosophy and architecture.
 
-# Philosophy
+## Philosophy
 	
 ## Architecture
 
-	a. Technologies:
+	### Technologies:
 		Unity Editor 2021.2.3f1
 		Visual Studio
 		Git

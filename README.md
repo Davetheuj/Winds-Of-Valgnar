@@ -31,6 +31,7 @@ This ReadMe should give you an understanding of the game's philosophy and archit
  	Major
  	Minor
  	Tertiary
+### StatusController
 ### Inventory
 ### Equipment
 ### Journal
@@ -41,9 +42,16 @@ This ReadMe should give you an understanding of the game's philosophy and archit
 		
 ## Zones
 		NPCS
+			-Model
+			-NPC.cs
 		Items
-		Lighting
+			-Model
+			-Item.cs
+			-CurrencyPickup.cs
+			-Inventory Image
 		Terrain
+			Creation
+		Lighting
 
 
 ## Saving and Loading

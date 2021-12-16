@@ -9,12 +9,17 @@ This ReadMe should give you an understanding of the game's philosophy and archit
 
 ## Technologies:
 
-Unity Editor 2021.2.3f1\n
-Visual Studio\n
-Git\n
-Deploying on Windows 10+ with minor support for Mac and Linux\n
-Development Releases: Itch.io\n
-Production Releases: Steam\n
+Unity Editor 2021.2.3f1
+
+Visual Studio
+
+Git
+
+Deploying on Windows 10+ with minor support for Mac and Linux
+
+Development Releases: Itch.io
+
+Production Releases: Steam
 		
 ## The Player
 

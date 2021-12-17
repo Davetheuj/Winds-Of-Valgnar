@@ -3,7 +3,7 @@ Welcome to Winds of Valgnar, a first person fantasy RPG!
 
 The journey begins with our player waking up in a dark ancestral tomb with no knowledge of their previous life up to this point. 
 After navigating out of the crypt they are met with the world of Valgnar to explore. They will complete quests, level up their skills, and defeat fearsome monsters
-to help mould the world in the way they see fit while also being shaped by new philosophies and experiences they encounter along the way. 
+to help mould the world in the way they see fit while also being shaped themselves by new philosophies and experiences they encounter along the way. 
 
 	
 # Architecture

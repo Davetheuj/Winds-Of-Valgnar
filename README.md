@@ -36,6 +36,9 @@ Below are the main scripts that comprise the "Player".
 ### Camera
 
 ### Model
+Mesh
+Bones
+Animations
 
 ### Stats
 

@@ -1641,7 +1641,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1309518547}
   m_HandleRect: {fileID: 1309518546}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -43228,7 +43228,7 @@ MonoBehaviour:
   maxHealth: 500
   maxMana: 5000
   currentIntellect: 50
-  currentStrength: 0
+  currentStrength: 10
   currentWisdom: 0
   currentDexterity: 0
   currentSpirit: 15
@@ -43236,7 +43236,7 @@ MonoBehaviour:
   currentLuck: 0
   currentCharisma: 0
   maxIntellect: 50
-  maxStrength: 0
+  maxStrength: 10
   maxWisdom: 0
   maxDexterity: 0
   maxSpirit: 15

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.17948467, g: 0.089583576, b: 0.10143936, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -42965,6 +42965,7 @@ GameObject:
   - component: {fileID: 5899831225901927794}
   - component: {fileID: 5899831225901927795}
   - component: {fileID: 5899831225901927797}
+  - component: {fileID: 5899831225901927805}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -43324,6 +43325,14 @@ MonoBehaviour:
   TargetNPCPanelTransform: {fileID: 1994998910}
   NPCPanelXOffset: 0
   statusController: {fileID: 1995853259}
+--- !u!81 &5899831225901927805
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5899831225901927789}
+  m_Enabled: 1
 --- !u!4 &5961028977418307758
 Transform:
   m_ObjectHideFlags: 0

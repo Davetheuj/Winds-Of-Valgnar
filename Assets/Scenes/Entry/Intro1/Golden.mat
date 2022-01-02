@@ -230,7 +230,7 @@ Material:
     - _EnableSpecularOcclusion: 0
     - _EnergyConservingSpecularColor: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0.78
+    - _Glossiness: 0.56081086
     - _GlossyReflections: 1
     - _HdrpVersion: 2
     - _HeightAmplitude: 0.02
@@ -248,7 +248,7 @@ Material:
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 0
     - _MaterialID: 1
-    - _Metallic: 1
+    - _Metallic: 0.99999976
     - _MetallicRemapMax: 0.4854355
     - _MetallicRemapMin: 0
     - _Mode: 0
@@ -267,7 +267,7 @@ Material:
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
     - _SSRefractionProjectionModel: 0
-    - _Smoothness: 0.612
+    - _Smoothness: 0.08152776
     - _SmoothnessRemapMax: 0.78
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0

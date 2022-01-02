@@ -22,7 +22,7 @@ public class TitleIntroCameraController : MonoBehaviour
    // public bool isLooping; haven't added this yet dont worry about it
     public float startDelay; //how long it will take before the camera motion starts
     public Material material; //the material that will be altered
-    public Light light; //the light that will be altered
+    public Light directionalLight; //the light that will be altered
     public float initialMetallic; //you probably want to set this to 1 but it's up to you!
     public List<Vector3> positionList; //list of positions for the camera to interpolate between
     public List<float> positionLerpSpeedList; //a factor controling the spped at which the camera will interpolate (positional)
@@ -59,10 +59,10 @@ public class TitleIntroCameraController : MonoBehaviour
             cameraTrans.rotation = Quaternion.Euler(Vector3.Lerp(cameraTrans.rotation.eulerAngles, rotationList[counter], rotationLerpSpeedList[counter] * Time.deltaTime));
             //sets the smoothness or _Glossiness
             smoothness = Mathf.Lerp(smoothness, materialSmoothnessList[counter], materialSmoothnessLerpSpeedList[counter] * Time.deltaTime);
-            material.SetFloat("_Glossiness", smoothness);
+            material.SetFloat("_Smoothness", smoothness);
             //sets the light intensity
             intensity = Mathf.Lerp(intensity, lightIntensityList[counter], lightIntensitySpeedList[counter] * Time.deltaTime);
-            light.intensity = intensity;
+            directionalLight.intensity = intensity;
             //keeping track of time
             transitionTimeList[counter] -= Time.deltaTime;
             //checking to see if property change is needed
@@ -90,7 +90,7 @@ public class TitleIntroCameraController : MonoBehaviour
         //setting some initial properties. Shader properties are saved at runtime so will be altered usually.
         material.SetFloat("_Metallic", initialMetallic);
         cameraTrans = this.gameObject.transform;
-        smoothness = material.GetFloat("_Glossiness");
-        intensity = light.intensity;
+        smoothness = material.GetFloat("_Smoothness");
+        intensity = directionalLight.intensity;
     }
 }

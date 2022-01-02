@@ -222,8 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startDelay: 0.5
-  material: {fileID: 2100000, guid: c32357ef21554a14d9e3fa0ff83de978, type: 2}
-  light: {fileID: 1830725653}
+  material: {fileID: 2100000, guid: d1b533ccdd2121f4f8a1ecf62e9984b7, type: 2}
+  directionalLight: {fileID: 1830725653}
   initialMetallic: 1
   positionList:
   - {x: 0, y: 0, z: -500}
@@ -256,10 +256,10 @@ MonoBehaviour:
   - 1
   - 2
   lightIntensityList:
-  - 0.0006
-  - 0.0006
-  - 0.0006
-  - 0.0006
+  - 6
+  - 6
+  - 6
+  - 6
   - 0
   lightIntensitySpeedList:
   - 10

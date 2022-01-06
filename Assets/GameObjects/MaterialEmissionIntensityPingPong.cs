@@ -8,8 +8,7 @@ public class MaterialEmissionIntensityPingPong : MonoBehaviour
     private Material emissiveMaterial;
     public float maxIntensity;
     public float minIntensity;
-    public bool isRising;
-    public float lerpSpeedMultiplier; //You can adjust this in the editor just don't make it 0 or there wont be any changes.
+    private bool isRising;
     public float transitionSpeed;
 
     private void Start()

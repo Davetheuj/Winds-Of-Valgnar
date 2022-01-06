@@ -123,7 +123,7 @@ public class StatsController : MonoBehaviour
         {
           
             this.gameObject.GetComponent<DeathController>().ExecuteDeathRoutine();
-            this.gameObject.GetComponent<DeathController>().isDead = true;
+            //this.gameObject.GetComponent<DeathController>().isDead = true;
         }
     }
 

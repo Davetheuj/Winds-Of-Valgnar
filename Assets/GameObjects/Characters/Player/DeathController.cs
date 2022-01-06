@@ -1,25 +1,13 @@
-﻿
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DeathController : MonoBehaviour
 {
-    public Material skyboxMaterial;
-    public bool isDead;
-    public float lerpModifier;
+    public GameObject deathCanvas;
     public void ExecuteDeathRoutine()
     {
-        skyboxMaterial = RenderSettings.skybox;
-    }
-    public void Update()
-    {
-        if (isDead)
-        {
-            skyboxMaterial.SetFloat("_Exposure", Mathf.Lerp(skyboxMaterial.GetFloat("_Exposure"), 500f, lerpModifier*
-                Time.deltaTime));
-           
+        //Should enable a global volume here for some sort of death effect
 
-        }
+        deathCanvas.SetActive(true);
+
     }
 }

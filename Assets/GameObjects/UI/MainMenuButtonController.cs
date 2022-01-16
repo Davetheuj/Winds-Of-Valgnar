@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButtonController : MonoBehaviour
 {
-    GameObject mainMenuCanvas;
-    GameObject newPlayerCanvas;
-    GameObject loadCanvas;
+    public GameObject mainMenuCanvas;
+    public GameObject newPlayerCanvas;
+    public GameObject loadCanvas;
    
 
     public void OnDemoButtonPressed()

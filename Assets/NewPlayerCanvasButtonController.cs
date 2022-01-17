@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class NewPlayerCanvasButtonController : MonoBehaviour
 {
     public GameObject mainMenuCanvas;
+    public TMP_InputField nameInputField;
     
 
     public void OnBackButtonPressed()
@@ -20,7 +22,7 @@ public class NewPlayerCanvasButtonController : MonoBehaviour
 
     public void OnRandomNameButtonPressed()
     {
-
+        nameInputField.text = Assets.Utilities.StringGenerators.GenerateRandomName();
     }
 
 

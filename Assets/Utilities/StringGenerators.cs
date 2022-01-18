@@ -13,7 +13,7 @@ namespace Assets.Utilities
             "B", "Bh", "Bl", "Br", "Bs",
             "C", "Ch", "Cl", "Cr", "Cs",
             "D", "Dh", "Ds",
-            "F", "Fh", "Fl", "Fr", "Fs", "Ft", "Fb",
+            "F", "Fh", "Fl", "Fr", "Fs", "Ft", 
             "G", "Gh", "Gl", "Gr", "Gs",
             "H", 
             "J", 

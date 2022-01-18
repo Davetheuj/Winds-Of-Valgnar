@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SaveOnLoadObjects : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     public SaveLoadManager manager;
     public List<GameObject> objectList = new List<GameObject>();
     public String startScene;
@@ -16,10 +16,16 @@ public class SaveOnLoadObjects : MonoBehaviour
         {
             DontDestroyOnLoad(gameComponent);
         }
-        try { manager.LoadPlayer(); } catch(Exception e)
+       
+        try 
+        {
+            manager.LoadPlayer(); 
+        }
+        catch(Exception e)
         {
             Debug.Log(e);
         }
+       
         try
         {
             //SceneManager.LoadScene(manager.player.GetComponent<StatsController>().zoneName);

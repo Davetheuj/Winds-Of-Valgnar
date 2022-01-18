@@ -8,11 +8,13 @@ public class MainMenuButtonController : MonoBehaviour
     public GameObject mainMenuCanvas;
     public GameObject newPlayerCanvas;
     public GameObject loadCanvas;
+    public GameObject persistentObjects;
    
 
     public void OnDemoButtonPressed()
     {
-        SceneManager.LoadSceneAsync("Loading");
+        //SceneManager.LoadSceneAsync("Loading");
+        persistentObjects.SetActive(true);
         
         //SceneManager.UnloadSceneAsync("GameStart");
 

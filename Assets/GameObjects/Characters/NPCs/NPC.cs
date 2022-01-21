@@ -132,7 +132,7 @@ public class NPC : MonoBehaviour
             }
             catch (NullReferenceException e)
             {
-                Debug.Log($"{npcName} 's parent does not have an dropSpawner Component attached");
+                Debug.Log($"{npcName} does not have an dropSpawner Component attached");
 
 
             }

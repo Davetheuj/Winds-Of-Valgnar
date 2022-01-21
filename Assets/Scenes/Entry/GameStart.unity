@@ -6863,55 +6863,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81370bbe492de47a09b766ace5b6cc10, type: 3}
---- !u!1 &336240457
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 336240458}
-  - component: {fileID: 336240459}
-  m_Layer: 0
-  m_Name: MetaPlayer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &336240458
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336240457}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &336240459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336240457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b8fd302efa0fe448678e7fa25af395, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstName: 
-  lastName: 
-  zoneName: 
-  race: 0
-  strength: 0
 --- !u!1 &344134860
 GameObject:
   m_ObjectHideFlags: 0
@@ -13554,7 +13505,7 @@ Transform:
   - {fileID: 1495822144}
   - {fileID: 1421540084}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &655360298
 MonoBehaviour:
@@ -32698,7 +32649,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82604f3c7fd08604fb6801ddcd6540c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  persistentObjects: {fileID: 655360296}
   mainMenuCanvas: {fileID: 2067671953}
+  createButton: {fileID: 791399250}
+  playerStats: {fileID: 5899831225901927802}
+  lastNameInput: {fileID: 0}
   nameInputField: {fileID: 915061704}
 --- !u!1 &1598406043
 GameObject:
@@ -44465,6 +44420,7 @@ MonoBehaviour:
   mainMenuCanvas: {fileID: 2067671953}
   newPlayerCanvas: {fileID: 1587337317}
   loadCanvas: {fileID: 1566678626}
+  persistentObjects: {fileID: 655360296}
 --- !u!1 &2072140625
 GameObject:
   m_ObjectHideFlags: 0

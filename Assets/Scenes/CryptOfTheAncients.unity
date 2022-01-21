@@ -5035,14 +5035,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Elder Kobold
-  angleFromPlayerForward: 0
+  angleFromPlayerForward: 1.511983
   player: {fileID: 0}
   isDefaultAgro: 1
   isStationary: 0
   NPCPanelOffset: 4.79
   maxHealth: 100
   currentHealth: 100
-  baseAttackStrength: 0
+  baseAttackStrength: 10
   resistanceMelee: 0
   resistanceRanged: 0
   resistanceMagic: 0
@@ -5050,13 +5050,13 @@ MonoBehaviour:
   honorGranted: 0
   popularityGranted: 0
   renownGranted: 0
-  attackRange: 7.5
+  attackRange: 3
   attackDelay: 3
-  attackTimer: 0
+  attackTimer: 2.1698883
   moveSpeed: 20
-  baseAgroRange: 10
-  roamRadius: 30
-  state: 1
+  baseAgroRange: 15
+  roamRadius: 3
+  state: 2
   spawnLocation: {x: 145, y: 8, z: 313}
   deltaNeutralMaxTime: 1
   neutralPositionMaxTime: 15

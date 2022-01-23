@@ -16,7 +16,7 @@ public class AudioClipController : MonoBehaviour
 
     private List<StackableAudioClip> clipStack = new List<StackableAudioClip>();
     private float defaultVolume;
-    private float shouldLoop;
+
     private float timer;
 
     // Start is called before the first frame update
@@ -152,12 +152,19 @@ public class AudioClipController : MonoBehaviour
 
     }
 
-
-
-
-
     private void Update()
     {
+        if (clipStack.Count == 0 || audioSource.isPlaying)
+        {
+            return;
+        }
+        clipStack.RemoveAt(0);
+        if(clipStack.Count == 0)
+        {
+            return;
+        }
+        audioSource.clip = clipStack[0].clip;
+        audioSource.volume = clipStack[0].volume;
         
     }
 

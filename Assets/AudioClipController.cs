@@ -2,6 +2,7 @@ using Assets.GameObjects;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AudioClipController : MonoBehaviour
@@ -9,11 +10,11 @@ public class AudioClipController : MonoBehaviour
     [Tooltip("This is set on Start()")]
     public AudioSource audioSource;
 
-    public List<AudioClip> ambientClips;
-    public List<AudioClip> interactionClips;
-    public List<AudioClip> deinteractionClips;
+    public List<AudioClip> ambientClips = new List<AudioClip>();
+    public List<AudioClip> interactionClips = new List<AudioClip>();
+    public List<AudioClip> deinteractionClips = new List<AudioClip>();
 
-    private List<StackableAudioClip> clipStack;
+    private List<StackableAudioClip> clipStack = new List<StackableAudioClip>();
     private float defaultVolume;
     private float shouldLoop;
     private float timer;
@@ -51,6 +52,7 @@ public class AudioClipController : MonoBehaviour
 
     public void PlayAmbientClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false)
     {
+        if(ambientClips.Count == 0)
         if(clipIndex <= 0)
         {
             clipIndex = new System.Random().Next(0, ambientClips.Count - 1);
@@ -59,18 +61,29 @@ public class AudioClipController : MonoBehaviour
         {
             volume = defaultVolume;
         }
+        if (createTemporarySource)
+        {
+            TemporaryAudioSource tempSource = this.gameObject.AddComponent<TemporaryAudioSource>();
+            //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
+            tempSource.AssignProperties(ambientClips[clipIndex], volume);
+            return;   
+        }
         if (stack)
         {
-
+            AddClipToStack(new StackableAudioClip(ambientClips[clipIndex], priority, volume));
+            return;
         }
-        
+
+        audioSource.clip = ambientClips[clipIndex];
+        audioSource.volume = volume;
+        audioSource.loop = loop;
+        audioSource.Play();
         
     }
 
-    public void PlayAmbientClip()
-    {
 
-    }
+
+    
 
     private void Update()
     {
@@ -79,6 +92,8 @@ public class AudioClipController : MonoBehaviour
 
     private void AddClipToStack(StackableAudioClip clip)
     {
+        clipStack.Add(clip);
+        clipStack = clipStack.OrderBy(o => o.priority).ToList();
 
     }
 

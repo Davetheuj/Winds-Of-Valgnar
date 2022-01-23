@@ -9,13 +9,14 @@ namespace Assets.GameObjects
 {
     class TemporaryAudioSource : MonoBehaviour
     {
-        private AudioSource audioSource = new AudioSource();
+        private AudioSource audioSource;
        // private AudioClip audioClip;
         bool started = false;
 
-        public TemporaryAudioSource(AudioClip clip, float volume )
+        public void AssignProperties(AudioClip clip, float volume)
         {
-  
+
+            audioSource = this.gameObject.AddComponent<AudioSource>();
             audioSource.clip = clip;
             audioSource.volume = volume;
 
@@ -32,6 +33,7 @@ namespace Assets.GameObjects
         {
             if(started && !audioSource.isPlaying)
             {
+                Destroy(audioSource);
                 Destroy(this);
             }
             

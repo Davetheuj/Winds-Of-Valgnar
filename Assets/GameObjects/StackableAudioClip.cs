@@ -10,9 +10,9 @@ namespace Assets.GameObjects
     //This class is used with AudioClipControllers
     class StackableAudioClip
     {
-        AudioClip clip;
-        int priority;
-        float volume;
+        public AudioClip clip;
+        public int priority;
+        public float volume;
         public StackableAudioClip(AudioClip clip, int priority, float volume)
         {
             this.clip = clip;

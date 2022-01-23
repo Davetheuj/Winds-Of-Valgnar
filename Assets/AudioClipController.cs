@@ -165,6 +165,7 @@ public class AudioClipController : MonoBehaviour
         }
         audioSource.clip = clipStack[0].clip;
         audioSource.volume = clipStack[0].volume;
+        audioSource.Play();
         
     }
 

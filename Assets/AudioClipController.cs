@@ -154,15 +154,19 @@ public class AudioClipController : MonoBehaviour
 
     private void Update()
     {
+        //If there are no clips in the stack or audioSource is already playing something we return
         if (clipStack.Count == 0 || audioSource.isPlaying)
         {
             return;
         }
+        //Now we know there are clips in the stack and the audioSource isn't playing, so we remove the old clip
         clipStack.RemoveAt(0);
+        //Check if there are any clips left to play
         if(clipStack.Count == 0)
         {
             return;
         }
+        //assign properties and play the clip
         audioSource.clip = clipStack[0].clip;
         audioSource.volume = clipStack[0].volume;
         audioSource.Play();

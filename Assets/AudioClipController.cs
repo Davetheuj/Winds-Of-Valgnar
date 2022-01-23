@@ -1,3 +1,4 @@
+using Assets.GameObjects;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ public class AudioClipController : MonoBehaviour
         defaultVolume = audioSource.volume;
     }
 
-    public void PlayAmbientClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = 0, bool stack = false, bool createTemporarySource = false)
+    public void PlayAmbientClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false)
     {
         if(clipIndex <= 0)
         {
@@ -57,6 +58,10 @@ public class AudioClipController : MonoBehaviour
         if(volume < 0)
         {
             volume = defaultVolume;
+        }
+        if (stack)
+        {
+
         }
         
         
@@ -70,6 +75,11 @@ public class AudioClipController : MonoBehaviour
     private void Update()
     {
         
+    }
+
+    private void AddClipToStack(StackableAudioClip clip)
+    {
+
     }
 
 

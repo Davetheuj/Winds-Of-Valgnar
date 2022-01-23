@@ -82,6 +82,8 @@ public class NPC : MonoBehaviour
 
     public GameObject debugMarker;
 
+    private AudioClipController audioClipController;
+
     void Start()
     {
         
@@ -91,6 +93,8 @@ public class NPC : MonoBehaviour
        characterController = gameObject.GetComponent<CharacterController>();
         console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
         animator = gameObject.GetComponent<Animator>();
+        audioClipController = GetComponent<AudioClipController>();
+        
         if (!isDefaultAgro)
         {
             state = 1;
@@ -346,10 +350,11 @@ public class NPC : MonoBehaviour
     }
     private void CheckAggresion()
     {
-        if ((transform.position - player.transform.position).magnitude <= baseAgroRange || (isAttacked))
+        if ((transform.position - player.transform.position).magnitude <= baseAgroRange || (isAttacked)) //if close enough or attacked
         {
             if(state == 2)
             {
+                audioClipController.PlayInteractionClip();
                 needsAnimationChange = true;
             }
            

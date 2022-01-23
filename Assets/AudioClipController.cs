@@ -8,7 +8,7 @@ using UnityEngine;
 public class AudioClipController : MonoBehaviour
 {
     [Tooltip("This is set on Start()")]
-    public AudioSource audioSource;
+    private AudioSource audioSource;
 
     public List<AudioClip> ambientClips = new List<AudioClip>();
     public List<AudioClip> interactionClips = new List<AudioClip>();

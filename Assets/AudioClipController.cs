@@ -13,7 +13,7 @@ public class AudioClipController : MonoBehaviour
     public List<AudioClip> interactionClips;
     public List<AudioClip> deinteractionClips;
 
-    private List<AudioClip> clipStack;
+    private List<StackableAudioClip> clipStack;
     private float defaultVolume;
     private float shouldLoop;
     private float timer;

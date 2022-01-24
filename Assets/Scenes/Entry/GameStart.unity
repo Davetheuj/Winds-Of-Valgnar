@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1433220977}
-  m_IndirectSpecularColor: {r: 0.17920542, g: 0.08976561, b: 0.102378726, a: 1}
+  m_IndirectSpecularColor: {r: 0.17920375, g: 0.089766026, b: 0.10238266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21592,7 +21592,7 @@ GameObject:
   - component: {fileID: 1002520748}
   - component: {fileID: 1002520750}
   m_Layer: 0
-  m_Name: Audio Source (1)
+  m_Name: SoundTrack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21610,7 +21610,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bb9898b506491f440b45267ff030b4b8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.507
+  m_Volume: 0.484
   m_Pitch: 1
   Loop: 0
   Mute: 0

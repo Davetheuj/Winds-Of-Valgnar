@@ -14,7 +14,9 @@ public class MainMenuButtonController : MonoBehaviour
     public void OnDemoButtonPressed()
     {
         //SceneManager.LoadSceneAsync("Loading");
+        SetAmbientMusicVolume(.3f);
         persistentObjects.SetActive(true);
+
         
         //SceneManager.UnloadSceneAsync("GameStart");
 
@@ -35,5 +37,11 @@ public class MainMenuButtonController : MonoBehaviour
     public void OnPatchNotesButtonPressed()
     {
 
+    }
+
+    public void SetAmbientMusicVolume(float volume = .5f)
+    {
+        volume = Mathf.Clamp(volume, 0, 1);
+        GameObject.Find("SoundTrack").GetComponent<AudioSource>().volume = volume;
     }
 }

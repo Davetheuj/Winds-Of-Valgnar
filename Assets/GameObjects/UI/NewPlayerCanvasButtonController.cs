@@ -44,7 +44,9 @@ public class NewPlayerCanvasButtonController : MonoBehaviour
         VerifyFirstName();
         VerifyLastName();
         SetPlayerStats();
+        SetAmbientMusicVolume(.3f);
         //Setting the persistent objects to true will initiate the game load sequence
+
         persistentObjects.SetActive(true);
     }
 
@@ -91,6 +93,12 @@ public class NewPlayerCanvasButtonController : MonoBehaviour
     public void OnRandomNameButtonPressed()
     {
         nameInputField.text = Assets.Utilities.StringGenerators.GenerateRandomName();
+    }
+
+    public void SetAmbientMusicVolume(float volume = .5f)
+    {
+        volume = Mathf.Clamp(volume, 0, 1);
+        GameObject.Find("SoundTrack").GetComponent<AudioSource>().volume = volume;
     }
 
 

@@ -86,7 +86,7 @@ public class AudioClipController : MonoBehaviour
 
     public void PlayInteractionClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false)
     {
-        if (interactionClips.Count == 0)
+        if (interactionClips == null || interactionClips.Count == 0)
         {
             return;
         }

@@ -354,7 +354,13 @@ public class NPC : MonoBehaviour
         {
             if(state == 2)
             {
-                audioClipController.PlayInteractionClip();
+                try
+                {
+                    audioClipController.PlayInteractionClip();
+                }catch(NullReferenceException e)
+                {
+                    Debug.Log($"There's no audioClipController on {gameObject.name}");
+                }
                 needsAnimationChange = true;
             }
            

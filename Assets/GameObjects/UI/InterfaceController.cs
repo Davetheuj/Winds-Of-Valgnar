@@ -12,6 +12,7 @@ public class InterfaceController : MonoBehaviour
     public GameObject AbilitiesPanel;
     public GameObject JournalPanel;
     public GameObject EquipmentPanel;
+    public GameObject WorldMapPanel;
 
     public GameObject baseItemInfoPanel;
     public GameObject inventoryGrid;
@@ -48,6 +49,10 @@ public class InterfaceController : MonoBehaviour
     public void JournalToggle()
     {
        JournalPanel.SetActive(!JournalPanel.activeSelf);
+    }
+    public void MapToggle()
+    {
+        WorldMapPanel.SetActive(!WorldMapPanel.activeSelf);
     }
     public void EquipmentToggle()
     {
@@ -89,6 +94,10 @@ public class InterfaceController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.C))
         {
             StatsToggle();
+        }
+        else if (Input.GetKeyDown(KeyCode.M))
+        {
+            MapToggle();
         }
     }
 

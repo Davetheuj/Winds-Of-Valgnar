@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -16,10 +17,14 @@ public class PlayerControlAlpha : MonoBehaviour
 
 	public Vector3 moveDirection;
 
+    public AudioSource audio;
+
 	// Start is called before the first frame update
 
         void Start()
     {
+        audio.Play();
+        audio.Pause();
       
         
     }
@@ -77,7 +82,7 @@ public class PlayerControlAlpha : MonoBehaviour
 
             moveDirection = (transform.forward * Input.GetAxisRaw("Vertical")); //+ (transform.right * Input.GetAxisRaw("Horizontal"));
         }
-		moveDirection = moveDirection.normalized * playerSpeed; //normlization so axis arent added outright
+		moveDirection = moveDirection.normalized * playerSpeed; //normalization so axis aren't added outright (for cheaters like SEAN)
 
 		moveDirection.y = yStore;
 
@@ -88,9 +93,27 @@ public class PlayerControlAlpha : MonoBehaviour
 			{
 				moveDirection.y = jumpSpeed;
 			}
+            if((Mathf.Abs(moveDirection.x) >0 || Mathf.Abs(moveDirection.z) > 0) && !audio.isPlaying)
+            {
+                
+                audio.UnPause();
+                Debug.Log("Playing walking audio");
+            }
+            else
+            {
+                if (audio.isPlaying)
+                {
+                    Debug.Log("Stopping walking audio");
+                    audio.Pause();
+                }
+            }
 		}
+       
 
-		moveDirection.y = moveDirection.y + Physics.gravity.y * gravityScale * Time.deltaTime;
+        moveDirection.y = moveDirection.y + Physics.gravity.y * gravityScale * Time.deltaTime;
+        Debug.Log($"Move: {moveDirection * Time.deltaTime}");
+        
 		controller.Move(moveDirection * Time.deltaTime);
+        
 	}
 }

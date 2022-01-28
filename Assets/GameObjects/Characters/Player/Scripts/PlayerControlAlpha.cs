@@ -19,6 +19,8 @@ public class PlayerControlAlpha : MonoBehaviour
 
     public AudioSource audio;
 
+    private bool canJump = false;
+
 	// Start is called before the first frame update
 
         void Start()
@@ -86,31 +88,37 @@ public class PlayerControlAlpha : MonoBehaviour
 
 		moveDirection.y = yStore;
 
-		if (controller.isGrounded)
+        if(controller.isGrounded && !canJump)
+        {
+            canJump = true;
+        }
+
+		if (canJump)
 		{
-			moveDirection.y = 0;
+			//moveDirection.y = 0;
 			if (Input.GetButtonDown("Jump"))
 			{
 				moveDirection.y = jumpSpeed;
+                canJump = false;
 			}
             if((Mathf.Abs(moveDirection.x) >0 || Mathf.Abs(moveDirection.z) > 0) && !audio.isPlaying)
             {
                 
-                audio.UnPause();
+                audio.Play();
                 Debug.Log("Playing walking audio");
             }
             else
             {
                 if (audio.isPlaying)
                 {
-                    Debug.Log("Stopping walking audio");
-                    audio.Pause();
+                    //Debug.Log("Stopping walking audio");
+                    //audio.Pause();
                 }
             }
 		}
        
 
-        moveDirection.y = moveDirection.y + Physics.gravity.y * gravityScale * Time.deltaTime;
+        moveDirection.y = Mathf.Clamp(moveDirection.y + Physics.gravity.y * gravityScale * Time.deltaTime,-100,100);
         Debug.Log($"Move: {moveDirection * Time.deltaTime}");
         
 		controller.Move(moveDirection * Time.deltaTime);

@@ -8,7 +8,7 @@ using UnityEngine;
 public class AudioClipController : MonoBehaviour
 {
     [Tooltip("This is set on Start()")]
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     public List<AudioClip> ambientClips = new List<AudioClip>();
     public List<AudioClip> interactionClips = new List<AudioClip>();
@@ -50,7 +50,7 @@ public class AudioClipController : MonoBehaviour
         defaultVolume = audioSource.volume;
     }
 
-    public void PlayAmbientClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false)
+    public void PlayAmbientClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false, bool freshObject = false)
     {
         if(ambientClips.Count == 0)
         {
@@ -66,6 +66,15 @@ public class AudioClipController : MonoBehaviour
         }
         if (createTemporarySource)
         {
+            if (freshObject)
+            {
+                GameObject tempObject = GameObject.Instantiate(new GameObject());
+                TemporaryAudioSource freshSource = tempObject.AddComponent<TemporaryAudioSource>();
+                //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
+                freshSource.AssignProperties(deinteractionClips[clipIndex], volume);
+                return;
+
+            }
             TemporaryAudioSource tempSource = this.gameObject.AddComponent<TemporaryAudioSource>();
             //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
             tempSource.AssignProperties(ambientClips[clipIndex], volume);
@@ -84,13 +93,13 @@ public class AudioClipController : MonoBehaviour
         
     }
 
-    public void PlayInteractionClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false)
+    public void PlayInteractionClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false, bool freshObject = false)
     {
         if (interactionClips == null || interactionClips.Count == 0)
         {
             return;
         }
-            if (clipIndex <= 0)
+            if (clipIndex < 0)
             {
                 clipIndex = new System.Random().Next(0, interactionClips.Count - 1);
             }
@@ -100,6 +109,15 @@ public class AudioClipController : MonoBehaviour
         }
         if (createTemporarySource)
         {
+            if (freshObject)
+            {
+                GameObject tempObject = GameObject.Instantiate(new GameObject());
+                TemporaryAudioSource freshSource = tempObject.AddComponent<TemporaryAudioSource>();
+                //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
+                freshSource.AssignProperties(interactionClips[clipIndex], volume);
+                return;
+
+            }
             TemporaryAudioSource tempSource = this.gameObject.AddComponent<TemporaryAudioSource>();
             //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
             tempSource.AssignProperties(interactionClips[clipIndex], volume);
@@ -118,7 +136,7 @@ public class AudioClipController : MonoBehaviour
 
     }
 
-    public void PlayDeinteractionClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false)
+    public void PlayDeinteractionClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false, bool freshObject = false)
     {
         if (deinteractionClips.Count == 0)
         {
@@ -134,6 +152,15 @@ public class AudioClipController : MonoBehaviour
         }
         if (createTemporarySource)
         {
+            if (freshObject)
+            {
+                GameObject tempObject = GameObject.Instantiate(new GameObject());
+                TemporaryAudioSource freshSource = tempObject.AddComponent<TemporaryAudioSource>();
+                //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
+                freshSource.AssignProperties(deinteractionClips[clipIndex], volume);
+                return;
+
+            }
             TemporaryAudioSource tempSource = this.gameObject.AddComponent<TemporaryAudioSource>();
             //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
             tempSource.AssignProperties(deinteractionClips[clipIndex], volume);

@@ -19247,10 +19247,10 @@ RectTransform:
   m_Father: {fileID: 46033840}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -61.071, y: 41.94}
-  m_SizeDelta: {x: 2272.89, y: 1389.554}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 558.1272, y: 41.011986}
+  m_SizeDelta: {x: 3417.287, y: 1771.8721}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &895496980
 MonoBehaviour:
@@ -19284,7 +19284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 14aa03926cf102544a373b791e0b4b39, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1c353cb2877b7946a23ce8061222c5c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25484,7 +25484,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

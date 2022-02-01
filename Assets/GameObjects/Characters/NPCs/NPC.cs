@@ -85,6 +85,13 @@ public class NPC : MonoBehaviour
     private AudioClipController audioClipController;
 
     public string attackClipName;
+    public string walkClipName;
+    public string neutralIdleClipName;
+    public string agressiveIdleClipName;
+    public string runClipName;
+    public string deathClipName;
+    
+
 
     void Start()
     {
@@ -167,7 +174,7 @@ public class NPC : MonoBehaviour
             {
                 if (needsAnimationChange || wasOutOfRange)
                 {
-                    animator.Play("idle_battle");
+                    animator.Play(agressiveIdleClipName);
                     needsAnimationChange = false;
                     wasOutOfRange = false;
                     Debug.Log($"{npcName} playing idle_battle");
@@ -200,7 +207,7 @@ public class NPC : MonoBehaviour
                     }
                     unstuckPathCounter = 1;
                 }
-                animator.Play("run");
+                animator.Play(runClipName);
                 if (!isStuck)
                 {
                     lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(player.transform.position - transform.position).eulerAngles.y, moveSpeed * Time.deltaTime);
@@ -259,7 +266,7 @@ public class NPC : MonoBehaviour
                     if (needsAnimationChange)
                     {
                         
-                        animator.Play("walk");
+                        animator.Play(walkClipName);
                         
                         
                         needsAnimationChange = false;
@@ -286,7 +293,7 @@ public class NPC : MonoBehaviour
                 {
                     if (needsAnimationChange)
                     {
-                        animator.Play("idle");
+                        animator.Play(neutralIdleClipName);
                         needsAnimationChange = false;
                     }
 
@@ -354,7 +361,7 @@ public class NPC : MonoBehaviour
     }
     private void CheckAggresion()
     {
-        if ((transform.position - player.transform.position).magnitude <= baseAgroRange || (isAttacked)) //if close enough or attacked
+        if (((transform.position - player.transform.position).magnitude <= baseAgroRange && isDefaultAgro)|| (isAttacked)) //if close enough or attacked
         {
             if(state == 2)
             {

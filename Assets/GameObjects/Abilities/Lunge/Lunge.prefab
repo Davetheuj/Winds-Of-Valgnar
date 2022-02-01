@@ -60,9 +60,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a5776d01fd56d478e1c4577c89e011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
   ambientClips: []
   interactionClips:
-  - {fileID: 8300000, guid: 25155778db2b5d84e88f62792d79aea5, type: 3}
+  - {fileID: 8300000, guid: d24dc1cb00aeae544ad2146c6908f803, type: 3}
   deinteractionClips: []
 --- !u!82 &4982528700834543688
 AudioSource:

@@ -84,6 +84,8 @@ public class NPC : MonoBehaviour
 
     private AudioClipController audioClipController;
 
+    public string attackClipName;
+
     void Start()
     {
         
@@ -168,14 +170,16 @@ public class NPC : MonoBehaviour
                     animator.Play("idle_battle");
                     needsAnimationChange = false;
                     wasOutOfRange = false;
+                    Debug.Log($"{npcName} playing idle_battle");
                 }
                 
                 if (attackTimer >= attackDelay)
                 {
-                    animator.Play("attack1");
+                    animator.Play(attackClipName);
                     DealDamageToPlayer(baseAttackStrength);
                     attackTimer = 0;
-              
+                    Debug.Log($"{npcName} playing attack1");
+
                 }
                 else 
                 {

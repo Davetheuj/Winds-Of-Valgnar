@@ -119,7 +119,7 @@ public class PlayerControlAlpha : MonoBehaviour
        
 
         moveDirection.y = Mathf.Clamp(moveDirection.y + Physics.gravity.y * gravityScale * Time.deltaTime,-100,100);
-        Debug.Log($"Move: {moveDirection * Time.deltaTime}");
+       // Debug.Log($"Move: {moveDirection * Time.deltaTime}");
         
 		controller.Move(moveDirection * Time.deltaTime);
         

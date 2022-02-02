@@ -111,7 +111,7 @@ public class AudioClipController : MonoBehaviour
         {
             if (freshObject)
             {
-                GameObject tempObject = GameObject.Instantiate(new GameObject());
+                GameObject tempObject = new GameObject();
                 TemporaryAudioSource freshSource = tempObject.AddComponent<TemporaryAudioSource>();
                 //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
                 freshSource.AssignProperties(interactionClips[clipIndex], volume);

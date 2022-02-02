@@ -20,10 +20,14 @@ public class PlayerControlAlpha : MonoBehaviour
     public AudioSource audio;
 
     private bool canJump = false;
+    private float audioDelay;
+    [SerializeField]
+    private float audioDelayModifier;
+    private float audioTimer;
 
-	// Start is called before the first frame update
+    // Start is called before the first frame update
 
-        void Start()
+    void Start()
     {
         audio.Play();
         audio.Pause();
@@ -101,10 +105,12 @@ public class PlayerControlAlpha : MonoBehaviour
 				moveDirection.y = jumpSpeed;
                 canJump = false;
 			}
-            if((Mathf.Abs(moveDirection.x) >0 || Mathf.Abs(moveDirection.z) > 0) && !audio.isPlaying)
+            audioDelay = playerSpeed / audioDelayModifier;
+            if((Mathf.Abs(moveDirection.x) >0 || Mathf.Abs(moveDirection.z) > 0) && !audio.isPlaying && (audioTimer >= audioDelay))
             {
                 
                 audio.Play();
+                audioTimer = 0;
                 Debug.Log("Playing walking audio");
             }
             else
@@ -122,6 +128,7 @@ public class PlayerControlAlpha : MonoBehaviour
        // Debug.Log($"Move: {moveDirection * Time.deltaTime}");
         
 		controller.Move(moveDirection * Time.deltaTime);
+        audioTimer += Time.deltaTime;
         
 	}
 }

@@ -43,7 +43,7 @@ public class NPC : MonoBehaviour
     [Tooltip("Default 30ish")]
     public int roamRadius;
     //public List<NPCAttack> (max damage, cast chance, attack delays, animation clips)
-    
+    [Tooltip("0Dead,1Agro,2Neutral")]
     public byte state =0;//0 for dead 1 for neutral 2 for aggressive 3 for looking at player 4 looking at spawn
     public Vector3 spawnLocation;
     private Vector3 moveDirection;
@@ -104,10 +104,7 @@ public class NPC : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         audioClipController = GetComponent<AudioClipController>();
         
-        if (!isDefaultAgro)
-        {
-            state = 1;
-        }
+
         
             neutralLocation = spawnLocation;
 
@@ -361,7 +358,7 @@ public class NPC : MonoBehaviour
     }
     private void CheckAggresion()
     {
-        if (((transform.position - player.transform.position).magnitude <= baseAgroRange && isDefaultAgro)|| (isAttacked)) //if close enough or attacked
+        if ((((transform.position - player.transform.position).magnitude <= baseAgroRange) && isDefaultAgro)|| (isAttacked)) //if close enough or attacked
         {
             if(state == 2)
             {

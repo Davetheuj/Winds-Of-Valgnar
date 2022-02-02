@@ -9783,11 +9783,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   ambientClips: []
   interactionClips:
-  - {fileID: 8300000, guid: 90d3bfd986d27fc45b3f5e8dd0eee039, type: 3}
-  - {fileID: 8300000, guid: f5f13634c6a5a50419ebfc73d17f5c7d, type: 3}
-  - {fileID: 8300000, guid: 0899ff5135a13424288f3ac704f1c39b, type: 3}
-  - {fileID: 8300000, guid: ff505a0048c66574ba914d82ea19ba90, type: 3}
-  - {fileID: 8300000, guid: 673e1074b4d01d2449d21ea6d4c9b27b, type: 3}
+  - {fileID: 8300000, guid: f3854be515965514c9260af90c908998, type: 3}
   deinteractionClips: []
 --- !u!82 &1716003276
 AudioSource:
@@ -11287,14 +11283,14 @@ MonoBehaviour:
   baseAgroRange: 0
   roamRadius: 10
   state: 2
-  spawnLocation: {x: 0, y: 0, z: 0}
-  deltaNeutralMaxTime: 5
-  neutralPositionMaxTime: 5
-  neutPosTimeRandModifier: 4
+  spawnLocation: {x: -13, y: 0.3, z: 8.4}
+  deltaNeutralMaxTime: 2
+  neutralPositionMaxTime: 15
+  neutPosTimeRandModifier: 6
   maxIdleTime: 5
   statusController: {fileID: 0}
-  maxStuckTime: 10
-  minTravelDistance: 0.1
+  maxStuckTime: 0.1
+  minTravelDistance: 0.5
   debugMarker: {fileID: 0}
   attackClipName: Attack1
   walkClipName: Walk

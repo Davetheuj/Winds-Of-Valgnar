@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1433220977}
-  m_IndirectSpecularColor: {r: 0.17920375, g: 0.089766026, b: 0.10238266, a: 1}
+  m_IndirectSpecularColor: {r: 0.17966598, g: 0.08968115, b: 0.10152471, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -42778,6 +42778,7 @@ MonoBehaviour:
   camera: {fileID: 1912818676}
   moveDirection: {x: 0, y: 0, z: 0}
   audio: {fileID: 1934587762}
+  audioDelayModifier: 15
 --- !u!143 &1893046278
 CharacterController:
   m_ObjectHideFlags: 0

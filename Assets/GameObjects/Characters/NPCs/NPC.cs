@@ -62,6 +62,10 @@ public class NPC : MonoBehaviour
     public float neutPosTimeRandModifier;
     [Tooltip("Default 5ish")]
     public float maxIdleTime;
+    [Tooltip("Default 10ish")]
+    public float deltaNeutralRandModifier;
+    [Tooltip("Default 3ish")]
+    public float rotationLerpModifier;
     public StatusController statusController;
     private CharacterController characterController;
     private StatsController playerStats;
@@ -91,7 +95,6 @@ public class NPC : MonoBehaviour
     public string runClipName;
     public string deathClipName;
     
-
 
     void Start()
     {
@@ -256,6 +259,7 @@ public class NPC : MonoBehaviour
                 deltaNeutralLocation = neutralLocation;
                 deltaRoamTimer = 0;
                 needsNeutralLocation = false;
+                Debug.Log($"New neutral location found : {neutralLocation}");
             }
             else
             {
@@ -270,10 +274,15 @@ public class NPC : MonoBehaviour
                     }
                     if (deltaRoamTimer > deltaNeutralMaxTime)
                     {
-                        deltaNeutralLocation = (new Vector3(1,0,1) * (UnityEngine.Random.value -.5f)*10) + neutralLocation;
+                        float xRand = (UnityEngine.Random.value - .5f)*deltaNeutralRandModifier;
+                        float zRand = (UnityEngine.Random.value - .5f)*deltaNeutralRandModifier;
+
+
+                        deltaNeutralLocation = new Vector3(xRand,0,zRand) + neutralLocation;
                         deltaRoamTimer = 0;
+                        Debug.Log($"new Delta Neutral Location: {deltaNeutralLocation}");
                     }
-                    lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(deltaNeutralLocation - transform.position).eulerAngles.y, Time.deltaTime*3);
+                    lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(deltaNeutralLocation - transform.position).eulerAngles.y, Time.deltaTime*rotationLerpModifier);
                     transform.rotation = Quaternion.Euler(0, lookDirection, 0);
                   
                     moveDirection = transform.forward;

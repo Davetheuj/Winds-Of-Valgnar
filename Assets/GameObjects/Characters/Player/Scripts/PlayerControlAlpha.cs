@@ -105,7 +105,7 @@ public class PlayerControlAlpha : MonoBehaviour
 				moveDirection.y = jumpSpeed;
                 canJump = false;
 			}
-            audioDelay = playerSpeed / audioDelayModifier;
+            audioDelay = audioDelayModifier / playerSpeed;
             if((Mathf.Abs(moveDirection.x) >0 || Mathf.Abs(moveDirection.z) > 0) && !audio.isPlaying && (audioTimer >= audioDelay))
             {
                 
@@ -113,14 +113,7 @@ public class PlayerControlAlpha : MonoBehaviour
                 audioTimer = 0;
                 Debug.Log("Playing walking audio");
             }
-            else
-            {
-                if (audio.isPlaying)
-                {
-                    //Debug.Log("Stopping walking audio");
-                    //audio.Pause();
-                }
-            }
+           
 		}
        
 

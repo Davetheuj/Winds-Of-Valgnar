@@ -13,6 +13,7 @@ public class InterfaceController : MonoBehaviour
     public GameObject JournalPanel;
     public GameObject EquipmentPanel;
     public GameObject WorldMapPanel;
+    public GameObject SettingsPanel;
 
     public GameObject baseItemInfoPanel;
     public GameObject inventoryGrid;
@@ -74,6 +75,11 @@ public class InterfaceController : MonoBehaviour
         }
     }
 
+    public void SettingsToggle()
+    {
+        SettingsPanel.SetActive(!SettingsPanel.activeSelf);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -98,6 +104,11 @@ public class InterfaceController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.M))
         {
             MapToggle();
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SettingsToggle();
+
         }
     }
 

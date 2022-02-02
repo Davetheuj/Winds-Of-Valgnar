@@ -14,6 +14,7 @@ public class InterfaceController : MonoBehaviour
     public GameObject EquipmentPanel;
     public GameObject WorldMapPanel;
     public GameObject SettingsPanel;
+    public GameObject DevCanvas;
 
     public GameObject baseItemInfoPanel;
     public GameObject inventoryGrid;
@@ -37,6 +38,10 @@ public class InterfaceController : MonoBehaviour
         {
 
         }
+    }
+    public void DevToggle()
+    {
+        DevCanvas.SetActive(!DevCanvas.activeSelf);
     }
     public void StatsToggle()
     {
@@ -109,6 +114,10 @@ public class InterfaceController : MonoBehaviour
         {
             SettingsToggle();
 
+        }
+        else if (Input.GetKeyDown(KeyCode.Tilde))
+        {
+            DevToggle();
         }
     }
 

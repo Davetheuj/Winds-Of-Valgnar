@@ -6,9 +6,14 @@ using UnityEngine.UI;
 
 public class Equipment : MonoBehaviour
 {
+    [Tooltip("0Cape,1Helm,2Neck,3Quiver,4Chest,5Leg,6Boot,7MainHand,8OffHand,9Glove,10Ring")]
     public int slotType;
     public EquipmentController equipment;
     public int[] shapeKeyValues = new int[6];
+    [Tooltip("The defaul rotation for the equipment on being equipped")]
+    public Vector3 defaultLocalRotation;
+    [Tooltip("The defaul position for the equipment on being equipped")]
+    public Vector3 defaultLocalPosition;
     
 
     public int modifierHitPoints;
@@ -44,7 +49,7 @@ public class Equipment : MonoBehaviour
 
     public void SelectAndEnableRandomAnimation()
     {
-        int rand = (int)Random.Range(0, animations.Length - .01f);
+        int rand = (int)Random.Range(0, animations.Length - 1);
         Debug.Log($"Enabling random animation of index: {rand} from Equipment.cs");
         this.gameObject.GetComponent<Weapon>().isAttacking = true;
         animations[rand].enabled = true;

@@ -49,7 +49,7 @@ public class Equipment : MonoBehaviour
 
     public void SelectAndEnableRandomAnimation()
     {
-        int rand = (int)Random.Range(0, animations.Length - 1);
+        int rand = Random.Range(0, animations.Length); //min value is inclusive max value is exclusive >.>
         Debug.Log($"Enabling random animation of index: {rand} from Equipment.cs");
         this.gameObject.GetComponent<Weapon>().isAttacking = true;
         animations[rand].enabled = true;

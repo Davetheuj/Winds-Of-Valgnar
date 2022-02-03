@@ -37,7 +37,7 @@ public class Equipment : MonoBehaviour
 
     private void Start()
     {
-        //equipment = GameObject.Find("EquipmentPanel").GetComponent<EquipmentController>();
+        equipment = GameObject.Find("Player").GetComponent<EquipmentController>();
 
         animations = this.gameObject.GetComponents<SpatialTRController>();
     }

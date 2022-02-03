@@ -44,7 +44,7 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
         baseItemWeightText = baseItemInfoPanel.transform.Find("Weight").GetComponent<TMP_Text>();
         baseItemUseText = baseItemInfoPanel.transform.Find("ClickText").GetComponent<TMP_Text>();
         equipmentPanel = GameObject.Find("GUI").transform.Find("EquipmentCanvas").Find("EquipmentPanel").gameObject;
-        controller = equipmentPanel.GetComponent<EquipmentController>();
+        controller = GameObject.Find("Player").GetComponent<EquipmentController>();
     }
 
 

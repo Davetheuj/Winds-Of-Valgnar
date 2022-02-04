@@ -38,6 +38,8 @@ public class Equipment : MonoBehaviour
     public SpatialTRController[] animations; //Attach the TR controller scripts to the equipment in the editor
 
     public string weaponType;
+
+
     
 
     private void Start()

@@ -8,7 +8,7 @@ public class Equipment : MonoBehaviour
 {
     [Tooltip("0Cape,1Helm,2Neck,3Quiver,4Chest,5Leg,6Boot,7MainHand,8OffHand,9Glove,10Ring")]
     public int slotType;
-    public EquipmentController equipment;
+    //public EquipmentController equipment;
     public int[] shapeKeyValues = new int[6];
     [Tooltip("The defaul rotation for the equipment on being equipped")]
     public Vector3 defaultLocalRotation;
@@ -35,7 +35,7 @@ public class Equipment : MonoBehaviour
     public int resistanceElectric;
     public int resistanceEarth;
 
-    public SpatialTRController[] animations; //Attach the TR controller scripts to the equipment in the editor
+  
 
    // public string weaponType;
 
@@ -44,18 +44,10 @@ public class Equipment : MonoBehaviour
 
     private void Start()
     {
-        equipment = GameObject.Find("Player").GetComponent<EquipmentController>();
-
-        animations = this.gameObject.GetComponents<SpatialTRController>();
+       
     }
 
-    public void SelectAndEnableRandomAnimation()
-    {
-        int rand = Random.Range(0, animations.Length); //min value is inclusive max value is exclusive >.>
-        //Debug.Log($"Enabling random animation of index: {rand} from Equipment.cs");
-        this.gameObject.GetComponent<Weapon>().isAttacking = true;
-        animations[rand].enabled = true;
-    }
+  
 
    
 

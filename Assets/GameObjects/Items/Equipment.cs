@@ -37,7 +37,7 @@ public class Equipment : MonoBehaviour
 
     public SpatialTRController[] animations; //Attach the TR controller scripts to the equipment in the editor
 
-    public string weaponType;
+   // public string weaponType;
 
 
     
@@ -52,7 +52,7 @@ public class Equipment : MonoBehaviour
     public void SelectAndEnableRandomAnimation()
     {
         int rand = Random.Range(0, animations.Length); //min value is inclusive max value is exclusive >.>
-        Debug.Log($"Enabling random animation of index: {rand} from Equipment.cs");
+        //Debug.Log($"Enabling random animation of index: {rand} from Equipment.cs");
         this.gameObject.GetComponent<Weapon>().isAttacking = true;
         animations[rand].enabled = true;
     }

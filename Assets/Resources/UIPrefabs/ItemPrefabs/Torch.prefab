@@ -161,9 +161,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbed939254cf84614a9a6a5f95e91f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotType: 0
+  slotType: 7
   equipment: {fileID: 0}
   shapeKeyValues: 000000000000000000000000000000000000000000000000
+  defaultLocalRotation: {x: 0, y: 0, z: 0}
+  defaultLocalPosition: {x: 0, y: 0, z: 0}
   modifierHitPoints: 0
   modifierMana: 0
   modifierStrength: 15
@@ -182,7 +184,6 @@ MonoBehaviour:
   resistanceElectric: 0
   resistanceEarth: 0
   animations: []
-  weaponType: 
 --- !u!114 &5547891726541277540
 MonoBehaviour:
   m_ObjectHideFlags: 0

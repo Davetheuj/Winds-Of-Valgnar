@@ -111,7 +111,7 @@ public class PlayerControlAlpha : MonoBehaviour
                 
                 audio.Play();
                 audioTimer = 0;
-                Debug.Log("Playing walking audio");
+                //Debug.Log("Playing walking audio");
             }
            
 		}

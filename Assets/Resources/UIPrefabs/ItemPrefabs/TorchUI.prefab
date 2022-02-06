@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5547891726541277540}
   - component: {fileID: -7057051711556448126}
   m_Layer: 0
-  m_Name: Torch
+  m_Name: TorchUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

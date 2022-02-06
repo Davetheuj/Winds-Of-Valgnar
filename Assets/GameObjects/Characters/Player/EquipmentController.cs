@@ -252,11 +252,11 @@ public class EquipmentController : MonoBehaviour
     {
         if (newEquipment.slotType == 7)
         {
-            Destroy(mainHand.GetComponentInChildren<Equipment>().gameObject);
+            Destroy(mainHand.GetComponentInChildren<Weapon>().gameObject);
         }
         else if (newEquipment.slotType == 8)
         {
-            Destroy(offHand.GetComponentInChildren<Equipment>().gameObject);
+            Destroy(offHand.GetComponentInChildren<Weapon>().gameObject);
         }
     }
 
@@ -268,14 +268,11 @@ public class EquipmentController : MonoBehaviour
         if(equipment.slotType == 7)
         {
 
-           
-
             GameObject model = Instantiate(itemInfo.modelPrefab,mainHand,false) as GameObject;
             //model.transform.parent = mainHand;
+            model.transform.localPosition = equipment.defaultLocalPosition;
 
-
-           
-
+            model.transform.localRotation = Quaternion.Euler(equipment.defaultLocalRotation);
 
         }
         else if (equipment.slotType == 8)

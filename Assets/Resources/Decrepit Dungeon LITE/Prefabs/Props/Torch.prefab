@@ -170,8 +170,7 @@ MonoBehaviour:
   isAttacking: 0
   weaponStrength: 15
   experienceModifier: 1
-  animations:
-  - {fileID: 1473850634}
+  animations: []
 --- !u!1 &119998
 GameObject:
   m_ObjectHideFlags: 0

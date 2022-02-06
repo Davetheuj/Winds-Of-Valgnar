@@ -72,7 +72,7 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
             Equipment itemComponent = gameObject.GetComponent<Equipment>();
             if (itemComponent != null)
             {
-                itemComponent.equipment.EquipItem(this.gameObject);
+               controller.EquipItem(this.gameObject);
             }
         }
 

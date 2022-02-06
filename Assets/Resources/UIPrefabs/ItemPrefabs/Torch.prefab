@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5308953661767106375}
   - component: {fileID: 5308953661767106374}
   - component: {fileID: 8730555763959773424}
-  - component: {fileID: 6437500807386341528}
   - component: {fileID: 5547891726541277540}
+  - component: {fileID: -7057051711556448126}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Untagged
@@ -149,41 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79116e03f667d418a9052f06c8708bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6437500807386341528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5308953661767106379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbed939254cf84614a9a6a5f95e91f37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slotType: 7
-  equipment: {fileID: 0}
-  shapeKeyValues: 000000000000000000000000000000000000000000000000
-  defaultLocalRotation: {x: 0, y: 0, z: 0}
-  defaultLocalPosition: {x: 0, y: 0, z: 0}
-  modifierHitPoints: 0
-  modifierMana: 0
-  modifierStrength: 15
-  modifierIntelligence: 0
-  modifierWisdom: 0
-  modifierDexterity: 0
-  modifierSpirit: 10
-  modifierResolve: 0
-  modifierLuck: 0
-  modifierCharisma: 0
-  resistanceArmor: -5
-  resistanceHoly: -10
-  resistanceVoid: 25
-  resistanceFire: 0
-  resistanceWater: 0
-  resistanceElectric: 0
-  resistanceEarth: 0
-  animations: []
 --- !u!114 &5547891726541277540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,3 +170,38 @@ MonoBehaviour:
   baseItemInfoText: {fileID: 0}
   baseItemWeightText: {fileID: 0}
   baseItemUseText: {fileID: 0}
+--- !u!114 &-7057051711556448126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5308953661767106379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbed939254cf84614a9a6a5f95e91f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotType: 7
+  equipment: {fileID: 0}
+  shapeKeyValues: 000000000000000000000000000000000000000000000000
+  defaultLocalRotation: {x: -90, y: 180, z: 0}
+  defaultLocalPosition: {x: 0.5, y: -0.5, z: 0.3}
+  modifierHitPoints: 0
+  modifierMana: 0
+  modifierStrength: 0
+  modifierIntelligence: 0
+  modifierWisdom: 0
+  modifierDexterity: 0
+  modifierSpirit: 0
+  modifierResolve: 0
+  modifierLuck: 0
+  modifierCharisma: 0
+  resistanceArmor: 0
+  resistanceHoly: 0
+  resistanceVoid: 0
+  resistanceFire: 0
+  resistanceWater: 0
+  resistanceElectric: 0
+  resistanceEarth: 0
+  animations: []

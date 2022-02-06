@@ -18,10 +18,15 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private int experienceModifier = 1;
 
+    public SpatialTRController[] animations; //Attach the TR controller scripts to the equipment in the editor
+
     private void Start()
     {
         console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
         playerStats = GameObject.Find("Player").GetComponent<StatsController>();
+        //equipment = GameObject.Find("Player").GetComponent<EquipmentController>();
+
+        animations = this.gameObject.GetComponents<SpatialTRController>();
     }
     
     void OnTriggerEnter(Collider col)
@@ -48,5 +53,13 @@ public class Weapon : MonoBehaviour
 
         int maxDamage = (int)(damageBeforeResistances - resistedDamage); 
         return ((int)(Random.Range(0, maxDamage)));
+    }
+
+    public void SelectAndEnableRandomAnimation()
+    {
+        int rand = Random.Range(0, animations.Length); //min value is inclusive max value is exclusive >.>
+        //Debug.Log($"Enabling random animation of index: {rand} from Equipment.cs");
+        isAttacking = true;
+        animations[rand].enabled = true;
     }
 }

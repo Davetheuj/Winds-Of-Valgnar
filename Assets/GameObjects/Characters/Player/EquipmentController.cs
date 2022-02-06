@@ -89,7 +89,7 @@ public class EquipmentController : MonoBehaviour
     public void EquipItem(GameObject itemToEquip)
     {
         //run a requirement check here
-        Equipment newEquipment = itemToEquip.GetComponent<ItemInfo>().modelPrefab.GetComponent<Equipment>();
+        Equipment newEquipment = itemToEquip.GetComponent<Equipment>();
         GameObject slot = slots[newEquipment.slotType];
         
         if (slot.transform.childCount >0) //if there was another item previously equipped in the slot
@@ -262,7 +262,7 @@ public class EquipmentController : MonoBehaviour
 
     public void EquipModel(GameObject newEquipment)
     {
-        //ItemInfo itemInfo = newEquipment.GetComponent<ItemInfo>();
+        ItemInfo itemInfo = newEquipment.GetComponent<ItemInfo>();
         Equipment equipment = newEquipment.GetComponent<Equipment>();
 
         if(equipment.slotType == 7)
@@ -270,28 +270,20 @@ public class EquipmentController : MonoBehaviour
 
            
 
-            GameObject model = Instantiate(newEquipment,mainHand,false) as GameObject;
+            GameObject model = Instantiate(itemInfo.modelPrefab,mainHand,false) as GameObject;
             //model.transform.parent = mainHand;
 
-            Debug.Log($"Default position {equipment.defaultLocalPosition}");
-            Debug.Log($"Default rotation {equipment.defaultLocalRotation}");
-            model.transform.localPosition = equipment.defaultLocalPosition;
 
-            model.transform.localRotation = Quaternion.Euler(equipment.defaultLocalRotation);
-            //model.name = "NewTorch";
-            Debug.Log($"{model.transform.localPosition}");
-            Debug.Log($"{model.transform.localRotation.eulerAngles}");
-            model.transform.localPosition = equipment.defaultLocalPosition;
-
-            model.transform.localRotation = Quaternion.Euler(equipment.defaultLocalRotation);
+           
 
 
         }
         else if (equipment.slotType == 8)
         {
-            GameObject model = Instantiate(newEquipment, offHand);
-            model.transform.localRotation= Quaternion.Euler(equipment.defaultLocalRotation);
-            model.transform.localPosition.Set(equipment.defaultLocalPosition.x, equipment.defaultLocalPosition.y, equipment.defaultLocalPosition.z);
+            GameObject model = Instantiate(itemInfo.modelPrefab, offHand,false);
+            model.transform.localPosition = equipment.defaultLocalPosition;
+
+            model.transform.localRotation = Quaternion.Euler(equipment.defaultLocalRotation);
 
 
         }

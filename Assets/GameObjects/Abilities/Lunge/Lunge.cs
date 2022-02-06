@@ -22,7 +22,7 @@ public class Lunge : MonoBehaviour
 
         clipController.PlayInteractionClip(0, 1, false, 0, false, true,true);
         //Send message to main hand's Equipment Controller to compute damage, select a weapon animation to play,
-        GameObject.Find("Hand_R").GetComponentInChildren<Equipment>().SelectAndEnableRandomAnimation();
+        GameObject.Find("Hand_R").GetComponentInChildren<Weapon>().SelectAndEnableRandomAnimation();
         //Destroy this gameobject
         Destroy(gameObject);
 

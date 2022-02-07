@@ -5000,6 +5000,7 @@ GameObject:
   - component: {fileID: 402428}
   - component: {fileID: 10852728}
   - component: {fileID: 1785972328}
+  - component: {fileID: 6143118420404674892}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -5034,7 +5035,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9485294, g: 0.59393716, b: 0.27200472, a: 1}
-  m_Intensity: 47.746483
+  m_Intensity: 47.74887
   m_Range: 54.02
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5096,7 +5097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 600
+  m_Intensity: 600.03
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -5206,3 +5207,20 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+--- !u!114 &6143118420404674892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2179cead1fd274c954e07dbcb99d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxIntensity: 700
+  minIntensity: 500
+  intensityRange: 30
+  intensityLerpSpeed: 1
+  minTimeForChange: 0.1

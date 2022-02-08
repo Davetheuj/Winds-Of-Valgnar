@@ -6,6 +6,8 @@ public class Lunge : MonoBehaviour
 {
     public AudioClipController clipController;
 
+    private Transform camera;
+
 
     // Start is called before the first frame update
     void Start()

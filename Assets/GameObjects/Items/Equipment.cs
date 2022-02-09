@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -35,21 +36,11 @@ public class Equipment : MonoBehaviour
     public int resistanceElectric;
     public int resistanceEarth;
 
-  
-
-   // public string weaponType;
-
-
-    
-
-    private void Start()
+    public void SetDefaultLocalRotationAndPosition()
     {
-       
+        transform.localPosition = defaultLocalPosition;
+
+        transform.localRotation = Quaternion.Euler(defaultLocalRotation);
     }
 
-  
-
-   
-
-    
 }

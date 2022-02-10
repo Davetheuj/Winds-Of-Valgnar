@@ -12,7 +12,7 @@ public class PlayerControlAlpha : MonoBehaviour
 	public CharacterController controller;
 	public float gravityScale;
     
-    public GameObject camera;
+    public GameObject mainCamera;
 	
 
 	public Vector3 moveDirection;
@@ -25,62 +25,63 @@ public class PlayerControlAlpha : MonoBehaviour
     private float audioDelayModifier;
     private float audioTimer;
 
+    public float clampAngle = 80.0f;
+    public float inputSensitivity = 150.0f;
+
+    public float mouseX;
+    public float mouseY;
+
+    private float rotY = 0.0f;
+    private float rotX = 0.0f;
+
+    private Vector3 rot;
+
     // Start is called before the first frame update
 
     void Start()
     {
         audio.Play();
         audio.Pause();
-      
-        
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        rot = transform.localRotation.eulerAngles;
+        rotY = rot.y;
+        rotX = rot.x;
+
+
     }
 
 	// Update is called once per frame
 	void Update() //update will run on all units, not just the local ones
 	{
-
-
-        
 		// moveDirection = new Vector3(Input.GetAxis("Horizontal") * playerSpeed, moveDirection.y, Input.GetAxis("Vertical")*playerSpeed);
-
 		float yStore = moveDirection.y;
+
+        mouseX = Input.GetAxisRaw("Mouse X");
+        mouseY = Input.GetAxisRaw("Mouse Y");
+
+        rotY += mouseX * inputSensitivity * Time.deltaTime;
+        rotX -= mouseY * inputSensitivity / 1.2f * Time.deltaTime;
+
+        rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
+
+        Quaternion localRotation = Quaternion.Euler(0, rotY, 0.0f);
+        transform.rotation = localRotation;
+        mainCamera.transform.rotation = Quaternion.Euler(rotX, rotY, 0);
 
         if (Input.GetKey(KeyCode.A))
         {
-            if (Input.GetMouseButton(1))
-            {
-                //camera.transform.rotation = Quaternion.Euler(camera.transform.localRotation.eulerAngles.x, camera.transform.localRotation.eulerAngles.y - 140 * Time.deltaTime, 0);
-                transform.rotation = Quaternion.Euler(0, transform.localRotation.eulerAngles.y - 140 * Time.deltaTime, 0); //Makes the camera less jittery on character totation.
-
-               
-            }
-            else
-            {
-                camera.transform.rotation = Quaternion.Euler(camera.transform.localRotation.eulerAngles.x, camera.transform.localRotation.eulerAngles.y - 140 * Time.deltaTime, 0);
-                transform.rotation = Quaternion.Euler(0, camera.transform.localRotation.eulerAngles.y, 0);
-            }
-            moveDirection = (transform.forward);
+            
         }
         if (Input.GetKey(KeyCode.D))
         {
-            if (Input.GetMouseButton(1))
-            {
-                //camera.transform.rotation = Quaternion.Euler(camera.transform.localRotation.eulerAngles.x, camera.transform.localRotation.eulerAngles.y - 140 * Time.deltaTime, 0);
-                transform.rotation = Quaternion.Euler(0, transform.localRotation.eulerAngles.y + 140 * Time.deltaTime, 0); //Makes the camera less jittery on character totation.
-
-
-            }
-            else
-            {
-                camera.transform.rotation = Quaternion.Euler(camera.transform.localRotation.eulerAngles.x, camera.transform.localRotation.eulerAngles.y + 140 * Time.deltaTime, 0);
-                transform.rotation = Quaternion.Euler(0, camera.transform.localRotation.eulerAngles.y, 0);
-            }
-            moveDirection = (transform.forward);
+          
         }
-
         if (Input.GetMouseButton(1) && Input.GetMouseButton(0)) // allows for players to move with just mouse buttons so they can free up left hand
         {
-            transform.rotation = Quaternion.Euler(0, camera.transform.localRotation.eulerAngles.y, 0);
+            transform.rotation = Quaternion.Euler(0, mainCamera.transform.localRotation.eulerAngles.y, 0);
             moveDirection = (transform.forward);
         }
         else

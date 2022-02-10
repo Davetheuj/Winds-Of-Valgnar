@@ -59,36 +59,39 @@ public class PlayerControlAlpha : MonoBehaviour
 		// moveDirection = new Vector3(Input.GetAxis("Horizontal") * playerSpeed, moveDirection.y, Input.GetAxis("Vertical")*playerSpeed);
 		float yStore = moveDirection.y;
 
-        mouseX = Input.GetAxisRaw("Mouse X");
-        mouseY = Input.GetAxisRaw("Mouse Y");
-
-        rotY += mouseX * inputSensitivity * Time.deltaTime;
-        rotX -= mouseY * inputSensitivity / 1.2f * Time.deltaTime;
-
-        rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
-
-        Quaternion localRotation = Quaternion.Euler(0, rotY, 0.0f);
-        transform.rotation = localRotation;
-        mainCamera.transform.rotation = Quaternion.Euler(rotX, rotY, 0);
-
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-          
-        }
-        if (Input.GetMouseButton(1) && Input.GetMouseButton(0)) // allows for players to move with just mouse buttons so they can free up left hand
-        {
-            transform.rotation = Quaternion.Euler(0, mainCamera.transform.localRotation.eulerAngles.y, 0);
-            moveDirection = (transform.forward);
+
         }
         else
         {
+            mouseX = Input.GetAxisRaw("Mouse X");
+            mouseY = Input.GetAxisRaw("Mouse Y");
 
-            moveDirection = (transform.forward * Input.GetAxisRaw("Vertical")); //+ (transform.right * Input.GetAxisRaw("Horizontal"));
+            rotY += mouseX * inputSensitivity * Time.deltaTime;
+            rotX -= mouseY * inputSensitivity / 1.2f * Time.deltaTime;
+
+            rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
+
+            Quaternion localRotation = Quaternion.Euler(0, rotY, 0.0f);
+            transform.rotation = localRotation;
+            mainCamera.transform.rotation = Quaternion.Euler(rotX, rotY, 0);
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                moveDirection = -1 * transform.right;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                moveDirection = transform.right;
+            }
+            if ((Input.GetMouseButton(1) && Input.GetMouseButton(0)) || Input.GetKey(KeyCode.W)) // allows for players to move with just mouse buttons so they can free up left hand
+            {
+                moveDirection = (transform.forward);
+            }
         }
+      
+
 		moveDirection = moveDirection.normalized * playerSpeed; //normalization so axis aren't added outright (for cheaters like SEAN)
 
 		moveDirection.y = yStore;

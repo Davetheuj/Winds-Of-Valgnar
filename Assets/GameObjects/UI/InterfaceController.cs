@@ -19,9 +19,17 @@ public class InterfaceController : MonoBehaviour
     public GameObject baseItemInfoPanel;
     public GameObject inventoryGrid;
 
+    public GameObject playerInformationCanvas;
+
     public void Start()
     {
       
+    }
+    public void PlayerInformationToggle()
+    {
+        statsPanelController.UpdateStatsUI();
+        playerInformationCanvas.SetActive(!playerInformationCanvas.activeSelf);
+
     }
 
     public void InventoryToggle()
@@ -118,6 +126,10 @@ public class InterfaceController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Tilde))
         {
             DevToggle();
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            PlayerInformationToggle();
         }
     }
 

@@ -36,6 +36,8 @@ public class PlayerControlAlpha : MonoBehaviour
 
     private Vector3 rot;
 
+    Boolean canRotate = true;
+
     // Start is called before the first frame update
 
     void Start()
@@ -44,7 +46,7 @@ public class PlayerControlAlpha : MonoBehaviour
         audio.Pause();
 
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+       // Cursor.lockState = CursorLockMode.Locked;
 
         rot = transform.localRotation.eulerAngles;
         rotY = rot.y;
@@ -59,23 +61,36 @@ public class PlayerControlAlpha : MonoBehaviour
 		// moveDirection = new Vector3(Input.GetAxis("Horizontal") * playerSpeed, moveDirection.y, Input.GetAxis("Vertical")*playerSpeed);
 		float yStore = moveDirection.y;
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-
+            //Cursor.visible = !Cursor.visible;
+            //if (Cursor.lockState == CursorLockMode.Confined)
+            //{
+            //    Cursor.lockState = CursorLockMode.Locked;
+            //}
+            //else
+            //{
+            //    Cursor.lockState = CursorLockMode.Confined;
+            //}
+            canRotate = !canRotate;
         }
+        
         else
         {
-            mouseX = Input.GetAxisRaw("Mouse X");
-            mouseY = Input.GetAxisRaw("Mouse Y");
+            if (canRotate)
+            {
+                mouseX = Input.GetAxisRaw("Mouse X");
+                mouseY = Input.GetAxisRaw("Mouse Y");
 
-            rotY += mouseX * inputSensitivity * Time.deltaTime;
-            rotX -= mouseY * inputSensitivity / 1.2f * Time.deltaTime;
+                rotY += mouseX * inputSensitivity * Time.deltaTime;
+                rotX -= mouseY * inputSensitivity / 1.2f * Time.deltaTime;
 
-            rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
+                rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
 
-            Quaternion localRotation = Quaternion.Euler(0, rotY, 0.0f);
-            transform.rotation = localRotation;
-            mainCamera.transform.rotation = Quaternion.Euler(rotX, rotY, 0);
+                Quaternion localRotation = Quaternion.Euler(0, rotY, 0.0f);
+                transform.rotation = localRotation;
+                mainCamera.transform.rotation = Quaternion.Euler(rotX, rotY, 0);
+            }
 
             if (Input.GetKey(KeyCode.A))
             {

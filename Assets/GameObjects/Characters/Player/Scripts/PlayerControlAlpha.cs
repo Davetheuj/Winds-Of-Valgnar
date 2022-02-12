@@ -104,6 +104,10 @@ public class PlayerControlAlpha : MonoBehaviour
             {
                 moveDirection = (transform.forward);
             }
+            if (Input.GetKey(KeyCode.S))
+            {
+                moveDirection  = -1 * transform.forward;
+            }
         }
       
 

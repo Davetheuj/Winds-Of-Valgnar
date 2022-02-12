@@ -46,7 +46,7 @@ public class PlayerControlAlpha : MonoBehaviour
         audio.Pause();
 
         Cursor.visible = false;
-       // Cursor.lockState = CursorLockMode.Locked;
+       Cursor.lockState = CursorLockMode.Locked;
 
         rot = transform.localRotation.eulerAngles;
         rotY = rot.y;
@@ -63,15 +63,15 @@ public class PlayerControlAlpha : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            //Cursor.visible = !Cursor.visible;
-            //if (Cursor.lockState == CursorLockMode.Confined)
-            //{
-            //    Cursor.lockState = CursorLockMode.Locked;
-            //}
-            //else
-            //{
-            //    Cursor.lockState = CursorLockMode.Confined;
-            //}
+            Cursor.visible = !Cursor.visible;
+            if (Cursor.lockState == CursorLockMode.Confined)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+            }
             canRotate = !canRotate;
         }
         

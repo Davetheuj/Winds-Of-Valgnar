@@ -1052,21 +1052,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 448354575946168082, guid: 8a3cd53c72b3845b8a30f20d2fb4451f,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 448354575946168082, guid: 8a3cd53c72b3845b8a30f20d2fb4451f,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 448354575946168082, guid: 8a3cd53c72b3845b8a30f20d2fb4451f,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 448354575946168082, guid: 8a3cd53c72b3845b8a30f20d2fb4451f,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.438631
       objectReference: {fileID: 0}
@@ -1120,90 +1105,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Z'Heed
       objectReference: {fileID: 0}
-    - target: {fileID: 3486834789844501761, guid: 8a3cd53c72b3845b8a30f20d2fb4451f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Creature
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a3cd53c72b3845b8a30f20d2fb4451f, type: 3}
---- !u!1 &355827842 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3486834789844501761, guid: 8a3cd53c72b3845b8a30f20d2fb4451f,
-    type: 3}
-  m_PrefabInstance: {fileID: 355827841}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &355827843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 355827842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba78a355548443d9a2fc2fca142632c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcName: Z'Heed
-  angleFromPlayerForward: 1.511983
-  player: {fileID: 0}
-  isDefaultAgro: 1
-  isStationary: 0
-  NPCPanelOffset: 4.79
-  maxHealth: 100
-  currentHealth: 100
-  baseAttackStrength: 10
-  resistanceMelee: 0
-  resistanceRanged: 0
-  resistanceMagic: 0
-  xpGranted: 0
-  honorGranted: 0
-  popularityGranted: 0
-  renownGranted: 0
-  attackRange: 3
-  attackDelay: 3
-  attackTimer: 2.1698883
-  moveSpeed: 20
-  baseAgroRange: 15
-  roamRadius: 3
-  state: 2
-  spawnLocation: {x: 145, y: 8, z: 313}
-  deltaNeutralMaxTime: 1
-  neutralPositionMaxTime: 15
-  neutPosTimeRandModifier: 6
-  maxIdleTime: 3
-  deltaNeutralRandModifier: 0
-  rotationLerpModifier: 0
-  statusController: {fileID: 0}
-  maxStuckTime: 0.5
-  minTravelDistance: 0.5
-  debugMarker: {fileID: 822137197117925851, guid: ebcd5302157f64051a5a83d2adc25d54,
-    type: 3}
-  attackClipName: Attack
-  walkClipName: 
-  neutralIdleClipName: 
-  agressiveIdleClipName: 
-  runClipName: 
-  deathClipName: 
---- !u!143 &355827844
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 355827842}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1.92
-  m_Radius: 1.37
-  m_SlopeLimit: 45
-  m_StepOffset: 0.22
-  m_SkinWidth: 0.13
-  m_MinMoveDistance: 0.001
-  m_Center: {x: -0.15, y: 1.29, z: -0.98}
 --- !u!4 &355827846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 448354575946168082, guid: 8a3cd53c72b3845b8a30f20d2fb4451f,
@@ -1480,8 +1383,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2103180604}
-  - {fileID: 288277976}
   - {fileID: 1558078846}
+  - {fileID: 288277976}
   - {fileID: 1674178328}
   - {fileID: 856645785}
   - {fileID: 2126624013}
@@ -7099,6 +7002,7 @@ MonoBehaviour:
   agressiveIdleClipName: Idle_001
   runClipName: Run
   deathClipName: Die
+  hitClipName: 
 --- !u!95 &1541785254
 Animator:
   serializedVersion: 4
@@ -7221,7 +7125,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 434978721}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -7.495, y: 0, z: 0}
 --- !u!1001 &1569811519
 PrefabInstance:
@@ -7807,6 +7711,7 @@ MonoBehaviour:
   agressiveIdleClipName: 
   runClipName: 
   deathClipName: 
+  hitClipName: 
 --- !u!95 &1716003274
 Animator:
   serializedVersion: 4
@@ -8896,6 +8801,7 @@ MonoBehaviour:
   agressiveIdleClipName: Idle
   runClipName: Flee
   deathClipName: Die
+  hitClipName: 
 --- !u!143 &1919693038
 CharacterController:
   m_ObjectHideFlags: 0

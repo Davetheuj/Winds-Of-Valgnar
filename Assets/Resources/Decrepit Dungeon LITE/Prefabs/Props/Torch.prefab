@@ -171,6 +171,8 @@ MonoBehaviour:
   weaponStrength: 15
   experienceModifier: 1
   animations: []
+  hitParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
+    type: 3}
 --- !u!1 &119998
 GameObject:
   m_ObjectHideFlags: 0

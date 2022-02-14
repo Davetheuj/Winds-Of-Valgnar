@@ -94,6 +94,9 @@ public class NPC : MonoBehaviour
     public string agressiveIdleClipName;
     public string runClipName;
     public string deathClipName;
+    public string hitClipName;
+
+    
     
 
     void Start()

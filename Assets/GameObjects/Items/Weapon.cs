@@ -25,6 +25,8 @@ public class Weapon : MonoBehaviour
 
     private Transform trueParentObject = null;
 
+    public GameObject hitParticle;
+
     private void Start()
     {
         console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
@@ -42,6 +44,8 @@ public class Weapon : MonoBehaviour
 
             damage = CalculateDamage(npc);
             npc.DealDamageToNpc(damage);
+            Instantiate(hitParticle, col.ClosestPoint(transform.position), Quaternion.LookRotation(col.transform.position - col.ClosestPoint(transform.position)));
+            
             console.AddConsoleMessage1($"You deal {damage} damage to {npc.npcName}!");
 
             GameObject.Find("Player").GetComponent<StatsController>().GrantXPAndCheckIfLevelGained(damage * experienceModifier, classification);
@@ -49,6 +53,8 @@ public class Weapon : MonoBehaviour
         }
 
     }
+
+   
 
     private int CalculateDamage(NPC npc)
     {

@@ -79,8 +79,8 @@ public class PlayerControlAlpha : MonoBehaviour
         {
             if (canRotate)
             {
-                mouseX = Input.GetAxisRaw("Mouse X");
-                mouseY = Input.GetAxisRaw("Mouse Y");
+                mouseX = Input.GetAxis("Mouse X");
+                mouseY = Input.GetAxis("Mouse Y");
 
                 rotY += mouseX * inputSensitivity * Time.deltaTime;
                 rotX -= mouseY * inputSensitivity / 1.2f * Time.deltaTime;

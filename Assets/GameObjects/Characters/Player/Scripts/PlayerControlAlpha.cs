@@ -36,7 +36,7 @@ public class PlayerControlAlpha : MonoBehaviour
 
     private Vector3 rot;
 
-    Boolean canRotate = true;
+    bool canRotate = true;
 
     // Start is called before the first frame update
 
@@ -55,11 +55,12 @@ public class PlayerControlAlpha : MonoBehaviour
 
     }
 
-	// Update is called once per frame
-	void Update() //update will run on all units, not just the local ones
+	
+	void Update() 
 	{
-		// moveDirection = new Vector3(Input.GetAxis("Horizontal") * playerSpeed, moveDirection.y, Input.GetAxis("Vertical")*playerSpeed);
-		float yStore = moveDirection.y;
+		
+		float yStore = moveDirection.y; //get this from the old Update's moveDirection so we can continue to accelerate
+        moveDirection = new Vector3(0, yStore, 0);
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -129,7 +130,7 @@ public class PlayerControlAlpha : MonoBehaviour
                 canJump = false;
 			}
             audioDelay = audioDelayModifier / playerSpeed;
-            if((Mathf.Abs(moveDirection.x) >0 || Mathf.Abs(moveDirection.z) > 0) && !audio.isPlaying && (audioTimer >= audioDelay))
+            if((Mathf.Abs(moveDirection.x) >.1f || Mathf.Abs(moveDirection.z) > .1f) && !audio.isPlaying && (audioTimer >= audioDelay))
             {
                 
                 audio.Play();

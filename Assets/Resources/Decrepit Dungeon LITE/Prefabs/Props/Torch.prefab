@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1473850629}
   - component: {fileID: 1473850634}
   - component: {fileID: 1473850635}
+  - component: {fileID: 294763887}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Untagged
@@ -138,13 +139,13 @@ MonoBehaviour:
   startDelay: 0
   initialStartDelay: 0
   positionList:
-  - {x: 0.25, y: 0, z: 1.5}
+  - {x: -0.6, y: 0.5, z: 2}
   positionLerpSpeedList:
   - 10
   rotationList:
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 45, z: -90}
   rotationLerpSpeedList:
-  - 0
+  - 2
   transitionTimeList:
   - 0.3
   isFinished: 0
@@ -173,6 +174,18 @@ MonoBehaviour:
   animations: []
   hitParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
     type: 3}
+--- !u!114 &294763887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2646491910ec8d1489b4d4fb2c77a9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &119998
 GameObject:
   m_ObjectHideFlags: 0
@@ -5018,7 +5031,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151766}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: -0.332, y: 0.656, z: -0.024}
+  m_LocalPosition: {x: -0.71, y: 0.656, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5037,8 +5050,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9485294, g: 0.59393716, b: 0.27200472, a: 1}
-  m_Intensity: 47.74887
-  m_Range: 54.02
+  m_Intensity: 58.705822
+  m_Range: 50
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -5085,7 +5098,7 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
+  m_ShadowRadius: 1.8
   m_ShadowAngle: 0
 --- !u!114 &1785972328
 MonoBehaviour:
@@ -5099,7 +5112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 600.03
+  m_Intensity: 737.7191
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -5115,7 +5128,7 @@ MonoBehaviour:
   m_ShapeWidth: 0.5
   m_ShapeHeight: 0.5
   m_AspectRatio: 1
-  m_ShapeRadius: 0.025
+  m_ShapeRadius: 1.8
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
   m_CustomSpotLightShadowCone: 30

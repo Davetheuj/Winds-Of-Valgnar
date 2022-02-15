@@ -22,12 +22,12 @@ public class Lunge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        weaponModel = GameObject.Find("Hand_R").GetComponentInChildren<Weapon>().gameObject;
         clipController.PlayInteractionClip(0, 1, false, 0, false, true,true);
         //Send message to main hand's Equipment Controller to compute damage, select a weapon animation to play,
 
          
-        weaponModel = GameObject.Find("Hand_R").GetComponentInChildren<Weapon>().gameObject;
+       
         Transform trueParent = weaponModel.transform.parent;
         weapon = weaponModel.GetComponentInChildren<Weapon>();
         weaponModel.transform.parent = GameObject.Find("Main Camera").transform;

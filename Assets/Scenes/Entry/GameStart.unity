@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1433220977}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 4601.75, g: 2190.537, b: 2615.6836, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -46272,7 +46272,7 @@ MonoBehaviour:
   audio: {fileID: 1934587762}
   audioDelayModifier: 15
   clampAngle: 80
-  inputSensitivity: 500
+  inputSensitivity: 1000
   mouseX: 0
   mouseY: 0
 --- !u!143 &1893046278

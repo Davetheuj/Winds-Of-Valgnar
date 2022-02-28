@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1433220977}
-  m_IndirectSpecularColor: {r: 4603.5947, g: 2186.9375, b: 2600.086, a: 1}
+  m_IndirectSpecularColor: {r: 4610.039, g: 2189.7148, b: 2600.6484, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -30887,7 +30887,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244102794}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 2.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36162,14 +36162,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535160888}
-  m_LocalRotation: {x: 0.088699475, y: -0, z: -0, w: 0.99605846}
-  m_LocalPosition: {x: 633.54, y: 51.57, z: 370.53}
+  m_LocalRotation: {x: -0.014834803, y: 0, z: 0, w: 0.99988997}
+  m_LocalPosition: {x: 633.54, y: 53.87, z: 339.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 10.178, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.7, y: 0, z: 0}
 --- !u!114 &1535160892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46263,7 +46263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e6938146e8094b059394859f58d1622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 50
+  playerSpeed: 10
   jumpSpeed: 20
   controller: {fileID: 1893046278}
   gravityScale: 10
@@ -46272,7 +46272,7 @@ MonoBehaviour:
   audio: {fileID: 1934587762}
   audioDelayModifier: 15
   clampAngle: 80
-  inputSensitivity: 1000
+  inputSensitivity: 200
   mouseX: 0
   mouseY: 0
 --- !u!143 &1893046278
@@ -46286,13 +46286,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.8
+  m_Height: 3.38
   m_Radius: 0.5
   m_SlopeLimit: 60.16
   m_StepOffset: 0.4
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.11, z: 0}
+  m_Center: {x: 0, y: 0.82, z: 0}
 --- !u!23 &1893046279
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -46480,7 +46480,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.9835742
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -48073,8 +48073,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 2.3
+  MaxDistance: 500.84
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -50941,8 +50941,8 @@ Transform:
   m_GameObject: {fileID: 2103986061}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.75, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.8499999, y: 1.8499999, z: 1.8499999}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 893165203}
   - {fileID: 1667924671}

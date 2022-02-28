@@ -182,8 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbed939254cf84614a9a6a5f95e91f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotType: 7
-  equipment: {fileID: 0}
+  slotType: 8
   shapeKeyValues: 000000000000000000000000000000000000000000000000
   defaultLocalRotation: {x: -90, y: 180, z: 0}
   defaultLocalPosition: {x: 0.5, y: -0.5, z: 0.3}
@@ -204,4 +203,3 @@ MonoBehaviour:
   resistanceWater: 0
   resistanceElectric: 0
   resistanceEarth: 0
-  animations: []

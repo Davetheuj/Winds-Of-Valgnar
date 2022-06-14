@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControlAlpha : MonoBehaviour
 {
@@ -55,8 +56,24 @@ public class PlayerControlAlpha : MonoBehaviour
 
     }
 
-	
-	void Update() 
+    void Awake()
+    {
+        SceneManager.activeSceneChanged += OnSceneWasSwitched;
+        SceneManager.sceneLoaded += OnSceneWasLoaded;
+    }
+
+    void OnSceneWasLoaded(Scene scene, LoadSceneMode mode)
+    {
+        controller.enabled = true;
+    }
+   
+    void OnSceneWasSwitched(Scene scene, Scene sceneSwitched)
+    {
+        //do stuff when a scene is changed
+    }
+
+
+    void Update() 
 	{
 		
 		float yStore = moveDirection.y; //get this from the old Update's moveDirection so we can continue to accelerate

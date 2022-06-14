@@ -269,9 +269,14 @@ public class NPC : MonoBehaviour
                 if (neutralPositionTimer >= 5f) {
                     if (needsAnimationChange)
                     {
-                        
-                        animator.Play(walkClipName);
-                        
+                        try
+                        {
+                            animator.Play(walkClipName);
+                        }
+                        catch(MissingComponentException e)
+                        {
+
+                        }
                         
                         needsAnimationChange = false;
                     }

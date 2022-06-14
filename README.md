@@ -1,26 +1,15 @@
 # Winds Of Valgnar
 Welcome to Winds of Valgnar, a first person fantasy RPG!
 
-The journey begins with our player waking up in a dark ancestral tomb with no knowledge of their life up to this point. 
-After navigating out of the crypt they are met with the world of Valgnar to explore. They will complete quests, level up their skills, and defeat fearsome monsters
-to help mould the world in the way they see fit while also being shaped themselves by new philosophies and experiences they encounter along the way. 
+# First Time Set-Up:
 
-	
+1. Download Unity Editor 2021.2.3f1
+2. Clone this project to the directory of your choice
+3. Open UnityHub and add the directory path as a new project
+4. Open the Winds-Of-Valgnar project
+5. Add Assets/Scenes/Entry/Gamestart.Unity to your active scenes
+
 # Architecture
-
-## Technologies:
-
-Unity Editor 2021.2.3f1
-
-Visual Studio
-
-Git
-
-Deploying on Windows 10+ with minor support for Mac and Linux
-
-Development Releases: Itch.io
-
-Production Releases: Steam
 		
 ## The Player
 
@@ -60,7 +49,7 @@ Tertiary
 
 ### Abilities
 
-### SoundController?
+### SoundControllers
 
 
 		

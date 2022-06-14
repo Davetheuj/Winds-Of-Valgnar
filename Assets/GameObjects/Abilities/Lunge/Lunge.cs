@@ -4,24 +4,40 @@ using UnityEngine;
 
 public class Lunge : MonoBehaviour
 {
-    
+    public AudioClipController clipController;
+
+    private Weapon weapon;
+    private GameObject weaponModel;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        clipController = gameObject.GetComponent<AudioClipController>();
 
 
-
-        //Send message to main hand's Equipment Controller to compute damage, select a weapon animation to play,
-        GameObject.Find("Hand_R").GetComponentInChildren<Equipment>().SelectAndEnableRandomAnimation();
-        //Destroy this gameobject
-        Destroy(gameObject);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        weaponModel = GameObject.Find("Hand_R").GetComponentInChildren<Weapon>().gameObject;
+        clipController.PlayInteractionClip(0, 1, false, 0, false, true,true);
+        //Send message to main hand's Equipment Controller to compute damage, select a weapon animation to play,
+
+         
+       
+        Transform trueParent = weaponModel.transform.parent;
+        weapon = weaponModel.GetComponentInChildren<Weapon>();
+        weaponModel.transform.parent = GameObject.Find("Main Camera").transform;
+        //weapon.gameObject.GetComponent<Item>().inventoryButtonPrefab.GetComponent<Equipment>().SetDefaultLocalRotationAndPosition();
+        weaponModel.transform.localPosition = weaponModel.GetComponent<Item>().inventoryButtonPrefab.GetComponent<Equipment>().defaultLocalPosition;
+        weaponModel.transform.localRotation = Quaternion.Euler(weaponModel.GetComponent<Item>().inventoryButtonPrefab.GetComponent<Equipment>().defaultLocalRotation);
+
+        weapon.SelectAndEnableRandomAnimation(trueParent);
+        //Destroy this gameobject
+        Destroy(gameObject);
 
     }
 

@@ -12,13 +12,24 @@ public class InterfaceController : MonoBehaviour
     public GameObject AbilitiesPanel;
     public GameObject JournalPanel;
     public GameObject EquipmentPanel;
+    public GameObject WorldMapPanel;
+    public GameObject SettingsPanel;
+    public GameObject DevCanvas;
 
     public GameObject baseItemInfoPanel;
     public GameObject inventoryGrid;
 
+    public GameObject playerInformationCanvas;
+
     public void Start()
     {
       
+    }
+    public void PlayerInformationToggle()
+    {
+        statsPanelController.UpdateStatsUI();
+        playerInformationCanvas.SetActive(!playerInformationCanvas.activeSelf);
+
     }
 
     public void InventoryToggle()
@@ -36,6 +47,10 @@ public class InterfaceController : MonoBehaviour
 
         }
     }
+    public void DevToggle()
+    {
+        DevCanvas.SetActive(!DevCanvas.activeSelf);
+    }
     public void StatsToggle()
     {
         statsPanelController.UpdateStatsUI();
@@ -48,6 +63,10 @@ public class InterfaceController : MonoBehaviour
     public void JournalToggle()
     {
        JournalPanel.SetActive(!JournalPanel.activeSelf);
+    }
+    public void MapToggle()
+    {
+        WorldMapPanel.SetActive(!WorldMapPanel.activeSelf);
     }
     public void EquipmentToggle()
     {
@@ -67,6 +86,11 @@ public class InterfaceController : MonoBehaviour
         {
             Debug.Log("NullReferenceException in InterfaceController at EquipmentToggle()");
         }
+    }
+
+    public void SettingsToggle()
+    {
+        SettingsPanel.SetActive(!SettingsPanel.activeSelf);
     }
 
     void Update()
@@ -89,6 +113,23 @@ public class InterfaceController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.C))
         {
             StatsToggle();
+        }
+        else if (Input.GetKeyDown(KeyCode.M))
+        {
+            MapToggle();
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SettingsToggle();
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Tilde))
+        {
+            DevToggle();
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            PlayerInformationToggle();
         }
     }
 

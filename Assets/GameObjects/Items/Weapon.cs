@@ -7,7 +7,8 @@ public class Weapon : MonoBehaviour
     public string classification;
     public float classMultiplier;
     public string NPCResistanceModifier;
-    public bool isAttacking;
+    [SerializeField]
+    private bool isAttacking;
 
     private int damage;
     [SerializeField]
@@ -18,10 +19,21 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private int experienceModifier = 1;
 
+    public SpatialTRController[] animations; //Attach the TR controller scripts to the equipment in the editor
+
+    private SpatialTRController currentAnimation;
+
+    private Transform trueParentObject = null;
+
+    public GameObject hitParticle;
+
     private void Start()
     {
         console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
         playerStats = GameObject.Find("Player").GetComponent<StatsController>();
+        //equipment = GameObject.Find("Player").GetComponent<EquipmentController>();
+
+        animations = this.gameObject.GetComponents<SpatialTRController>();
     }
     
     void OnTriggerEnter(Collider col)
@@ -32,13 +44,17 @@ public class Weapon : MonoBehaviour
 
             damage = CalculateDamage(npc);
             npc.DealDamageToNpc(damage);
+            Instantiate(hitParticle, col.ClosestPoint(transform.position), Quaternion.LookRotation(col.transform.position - col.ClosestPoint(transform.position)));
+            
             console.AddConsoleMessage1($"You deal {damage} damage to {npc.npcName}!");
 
-            this.gameObject.GetComponentInParent<StatsController>().GrantXPAndCheckIfLevelGained(damage * experienceModifier, classification);
-            isAttacking = false;
+            GameObject.Find("Player").GetComponent<StatsController>().GrantXPAndCheckIfLevelGained(damage * experienceModifier, classification);
+            //isAttacking = false;
         }
 
     }
+
+   
 
     private int CalculateDamage(NPC npc)
     {
@@ -48,5 +64,37 @@ public class Weapon : MonoBehaviour
 
         int maxDamage = (int)(damageBeforeResistances - resistedDamage); 
         return ((int)(Random.Range(0, maxDamage)));
+    }
+
+    public void SelectAndEnableRandomAnimation(Transform objectToReturnTo)
+    {
+        int rand = Random.Range(0, animations.Length); //min value is inclusive max value is exclusive >.>
+        //Debug.Log($"Enabling random animation of index: {rand} from Equipment.cs");
+        isAttacking = true;
+        currentAnimation = animations[rand];
+        currentAnimation.enabled = true;
+        Debug.Log($"Enabled animation - will return to {objectToReturnTo}");
+        trueParentObject = objectToReturnTo;
+    }
+
+    private void Update()
+    {
+        //Debug.Log("(75)IsAttacking: "+isAttacking);
+        //Debug.Log("(76)CurrentAnimationEnabled: " + currentAnimation.enabled);
+        if(isAttacking && !currentAnimation.enabled)
+        {
+            Debug.Log("IsAttacking is now false");
+            isAttacking = false;
+            if(trueParentObject != null)
+            {
+                Debug.Log($"Setting to true parent object {trueParentObject}");
+                transform.parent = trueParentObject;
+                trueParentObject = null;
+
+                transform.localPosition = gameObject.GetComponent<Item>().inventoryButtonPrefab.GetComponent<Equipment>().defaultLocalPosition;
+                transform.localRotation = Quaternion.Euler(gameObject.GetComponent<Item>().inventoryButtonPrefab.GetComponent<Equipment>().defaultLocalRotation);
+            }
+        }
+        
     }
 }

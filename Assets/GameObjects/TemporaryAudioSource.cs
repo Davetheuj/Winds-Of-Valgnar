@@ -34,7 +34,7 @@ namespace Assets.GameObjects
             if(started && !audioSource.isPlaying)
             {
                 Destroy(audioSource);
-                Destroy(this);
+                Destroy(this.gameObject);
             }
             
         }

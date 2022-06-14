@@ -38,13 +38,14 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
 
     public void Start()
     {
-        baseItemInfoPanel = GameObject.Find("ItemHoverCanvas").transform.Find("ItemInventoryPanel").gameObject;
+       
+        baseItemInfoPanel = GameObject.Find("GUI").GetComponent<InterfaceController>().baseItemInfoPanel;
         baseItemNameText = baseItemInfoPanel.transform.Find("Name").GetComponent<TMP_Text>();
         baseItemInfoText = baseItemInfoPanel.transform.Find("Info").GetComponent<TMP_Text>();
         baseItemWeightText = baseItemInfoPanel.transform.Find("Weight").GetComponent<TMP_Text>();
         baseItemUseText = baseItemInfoPanel.transform.Find("ClickText").GetComponent<TMP_Text>();
-        equipmentPanel = GameObject.Find("GUI").transform.Find("EquipmentCanvas").Find("EquipmentPanel").gameObject;
-        controller = equipmentPanel.GetComponent<EquipmentController>();
+        equipmentPanel = GameObject.Find("EquipmentPanel").gameObject;
+        controller = GameObject.Find("Player").GetComponent<EquipmentController>();
     }
 
 
@@ -72,7 +73,7 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
             Equipment itemComponent = gameObject.GetComponent<Equipment>();
             if (itemComponent != null)
             {
-                itemComponent.equipment.EquipItem(this.gameObject);
+               controller.EquipItem(this.gameObject);
             }
         }
 

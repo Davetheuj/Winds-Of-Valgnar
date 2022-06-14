@@ -13,6 +13,9 @@ public class EquipmentController : MonoBehaviour
     public InventoryController inventory;
     public GameObject equipmentHoverInfoPanel;
 
+    public Transform mainHand;
+    public Transform offHand;
+
     public SkinnedMeshRenderer playerBody;
     public float shapeKeyArms;
     public float shapeKeyChest;
@@ -86,43 +89,45 @@ public class EquipmentController : MonoBehaviour
     public void EquipItem(GameObject itemToEquip)
     {
         //run a requirement check here
-
-        var slot = slots[itemToEquip.GetComponent<Equipment>().slotType];
-        if (slot.transform.childCount >0)
+        Equipment newEquipment = itemToEquip.GetComponent<Equipment>();
+        GameObject slot = slots[newEquipment.slotType];
+        
+        if (slot.transform.childCount >0) //if there was another item previously equipped in the slot
         {
+            //check to see if itemToEquip is oldItem to not add shapeKeys   
+            GameObject oldItem = slot.transform.GetChild(0).gameObject;
 
-            //check to see if itemToEquip is oldItem to not add shapeKeys
-           
-            var oldItem = slot.transform.GetChild(0);
-
-            if (oldItem.gameObject != itemToEquip)
-            {
-                itemToEquip.transform.SetParent(slot.transform);
-                itemToEquip.transform.localPosition = new Vector3(0, 0, 0);
-                itemToEquip.transform.localScale = new Vector3(1, 1, 1);
-                itemToEquip.GetComponent<ItemDragController>().enabled = false;
-                AddShapeKeys(itemToEquip);
-            }
 
             oldItem.transform.SetParent(inventory.GetFirstEmptySlot().transform);
             oldItem.transform.localPosition = new Vector3(0, 0, 0);
             oldItem.transform.localScale = new Vector3(1, 1, 1);
             oldItem.GetComponent<ItemDragController>().enabled = true;
-            RemoveShapeKeys(oldItem.gameObject);
+            RemoveShapeKeys(oldItem);
+            UnequipModel(newEquipment); //use the new equipment to figure out which slot it's in
+           
 
+            if (oldItem == itemToEquip)
+            {
+                CalculateAndUpdateCummulativeEquipmentModifiers();
+                oldItem.GetComponent<AudioClipController>().PlayInteractionClip(0, 1, false, 0, false, true, true);
+                return; //break early as we are just unequipping (the item being clicked is the item in the slot)
+            }
         }
-        else
-        {
+     
             itemToEquip.transform.SetParent(slot.transform);
             itemToEquip.transform.localPosition = new Vector3(0, 0, 0);
             itemToEquip.GetComponent<ItemDragController>().enabled = false;
             itemToEquip.transform.localScale = new Vector3(1, 1, 1);
-            AddShapeKeys(itemToEquip);
-        }
-
-
+            AddShapeKeys(newEquipment.gameObject);
+            EquipModel(newEquipment.gameObject);
+            
         SendShapeKeysToBody();
+
         CalculateAndUpdateCummulativeEquipmentModifiers();
+        
+        itemToEquip.GetComponent<AudioClipController>().PlayInteractionClip(0, 1, false, 0, false, true, true);
+        
+
     }
 
     public void SetTextColor(int stat, TMP_Text text)
@@ -240,6 +245,47 @@ public class EquipmentController : MonoBehaviour
         playerBody.SetBlendShapeWeight(3, shapeKeyFeet);
         playerBody.SetBlendShapeWeight(4, shapeKeyBicep);
        // playerBody.SetBlendShapeWeight(5, shapeKeyHead);
+
+    }
+
+    public void UnequipModel(Equipment newEquipment)
+    {
+        if (newEquipment.slotType == 7)
+        {
+            Destroy(mainHand.GetComponentInChildren<Weapon>().gameObject);
+        }
+        else if (newEquipment.slotType == 8)
+        {
+            Destroy(offHand.GetComponentInChildren<Weapon>().gameObject);
+        }
+    }
+
+    public void EquipModel(GameObject newEquipment)
+    {
+        ItemInfo itemInfo = newEquipment.GetComponent<ItemInfo>();
+        Equipment equipment = newEquipment.GetComponent<Equipment>();
+
+        if(equipment.slotType == 7)
+        {
+
+            GameObject model = Instantiate(itemInfo.modelPrefab,mainHand,false) as GameObject;
+            //model.transform.parent = mainHand;
+            model.transform.localPosition = equipment.defaultLocalPosition;
+
+            model.transform.localRotation = Quaternion.Euler(equipment.defaultLocalRotation);
+
+        }
+        else if (equipment.slotType == 8)
+        {
+            GameObject model = Instantiate(itemInfo.modelPrefab, offHand,false);
+            model.transform.localPosition = equipment.defaultLocalPosition;
+
+            model.transform.localRotation = Quaternion.Euler(equipment.defaultLocalRotation);
+
+
+        }
+
+
 
     }
 

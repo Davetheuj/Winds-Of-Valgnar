@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControlAlpha : MonoBehaviour
 {
@@ -11,86 +13,156 @@ public class PlayerControlAlpha : MonoBehaviour
 	public CharacterController controller;
 	public float gravityScale;
     
-    public GameObject camera;
+    public GameObject mainCamera;
 	
 
 	public Vector3 moveDirection;
 
-	// Start is called before the first frame update
+    public AudioSource audio;
 
-        void Start()
+    private bool canJump = false;
+    private float audioDelay;
+    [SerializeField]
+    private float audioDelayModifier;
+    private float audioTimer;
+
+    public float clampAngle = 80.0f;
+    public float inputSensitivity = 150.0f;
+
+    public float mouseX;
+    public float mouseY;
+
+    private float rotY = 0.0f;
+    private float rotX = 0.0f;
+
+    private Vector3 rot;
+
+    bool canRotate = true;
+
+    // Start is called before the first frame update
+
+    void Start()
     {
-      
-        
+        audio.Play();
+        audio.Pause();
+
+        Cursor.visible = false;
+       Cursor.lockState = CursorLockMode.Locked;
+
+        rot = transform.localRotation.eulerAngles;
+        rotY = rot.y;
+        rotX = rot.x;
+
+
     }
 
-	// Update is called once per frame
-	void Update() //update will run on all units, not just the local ones
+    void Awake()
+    {
+        SceneManager.activeSceneChanged += OnSceneWasSwitched;
+        SceneManager.sceneLoaded += OnSceneWasLoaded;
+    }
+
+    void OnSceneWasLoaded(Scene scene, LoadSceneMode mode)
+    {
+        controller.enabled = true;
+    }
+   
+    void OnSceneWasSwitched(Scene scene, Scene sceneSwitched)
+    {
+        //do stuff when a scene is changed
+    }
+
+
+    void Update() 
 	{
+		
+		float yStore = moveDirection.y; //get this from the old Update's moveDirection so we can continue to accelerate
+        moveDirection = new Vector3(0, yStore, 0);
 
-
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            Cursor.visible = !Cursor.visible;
+            if (Cursor.lockState == CursorLockMode.Confined)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+            }
+            canRotate = !canRotate;
+        }
         
-		// moveDirection = new Vector3(Input.GetAxis("Horizontal") * playerSpeed, moveDirection.y, Input.GetAxis("Vertical")*playerSpeed);
-
-		float yStore = moveDirection.y;
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            if (Input.GetMouseButton(1))
-            {
-                //camera.transform.rotation = Quaternion.Euler(camera.transform.localRotation.eulerAngles.x, camera.transform.localRotation.eulerAngles.y - 140 * Time.deltaTime, 0);
-                transform.rotation = Quaternion.Euler(0, transform.localRotation.eulerAngles.y - 140 * Time.deltaTime, 0); //Makes the camera less jittery on character totation.
-
-               
-            }
-            else
-            {
-                camera.transform.rotation = Quaternion.Euler(camera.transform.localRotation.eulerAngles.x, camera.transform.localRotation.eulerAngles.y - 140 * Time.deltaTime, 0);
-                transform.rotation = Quaternion.Euler(0, camera.transform.localRotation.eulerAngles.y, 0);
-            }
-            moveDirection = (transform.forward);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            if (Input.GetMouseButton(1))
-            {
-                //camera.transform.rotation = Quaternion.Euler(camera.transform.localRotation.eulerAngles.x, camera.transform.localRotation.eulerAngles.y - 140 * Time.deltaTime, 0);
-                transform.rotation = Quaternion.Euler(0, transform.localRotation.eulerAngles.y + 140 * Time.deltaTime, 0); //Makes the camera less jittery on character totation.
-
-
-            }
-            else
-            {
-                camera.transform.rotation = Quaternion.Euler(camera.transform.localRotation.eulerAngles.x, camera.transform.localRotation.eulerAngles.y + 140 * Time.deltaTime, 0);
-                transform.rotation = Quaternion.Euler(0, camera.transform.localRotation.eulerAngles.y, 0);
-            }
-            moveDirection = (transform.forward);
-        }
-
-        if (Input.GetMouseButton(1) && Input.GetMouseButton(0)) // allows for players to move with just mouse buttons so they can free up left hand
-        {
-            transform.rotation = Quaternion.Euler(0, camera.transform.localRotation.eulerAngles.y, 0);
-            moveDirection = (transform.forward);
-        }
         else
         {
+            if (canRotate)
+            {
+                mouseX = Input.GetAxis("Mouse X");
+                mouseY = Input.GetAxis("Mouse Y");
 
-            moveDirection = (transform.forward * Input.GetAxisRaw("Vertical")); //+ (transform.right * Input.GetAxisRaw("Horizontal"));
+                rotY += mouseX * inputSensitivity * Time.deltaTime;
+                rotX -= mouseY * inputSensitivity / 1.2f * Time.deltaTime;
+
+                rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
+
+                Quaternion localRotation = Quaternion.Euler(0, rotY, 0.0f);
+                transform.rotation = localRotation;
+                mainCamera.transform.rotation = Quaternion.Euler(rotX, rotY, 0);
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                moveDirection = -1 * transform.right;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                moveDirection = transform.right;
+            }
+            if ((Input.GetMouseButton(1) && Input.GetMouseButton(0)) || Input.GetKey(KeyCode.W)) // allows for players to move with just mouse buttons so they can free up left hand
+            {
+                moveDirection = (transform.forward);
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                moveDirection  = -1 * transform.forward;
+            }
         }
-		moveDirection = moveDirection.normalized * playerSpeed; //normlization so axis arent added outright
+      
+
+		moveDirection = moveDirection.normalized * playerSpeed; //normalization so axis aren't added outright (for cheaters like SEAN)
 
 		moveDirection.y = yStore;
 
-		if (controller.isGrounded)
+        if(controller.isGrounded && !canJump)
+        {
+            canJump = true;
+        }
+
+		if (canJump)
 		{
-			moveDirection.y = 0;
+			//moveDirection.y = 0;
 			if (Input.GetButtonDown("Jump"))
 			{
 				moveDirection.y = jumpSpeed;
+                canJump = false;
 			}
+            audioDelay = audioDelayModifier / playerSpeed;
+            if((Mathf.Abs(moveDirection.x) >.1f || Mathf.Abs(moveDirection.z) > .1f) && !audio.isPlaying && (audioTimer >= audioDelay))
+            {
+                
+                audio.Play();
+                audioTimer = 0;
+                //Debug.Log("Playing walking audio");
+            }
+           
 		}
+       
 
-		moveDirection.y = moveDirection.y + Physics.gravity.y * gravityScale * Time.deltaTime;
+        moveDirection.y = Mathf.Clamp(moveDirection.y + Physics.gravity.y * gravityScale * Time.deltaTime,-100,100);
+       // Debug.Log($"Move: {moveDirection * Time.deltaTime}");
+        
 		controller.Move(moveDirection * Time.deltaTime);
+        audioTimer += Time.deltaTime;
+        
 	}
 }

@@ -30,7 +30,7 @@ public class PhysicalCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         rot = transform.localRotation.eulerAngles;
+        rot = transform.localRotation.eulerAngles;
         rotY = rot.y;
         rotX = rot.x;
        

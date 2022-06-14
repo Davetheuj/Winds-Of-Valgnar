@@ -31,6 +31,8 @@ public class SpatialTRController : MonoBehaviour
 
     public Animator animator;
 
+    
+
 
 
     void Update()
@@ -43,18 +45,25 @@ public class SpatialTRController : MonoBehaviour
 
         if (realTransitionTimeList[realTransitionTimeList.Count - 1] <= 0) //if the final transition timer has expired
         {
-            animator.SetBool("ShouldAnimate", true);
+            try
+            {
+                animator.SetBool("ShouldAnimate", true);
+            }
+            catch (NullReferenceException)
+            {
+                Debug.Log("No animator component initialized (in SpatialTRController.cs)");
+            }
             this.enabled = false;
             initialized = false;
             
-            try //attempt to disable the trigger from the weapon this is attached to if we have one
-            {
-                gameObject.GetComponent<Weapon>().isAttacking = false;
-            }
-            catch (Exception)
-            {
-                Debug.Log("No collider component attached to this gameobject (in SpatialTRController.cs)");
-            }
+            //try //attempt to disable the trigger from the weapon this is attached to if we have one
+            //{
+            //    gameObject.GetComponent<Weapon>().isAttacking = false;
+            //}
+            //catch (Exception)
+            //{
+            //    Debug.Log("No collider component attached to this gameobject (in SpatialTRController.cs)");
+            //}
 
             parentObject.localPosition = positionList[positionList.Count - 1];
             parentObject.localRotation = Quaternion.Euler(rotationList[rotationList.Count - 1]);
@@ -104,7 +113,14 @@ public class SpatialTRController : MonoBehaviour
         rotationLerpSpeedList.Add(finalRotationLerpSpeed);
 
         animator = this.gameObject.GetComponentInParent<Animator>();
-        animator.SetBool("ShouldAnimate", false);
+        try
+        {
+            animator.SetBool("ShouldAnimate", false);
+        }
+        catch (NullReferenceException)
+        {
+            Debug.Log($"Could not find animator in gameobjects parent (SpatialTRController)");
+        }
 
     }
 }

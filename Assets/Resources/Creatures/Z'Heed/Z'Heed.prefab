@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: -0.30099642, y: 0.29846397, z: 0.48031223, w: 0.76786757}
   m_LocalPosition: {x: 0.0071991733, y: -0.37167078, z: 1.0440192}
   m_LocalScale: {x: 0.15459031, y: 0.1545903, z: 0.15459031}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 448354575946168082}
   m_RootOrder: 1
@@ -42,14 +43,17 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 26d8bdbc8646bde48b05fbaacaaa6577, type: 2}
-  - {fileID: 2100000, guid: a50e1b06babb4e64b861e9e6bc5a33ad, type: 2}
+  - {fileID: 2100000, guid: ea25d19695052f643936a2a30464c622, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,9 +98,11 @@ GameObject:
   m_Component:
   - component: {fileID: 448354575946168082}
   - component: {fileID: 7544342864908884584}
+  - component: {fileID: 355827844}
+  - component: {fileID: 355827843}
   m_Layer: 0
-  m_Name: alien
-  m_TagString: Untagged
+  m_Name: Z'Heed
+  m_TagString: Creature
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +116,8 @@ Transform:
   m_GameObject: {fileID: 3486834789844501761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 184.60239, y: 50.009155, z: 59.880054}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4221819789268565148}
   - {fileID: 4489443415841446407}
@@ -119,7 +126,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7544342864908884584
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,10 +139,83 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!143 &355827844
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3486834789844501761}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1.92
+  m_Radius: 1.37
+  m_SlopeLimit: 45
+  m_StepOffset: 0.22
+  m_SkinWidth: 0.13
+  m_MinMoveDistance: 0.001
+  m_Center: {x: -0.15, y: 1.29, z: -0.98}
+--- !u!114 &355827843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3486834789844501761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba78a355548443d9a2fc2fca142632c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Z'Heed
+  angleFromPlayerForward: 1.511983
+  player: {fileID: 0}
+  isDefaultAgro: 1
+  isStationary: 0
+  NPCPanelOffset: 4.79
+  maxHealth: 100
+  currentHealth: 100
+  baseAttackStrength: 10
+  resistanceMelee: 0
+  resistanceRanged: 0
+  resistanceMagic: 0
+  xpGranted: 0
+  honorGranted: 0
+  popularityGranted: 0
+  renownGranted: 0
+  attackRange: 3
+  attackDelay: 3
+  attackTimer: 2.1698883
+  moveSpeed: 20
+  baseAgroRange: 15
+  roamRadius: 3
+  state: 2
+  spawnLocation: {x: 145, y: 8, z: 313}
+  deltaNeutralMaxTime: 1
+  neutralPositionMaxTime: 15
+  neutPosTimeRandModifier: 6
+  maxIdleTime: 3
+  deltaNeutralRandModifier: 0
+  rotationLerpModifier: 0
+  statusController: {fileID: 0}
+  maxStuckTime: 0.5
+  minTravelDistance: 0.5
+  debugMarker: {fileID: 822137197117925851, guid: ebcd5302157f64051a5a83d2adc25d54,
+    type: 3}
+  attackClipName: Attack
+  walkClipName: Move
+  neutralIdleClipName: PoseLib.001
+  agressiveIdleClipName: 
+  runClipName: Move
+  deathClipName: 
+  hitClipName: 
 --- !u!1 &4468870095829241726
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +242,7 @@ Transform:
   m_LocalRotation: {x: 0.50000006, y: 0.49999997, z: -0.49999997, w: 0.50000006}
   m_LocalPosition: {x: -0, y: -0.08343378, z: 0.000000003647006}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6726946375208909425}
   m_Father: {fileID: 4221819789268565148}
@@ -193,6 +274,7 @@ Transform:
   m_LocalRotation: {x: -0.7838861, y: -0.04069372, z: -0.053719494, w: 0.6172364}
   m_LocalPosition: {x: -1, y: 0.0000000754979, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3122856769478022688}
   m_RootOrder: 0
@@ -223,6 +305,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.020416804, y: 1.0540556, z: -2.960831}
   m_LocalScale: {x: 2.8359926, y: 2.8359926, z: 2.8359926}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3122856769478022688}
   m_Father: {fileID: 448354575946168082}

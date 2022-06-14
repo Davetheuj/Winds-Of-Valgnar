@@ -43,7 +43,7 @@ public class NPC : MonoBehaviour
     [Tooltip("Default 30ish")]
     public int roamRadius;
     //public List<NPCAttack> (max damage, cast chance, attack delays, animation clips)
-    
+    [Tooltip("0Dead,1Agro,2Neutral")]
     public byte state =0;//0 for dead 1 for neutral 2 for aggressive 3 for looking at player 4 looking at spawn
     public Vector3 spawnLocation;
     private Vector3 moveDirection;
@@ -62,6 +62,10 @@ public class NPC : MonoBehaviour
     public float neutPosTimeRandModifier;
     [Tooltip("Default 5ish")]
     public float maxIdleTime;
+    [Tooltip("Default 10ish")]
+    public float deltaNeutralRandModifier;
+    [Tooltip("Default 3ish")]
+    public float rotationLerpModifier;
     public StatusController statusController;
     private CharacterController characterController;
     private StatsController playerStats;
@@ -84,6 +88,17 @@ public class NPC : MonoBehaviour
 
     private AudioClipController audioClipController;
 
+    public string attackClipName;
+    public string walkClipName;
+    public string neutralIdleClipName;
+    public string agressiveIdleClipName;
+    public string runClipName;
+    public string deathClipName;
+    public string hitClipName;
+
+    
+    
+
     void Start()
     {
         
@@ -95,10 +110,7 @@ public class NPC : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         audioClipController = GetComponent<AudioClipController>();
         
-        if (!isDefaultAgro)
-        {
-            state = 1;
-        }
+
         
             neutralLocation = spawnLocation;
 
@@ -165,17 +177,19 @@ public class NPC : MonoBehaviour
             {
                 if (needsAnimationChange || wasOutOfRange)
                 {
-                    animator.Play("idle_battle");
+                    animator.Play(agressiveIdleClipName);
                     needsAnimationChange = false;
                     wasOutOfRange = false;
+                   // Debug.Log($"{npcName} playing idle_battle");
                 }
                 
                 if (attackTimer >= attackDelay)
                 {
-                    animator.Play("attack1");
+                    animator.Play(attackClipName);
                     DealDamageToPlayer(baseAttackStrength);
                     attackTimer = 0;
-              
+                    //Debug.Log($"{npcName} playing attack1");
+
                 }
                 else 
                 {
@@ -196,7 +210,7 @@ public class NPC : MonoBehaviour
                     }
                     unstuckPathCounter = 1;
                 }
-                animator.Play("run");
+                animator.Play(runClipName);
                 if (!isStuck)
                 {
                     lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(player.transform.position - transform.position).eulerAngles.y, moveSpeed * Time.deltaTime);
@@ -206,14 +220,14 @@ public class NPC : MonoBehaviour
                 else //now following the path layed out by the FindNewPath() function
                 {
                     if ((transform.position - unstuckPath[unstuckPathCounter]).magnitude < 2f){
-                        Debug.Log("Now moving towards new unstuck location");
+                        //Debug.Log("Now moving towards new unstuck location");
                         unstuckPathCounter++;
                         if(unstuckPathCounter == unstuckPath.Count - 1)
                         {
                             isStuck = false;
                             unstuckPathCounter = 1;
                             
-                            Debug.Log("Npc is no longer stuck");
+                            //Debug.Log("Npc is no longer stuck");
                             return;
                         }
                     }
@@ -248,24 +262,35 @@ public class NPC : MonoBehaviour
                 deltaNeutralLocation = neutralLocation;
                 deltaRoamTimer = 0;
                 needsNeutralLocation = false;
+               // Debug.Log($"New neutral location found : {neutralLocation}");
             }
             else
             {
                 if (neutralPositionTimer >= 5f) {
                     if (needsAnimationChange)
                     {
-                        
-                        animator.Play("walk");
-                        
+                        try
+                        {
+                            animator.Play(walkClipName);
+                        }
+                        catch(MissingComponentException e)
+                        {
+
+                        }
                         
                         needsAnimationChange = false;
                     }
                     if (deltaRoamTimer > deltaNeutralMaxTime)
                     {
-                        deltaNeutralLocation = (new Vector3(1,0,1) * (UnityEngine.Random.value -.5f)*10) + neutralLocation;
+                        float xRand = (UnityEngine.Random.value - .5f)*deltaNeutralRandModifier;
+                        float zRand = (UnityEngine.Random.value - .5f)*deltaNeutralRandModifier;
+
+
+                        deltaNeutralLocation = new Vector3(xRand,0,zRand) + neutralLocation;
                         deltaRoamTimer = 0;
+                       // Debug.Log($"new Delta Neutral Location: {deltaNeutralLocation}");
                     }
-                    lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(deltaNeutralLocation - transform.position).eulerAngles.y, Time.deltaTime*3);
+                    lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(deltaNeutralLocation - transform.position).eulerAngles.y, Time.deltaTime*rotationLerpModifier);
                     transform.rotation = Quaternion.Euler(0, lookDirection, 0);
                   
                     moveDirection = transform.forward;
@@ -282,7 +307,7 @@ public class NPC : MonoBehaviour
                 {
                     if (needsAnimationChange)
                     {
-                        animator.Play("idle");
+                        animator.Play(neutralIdleClipName);
                         needsAnimationChange = false;
                     }
 
@@ -350,11 +375,17 @@ public class NPC : MonoBehaviour
     }
     private void CheckAggresion()
     {
-        if ((transform.position - player.transform.position).magnitude <= baseAgroRange || (isAttacked)) //if close enough or attacked
+        if ((((transform.position - player.transform.position).magnitude <= baseAgroRange) && isDefaultAgro)|| (isAttacked)) //if close enough or attacked
         {
             if(state == 2)
             {
-                audioClipController.PlayInteractionClip();
+                try
+                {
+                    audioClipController.PlayInteractionClip();
+                }catch(NullReferenceException e)
+                {
+                    Debug.Log($"There's no audioClipController on {gameObject.name}");
+                }
                 needsAnimationChange = true;
             }
            
@@ -444,7 +475,7 @@ public class NPC : MonoBehaviour
                     path1Locations.Add(finalPos);
                     continue;
                 }
-                Debug.Log(collider.gameObject.name);
+                //Debug.Log(collider.gameObject.name);
                 rotatedPos = (Quaternion.AngleAxis(30, Vector3.up) * (currentPos - collider.transform.position));
                 currentPos = collider.ClosestPoint(rotatedPos + collider.transform.position) + (localRadius*3.5f * rotatedPos.normalized);
                 path1Locations.Add(currentPos);
@@ -456,7 +487,7 @@ public class NPC : MonoBehaviour
             }
             aCounter++;
         }
-        Debug.Log($"Found Right Path - {path1Locations.Count - 2} intermediate points - {Pathing.PathLength(path1Locations)} length");
+        //Debug.Log($"Found Right Path - {path1Locations.Count - 2} intermediate points - {Pathing.PathLength(path1Locations)} length");
         currentPos = initialPos;
         while (!foundLeftPath && aCounter<1000)
         {
@@ -481,7 +512,7 @@ public class NPC : MonoBehaviour
             }
             aCounter++;
         }
-        Debug.Log($"Found Left Path - {path2Locations.Count - 2} intermediate points - {Pathing.PathLength(path2Locations)} length");
+       // Debug.Log($"Found Left Path - {path2Locations.Count - 2} intermediate points - {Pathing.PathLength(path2Locations)} length");
         if (Pathing.PathLength(path1Locations) <= Pathing.PathLength(path2Locations)){
             foreach (Vector3 pos in path1Locations)
             {

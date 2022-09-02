@@ -21,6 +21,8 @@ public class StatsController : MonoBehaviour
    
     public int maxHealth = 500;
     public int maxMana = 500;
+
+    public int playerLevel =1;
    
     public int currentIntellect = 50;
     public int currentStrength;
@@ -63,8 +65,8 @@ public class StatsController : MonoBehaviour
     public int Staves;
     public int Shields;
     public int Short_Swords;
-    public int Throwing_Daggers;
-    public int Throwing_Knives;
+    public int Throwing_Weapons;
+    //public int Throwing_Knives;
     public int Wands;
     public int Woodcutting;
 
@@ -154,6 +156,8 @@ public class StatsController : MonoBehaviour
 
      maxMana = loadedStats.maxMana;
 
+        playerLevel = loadedStats.playerLevel;
+
 
 
      maxIntellect = loadedStats.maxIntellect;
@@ -201,9 +205,9 @@ public class StatsController : MonoBehaviour
      Medium_Armors = loadedStats.Medium_Armors;
      Light_Armors = loadedStats.Light_Armors;
      Bows = loadedStats.Bows;
-     Throwing_Knives = loadedStats.Throwing_Knives;
+     Throwing_Weapons = loadedStats.Throwing_Weapons;
      Cross_Bows = loadedStats.Cross_Bows;
-     Throwing_Daggers = loadedStats.Throwing_Daggers;
+    // Throwing_Weapons = loadedStats.Throwing_Daggers;
      Destruction = loadedStats.Destruction;
      Illusion = loadedStats.Illusion;
      Restoration = loadedStats.Restoration;

@@ -27,24 +27,24 @@ public class EquipmentController : MonoBehaviour
 
 
     //Eqip quick info
+    public TMP_Text charisma;
+    public TMP_Text dexterity;
+    public TMP_Text intelligence;
+    public TMP_Text luck;
+    public TMP_Text resolve;
+    public TMP_Text spirit;
+    public TMP_Text strength;
+    public TMP_Text wisdom;
+
     public TMP_Text hitpoints;
     public TMP_Text mana;
-    public TMP_Text strength;
-    public TMP_Text intelligence;
-    public TMP_Text wisdom;
-    public TMP_Text dexterity;
-    public TMP_Text spirit;
-    public TMP_Text resolve;
-    public TMP_Text luck;
-    public TMP_Text charisma;
-
-    public TMP_Text armor;
-    public TMP_Text holy;
-    public TMP_Text voidText;
-    public TMP_Text fire;
-    public TMP_Text water;
-    public TMP_Text electric;
-    public TMP_Text earth;
+    public TMP_Text crush;
+    public TMP_Text pierce;
+    public TMP_Text slash;
+    public TMP_Text weaponStrength;
+    //public TMP_Text water;
+    //public TMP_Text electric;
+    //public TMP_Text earth;
 
     //Equip Cummulative info
 
@@ -60,12 +60,13 @@ public class EquipmentController : MonoBehaviour
     public TMP_Text charismaTotal;
 
     public TMP_Text armorTotal;
-    public TMP_Text holyTotal;
-    public TMP_Text voidTotal;
-    public TMP_Text fireTotal;
-    public TMP_Text waterTotal;
-    public TMP_Text electricTotal;
-    public TMP_Text earthTotal;
+    public TMP_Text crushTotal;
+    public TMP_Text pierceTotal;
+    public TMP_Text slashTotal;
+
+    //public TMP_Text waterTotal;
+    //public TMP_Text electricTotal;
+    //public TMP_Text earthTotal;
 
     public int nHitpointsTotal;
     public int nManaTotal;
@@ -78,13 +79,13 @@ public class EquipmentController : MonoBehaviour
     public int nLuckTotal;
     public int nCharismaTotal;
 
-    public int nArmorTotal;
-    public int nHolyTotal;
-    public int nVoidTotal;
-    public int nFireTotal;
-    public int nWaterTotal;
-    public int nElectricTotal;
-    public int nEarthTotal;
+    //public int nArmorTotal;
+    public int nCrushTotal;
+    public int nPierceTotal;
+    public int nSlashTotal;
+    //public int nWaterTotal;
+    //public int nElectricTotal;
+    //public int nEarthTotal;
 
     public void EquipItem(GameObject itemToEquip)
     {
@@ -163,13 +164,13 @@ public class EquipmentController : MonoBehaviour
         nLuckTotal = playerStats.maxLuck;
         nCharismaTotal = playerStats.maxCharisma;
 
-        nArmorTotal = 0;
-        nHolyTotal = 0;
-        nVoidTotal = 0;
-        nFireTotal = 0;
-        nWaterTotal = 0;
-        nElectricTotal = 0;
-        nEarthTotal = 0;
+        //nArmorTotal = 0;
+        nCrushTotal = 0;
+        nPierceTotal = 0;
+        nSlashTotal = 0;
+        //nWaterTotal = 0;
+        //nElectricTotal = 0;
+       // nEarthTotal = 0;
         
         foreach(GameObject item in slots)
         {
@@ -187,13 +188,13 @@ public class EquipmentController : MonoBehaviour
                 nLuckTotal += item.transform.GetChild(0).GetComponent<Equipment>().modifierLuck;
                 nCharismaTotal += item.transform.GetChild(0).GetComponent<Equipment>().modifierCharisma;
 
-                nArmorTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceArmor;
-                nHolyTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceHoly;
-                nVoidTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceVoid;
-                nFireTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceFire;
-                nWaterTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceWater;
-                nEarthTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceEarth;
-                nElectricTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceElectric;
+                //nArmorTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceArmor;
+                nCrushTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceCrush;
+                nPierceTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistancePierce;
+                nSlashTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceSlash;
+                //nWaterTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceWater;
+                //nEarthTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceEarth;
+                //nElectricTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceElectric;
             }
 
         }
@@ -208,13 +209,13 @@ public class EquipmentController : MonoBehaviour
          SetTextColor(nSpiritTotal, spiritTotal);
          SetTextColor(nStrengthTotal, strengthTotal);
          SetTextColor( nWisdomTotal, wisdomTotal);
-         SetTextColor(nArmorTotal, armorTotal);
-         SetTextColor( nEarthTotal, earthTotal);
-         SetTextColor( nElectricTotal, electricTotal);
-         SetTextColor( nFireTotal, fireTotal);
-         SetTextColor(nHolyTotal, holyTotal);
-         SetTextColor( nVoidTotal, voidTotal);
-         SetTextColor(nWaterTotal, waterTotal);
+         //SetTextColor(nArmorTotal, armorTotal);
+        // SetTextColor( nEarthTotal, earthTotal);
+        // SetTextColor( nElectricTotal, electricTotal);
+         SetTextColor( nSlashTotal, slashTotal);
+         SetTextColor(nCrushTotal, crushTotal);
+         SetTextColor( nPierceTotal, pierceTotal);
+         //SetTextColor(nWaterTotal, waterTotal);
     }
 
     public void AddShapeKeys(GameObject item)

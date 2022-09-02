@@ -28,13 +28,11 @@ public class Equipment : MonoBehaviour
     public int modifierLuck;
     public int modifierCharisma;
 
-    public int resistanceArmor;
-    public int resistanceHoly;
-    public int resistanceVoid;
-    public int resistanceFire;
-    public int resistanceWater;
-    public int resistanceElectric;
-    public int resistanceEarth;
+    //public int resistanceArmor;
+    public int resistanceCrush;
+    public int resistancePierce;
+    public int resistanceSlash;
+
 
     public void SetDefaultLocalRotationAndPosition()
     {

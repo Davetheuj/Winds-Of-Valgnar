@@ -103,13 +103,13 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
                 controller.SetTextColor(equipmentTemp.modifierSpirit, controller.spirit);
                 controller.SetTextColor(equipmentTemp.modifierStrength, controller.strength);
                 controller.SetTextColor(equipmentTemp.modifierWisdom, controller.wisdom);
-                controller.SetTextColor(equipmentTemp.resistanceArmor, controller.armor);
-                controller.SetTextColor(equipmentTemp.resistanceEarth, controller.earth);
-                controller.SetTextColor(equipmentTemp.resistanceElectric, controller.electric);
-                controller.SetTextColor(equipmentTemp.resistanceFire, controller.fire);
-                controller.SetTextColor(equipmentTemp.resistanceHoly, controller.holy);
-                controller.SetTextColor(equipmentTemp.resistanceVoid, controller.voidText);
-                controller.SetTextColor(equipmentTemp.resistanceWater, controller.water);
+                //controller.SetTextColor(equipmentTemp.resistanceArmor, controller.armor);
+                //controller.SetTextColor(equipmentTemp.resistanceEarth, controller.earth);
+                //controller.SetTextColor(equipmentTemp.resistanceElectric, controller.electric);
+               // controller.SetTextColor(equipmentTemp.resistanceFire, controller.fire);
+               // controller.SetTextColor(equipmentTemp.resistanceHoly, controller.holy);
+               // controller.SetTextColor(equipmentTemp.resistanceVoid, controller.voidText);
+                //controller.SetTextColor(equipmentTemp.resistanceWater, controller.water);
 
                 controller.equipmentHoverInfoPanel.SetActive(true);
 

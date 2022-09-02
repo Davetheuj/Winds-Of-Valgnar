@@ -29,6 +29,7 @@ public class InterfaceController : MonoBehaviour
     {
         statsPanelController.UpdateStatsUI();
         playerInformationCanvas.SetActive(!playerInformationCanvas.activeSelf);
+        
 
     }
 

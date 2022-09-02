@@ -14,6 +14,8 @@ public class SerializableStatsController
 
     public int maxMana;
 
+    public int playerLevel;
+
 
 
     public int maxIntellect;
@@ -63,9 +65,9 @@ public class SerializableStatsController
     public int Medium_Armors;
     public int Light_Armors;
     public int Bows;
-    public int Throwing_Knives;
+    public int Throwing_Weapons;
     public int Cross_Bows;
-    public int Throwing_Daggers;
+    //public int Throwing_Daggers;
     public int Destruction;
     public int Illusion;
     public int Restoration;
@@ -110,6 +112,8 @@ public class SerializableStatsController
         currentMana = loadedStats.currentMana;
         currentHealth = loadedStats.currentHealth;
         maxHealth = loadedStats.maxHealth;
+
+        playerLevel = loadedStats.playerLevel;
 
         maxMana = loadedStats.maxMana;
 
@@ -160,9 +164,9 @@ public class SerializableStatsController
         Medium_Armors = loadedStats.Medium_Armors;
         Light_Armors = loadedStats.Light_Armors;
         Bows = loadedStats.Bows;
-        Throwing_Knives = loadedStats.Throwing_Knives;
+        Throwing_Weapons = loadedStats.Throwing_Weapons;
         Cross_Bows = loadedStats.Cross_Bows;
-        Throwing_Daggers = loadedStats.Throwing_Daggers;
+        //Throwing_Daggers = loadedStats.Throwing_Weapons;
         Destruction = loadedStats.Destruction;
         Illusion = loadedStats.Illusion;
         Restoration = loadedStats.Restoration;

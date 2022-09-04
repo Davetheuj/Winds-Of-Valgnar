@@ -33,6 +33,8 @@ public class Equipment : MonoBehaviour
     public int resistancePierce;
     public int resistanceSlash;
 
+    public int weaponStrength;
+
 
     public void SetDefaultLocalRotationAndPosition()
     {

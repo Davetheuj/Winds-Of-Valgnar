@@ -96,27 +96,31 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
            
                
                 Equipment equipmentTemp = gameObject.GetComponent<Equipment>();
-                controller.SetTextColor(equipmentTemp.modifierHitPoints, controller.hitpoints);
-                controller.SetTextColor(equipmentTemp.modifierCharisma, controller.charisma);
-                controller.SetTextColor(equipmentTemp.modifierDexterity, controller.dexterity);
-                controller.SetTextColor(equipmentTemp.modifierIntelligence, controller.intelligence);
-                controller.SetTextColor(equipmentTemp.modifierLuck, controller.luck);
-                controller.SetTextColor(equipmentTemp.modifierMana, controller.mana);
-                controller.SetTextColor(equipmentTemp.modifierResolve, controller.resolve);
-                controller.SetTextColor(equipmentTemp.modifierSpirit, controller.spirit);
-                controller.SetTextColor(equipmentTemp.modifierStrength, controller.strength);
-                controller.SetTextColor(equipmentTemp.modifierWisdom, controller.wisdom);
-                //controller.SetTextColor(equipmentTemp.resistanceArmor, controller.armor);
-                //controller.SetTextColor(equipmentTemp.resistanceEarth, controller.earth);
-                //controller.SetTextColor(equipmentTemp.resistanceElectric, controller.electric);
-               // controller.SetTextColor(equipmentTemp.resistanceFire, controller.fire);
-               // controller.SetTextColor(equipmentTemp.resistanceHoly, controller.holy);
-               // controller.SetTextColor(equipmentTemp.resistanceVoid, controller.voidText);
-                //controller.SetTextColor(equipmentTemp.resistanceWater, controller.water);
+                controller.SetTextAndColor(equipmentTemp.modifierHitPoints, controller.hitpoints);
+                controller.SetTextAndColor(equipmentTemp.modifierCharisma, controller.charisma);
+                controller.SetTextAndColor(equipmentTemp.modifierDexterity, controller.dexterity);
+                controller.SetTextAndColor(equipmentTemp.modifierIntelligence, controller.intelligence);
+                controller.SetTextAndColor(equipmentTemp.modifierLuck, controller.luck);
+                controller.SetTextAndColor(equipmentTemp.modifierMana, controller.mana);
+                controller.SetTextAndColor(equipmentTemp.modifierResolve, controller.resolve);
+                controller.SetTextAndColor(equipmentTemp.modifierSpirit, controller.spirit);
+                controller.SetTextAndColor(equipmentTemp.modifierStrength, controller.strength);
+                controller.SetTextAndColor(equipmentTemp.modifierWisdom, controller.wisdom);
+            controller.SetTextAndColor(equipmentTemp.resistanceCrush, controller.crush);
+            controller.SetTextAndColor(equipmentTemp.resistancePierce, controller.pierce);
+            controller.SetTextAndColor(equipmentTemp.resistanceSlash, controller.slash);
+            controller.SetTextAndColor(equipmentTemp.weaponStrength, controller.weaponStrength);
+            //controller.SetTextColor(equipmentTemp.resistanceArmor, controller.armor);
+            //controller.SetTextColor(equipmentTemp.resistanceEarth, controller.earth);
+            //controller.SetTextColor(equipmentTemp.resistanceElectric, controller.electric);
+            // controller.SetTextColor(equipmentTemp.resistanceFire, controller.fire);
+            // controller.SetTextColor(equipmentTemp.resistanceHoly, controller.holy);
+            // controller.SetTextColor(equipmentTemp.resistanceVoid, controller.voidText);
+            //controller.SetTextColor(equipmentTemp.resistanceWater, controller.water);
 
-                controller.equipmentHoverInfoPanel.SetActive(true);
+            //controller.equipmentHoverInfoPanel.SetActive(true);
 
-        
+
         }
         else
         {
@@ -152,7 +156,11 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
     public void OnPointerExit(PointerEventData eventData)
     {
         baseItemInfoPanel.SetActive(false);
-        controller.equipmentHoverInfoPanel.SetActive(false);
+        //controller.equipmentHoverInfoPanel.SetActive(false);
+        if(CurrentElement.GetComponent<Equipment>())
+        {
+            controller.CalculateAndUpdateCummulativeEquipmentModifiers();
+        }
     }
 
    

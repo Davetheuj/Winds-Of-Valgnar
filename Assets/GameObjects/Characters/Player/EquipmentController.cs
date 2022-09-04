@@ -83,6 +83,7 @@ public class EquipmentController : MonoBehaviour
     public int nCrushTotal;
     public int nPierceTotal;
     public int nSlashTotal;
+    public int nWeaponStrengthTotal;
     //public int nWaterTotal;
     //public int nElectricTotal;
     //public int nEarthTotal;
@@ -131,7 +132,7 @@ public class EquipmentController : MonoBehaviour
 
     }
 
-    public void SetTextColor(int stat, TMP_Text text)
+    public void SetTextAndColor(int stat, TMP_Text text)
     {
         text.text = "" + Mathf.Abs(stat);
 
@@ -153,26 +154,27 @@ public class EquipmentController : MonoBehaviour
     public void CalculateAndUpdateCummulativeEquipmentModifiers()
     {
 
-        nHitpointsTotal = playerStats.maxHealth;
-        nManaTotal = playerStats.maxMana;
-        nStrengthTotal = playerStats.maxStrength;
-        nIntelligenceTotal = playerStats.maxIntellect;
-        nWisdomTotal = playerStats.maxWisdom;
-        nDexterityTotal = playerStats.maxDexterity;
-        nSpiritTotal = playerStats.maxSpirit;
-        nResolveTotal = playerStats.maxResolve;
-        nLuckTotal = playerStats.maxLuck;
-        nCharismaTotal = playerStats.maxCharisma;
+        nHitpointsTotal = 0;
+        nManaTotal = 0;
+        nStrengthTotal = 0;
+        nIntelligenceTotal = 0;
+        nWisdomTotal = 0;
+        nDexterityTotal = 0;
+        nSpiritTotal = 0;
+        nResolveTotal = 0;
+        nLuckTotal = 0;
+        nCharismaTotal = 0;
 
         //nArmorTotal = 0;
         nCrushTotal = 0;
         nPierceTotal = 0;
         nSlashTotal = 0;
+        nWeaponStrengthTotal = 0;
         //nWaterTotal = 0;
         //nElectricTotal = 0;
-       // nEarthTotal = 0;
-        
-        foreach(GameObject item in slots)
+        // nEarthTotal = 0;
+
+        foreach (GameObject item in slots)
         {
             if (item.transform.childCount != 0)
             {
@@ -187,6 +189,7 @@ public class EquipmentController : MonoBehaviour
                 nResolveTotal += item.transform.GetChild(0).GetComponent<Equipment>().modifierResolve;
                 nLuckTotal += item.transform.GetChild(0).GetComponent<Equipment>().modifierLuck;
                 nCharismaTotal += item.transform.GetChild(0).GetComponent<Equipment>().modifierCharisma;
+                nWeaponStrengthTotal += item.transform.GetChild(0).GetComponent<Equipment>().weaponStrength;
 
                 //nArmorTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceArmor;
                 nCrushTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceCrush;
@@ -199,23 +202,38 @@ public class EquipmentController : MonoBehaviour
 
         }
 
-         SetTextColor( nHitpointsTotal, hitpointsTotal);
-         SetTextColor(nCharismaTotal, charismaTotal);
-         SetTextColor(nDexterityTotal, dexterityTotal);
-         SetTextColor(nIntelligenceTotal, intelligenceTotal);
-         SetTextColor( nLuckTotal, luckTotal);
-         SetTextColor(nManaTotal, manaTotal);
-         SetTextColor(nResolveTotal, resolveTotal);
-         SetTextColor(nSpiritTotal, spiritTotal);
-         SetTextColor(nStrengthTotal, strengthTotal);
-         SetTextColor( nWisdomTotal, wisdomTotal);
+         SetTextAndColor( nHitpointsTotal, hitpointsTotal);
+         SetTextAndColor(nCharismaTotal, charismaTotal);
+         SetTextAndColor(nDexterityTotal, dexterityTotal);
+         SetTextAndColor(nIntelligenceTotal, intelligenceTotal);
+         SetTextAndColor( nLuckTotal, luckTotal);
+         SetTextAndColor(nManaTotal, manaTotal);
+         SetTextAndColor(nResolveTotal, resolveTotal);
+         SetTextAndColor(nSpiritTotal, spiritTotal);
+         SetTextAndColor(nStrengthTotal, strengthTotal);
+         SetTextAndColor( nWisdomTotal, wisdomTotal);
          //SetTextColor(nArmorTotal, armorTotal);
         // SetTextColor( nEarthTotal, earthTotal);
         // SetTextColor( nElectricTotal, electricTotal);
-         SetTextColor( nSlashTotal, slashTotal);
-         SetTextColor(nCrushTotal, crushTotal);
-         SetTextColor( nPierceTotal, pierceTotal);
-         //SetTextColor(nWaterTotal, waterTotal);
+         SetTextAndColor( nSlashTotal, slashTotal);
+         SetTextAndColor(nCrushTotal, crushTotal);
+         SetTextAndColor( nPierceTotal, pierceTotal);
+        SetTextAndColor(nWeaponStrengthTotal, weaponStrength);
+        //SetTextColor(nWaterTotal, waterTotal);
+
+        nHitpointsTotal += playerStats.maxHealth;
+        nManaTotal += playerStats.maxMana;
+        nStrengthTotal += playerStats.maxStrength;
+        nIntelligenceTotal += playerStats.maxIntellect;
+        nWisdomTotal += playerStats.maxWisdom;
+        nDexterityTotal += playerStats.maxDexterity;
+        nSpiritTotal += playerStats.maxSpirit;
+        nResolveTotal += playerStats.maxResolve;
+        nLuckTotal += playerStats.maxLuck;
+        nCharismaTotal += playerStats.maxCharisma;
+        
+
+
     }
 
     public void AddShapeKeys(GameObject item)

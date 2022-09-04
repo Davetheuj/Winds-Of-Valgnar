@@ -52,8 +52,8 @@ public RectTransform quickInspectItemPanelTransform;
 
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (EventSystem.current.IsPointerOverGameObject())
 
+        if (EventSystem.current.IsPointerOverGameObject())
         {
             return;
         }
@@ -61,7 +61,7 @@ public RectTransform quickInspectItemPanelTransform;
         if (Physics.Raycast(ray, out hit))
         {
             var rayHitObject = hit.transform.gameObject;
-            //Debug.Log("hit with " + rayHitObject.name);
+            Debug.Log("hit with " + rayHitObject.name);
 
 
 

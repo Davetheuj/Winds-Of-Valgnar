@@ -38,21 +38,6 @@ public class SaveOnLoadObjects : MonoBehaviour
         
     }
 
-    public void RemoveFromList(GameObject objToRemove)
-    {
-        
-    }
-    public void AddObjectToList(GameObject objToAdd)
-    {
-
-    }
-    public void VerifyList()
-    {
-        foreach (GameObject gameComponent in objectList)
-        {
-            DontDestroyOnLoad(gameComponent);
-        }
-    }
 
 
 }

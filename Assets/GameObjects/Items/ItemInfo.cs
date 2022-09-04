@@ -25,7 +25,7 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
 
     public static GameObject CurrentElement;
 
-    public static GameObject equipmentPanel;
+    //public static GameObject equipmentPanel;
 
     //public GameObject EquipmentHoverInfoPanel;
 
@@ -40,12 +40,14 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
     {
        
         baseItemInfoPanel = GameObject.Find("GUI").GetComponent<InterfaceController>().baseItemInfoPanel;
-        baseItemNameText = baseItemInfoPanel.transform.Find("Name").GetComponent<TMP_Text>();
-        baseItemInfoText = baseItemInfoPanel.transform.Find("Info").GetComponent<TMP_Text>();
-        baseItemWeightText = baseItemInfoPanel.transform.Find("Weight").GetComponent<TMP_Text>();
-        baseItemUseText = baseItemInfoPanel.transform.Find("ClickText").GetComponent<TMP_Text>();
-        equipmentPanel = GameObject.Find("EquipmentPanel").gameObject;
+        var secondaryPanel = baseItemInfoPanel.transform.Find("CoreStatsPanel");
+        baseItemNameText = secondaryPanel.transform.Find("NamePanel").transform.Find("Name").GetComponent<TMP_Text>();
+        baseItemInfoText = secondaryPanel.transform.Find("InfoPanel").transform.Find("Info").GetComponent<TMP_Text>();
+        baseItemWeightText = secondaryPanel.transform.Find("WeightPanel").transform.Find("Weight").GetComponent<TMP_Text>();
+        baseItemUseText = secondaryPanel.transform.Find("UseTextPanel").transform.Find("ClickText").GetComponent<TMP_Text>();
+        //equipmentPanel = GameObject.Find("EquipmentPanel").gameObject;
         controller = GameObject.Find("Player").GetComponent<EquipmentController>();
+        
     }
 
 
@@ -81,6 +83,7 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+       
         CurrentElement = this.gameObject;
 
         baseItemNameText.text = itemName;

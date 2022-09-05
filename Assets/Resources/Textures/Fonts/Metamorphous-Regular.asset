@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Metamorphous-Outline
+  m_Name: Metamorphous-Regular
   m_EditorClassIdentifier: 
-  hashCode: 1471822321
+  hashCode: -558563477
   material: {fileID: 5039776687743456240}
-  materialHashCode: 1653865649
+  materialHashCode: 1609761771
   m_Version: 1.1.0
   m_SourceFontFileGUID: dbcd9f2c404da429db14a26c434ed27b
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: dbcd9f2c404da429db14a26c434ed27b,
@@ -2149,7 +2149,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.233
+    - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9

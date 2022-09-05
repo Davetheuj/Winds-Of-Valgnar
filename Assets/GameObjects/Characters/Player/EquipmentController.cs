@@ -138,15 +138,15 @@ public class EquipmentController : MonoBehaviour
 
         if (stat < 0)
         {
-            text.color = Color.red;
+            text.color = Colors.AsUnityColor(Colors.UIRed);
         }
         else if (stat == 0)
         {
-            text.color = Color.white;
+            text.color = Colors.AsUnityColor(Colors.UIGold);
         }
         else
         {
-            text.color = Color.green;
+            text.color = Colors.AsUnityColor(Colors.UIGreen);
         }
 
 

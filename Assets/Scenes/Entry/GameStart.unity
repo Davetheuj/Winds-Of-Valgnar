@@ -71179,6 +71179,7 @@ MonoBehaviour:
   nCrushTotal: 0
   nPierceTotal: 0
   nSlashTotal: 0
+  nWeaponStrengthTotal: 0
 --- !u!114 &1591287855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84011,9 +84012,9 @@ MonoBehaviour:
   hitpoints: {fileID: 1459773384}
   mana: {fileID: 1213515058}
   crush: {fileID: 471579795}
-  pierce: {fileID: 1201891371}
-  slash: {fileID: 175306497}
-  weaponStrength: {fileID: 0}
+  pierce: {fileID: 1755450617}
+  slash: {fileID: 1201891371}
+  weaponStrength: {fileID: 175306497}
   hitpointsTotal: {fileID: 1459773384}
   manaTotal: {fileID: 1213515058}
   strengthTotal: {fileID: 1185437201}
@@ -84025,9 +84026,9 @@ MonoBehaviour:
   luckTotal: {fileID: 809485122}
   charismaTotal: {fileID: 368256235}
   armorTotal: {fileID: 709300029}
-  crushTotal: {fileID: 1755450617}
-  pierceTotal: {fileID: 1201891371}
-  slashTotal: {fileID: 175306497}
+  crushTotal: {fileID: 471579795}
+  pierceTotal: {fileID: 1755450617}
+  slashTotal: {fileID: 1201891371}
   nHitpointsTotal: 0
   nManaTotal: 0
   nStrengthTotal: 0
@@ -84041,6 +84042,7 @@ MonoBehaviour:
   nCrushTotal: 0
   nPierceTotal: 0
   nSlashTotal: 0
+  nWeaponStrengthTotal: 0
 --- !u!114 &1893046282
 MonoBehaviour:
   m_ObjectHideFlags: 0

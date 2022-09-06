@@ -61,7 +61,7 @@ public RectTransform quickInspectItemPanelTransform;
         if (Physics.Raycast(ray, out hit))
         {
             var rayHitObject = hit.transform.gameObject;
-            Debug.Log("hit with " + rayHitObject.name);
+            //Debug.Log("hit with " + rayHitObject.name);
 
 
 

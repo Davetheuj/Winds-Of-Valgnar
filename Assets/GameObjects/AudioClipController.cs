@@ -30,14 +30,14 @@ public class AudioClipController : MonoBehaviour
         //if this doesnt work we'll look for an audioSource in the gameobject's children
         catch (Exception e)
         {
-            Debug.Log($"Could not find audio source on {gameObject.name}...checking children. ({e.GetType()})");
+            //Debug.Log($"Could not find audio source on {gameObject.name}...checking children. ({e.GetType()})");
             try
             {
                 audioSource = gameObject.GetComponentInChildren<AudioSource>();
             }
             catch (Exception e2)
             {
-                Debug.Log($"Could not find audio source on {gameObject.name}'s children, clips will not be played from this object. ({e2.GetType()})");
+                //Debug.Log($"Could not find audio source on {gameObject.name}'s children, clips will not be played from this object. ({e2.GetType()})");
             }
         }
         //Break out of start() if there's no audio source, we don't have to go any further.

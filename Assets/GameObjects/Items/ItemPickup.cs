@@ -25,7 +25,7 @@ public class ItemPickup : MonoBehaviour
             gameObject.transform.localScale = gameObject.transform.localScale / 1.1f;
             if ((gameObject.transform.position - target.position).magnitude < .1f)
                 {
-                    Debug.Log("Object has reached target. destroying.");
+                    //Debug.Log("Object has reached target. destroying.");
                     Destroy(gameObject);
                 }
 

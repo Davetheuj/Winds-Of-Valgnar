@@ -28,7 +28,7 @@ public class MaterialEmissionIntensityPingPong : MonoBehaviour
             emissionIntensity -= transitionSpeed * Time.deltaTime;
         }
         emissiveMaterial.SetFloat("_EmissiveIntensity", emissionIntensity);
-        //Debug.Log($"Emissive Intensity: {emissiveMaterial.GetFloat("_EmissiveIntensity")}");
+        ////Debug.Log($"Emissive Intensity: {emissiveMaterial.GetFloat("_EmissiveIntensity")}");
         if (emissionIntensity<=minIntensity && !isRising)
         {
             isRising = true;

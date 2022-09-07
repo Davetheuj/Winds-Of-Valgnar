@@ -51,7 +51,7 @@ public class SpatialTRController : MonoBehaviour
             }
             catch (NullReferenceException)
             {
-                Debug.Log("No animator component initialized (in SpatialTRController.cs)");
+                //Debug.Log("No animator component initialized (in SpatialTRController.cs)");
             }
             this.enabled = false;
             initialized = false;
@@ -62,7 +62,7 @@ public class SpatialTRController : MonoBehaviour
             //}
             //catch (Exception)
             //{
-            //    Debug.Log("No collider component attached to this gameobject (in SpatialTRController.cs)");
+            //    //Debug.Log("No collider component attached to this gameobject (in SpatialTRController.cs)");
             //}
 
             parentObject.localPosition = positionList[positionList.Count - 1];
@@ -119,7 +119,7 @@ public class SpatialTRController : MonoBehaviour
         }
         catch (NullReferenceException)
         {
-            Debug.Log($"Could not find animator in gameobjects parent (SpatialTRController)");
+            //Debug.Log($"Could not find animator in gameobjects parent (SpatialTRController)");
         }
 
     }

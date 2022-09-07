@@ -135,14 +135,14 @@ public class PlayerControlAlpha : MonoBehaviour
                 
                 audio.Play();
                 audioTimer = 0;
-                //Debug.Log("Playing walking audio");
+                ////Debug.Log("Playing walking audio");
             }
            
 		}
        
 
         moveDirection.y = Mathf.Clamp(moveDirection.y + Physics.gravity.y * gravityScale * Time.deltaTime,-100,100);
-       // Debug.Log($"Move: {moveDirection * Time.deltaTime}");
+       // //Debug.Log($"Move: {moveDirection * Time.deltaTime}");
         
 		controller.Move(moveDirection * Time.deltaTime);
         audioTimer += Time.deltaTime;

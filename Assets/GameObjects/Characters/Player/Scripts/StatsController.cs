@@ -268,7 +268,7 @@ public class StatsController : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log($"Could not find skill matching {baseStatName}");
+            //Debug.Log($"Could not find skill matching {baseStatName}");
             return;
         }
         totalXP += (int)skillXP.GetValue(this);

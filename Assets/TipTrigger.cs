@@ -24,10 +24,10 @@ public class TipTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Collided with {other.gameObject.name}");
+        //Debug.Log($"Collided with {other.gameObject.name}");
         if(other.gameObject.name == "Player")
         {
-            Debug.Log("tip triggered");
+            //Debug.Log("tip triggered");
             controller.tipText.text = tipText;
             controller.timer = 0;
             tipPanel.SetActive(true);

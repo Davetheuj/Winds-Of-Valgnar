@@ -23,7 +23,7 @@ public class SaveLoadManager : MonoBehaviour
         WoVBinarySerializer.SavePlayer(player);
         WoVBinarySerializer.TransferTempToPerm(player.GetComponent<StatsController>().playerName);
        
-        Debug.Log("Saved the player");
+        //Debug.Log("Saved the player");
         
     }
 
@@ -33,7 +33,7 @@ public class SaveLoadManager : MonoBehaviour
     /// </summary>
     public void SaveZone()
     {
-        Debug.Log($"Attempting to save properties from Scene {SceneManager.GetActiveScene().name}");
+        //Debug.Log($"Attempting to save properties from Scene {SceneManager.GetActiveScene().name}");
         scene = SceneManager.GetActiveScene();
         player = GameObject.Find("Player");
        
@@ -42,7 +42,7 @@ public class SaveLoadManager : MonoBehaviour
        
            
        
-        Debug.Log("Saved the Zone's Data.");
+        //Debug.Log("Saved the Zone's Data.");
         
     }
 
@@ -74,14 +74,14 @@ public class SaveLoadManager : MonoBehaviour
         statusController.UpdateStatusUI();
         
         WoVBinarySerializer.ClearTempSaves(player.GetComponent<StatsController>().playerName); //clearing temporary zone data
-        Debug.Log("Loaded the player");
+        //Debug.Log("Loaded the player");
 
     }
     public void LoadZone()
     { 
         scene = SceneManager.GetActiveScene();
         player = GameObject.Find("Player");
-        Debug.Log($"Loading {scene.name}, here is some stuff to show information is being saved correctly");
+        //Debug.Log($"Loading {scene.name}, here is some stuff to show information is being saved correctly");
         ZoneData loadedZone = WoVBinarySerializer.LoadZoneData(scene.name, player);
         //NPC Transforms
         int npcCounter = 0;
@@ -108,12 +108,12 @@ public class SaveLoadManager : MonoBehaviour
     {
         scene = SceneManager.GetSceneByName(zoneName);
         player = GameObject.Find("Player");
-        Debug.Log($"Loading {zoneName}, here is some stuff to show information is being saved correctly");
+        //Debug.Log($"Loading {zoneName}, here is some stuff to show information is being saved correctly");
         ZoneData loadedZone = WoVBinarySerializer.LoadZoneData(scene.name, player);
 
         foreach (float npcPositionX in loadedZone.NPCSPositionX)
         {
-            Debug.Log($"PositionX: {npcPositionX}");
+            //Debug.Log($"PositionX: {npcPositionX}");
         }
         //NPCS
         //Ground Items

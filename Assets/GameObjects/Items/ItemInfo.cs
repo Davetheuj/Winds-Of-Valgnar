@@ -64,7 +64,7 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
         controller.equipmentHoverInfoPanel.SetActive(false);
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            Debug.Log("Item dropped"); //Destory item, instantiate the model prefab
+            //Debug.Log("Item dropped"); //Destory item, instantiate the model prefab
           
             Instantiate(modelPrefab, GameObject.Find("Player").transform.position,gameObject.transform.rotation);
             Destroy(this.gameObject);

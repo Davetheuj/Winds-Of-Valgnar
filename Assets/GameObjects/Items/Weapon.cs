@@ -69,25 +69,25 @@ public class Weapon : MonoBehaviour
     public void SelectAndEnableRandomAnimation(Transform objectToReturnTo)
     {
         int rand = Random.Range(0, animations.Length); //min value is inclusive max value is exclusive >.>
-        //Debug.Log($"Enabling random animation of index: {rand} from Equipment.cs");
+        ////Debug.Log($"Enabling random animation of index: {rand} from Equipment.cs");
         isAttacking = true;
         currentAnimation = animations[rand];
         currentAnimation.enabled = true;
-        Debug.Log($"Enabled animation - will return to {objectToReturnTo}");
+        //Debug.Log($"Enabled animation - will return to {objectToReturnTo}");
         trueParentObject = objectToReturnTo;
     }
 
     private void Update()
     {
-        //Debug.Log("(75)IsAttacking: "+isAttacking);
-        //Debug.Log("(76)CurrentAnimationEnabled: " + currentAnimation.enabled);
+        ////Debug.Log("(75)IsAttacking: "+isAttacking);
+        ////Debug.Log("(76)CurrentAnimationEnabled: " + currentAnimation.enabled);
         if(isAttacking && !currentAnimation.enabled)
         {
-            Debug.Log("IsAttacking is now false");
+            //Debug.Log("IsAttacking is now false");
             isAttacking = false;
             if(trueParentObject != null)
             {
-                Debug.Log($"Setting to true parent object {trueParentObject}");
+                //Debug.Log($"Setting to true parent object {trueParentObject}");
                 transform.parent = trueParentObject;
                 trueParentObject = null;
 

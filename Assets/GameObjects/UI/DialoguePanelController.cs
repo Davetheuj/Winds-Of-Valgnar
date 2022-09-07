@@ -320,17 +320,17 @@ public class DialoguePanelController : MonoBehaviour
         {
             if(perp.dialogueLineCounter == lineCounter && perp.dialogueLineIndex == lineIndex)
             {
-                Debug.Log("Perp found");
+                //Debug.Log("Perp found");
 
                 foreach(Quest quest in player.gameObject.GetComponent<QuestController>().questList)
                 {
                    
                     if (quest.questName == perp.questName)
                     {
-                        Debug.Log("Quest has been accepted previously");
+                        //Debug.Log("Quest has been accepted previously");
                         if ((quest.currentStep >= perp.minStepInQuest) && (quest.currentStep <= perp.maxStepInQuest))
                         {
-                            Debug.Log("Correct step");
+                            //Debug.Log("Correct step");
                             if (perp.journalEntry != "")
                             {
                                 journalController.CreateNewEntry(perp.journalEntry, 0);
@@ -348,7 +348,7 @@ public class DialoguePanelController : MonoBehaviour
                         }
                         else
                         {
-                            Debug.Log("Displaying nonprogress string");
+                            //Debug.Log("Displaying nonprogress string");
                             nonprogressString = perp.nonProgressText;
                             return false;
                         }

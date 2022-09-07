@@ -310,7 +310,7 @@ public class EquipmentController : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Equipment controller instantiated");
+        //Debug.Log("Equipment controller instantiated");
     }
 
 }

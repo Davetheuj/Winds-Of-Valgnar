@@ -81,11 +81,11 @@ public class InterfaceController : MonoBehaviour
         }
         catch (MissingReferenceException)
         {
-            Debug.Log("missingReferenceException in InterfaceController at EquipmentToggle()");
+            //Debug.Log("missingReferenceException in InterfaceController at EquipmentToggle()");
         }
         catch (NullReferenceException)
         {
-            Debug.Log("NullReferenceException in InterfaceController at EquipmentToggle()");
+            //Debug.Log("NullReferenceException in InterfaceController at EquipmentToggle()");
         }
     }
 

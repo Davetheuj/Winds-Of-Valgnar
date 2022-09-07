@@ -20,7 +20,7 @@ public class InstanceExample : MonoBehaviour
 		/// ---------------------
 		if (Instance != null)
 		{
-			Debug.LogError("Multiple instances of InstanceExample script!");
+			//Debug.LogError("Multiple instances of InstanceExample script!");
 		}
 
 		Instance = this;

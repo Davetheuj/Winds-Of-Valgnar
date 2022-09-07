@@ -19,6 +19,6 @@ public class OnSaveButtonClicked : MonoBehaviour
         GameObject.Find("SaveLoadManager").GetComponent<SaveLoadManager>().SaveZone();
         GameObject.Find("SaveLoadManager").GetComponent<SaveLoadManager>().SavePlayer();
         
-        Debug.Log("Save button clicked");
+        //Debug.Log("Save button clicked");
     }
 }

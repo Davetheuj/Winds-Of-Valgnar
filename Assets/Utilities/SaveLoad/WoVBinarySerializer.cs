@@ -22,14 +22,14 @@ public static class WoVBinarySerializer
         }
         catch(Exception e)
         {
-            Debug.Log(e);
+            //Debug.Log(e);
         }
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(Application.persistentDataPath + "/SavedCharacters/" + player.GetComponent<StatsController>().playerName + "/PlayerInfo.WoV", FileMode.Create);
         PlayerData data = new PlayerData(player);
         formatter.Serialize(stream, data);
         stream.Close();
-        Debug.Log(Application.persistentDataPath);
+        //Debug.Log(Application.persistentDataPath);
     }
 
     public static PlayerData LoadPlayer(GameObject player)
@@ -41,13 +41,13 @@ public static class WoVBinarySerializer
 
             PlayerData playerData = formatter.Deserialize(stream) as PlayerData;
             stream.Close();
-            Debug.Log("Loaded the playerdata");
+            //Debug.Log("Loaded the playerdata");
             return playerData;
 
         }
         else
         {
-            Debug.Log("File does not exist");
+            //Debug.Log("File does not exist");
             return null;
         }
     }
@@ -64,7 +64,7 @@ public static class WoVBinarySerializer
 
             ZoneData zoneData = formatter.Deserialize(stream) as ZoneData;
             stream.Close();
-            Debug.Log($"Loaded Temporary Zone Data for {zoneName}.");
+            //Debug.Log($"Loaded Temporary Zone Data for {zoneName}.");
             return zoneData;
 
         }
@@ -75,14 +75,14 @@ public static class WoVBinarySerializer
 
             ZoneData zoneData = formatter.Deserialize(stream) as ZoneData;
             stream.Close();
-            Debug.Log($"Loaded Permanent Zone Data for {zoneName}.");
+            //Debug.Log($"Loaded Permanent Zone Data for {zoneName}.");
             return zoneData;
 
         }
 
         else
         {
-            Debug.Log($"File does not exist for {zoneName} as either temporary or permanent file.");
+            //Debug.Log($"File does not exist for {zoneName} as either temporary or permanent file.");
             return null;
         }
     }
@@ -95,7 +95,7 @@ public static class WoVBinarySerializer
         }
         catch (Exception e)
         {
-            Debug.Log(e);
+            //Debug.Log(e);
         }
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(Application.persistentDataPath + "/SavedCharacters/" + player.GetComponent<StatsController>().playerName + $"/Temp/Zones/{scene.name}.WoV", FileMode.Create);
@@ -113,7 +113,7 @@ public static class WoVBinarySerializer
         }
         catch (Exception e)
         {
-            Debug.Log(e);
+            //Debug.Log(e);
         }
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(Application.persistentDataPath + "/SavedCharacters/" + player.GetComponent<StatsController>().playerName + $"/Perm/Zones/{scene.name}.WoV", FileMode.Create);

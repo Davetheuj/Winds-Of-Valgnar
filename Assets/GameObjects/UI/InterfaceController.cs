@@ -16,10 +16,12 @@ public class InterfaceController : MonoBehaviour
     public GameObject SettingsPanel;
     public GameObject DevCanvas;
 
-    public GameObject baseItemInfoPanel;
+    
     public GameObject inventoryGrid;
 
     public GameObject playerInformationCanvas;
+
+    public GameObject itemQuickHoverPanel;
 
     public void Start()
     {
@@ -28,6 +30,7 @@ public class InterfaceController : MonoBehaviour
     public void PlayerInformationToggle()
     {
         statsPanelController.UpdateStatsUI();
+        itemQuickHoverPanel.SetActive(false);
         playerInformationCanvas.SetActive(!playerInformationCanvas.activeSelf);
         
 
@@ -40,7 +43,7 @@ public class InterfaceController : MonoBehaviour
         {
             if (ItemInfo.CurrentElement.transform.parent.parent.gameObject == inventoryGrid)
             {
-                baseItemInfoPanel.SetActive(false);
+                //baseItemInfoPanel.SetActive(false);
             }
         }
         catch (MissingReferenceException )
@@ -76,7 +79,7 @@ public class InterfaceController : MonoBehaviour
         {
             if (ItemInfo.CurrentElement.transform.parent.parent.parent.parent.gameObject == EquipmentPanel)
             {
-                baseItemInfoPanel.SetActive(false);
+                //baseItemInfoPanel.SetActive(false);
             }
         }
         catch (MissingReferenceException)

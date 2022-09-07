@@ -39,7 +39,7 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
     public void Start()
     {
        
-        baseItemInfoPanel = GameObject.Find("GUI").GetComponent<InterfaceController>().baseItemInfoPanel;
+        baseItemInfoPanel = GameObject.Find("GUI").GetComponent<InterfaceController>().itemQuickHoverPanel;
         var secondaryPanel = baseItemInfoPanel.transform.Find("CoreStatsPanel");
         baseItemNameText = secondaryPanel.transform.Find("NamePanel").transform.Find("Name").GetComponent<TMP_Text>();
         baseItemInfoText = secondaryPanel.transform.Find("InfoPanel").transform.Find("Info").GetComponent<TMP_Text>();

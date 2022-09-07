@@ -19288,9 +19288,9 @@ MonoBehaviour:
   WorldMapPanel: {fileID: 103090340}
   SettingsPanel: {fileID: 218575330}
   DevCanvas: {fileID: 1565633556}
-  baseItemInfoPanel: {fileID: 1268899396}
   inventoryGrid: {fileID: 1908225903}
   playerInformationCanvas: {fileID: 157376824}
+  itemQuickHoverPanel: {fileID: 1268899396}
 --- !u!4 &420057939
 Transform:
   m_ObjectHideFlags: 0

@@ -69,6 +69,10 @@ public RectTransform quickInspectItemPanelTransform;
            if (rayHitObject.GetComponent<Item>() != null)
             {
                 Item item = rayHitObject.GetComponent<Item>();
+                if(item.enabled == false)
+                {
+                    return;
+                }
 
                 if (Input.GetMouseButtonDown(0))
                 {

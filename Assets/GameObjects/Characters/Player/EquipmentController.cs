@@ -287,11 +287,13 @@ public class EquipmentController : MonoBehaviour
         if(equipment.slotType == 7)
         {
 
-            GameObject model = Instantiate(itemInfo.modelPrefab,mainHand,false) as GameObject;
+            GameObject model = Instantiate(itemInfo.modelPrefab,mainHand,false);
             //model.transform.parent = mainHand;
             model.transform.localPosition = equipment.defaultLocalPosition;
 
             model.transform.localRotation = Quaternion.Euler(equipment.defaultLocalRotation);
+
+            model.GetComponent<Item>().enabled = false;
 
         }
         else if (equipment.slotType == 8)
@@ -300,6 +302,8 @@ public class EquipmentController : MonoBehaviour
             model.transform.localPosition = equipment.defaultLocalPosition;
 
             model.transform.localRotation = Quaternion.Euler(equipment.defaultLocalRotation);
+
+            model.GetComponent<Item>().enabled = false;
 
 
         }

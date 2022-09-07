@@ -1,5 +1,5 @@
 ﻿NPC Script Optimization
-Miasma Particle effects
+Miasma Particle effects should look better
 Make tooltip more noticeable
 Tooltip on item pickup 
 Change default assignment for torch equip positions/rotations

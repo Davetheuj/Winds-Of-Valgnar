@@ -1,0 +1,9 @@
+﻿NPC Script Optimization
+Miasma Particle effects
+Make tooltip more noticeable
+Tooltip on item pickup 
+Change default assignment for torch equip positions/rotations
+remove item quick inspect on equip
+fix item quickhover UI
+add console log for when player saves the game
+add console log for successful lunge

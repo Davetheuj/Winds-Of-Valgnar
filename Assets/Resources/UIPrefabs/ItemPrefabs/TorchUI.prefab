@@ -185,7 +185,7 @@ MonoBehaviour:
   slotType: 8
   shapeKeyValues: 000000000000000000000000000000000000000000000000
   defaultLocalRotation: {x: -90, y: 180, z: 0}
-  defaultLocalPosition: {x: 0.5, y: -0.5, z: 0.3}
+  defaultLocalPosition: {x: 1, y: -0.5, z: 0.3}
   modifierHitPoints: 0
   modifierMana: 0
   modifierStrength: 0
@@ -196,10 +196,7 @@ MonoBehaviour:
   modifierResolve: 0
   modifierLuck: 0
   modifierCharisma: 0
-  resistanceArmor: 0
-  resistanceHoly: 0
-  resistanceVoid: 0
-  resistanceFire: 0
-  resistanceWater: 0
-  resistanceElectric: 0
-  resistanceEarth: 0
+  resistanceCrush: 0
+  resistancePierce: 0
+  resistanceSlash: 0
+  weaponStrength: 0

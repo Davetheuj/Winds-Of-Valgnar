@@ -22403,6 +22403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9239388c8d9adb47ae714c29bf8cd7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   tipVisibleTime: 10
   tipText: {fileID: 0}
 --- !u!114 &492557757

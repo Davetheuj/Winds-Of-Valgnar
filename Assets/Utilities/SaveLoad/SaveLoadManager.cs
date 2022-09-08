@@ -10,6 +10,7 @@ public class SaveLoadManager : MonoBehaviour
     public Scene scene;
     public StatusController statusController;
     private List<String> tempZonesToPermSave = new List<String>();
+    private ConsoleManager console;
 
 
     /// <summary>
@@ -22,7 +23,7 @@ public class SaveLoadManager : MonoBehaviour
         player = GameObject.Find("Player");
         WoVBinarySerializer.SavePlayer(player);
         WoVBinarySerializer.TransferTempToPerm(player.GetComponent<StatsController>().playerName);
-       
+        console.AddConsoleMessage1("Save successful!");
         //Debug.Log("Saved the player");
         
     }
@@ -122,6 +123,7 @@ public class SaveLoadManager : MonoBehaviour
     public void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-       
+        console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
+
     }
 }

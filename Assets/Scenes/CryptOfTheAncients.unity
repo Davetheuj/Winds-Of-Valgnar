@@ -14329,8 +14329,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.580986, y: 4.390457, z: 1}
-  m_Center: {x: -0.082995415, y: 1.6952286, z: 0}
+  m_Size: {x: 3.580986, y: 4.390457, z: 2.879303}
+  m_Center: {x: -0.082995415, y: 1.6952286, z: -0.9396515}
 --- !u!4 &628929408
 Transform:
   m_ObjectHideFlags: 0
@@ -14339,7 +14339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628929405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.87, y: 0.798, z: 21.95}
+  m_LocalPosition: {x: -9.87, y: 0.798, z: 21.449}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44246,6 +44246,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731670d05affd0045a25600d2045889f, type: 3}
+--- !u!1 &2127732475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 115752, guid: 731670d05affd0045a25600d2045889f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2127732474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2127732476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127732475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25edcc69bb77dd43bb36cf3b8d1aa88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipText: Press <Tab> to open your inventory, then click on the torch to equip it!
 --- !u!4 &2128101556 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 91d652779ec7140488b6b8e360497937,

@@ -222,7 +222,10 @@ public RectTransform quickInspectItemPanelTransform;
         inventoryObject.transform.localScale = new Vector3(1,1,1);
 
         //Check for quest components here
-
+        if(hitObject.GetComponent<TipTrigger>() != null)
+        {
+            hitObject.GetComponent<TipTrigger>().triggerToolTip();
+        }
         Destroy(hitObject);
 
 

@@ -8,6 +8,7 @@ public class TipTrigger : MonoBehaviour
     private GameObject tipPanel;
     public string tipText;
     private TipController controller;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -28,10 +29,16 @@ public class TipTrigger : MonoBehaviour
         if(other.gameObject.name == "Player")
         {
             //Debug.Log("tip triggered");
-            controller.tipText.text = tipText;
-            controller.timer = 0;
-            tipPanel.SetActive(true);
+            triggerToolTip();
             Destroy(this.gameObject);
         }
     }
+
+    public void triggerToolTip()
+    {
+        controller.tipText.text = tipText;
+        controller.timer = 0;
+        tipPanel.SetActive(true);
+    }
+
 }

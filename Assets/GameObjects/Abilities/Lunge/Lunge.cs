@@ -14,8 +14,9 @@ public class Lunge : MonoBehaviour
     void Start()
     {
         clipController = gameObject.GetComponent<AudioClipController>();
-        weaponModel = GameObject.Find("Hand_R").GetComponentInChildren<Weapon>().gameObject ?? this.gameObject;
-        if (weaponModel != this.gameObject)
+        weaponModel = GameObject.Find("Hand_R").GetComponentInChildren<Weapon>()?.gameObject;
+
+        if (weaponModel != null)
         {
             clipController.PlayInteractionClip(0, 1, false, 0, false, true, true);
             //Send message to main hand's Equipment Controller to compute damage, select a weapon animation to play,

@@ -30,8 +30,9 @@ public class TipTrigger : MonoBehaviour
         {
             //Debug.Log("tip triggered");
             triggerToolTip();
-            Destroy(this.gameObject);
+            
         }
+        Destroy(this.gameObject);
     }
 
     public void triggerToolTip()
@@ -39,6 +40,7 @@ public class TipTrigger : MonoBehaviour
         controller.tipText.text = tipText;
         controller.timer = 0;
         tipPanel.SetActive(true);
+        Destroy(this);
     }
 
 }

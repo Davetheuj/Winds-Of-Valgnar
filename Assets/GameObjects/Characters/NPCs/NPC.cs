@@ -177,7 +177,10 @@ public class NPC : MonoBehaviour
             {
                 if (needsAnimationChange || wasOutOfRange)
                 {
-                    animator.Play(agressiveIdleClipName);
+                    if (!string.IsNullOrEmpty(agressiveIdleClipName))
+                    {
+                        animator.Play(agressiveIdleClipName);
+                    }
                     needsAnimationChange = false;
                     wasOutOfRange = false;
                    // //Debug.Log($"{npcName} playing idle_battle");
@@ -185,7 +188,10 @@ public class NPC : MonoBehaviour
                 
                 if (attackTimer >= attackDelay)
                 {
-                    animator.Play(attackClipName);
+                    if (!string.IsNullOrEmpty(attackClipName))
+                    {
+                        animator.Play(attackClipName);
+                    }
                     DealDamageToPlayer(baseAttackStrength);
                     attackTimer = 0;
                     ////Debug.Log($"{npcName} playing attack1");
@@ -210,7 +216,10 @@ public class NPC : MonoBehaviour
                     }
                     unstuckPathCounter = 1;
                 }
-                animator.Play(runClipName);
+                if (!string.IsNullOrEmpty(runClipName))
+                {
+                    animator.Play(runClipName);
+                }
                 if (!isStuck)
                 {
                     lookDirection = Mathf.Lerp(transform.rotation.eulerAngles.y, Quaternion.LookRotation(player.transform.position - transform.position).eulerAngles.y, moveSpeed * Time.deltaTime);
@@ -269,8 +278,11 @@ public class NPC : MonoBehaviour
                 if (neutralPositionTimer >= 5f) {
                     if (needsAnimationChange)
                     {
+                        if (!string.IsNullOrEmpty(walkClipName))
+                        {
+                            animator.Play(walkClipName);
+                        }
                         
-                        animator.Play(walkClipName);
                         
                         
                         needsAnimationChange = false;
@@ -302,7 +314,10 @@ public class NPC : MonoBehaviour
                 {
                     if (needsAnimationChange)
                     {
-                        animator.Play(neutralIdleClipName);
+                        if (!string.IsNullOrEmpty(neutralIdleClipName))
+                        {
+                            animator.Play(neutralIdleClipName);
+                        }
                         needsAnimationChange = false;
                     }
 
@@ -463,6 +478,7 @@ public class NPC : MonoBehaviour
             //cast a ray to identify the object that is currently being collided with
             if (Physics.Linecast(currentPos,finalPos, out RaycastHit hitInfo))
             {
+               
                 collider = hitInfo.collider;
                 if(collider.gameObject.name == "Player")
                 {
@@ -470,7 +486,7 @@ public class NPC : MonoBehaviour
                     path1Locations.Add(finalPos);
                     continue;
                 }
-                ////Debug.Log(collider.gameObject.name);
+                Debug.Log($"Collider name: {collider.gameObject.name}, Pathing Object: {this.gameObject.name}");
                 rotatedPos = (Quaternion.AngleAxis(30, Vector3.up) * (currentPos - collider.transform.position));
                 currentPos = collider.ClosestPoint(rotatedPos + collider.transform.position) + (localRadius*3.5f * rotatedPos.normalized);
                 path1Locations.Add(currentPos);

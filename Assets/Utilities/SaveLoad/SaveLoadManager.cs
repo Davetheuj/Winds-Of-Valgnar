@@ -47,7 +47,7 @@ public class SaveLoadManager : MonoBehaviour
         
     }
 
-    public void LoadPlayer()
+    public StatsController LoadPlayer()
     {
         player = GameObject.Find("Player");
         PlayerData loadedPlayer = WoVBinarySerializer.LoadPlayer(player);
@@ -77,6 +77,7 @@ public class SaveLoadManager : MonoBehaviour
         WoVBinarySerializer.ClearTempSaves(player.GetComponent<StatsController>().playerName); //clearing temporary zone data
         //Debug.Log("Loaded the player");
 
+        return player.GetComponent<StatsController>();
     }
     public void LoadZone()
     { 
@@ -126,4 +127,24 @@ public class SaveLoadManager : MonoBehaviour
         console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
 
     }
+
+    public void FullLoad()
+    {
+        try
+        {
+            StatsController playerStats= LoadPlayer();
+            Debug.Log("Loaded PLayer");
+            //SceneManager.LoadScene(manager.player.GetComponent<StatsController>().zoneName);
+            SceneManager.LoadScene(playerStats.zoneName);
+            Debug.Log("Loaded scene");
+            LoadZone(playerStats.zoneName);
+            Debug.Log("Loaded zone");
+        }
+        catch (Exception e)
+        {
+            SceneManager.LoadScene("CryptOfTheAncients");
+        }
+
+    }
+
 }

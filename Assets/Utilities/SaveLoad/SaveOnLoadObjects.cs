@@ -9,6 +9,7 @@ public class SaveOnLoadObjects : MonoBehaviour
     public SaveLoadManager manager;
     public List<GameObject> objectList = new List<GameObject>();
     public String startScene;
+    private StatsController player;
     void Start()
     {
         DontDestroyOnLoad(this);
@@ -19,7 +20,7 @@ public class SaveOnLoadObjects : MonoBehaviour
        
         try 
         {
-            manager.LoadPlayer(); 
+            player = manager.LoadPlayer(); 
         }
         catch(Exception e)
         {
@@ -29,11 +30,12 @@ public class SaveOnLoadObjects : MonoBehaviour
         try
         {
             //SceneManager.LoadScene(manager.player.GetComponent<StatsController>().zoneName);
-            SceneManager.LoadScene(startScene);
+            SceneManager.LoadScene(player.zoneName);
+            manager.LoadZone(player.zoneName);
         }
         catch (Exception e)
         {
-            SceneManager.LoadScene("AlphaZoneScene");
+            SceneManager.LoadScene(startScene);
         }
         
     }

@@ -34,7 +34,7 @@ public RectTransform quickInspectItemPanelTransform;
 
     private GameObject oldObject;
 
-    public PlayerTargeting targeting;
+   
     public StatusController statusController;
 
     public InventoryController inventoryController;
@@ -107,32 +107,12 @@ public RectTransform quickInspectItemPanelTransform;
             else if (rayHitObject.GetComponent<NPC>() != null)
             {
 
-                //selecting target with mouse
-                if (Input.GetMouseButtonDown(0))
-                {
-                    targeting.currentTarget = rayHitObject;
-                    targeting.SetTargetPosition();
-                    targeting.PositionNPCTargetUIToWorld(rayHitObject);
-                    statusController.UpdateTargetNPCHealthBar((float)rayHitObject.GetComponent<NPC>().currentHealth, (float)rayHitObject.GetComponent<NPC>().maxHealth);
-                    statusController.UpdateTargetNPCName(rayHitObject.GetComponent<NPC>().npcName);
-                }
-                if (targeting.currentTarget == rayHitObject)
-                {
 
-                }
-                else
-                {
                     statusController.UpdateHoverNPCHealthBar((float)rayHitObject.GetComponent<NPC>().currentHealth, (float)rayHitObject.GetComponent<NPC>().maxHealth);
                     statusController.UpdateHoverNPCName(rayHitObject.GetComponent<NPC>().npcName);
-
-                    if (oldObject == rayHitObject)
-                    {
-                        PositionNPCUIToWorld(rayHitObject);
-                        return;
-                    }
                     oldObject = rayHitObject;
                     PositionNPCUIToWorld(rayHitObject);
-                }
+                
             }
 
             if (rayHitObject.GetComponent<NPCDialogueController>() != null)

@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractionController : MonoBehaviour
 {
 
-    public PlayerTargeting targeting;
+    
     public StatsController playerStats;
     public ErrorScript errorScript;
     public StatusController statusController;
@@ -155,15 +155,7 @@ public class InteractionController : MonoBehaviour
 
         if (abilityInstantiator != null)//now to check ability prereqs
         {
-            if (abilityInstantiator.isTargeted && targeting.currentTarget == null)
-            {
-
-
-                errorScript.SetErrorText("You don't have a target!", .5f);
-                return;
-
-
-            }
+          
             if (playerStats.currentMana < abilityInstantiator.manaCost)
             {
                 errorScript.SetErrorText("You don't have enough mana!", .5f);

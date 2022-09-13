@@ -15,7 +15,7 @@ public class StatusController : MonoBehaviour
     public TMP_Text playerManaText;
     public TMP_Text playerHealthText;
 
-    public PlayerTargeting targeting; //need to set this in the inspector
+   // public PlayerTargeting targeting; //need to set this in the inspector
 
     public Transform NPCHoverHealthbar;
     public TMP_Text NPCHoverHealthText;

@@ -7,7 +7,7 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     public string npcName;
-    public float angleFromPlayerForward; //used for calculating targetable objects for the player
+    //public float angleFromPlayerForward; //used for calculating targetable objects for the player
     public GameObject player;
     public bool isDefaultAgro;
     private bool isAttacked;
@@ -128,7 +128,7 @@ public class NPC : MonoBehaviour
     void Update()
     {
         moveDirection = new Vector3();
-        angleFromPlayerForward = Mathf.Acos(Vector3.Dot(player.transform.forward.normalized, (player.transform.position-gameObject.transform.position).normalized));
+        //angleFromPlayerForward = Mathf.Acos(Vector3.Dot(player.transform.forward.normalized, (player.transform.position-gameObject.transform.position).normalized));
         if(currentHealth <= 0 && state!= 0)
         {
            
@@ -355,17 +355,7 @@ public class NPC : MonoBehaviour
         }
        statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, fontSize);
         //statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, 14);
-        if (statusController.targeting.currentTarget == this.gameObject)
-        {
-            if (currentHealth >= 0)
-            {
-                statusController.UpdateTargetNPCHealthBar(currentHealth,maxHealth);
-            }
-            else
-            {
-                statusController.UpdateTargetNPCHealthBar(0, maxHealth);
-            }
-        }
+       
     }
 
     private void DealDamageToPlayer(int maxDamage)

@@ -1,101 +1,101 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using UnityEngine.Networking;
-public class PlayerTargeting : MonoBehaviour
-{
-	public GameObject currentTarget;
-	public GameObject previousTarget;
-	public GameObject[] potentialTargets;
-	private float time;
-	public float playerCheckInterval;
-    public float selectionRadius;
-	public int selectionCounter;
-    float distance;
-    public GameObject targetMarker;
+﻿//using System;
+//using System.Collections;
+//using System.Collections.Generic;
+//using System.Linq;
+//using UnityEngine;
+//using UnityEngine.Networking;
+//public class PlayerTargeting : MonoBehaviour
+//{
+//	public GameObject currentTarget;
+//	public GameObject previousTarget;
+//	public GameObject[] potentialTargets;
+//	private float time;
+//	public float playerCheckInterval;
+//    public float selectionRadius;
+//	public int selectionCounter;
+//    float distance;
+//    public GameObject targetMarker;
 
-    Vector2 ViewportPosition;
-    Vector2 WorldObject_ScreenPosition;
-    public RectTransform CanvasRect;
-    public Camera cam;
-    public RectTransform TargetNPCPanelTransform;
-    public float NPCPanelXOffset;
-    public StatusController statusController;
+//    Vector2 ViewportPosition;
+//    Vector2 WorldObject_ScreenPosition;
+//    public RectTransform CanvasRect;
+//    public Camera cam;
+//    public RectTransform TargetNPCPanelTransform;
+//    public float NPCPanelXOffset;
+//    public StatusController statusController;
 
-    // Start is called before the first frame update
-    void Start()
-	{
+//    // Start is called before the first frame update
+//    void Start()
+//	{
 		
-		time = 0;
-		selectionCounter = 0;
-		potentialTargets = FindAllTargets();
-		if (playerCheckInterval == 0)
-		{
-			playerCheckInterval = 10;
-		}
+//		time = 0;
+//		selectionCounter = 0;
+//		potentialTargets = FindAllTargets();
+//		if (playerCheckInterval == 0)
+//		{
+//			playerCheckInterval = 10;
+//		}
 
-	}
+//	}
 
-	// Update is called once per frame
-	void Update()
-	{
+//	// Update is called once per frame
+//	void Update()
+//	{
 		
-		time += Time.deltaTime;
+//		time += Time.deltaTime;
 
-		if (time > playerCheckInterval)
-		{
-			potentialTargets = FindAllTargets();
-            if (potentialTargets.Length < 1)
-            {
-                targetMarker.SetActive(false);
-                currentTarget = null;
-            }
+//		if (time > playerCheckInterval)
+//		{
+//			potentialTargets = FindAllTargets();
+//            if (potentialTargets.Length < 1)
+//            {
+//                targetMarker.SetActive(false);
+//                currentTarget = null;
+//            }
 
-            time = 0;
+//            time = 0;
 
            
 
-		}
-		if (Input.GetKeyDown(KeyCode.Tab))
-		{
-			selectionCounter++;
+//		}
+//		if (Input.GetKeyDown(KeyCode.Tab))
+//		{
+//			selectionCounter++;
 
-            if(potentialTargets.Length < 1)
-            {
-                return;
-            }
-			if (selectionCounter >= potentialTargets.Length)
-			{
-				selectionCounter = 0;
-			}
+//            if(potentialTargets.Length < 1)
+//            {
+//                return;
+//            }
+//			if (selectionCounter >= potentialTargets.Length)
+//			{
+//				selectionCounter = 0;
+//			}
 
-			currentTarget = potentialTargets[selectionCounter];
-            if(currentTarget != null)
-            {
-                SetTargetPosition();
-                statusController.UpdateTargetNPCHealthBar(currentTarget.GetComponent<NPC>().currentHealth , currentTarget.GetComponent<NPC>().maxHealth);
-                statusController.UpdateTargetNPCName(currentTarget.GetComponent<NPC>().npcName);
-            }
-            else
-            {
-                targetMarker.SetActive(false);
-            }
+//			currentTarget = potentialTargets[selectionCounter];
+//            if(currentTarget != null)
+//            {
+//                SetTargetPosition();
+//                statusController.UpdateTargetNPCHealthBar(currentTarget.GetComponent<NPC>().currentHealth , currentTarget.GetComponent<NPC>().maxHealth);
+//                statusController.UpdateTargetNPCName(currentTarget.GetComponent<NPC>().npcName);
+//            }
+//            else
+//            {
+//                targetMarker.SetActive(false);
+//            }
 			
 
-		}
-        if(currentTarget != null && currentTarget.GetComponent<NPC>().angleFromPlayerForward > 1.6f && currentTarget.GetComponent<NPC>().state != 0)
-        {
-            PositionNPCTargetUIToWorld(currentTarget);
-            targetMarker.SetActive(true);
-        }
-        else
-        {
-            currentTarget = null;
-            targetMarker.SetActive(false);
-            TargetNPCPanelTransform.gameObject.SetActive(false);
-        }
+//		}
+//        if(currentTarget != null && currentTarget.GetComponent<NPC>().angleFromPlayerForward > 1.6f && currentTarget.GetComponent<NPC>().state != 0)
+//        {
+//            PositionNPCTargetUIToWorld(currentTarget);
+//            targetMarker.SetActive(true);
+//        }
+//        else
+//        {
+//            currentTarget = null;
+//            targetMarker.SetActive(false);
+//            TargetNPCPanelTransform.gameObject.SetActive(false);
+//        }
 
 
 
@@ -104,50 +104,50 @@ public class PlayerTargeting : MonoBehaviour
 
 
 
-	}
+//	}
 
-	GameObject[] FindAllTargets()
-	{
-        GameObject[] allTargets = GameObject.FindGameObjectsWithTag("Creature");
-        List<GameObject> targets = new List<GameObject>();
-        foreach (GameObject target in allTargets) 
-        {
-            distance = (target.transform.position - gameObject.transform.position).magnitude;
-            if ((distance < selectionRadius) && (target.GetComponent<NPC>().angleFromPlayerForward > Math.PI / 3 || target.Equals(currentTarget)))
-            {
-                targets.Add(target);
+//	GameObject[] FindAllTargets()
+//	{
+//        GameObject[] allTargets = GameObject.FindGameObjectsWithTag("Creature");
+//        List<GameObject> targets = new List<GameObject>();
+//        foreach (GameObject target in allTargets) 
+//        {
+//            distance = (target.transform.position - gameObject.transform.position).magnitude;
+//            if ((distance < selectionRadius) && (target.GetComponent<NPC>().angleFromPlayerForward > Math.PI / 3 || target.Equals(currentTarget)))
+//            {
+//                targets.Add(target);
                
-            }
+//            }
             
 
             
-        }
+//        }
         
 
-        return targets.ToArray();
+//        return targets.ToArray();
 
-	}
+//	}
 
-    public void SetTargetPosition()
-    {
-        targetMarker.SetActive(true);
+//    public void SetTargetPosition()
+//    {
+//        targetMarker.SetActive(true);
 
-        targetMarker.transform.SetParent(currentTarget.transform);
-        targetMarker.transform.localPosition = new Vector3(0, .025f, 0);
-        targetMarker.transform.position = currentTarget.transform.position;
-    }
+//        targetMarker.transform.SetParent(currentTarget.transform);
+//        targetMarker.transform.localPosition = new Vector3(0, .025f, 0);
+//        targetMarker.transform.position = currentTarget.transform.position;
+//    }
 
-    public void PositionNPCTargetUIToWorld(GameObject rayHitObject)
-    {
-        ViewportPosition = cam.WorldToViewportPoint(rayHitObject.transform.position + new Vector3(0, rayHitObject.GetComponent<NPC>().NPCPanelOffset, 0));
-        WorldObject_ScreenPosition = new Vector2(
-        ((ViewportPosition.x * CanvasRect.sizeDelta.x) - (CanvasRect.sizeDelta.x * 0.5f)),
-        ((ViewportPosition.y * CanvasRect.sizeDelta.y) - (CanvasRect.sizeDelta.y * 0.5f)));
-        TargetNPCPanelTransform.anchoredPosition = WorldObject_ScreenPosition - new Vector2(NPCPanelXOffset, 0);
+//    public void PositionNPCTargetUIToWorld(GameObject rayHitObject)
+//    {
+//        ViewportPosition = cam.WorldToViewportPoint(rayHitObject.transform.position + new Vector3(0, rayHitObject.GetComponent<NPC>().NPCPanelOffset, 0));
+//        WorldObject_ScreenPosition = new Vector2(
+//        ((ViewportPosition.x * CanvasRect.sizeDelta.x) - (CanvasRect.sizeDelta.x * 0.5f)),
+//        ((ViewportPosition.y * CanvasRect.sizeDelta.y) - (CanvasRect.sizeDelta.y * 0.5f)));
+//        TargetNPCPanelTransform.anchoredPosition = WorldObject_ScreenPosition - new Vector2(NPCPanelXOffset, 0);
 
-        TargetNPCPanelTransform.gameObject.SetActive(true);
+//        TargetNPCPanelTransform.gameObject.SetActive(true);
 
-    }
+//    }
 
 
-}
+//}

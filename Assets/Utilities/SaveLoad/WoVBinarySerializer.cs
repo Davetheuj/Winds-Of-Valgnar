@@ -12,10 +12,10 @@ public static class WoVBinarySerializer
 
     public static void SavePlayer(GameObject player)
     {
-        if (SceneManager.GetActiveScene().name != "Loading")
-        {
-            player.GetComponent<StatsController>().zoneName = SceneManager.GetActiveScene().name;
-        }
+        //if (SceneManager.GetActiveScene().name != "Loading")
+        //{
+        //    player.GetComponent<StatsController>().zoneName = SceneManager.GetActiveScene().name;
+        //}
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(Application.persistentDataPath + "/SavedCharacters/"+ player.GetComponent<StatsController>().playerName+"/PlayerInfo.WoV"));
@@ -264,6 +264,7 @@ public class ZoneData
                NPCSTransformNames.Add(npc.gameObject.name); //getting npc transform names
               
                 NPCSPositionX.Add(npc.gameObject.transform.position.x);
+                Debug.Log($"Saving {npc.gameObject.name}'s x position to {npc.gameObject.transform.position.x}");
                NPCSPositionY.Add(npc.gameObject.transform.position.y);
                NPCSPositionZ.Add(npc.gameObject.transform.position.z);
                 NPCSRotationX.Add(npc.gameObject.transform.rotation.x);

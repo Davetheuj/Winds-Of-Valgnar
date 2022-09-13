@@ -12,11 +12,7 @@ public class SaveOnLoadObjects : MonoBehaviour
     private StatsController player;
     void Start()
     {
-        DontDestroyOnLoad(this);
-        foreach(GameObject gameComponent in objectList)
-        {
-            DontDestroyOnLoad(gameComponent);
-        }
+       
        
         try 
         {
@@ -24,7 +20,7 @@ public class SaveOnLoadObjects : MonoBehaviour
         }
         catch(Exception e)
         {
-            //Debug.Log(e);
+            Debug.Log(e);
         }
        
         try
@@ -35,6 +31,7 @@ public class SaveOnLoadObjects : MonoBehaviour
         }
         catch (Exception e)
         {
+            Debug.Log("Couldn't find zoneName in playerstatscontroller. Loading the predetermined start scene instead");
             SceneManager.LoadScene(startScene);
         }
         

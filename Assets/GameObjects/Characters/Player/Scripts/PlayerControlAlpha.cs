@@ -62,7 +62,7 @@ public class PlayerControlAlpha : MonoBehaviour
 		float yStore = moveDirection.y; //get this from the old Update's moveDirection so we can continue to accelerate
         moveDirection = new Vector3(0, yStore, 0);
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.visible = !Cursor.visible;
             if (Cursor.lockState == CursorLockMode.Confined)

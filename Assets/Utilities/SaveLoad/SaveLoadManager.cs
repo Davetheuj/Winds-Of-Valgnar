@@ -12,6 +12,8 @@ public class SaveLoadManager : MonoBehaviour
     private List<String> tempZonesToPermSave = new List<String>();
     private ConsoleManager console;
 
+    public GameObject deathCanvas; //probably a more eloquent way to approach this...
+
 
     /// <summary>
     ///Saves the player as well as
@@ -20,7 +22,7 @@ public class SaveLoadManager : MonoBehaviour
     /// </summary>
     public void SavePlayer()
     {
-        player = GameObject.Find("Player");
+        //player = GameObject.Find("Player");
         WoVBinarySerializer.SavePlayer(player);
         WoVBinarySerializer.TransferTempToPerm(player.GetComponent<StatsController>().playerName);
         console.AddConsoleMessage1("Save successful!");
@@ -49,7 +51,7 @@ public class SaveLoadManager : MonoBehaviour
 
     public StatsController LoadPlayer()
     {
-        player = GameObject.Find("Player");
+        //player = GameObject.Find("Player");
         PlayerData loadedPlayer = WoVBinarySerializer.LoadPlayer(player);
 
         player.GetComponent<StatsController>().zoneName = loadedPlayer.zoneName;
@@ -82,7 +84,7 @@ public class SaveLoadManager : MonoBehaviour
     public void LoadZone()
     { 
         scene = SceneManager.GetActiveScene();
-        player = GameObject.Find("Player");
+        //player = GameObject.Find("Player");
         //Debug.Log($"Loading {scene.name}, here is some stuff to show information is being saved correctly");
         ZoneData loadedZone = WoVBinarySerializer.LoadZoneData(scene.name, player);
         //NPC Transforms
@@ -90,10 +92,12 @@ public class SaveLoadManager : MonoBehaviour
         foreach(string npcName in loadedZone.NPCSTransformNames)
         {
             GameObject go = GameObject.Find(npcName);
-           go.transform.position = new Vector3(loadedZone.NPCSPositionX[npcCounter], loadedZone.NPCSPositionY[npcCounter], loadedZone.NPCSPositionZ[npcCounter]);
+            go.transform.position = new Vector3(loadedZone.NPCSPositionX[npcCounter], loadedZone.NPCSPositionY[npcCounter], loadedZone.NPCSPositionZ[npcCounter]);
+
            go.transform.rotation = new Quaternion(loadedZone.NPCSRotationX[npcCounter], loadedZone.NPCSRotationY[npcCounter], loadedZone.NPCSRotationZ[npcCounter], loadedZone.NPCSRotationW[npcCounter]);
             npcCounter++;
         }
+        //Physics.SyncTransforms();
         //NPC Dialogue Controllers
         int npcDialogueCounter = 0;
         foreach(string npcName in loadedZone.NPCDialogueNames)
@@ -130,21 +134,29 @@ public class SaveLoadManager : MonoBehaviour
 
     public void FullLoad()
     {
+        
+            
+            StatsController playerStats= LoadPlayer();
+        deathCanvas.SetActive(false);
         try
         {
-            StatsController playerStats= LoadPlayer();
-            Debug.Log("Loaded PLayer");
             //SceneManager.LoadScene(manager.player.GetComponent<StatsController>().zoneName);
             SceneManager.LoadScene(playerStats.zoneName);
-            Debug.Log("Loaded scene");
-            LoadZone(playerStats.zoneName);
-            Debug.Log("Loaded zone");
+            
         }
         catch (Exception e)
         {
+            Debug.Log("Couldn't find zoneName in playerstatscontroller. Loading the predetermined start scene instead");
             SceneManager.LoadScene("CryptOfTheAncients");
         }
 
+
+       
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        LoadZone(); //this will be called after FullLoad (or any time the scene is changed)
     }
 
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class NewPlayerCanvasButtonController : MonoBehaviour
@@ -16,6 +17,12 @@ public class NewPlayerCanvasButtonController : MonoBehaviour
     //NewPlayerCanvasFields
     public TMP_InputField lastNameInput;
     public TMP_InputField nameInputField;
+
+    public SaveLoadManager slManager;
+
+    private StatsController player;
+
+    public String startScene = "CryptOfTheAncients";
 
 
 
@@ -44,10 +51,31 @@ public class NewPlayerCanvasButtonController : MonoBehaviour
         VerifyFirstName();
         VerifyLastName();
         SetPlayerStats();
+        
         SetAmbientMusicVolume(.3f);
-        //Setting the persistent objects to true will initiate the game load sequence
-
         persistentObjects.SetActive(true);
+
+        try
+        {
+            player = slManager.LoadPlayer();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+
+        try
+        {
+            //SceneManager.LoadScene(manager.player.GetComponent<StatsController>().zoneName);
+            SceneManager.LoadScene(player.zoneName);
+            slManager.LoadZone(player.zoneName);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Couldn't find zoneName in playerstatscontroller. Loading the predetermined start scene instead");
+            SceneManager.LoadScene(startScene);
+        }
+        slManager.SavePlayer();
     }
 
     private void SetPlayerStats()

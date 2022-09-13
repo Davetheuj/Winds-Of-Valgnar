@@ -13,7 +13,7 @@ public class TipTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tipPanel = GameObject.Find("TipButton");
+        tipPanel = GameObject.Find("NotificationCanvas");
         controller = tipPanel.GetComponent<TipController>();
     }
 
@@ -29,7 +29,7 @@ public class TipTrigger : MonoBehaviour
         if(other.gameObject.name == "Player")
         {
             //Debug.Log("tip triggered");
-            triggerToolTip();
+            controller.ShowTip(tipText, 5);
             
         }
         Destroy(this.gameObject);
@@ -37,9 +37,7 @@ public class TipTrigger : MonoBehaviour
 
     public void triggerToolTip()
     {
-        controller.tipText.text = tipText;
-        controller.timer = 0;
-        tipPanel.SetActive(true);
+        controller.ShowTip(tipText, 5);
         Destroy(this);
     }
 

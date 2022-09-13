@@ -26710,7 +26710,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4a09377ac541fad46ab8788bc77bfd9d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.507
+  m_Volume: 0.701
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -39329,7 +39329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858466738}
   m_LocalRotation: {x: 0, y: -0.6955994, z: 0, w: 0.71843}
-  m_LocalPosition: {x: -94.13, y: -0.02, z: 88.3}
+  m_LocalPosition: {x: -10.36, y: -0.02, z: 30.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -40872,6 +40872,38 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.95, z: 0}
+--- !u!114 &1919693039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919693036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b1c2a78236e934fae001e664b94f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  queryLines1: []
+  responseLines1: []
+  queryLines2: []
+  responseLines2: []
+  queryLines3: []
+  responseLines3: []
+  queryLines4: []
+  responseLines4: []
+  queryLines5: []
+  responseLines5: []
+  queryLines6: []
+  responseLines6: []
+  queryLines7: []
+  responseLines7: []
+  queryLines8: []
+  responseLines8: []
+  NPCQuests: []
+  questLineCounters: 
+  dialogueLineCounters: 
+  defaultResponse: Ho there young'n!
 --- !u!4 &1920628579 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 91d652779ec7140488b6b8e360497937,

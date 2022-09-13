@@ -480,7 +480,7 @@ public class NPC : MonoBehaviour
             {
                
                 collider = hitInfo.collider;
-                if(collider.gameObject.name == "Player")
+                if(collider.transform.root.name == "PersistentObjects")
                 {
                     foundRightPath = true;
                     path1Locations.Add(finalPos);
@@ -506,7 +506,7 @@ public class NPC : MonoBehaviour
             if (Physics.Linecast(currentPos, finalPos, out RaycastHit hitInfo))
             {
                 collider = hitInfo.collider;
-                if (collider.gameObject.name == "Player")
+                if (collider.gameObject.name == "PersistentObjects")
                 {
                     foundLeftPath = true;
                     path2Locations.Add(finalPos);

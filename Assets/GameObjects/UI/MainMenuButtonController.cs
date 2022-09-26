@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,7 +10,13 @@ public class MainMenuButtonController : MonoBehaviour
     public GameObject newPlayerCanvas;
     public GameObject loadCanvas;
     public GameObject persistentObjects;
-   
+
+    public SaveLoadManager slManager;
+
+    private StatsController player;
+
+    public String startScene = "CryptOfTheAncients";
+
 
     public void OnDemoButtonPressed()
     {
@@ -17,7 +24,28 @@ public class MainMenuButtonController : MonoBehaviour
         SetAmbientMusicVolume(.3f);
         persistentObjects.SetActive(true);
 
-        
+        try
+        {
+            player = slManager.LoadPlayer();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+
+        try
+        {
+            //SceneManager.LoadScene(manager.player.GetComponent<StatsController>().zoneName);
+            SceneManager.LoadScene(player.zoneName);
+            slManager.LoadZone(player.zoneName);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Couldn't find zoneName in playerstatscontroller. Loading the predetermined start scene instead");
+            SceneManager.LoadScene(startScene);
+        }
+
+
         //SceneManager.UnloadSceneAsync("GameStart");
 
     }

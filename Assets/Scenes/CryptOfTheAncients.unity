@@ -33147,7 +33147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Rat
-  angleFromPlayerForward: 1.511983
   player: {fileID: 0}
   isDefaultAgro: 1
   isStationary: 0
@@ -36820,7 +36819,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Elder Kobold
-  angleFromPlayerForward: 1.511983
   player: {fileID: 0}
   isDefaultAgro: 1
   isStationary: 0
@@ -40814,7 +40812,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Brother Corwin
-  angleFromPlayerForward: 0
   player: {fileID: 0}
   isDefaultAgro: 0
   isStationary: 0
@@ -40884,8 +40881,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b1c2a78236e934fae001e664b94f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  queryLines1: []
-  responseLines1: []
+  queryLines1:
+  - Where am I?
+  - Can I assist you?
+  responseLines1:
+  - How pecuiliar that you don't know that already... You're in the crypt of Undruil,
+    it's a site that has been discovered quite recently and I've been tasked by my
+    order to research various aspects of it.
+  - Now that you mention it, I wouldn't mind a little bit of help with some physical
+    labour, there are some pesky rats infesting the crypt. If you would dispose of
+    them for me, I would be grateful.
   queryLines2: []
   responseLines2: []
   queryLines3: []
@@ -40902,8 +40907,8 @@ MonoBehaviour:
   responseLines8: []
   NPCQuests: []
   questLineCounters: 
-  dialogueLineCounters: 
-  defaultResponse: Ho there young'n!
+  dialogueLineCounters: 00000000
+  defaultResponse: 'By the tendrils of Undruil! You''ve given me quite the scare! '
 --- !u!4 &1920628579 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 91d652779ec7140488b6b8e360497937,

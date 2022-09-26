@@ -263,7 +263,7 @@ public class NPC : MonoBehaviour
             actualMoveSpeed = moveSpeed / 2f;
             if (isStationary)
             {
-
+                return;
             }
             else if (needsNeutralLocation)
             {
@@ -470,7 +470,7 @@ public class NPC : MonoBehaviour
             {
                
                 collider = hitInfo.collider;
-                if(collider.transform.root.name == "PersistentObjects")
+                if(collider.transform.root.name == "Player")
                 {
                     foundRightPath = true;
                     path1Locations.Add(finalPos);
@@ -479,6 +479,7 @@ public class NPC : MonoBehaviour
                 Debug.Log($"Collider name: {collider.gameObject.name}, Pathing Object: {this.gameObject.name}");
                 rotatedPos = (Quaternion.AngleAxis(30, Vector3.up) * (currentPos - collider.transform.position));
                 currentPos = collider.ClosestPoint(rotatedPos + collider.transform.position) + (localRadius*3.5f * rotatedPos.normalized);
+                Debug.LogWarning($"{collider.gameObject.name}");
                 path1Locations.Add(currentPos);
             }
             else
@@ -496,7 +497,7 @@ public class NPC : MonoBehaviour
             if (Physics.Linecast(currentPos, finalPos, out RaycastHit hitInfo))
             {
                 collider = hitInfo.collider;
-                if (collider.gameObject.name == "PersistentObjects")
+                if (collider.gameObject.name == "Player")
                 {
                     foundLeftPath = true;
                     path2Locations.Add(finalPos);
@@ -504,6 +505,7 @@ public class NPC : MonoBehaviour
                 }
                 rotatedPos = (Quaternion.AngleAxis(-30, Vector3.up) * (currentPos - collider.transform.position));
                 currentPos = collider.ClosestPoint(rotatedPos + collider.transform.position) + (localRadius*3.5f * rotatedPos.normalized);
+                Debug.LogWarning($"{collider.gameObject.name}");
                 path2Locations.Add(currentPos);
             }
             else
@@ -518,7 +520,7 @@ public class NPC : MonoBehaviour
             foreach (Vector3 pos in path1Locations)
             {
                 //Debug.Log(pos);
-                //GameObject.Instantiate(debugMarker, pos + new Vector3(0, 1, 0), this.transform.rotation);
+                GameObject.Instantiate(debugMarker, pos + new Vector3(0, 1, 0), this.transform.rotation);
             }
             return path1Locations;
         }
@@ -527,7 +529,7 @@ public class NPC : MonoBehaviour
             foreach (Vector3 pos in path2Locations)
             {
                 //Debug.Log(pos);
-                //GameObject.Instantiate(debugMarker, pos+new Vector3(0,1,0), this.transform.rotation);
+                GameObject.Instantiate(debugMarker, pos+new Vector3(0,1,0), this.transform.rotation);
             }
             return path2Locations;
         }

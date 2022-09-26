@@ -11,6 +11,7 @@ public class DialoguePanelController : MonoBehaviour
     public GameObject queryPrefab;
     public GameObject newQuery;
     public GameObject NPC;
+    public bool wasNPCStationary;
     public Transform player;
     public GameObject questHolder;
     public TMP_Text NPCName;
@@ -56,7 +57,7 @@ public class DialoguePanelController : MonoBehaviour
         }
         catch (Exception e)
         {
-
+            Debug.LogError(e.StackTrace);
         }
         try
         {
@@ -136,21 +137,12 @@ public class DialoguePanelController : MonoBehaviour
     {
         if (isShowing)
         {
-            try
-            {
+           
                 if ((player.position - NPC.transform.position).magnitude > dialogueDisappearDistance)
                 {
-                    isShowing = false;
-                    dialoguePanel.SetActive(false);
+                CloseDialoguePanel();
 
                 }
-            }
-            catch (MissingReferenceException)
-            {
-                isShowing = false;
-                dialoguePanel.SetActive(false);
-
-            }
 
         }
     }
@@ -374,6 +366,17 @@ public class DialoguePanelController : MonoBehaviour
             responseText.text = "I have nothing more to say about that for now.";
         }
 
+    }
+
+    public void CloseDialoguePanel()
+    {
+        isShowing = false;
+        dialoguePanel.SetActive(false);
+        player.GetComponent<PlayerControlAlpha>().ToggleMouseRestriction();
+        if (!wasNPCStationary)
+        {
+            NPC.GetComponent<NPC>().isStationary = false;
+        }
     }
 
 

@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class RaycastManager : MonoBehaviour
 {
     public Transform player;
-
+    public PlayerControlAlpha playerControl;
 
 public RectTransform quickInspectItemPanelTransform;
     public TMP_Text quickInspectItemPaneltext;
@@ -121,8 +121,10 @@ public RectTransform quickInspectItemPanelTransform;
                 {
                    
                     dialogueController.NPC = rayHitObject;
-                   
+                    dialogueController.wasNPCStationary = rayHitObject.GetComponent<NPC>().isStationary;
+                    rayHitObject.GetComponent<NPC>().isStationary = true;
                     dialogueController.UpdateAndShowDialoguePanel();
+                    playerControl.ToggleMouseRestriction();
                 }
             }
         }

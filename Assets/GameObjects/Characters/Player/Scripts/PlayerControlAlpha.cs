@@ -7,15 +7,15 @@ using UnityEngine;
 public class PlayerControlAlpha : MonoBehaviour
 {
 
-	public float playerSpeed;
-	public float jumpSpeed;
-	public CharacterController controller;
-	public float gravityScale;
-    
-    public GameObject mainCamera;
-	
+    public float playerSpeed;
+    public float jumpSpeed;
+    public CharacterController controller;
+    public float gravityScale;
 
-	public Vector3 moveDirection;
+    public GameObject mainCamera;
+
+
+    public Vector3 moveDirection;
 
     public AudioSource audio;
 
@@ -46,7 +46,7 @@ public class PlayerControlAlpha : MonoBehaviour
         audio.Pause();
 
         Cursor.visible = false;
-       Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
 
         rot = transform.localRotation.eulerAngles;
         rotY = rot.y;
@@ -55,27 +55,18 @@ public class PlayerControlAlpha : MonoBehaviour
 
     }
 
-	
-	void Update() 
-	{
-		
-		float yStore = moveDirection.y; //get this from the old Update's moveDirection so we can continue to accelerate
+
+    void Update()
+    {
+
+        float yStore = moveDirection.y; //get this from the old Update's moveDirection so we can continue to accelerate
         moveDirection = new Vector3(0, yStore, 0);
 
         if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Escape))
         {
-            Cursor.visible = !Cursor.visible;
-            if (Cursor.lockState == CursorLockMode.Confined)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Confined;
-            }
-            canRotate = !canRotate;
+            ToggleMouseRestriction();
         }
-        
+
         else
         {
             if (canRotate)
@@ -107,45 +98,59 @@ public class PlayerControlAlpha : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.S))
             {
-                moveDirection  = -1 * transform.forward;
+                moveDirection = -1 * transform.forward;
             }
         }
-      
 
-		moveDirection = moveDirection.normalized * playerSpeed; //normalization so axis aren't added outright (for cheaters like SEAN)
 
-		moveDirection.y = yStore;
+        moveDirection = moveDirection.normalized * playerSpeed; //normalization so axis aren't added outright (for cheaters like SEAN)
 
-        if(controller.isGrounded && !canJump)
+        moveDirection.y = yStore;
+
+        if (controller.isGrounded && !canJump)
         {
             canJump = true;
         }
 
-		if (canJump)
-		{
-			//moveDirection.y = 0;
-			if (Input.GetButtonDown("Jump"))
-			{
-				moveDirection.y = jumpSpeed;
-                canJump = false;
-			}
-            audioDelay = audioDelayModifier / playerSpeed;
-            if((Mathf.Abs(moveDirection.x) >.1f || Mathf.Abs(moveDirection.z) > .1f) && !audio.isPlaying && (audioTimer >= audioDelay))
+        if (canJump)
+        {
+            //moveDirection.y = 0;
+            if (Input.GetButtonDown("Jump"))
             {
-                
+                moveDirection.y = jumpSpeed;
+                canJump = false;
+            }
+            audioDelay = audioDelayModifier / playerSpeed;
+            if ((Mathf.Abs(moveDirection.x) > .1f || Mathf.Abs(moveDirection.z) > .1f) && !audio.isPlaying && (audioTimer >= audioDelay))
+            {
+
                 audio.Play();
                 audioTimer = 0;
                 ////Debug.Log("Playing walking audio");
             }
-           
-		}
-       
 
-        moveDirection.y = Mathf.Clamp(moveDirection.y + Physics.gravity.y * gravityScale * Time.deltaTime,-100,100);
-       // //Debug.Log($"Move: {moveDirection * Time.deltaTime}");
-        
-		controller.Move(moveDirection * Time.deltaTime);
+        }
+
+
+        moveDirection.y = Mathf.Clamp(moveDirection.y + Physics.gravity.y * gravityScale * Time.deltaTime, -100, 100);
+        // //Debug.Log($"Move: {moveDirection * Time.deltaTime}");
+
+        controller.Move(moveDirection * Time.deltaTime);
         audioTimer += Time.deltaTime;
-        
-	}
+
+    }
+
+    public void ToggleMouseRestriction()
+    {
+        Cursor.visible = !Cursor.visible;
+        if (Cursor.lockState == CursorLockMode.Confined)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        canRotate = !canRotate;
+    }
 }

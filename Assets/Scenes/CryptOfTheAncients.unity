@@ -30735,6 +30735,67 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1922779989}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1447100056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1447100059}
+  - component: {fileID: 1447100058}
+  - component: {fileID: 1447100057}
+  m_Layer: 0
+  m_Name: TipProvider_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1447100057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447100056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25edcc69bb77dd43bb36cf3b8d1aa88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipText: You can lunge with your dagger by pressing 1! As you learn new abilities
+    they will become available in your Player Information Menu, accessible by pressing
+    <Tab>.
+--- !u!65 &1447100058
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447100056}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.580986, y: 4.390457, z: 2.879303}
+  m_Center: {x: -0.082995415, y: 1.6952286, z: -0.9396515}
+--- !u!4 &1447100059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447100056}
+  m_LocalRotation: {x: -0, y: -0.7199165, z: -0, w: 0.6940607}
+  m_LocalPosition: {x: -34.63322, y: 0.79799986, z: 70.70964}
+  m_LocalScale: {x: 3.42, y: 1.53, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 104
+  m_LocalEulerAnglesHint: {x: 0, y: -92.095, z: 0}
 --- !u!1001 &1450025390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40923,7 +40984,8 @@ MonoBehaviour:
     order to research various aspects of it.
   - Now that you mention it, I wouldn't mind a little bit of help with some physical
     labour, there are some pesky rats infesting the crypt. If you would dispose of
-    them for me, I would be grateful.
+    them for me, I would be grateful. There's a dagger in the room behind you on
+    the lecturn, you won't be able to do much damage without a weapon.
   - 'Great work! Now I can access deeper reaches of the temple without being so scared
     all of the time! '
   - You should go explore around the crypt for now, if you find anything interesting
@@ -43063,6 +43125,65 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 710663878}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2094833691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2094833694}
+  - component: {fileID: 2094833693}
+  - component: {fileID: 2094833692}
+  m_Layer: 0
+  m_Name: TipProvider_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2094833692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094833691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25edcc69bb77dd43bb36cf3b8d1aa88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipText: Talk to non-aggressive NPCs by clicking on them when you are close enough!
+--- !u!65 &2094833693
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094833691}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.580986, y: 4.390457, z: 2.879303}
+  m_Center: {x: -0.082995415, y: 1.6952286, z: -0.9396515}
+--- !u!4 &2094833694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094833691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.43, y: 0.798, z: 42.73}
+  m_LocalScale: {x: 3.42, y: 1.53, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 103
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2096066196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 91d652779ec7140488b6b8e360497937,

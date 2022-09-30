@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8730555763959773424}
   - component: {fileID: 5547891726541277540}
   - component: {fileID: -7057051711556448126}
+  - component: {fileID: 5185838257924277568}
   m_Layer: 0
   m_Name: TorchUI
   m_TagString: Untagged
@@ -200,3 +201,20 @@ MonoBehaviour:
   resistancePierce: 0
   resistanceSlash: 0
   weaponStrength: 0
+--- !u!114 &5185838257924277568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5308953661767106379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a5776d01fd56d478e1c4577c89e011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  ambientClips: []
+  interactionClips:
+  - {fileID: 8300000, guid: 0465fb0f2e52d7f4faf076438f12173c, type: 3}
+  deinteractionClips: []

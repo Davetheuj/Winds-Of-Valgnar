@@ -81746,7 +81746,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877736672}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3c80222e1ffd4fd1a75313fabf86091, type: 3}
   m_Name: 
@@ -82786,6 +82786,7 @@ GameObject:
   - component: {fileID: 1893046281}
   - component: {fileID: 1893046283}
   - component: {fileID: 1893046282}
+  - component: {fileID: 1893046284}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -83250,7 +83251,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   ambientClips: []
-  interactionClips: []
+  interactionClips:
+  - {fileID: 8300000, guid: 229e299d883b11e4cadaf8a330a9765a, type: 3}
   deinteractionClips: []
 --- !u!82 &1893046283
 AudioSource:
@@ -83348,6 +83350,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1893046284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893046267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c80222e1ffd4fd1a75313fabf86091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1893046280}
+  playerControl: {fileID: 1893046277}
+  quickInspectItemPanelTransform: {fileID: 1856113627}
+  quickInspectItemPaneltext: {fileID: 1856113628}
+  HoverNPCPanelTransform: {fileID: 1427487015}
+  HoverNPCNameText: {fileID: 242771649}
+  HoverNPCHealthBar: {fileID: 1414941853}
+  HoverNPCHealthText: {fileID: 404128389}
+  TargetNPCPanelTransform: {fileID: 1607496705}
+  itemPanelOffset: {x: 0, y: 15, z: 0}
+  CanvasRect: {fileID: 1389654908}
+  cam: {fileID: 1244102800}
+  NPCPanelXOffset: 10
+  statusController: {fileID: 1579579150}
+  inventoryController: {fileID: 381835931}
+  errorScript: {fileID: 1093784558}
+  dialogueController: {fileID: 422296352}
+  console: {fileID: 0}
 --- !u!1 &1893969296
 GameObject:
   m_ObjectHideFlags: 0

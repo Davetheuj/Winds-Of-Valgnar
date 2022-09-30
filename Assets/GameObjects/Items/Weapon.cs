@@ -34,6 +34,7 @@ public class Weapon : MonoBehaviour
         //equipment = GameObject.Find("Player").GetComponent<EquipmentController>();
 
         animations = this.gameObject.GetComponents<SpatialTRController>();
+        weaponStrength = gameObject.GetComponent<Item>().inventoryButtonPrefab.GetComponent<Equipment>().weaponStrength;
     }
     
     void OnTriggerEnter(Collider col)

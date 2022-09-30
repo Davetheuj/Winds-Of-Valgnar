@@ -197,10 +197,7 @@ MonoBehaviour:
   modifierResolve: 0
   modifierLuck: 0
   modifierCharisma: 0
-  resistanceArmor: 0
-  resistanceHoly: 0
-  resistanceVoid: 0
-  resistanceFire: 0
-  resistanceWater: 0
-  resistanceElectric: 0
-  resistanceEarth: 0
+  resistanceCrush: 0
+  resistancePierce: 0
+  resistanceSlash: 0
+  weaponStrength: 20

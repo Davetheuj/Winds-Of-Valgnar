@@ -36854,12 +36854,12 @@ MonoBehaviour:
   debugMarker: {fileID: 822137197117925851, guid: ebcd5302157f64051a5a83d2adc25d54,
     type: 3}
   attackClipName: attack1
-  walkClipName: 
-  neutralIdleClipName: 
-  agressiveIdleClipName: 
-  runClipName: 
-  deathClipName: 
-  hitClipName: 
+  walkClipName: walk
+  neutralIdleClipName: idle
+  agressiveIdleClipName: idle_battle
+  runClipName: run
+  deathClipName: death1
+  hitClipName: def_s
 --- !u!95 &1716003274
 Animator:
   serializedVersion: 4
@@ -37639,7 +37639,7 @@ PrefabInstance:
     - target: {fileID: 898636132714816541, guid: e04507b77d61fcd4599598aa7385c676,
         type: 3}
       propertyPath: weaponStrength
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 898636132714816541, guid: e04507b77d61fcd4599598aa7385c676,
         type: 3}
@@ -40846,9 +40846,9 @@ MonoBehaviour:
   player: {fileID: 0}
   isDefaultAgro: 0
   isStationary: 1
-  NPCPanelOffset: 3
-  maxHealth: 5000
-  currentHealth: 5000
+  NPCPanelOffset: 3.25
+  maxHealth: 1000
+  currentHealth: 1000
   baseAttackStrength: 700
   resistanceMelee: 0
   resistanceRanged: 0

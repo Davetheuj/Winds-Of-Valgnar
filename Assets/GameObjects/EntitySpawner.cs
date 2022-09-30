@@ -53,10 +53,12 @@ public class EntitySpawner : MonoBehaviour
         var component = entity.GetComponent<NPC>();
         if (component != null)
         {
+            entity.GetComponent<CharacterController>().enabled = false;
             entity.SetActive(true);
             component.state = 1;
            component.currentHealth = component.maxHealth;
             entity.transform.SetPositionAndRotation(component.spawnLocation, entity.transform.rotation);
+            entity.GetComponent<CharacterController>().enabled = true;
 
         }
             

@@ -59,11 +59,11 @@ public class Weapon : MonoBehaviour
     private int CalculateDamage(NPC npc)
     {
         float classificationStat = (float)((int)playerStats.GetType().GetField(classification).GetValue(playerStats));
-        float damageBeforeResistances = classMultiplier * classificationStat;
+        float damageBeforeResistances = (classMultiplier * classificationStat/10 * weaponStrength) + weaponStrength;
         float resistedDamage = ((float)npc.GetType().GetField(NPCResistanceModifier).GetValue(npc) / 100) * damageBeforeResistances;
 
         int maxDamage = (int)(damageBeforeResistances - resistedDamage); 
-        return ((int)(Random.Range(0, maxDamage)));
+        return ((int)(Random.Range(0, maxDamage+1)));
     }
 
     public void SelectAndEnableRandomAnimation(Transform objectToReturnTo)

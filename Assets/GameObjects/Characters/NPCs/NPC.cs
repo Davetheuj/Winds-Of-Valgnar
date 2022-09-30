@@ -143,6 +143,38 @@ public class NPC : MonoBehaviour
 
         if(state == 0)//dead
         {
+            if(GetComponent<QuestPerpetuator>() != null)
+            {
+                QuestPerpetuator perp = GetComponent<QuestPerpetuator>();
+                foreach (Quest quest in player.gameObject.GetComponent<QuestController>().questList)
+                {
+
+                    if (quest.questName == perp.questName)
+                    {
+                        //Debug.Log("Quest has been accepted previously");
+                        if ((quest.currentStep >= perp.minStepInQuest) && (quest.currentStep <= perp.maxStepInQuest))
+                        {
+                            //Debug.Log("Correct step");
+                            if (perp.journalEntry != "")
+                            {
+                               // journalController.CreateNewEntry(perp.journalEntry, 0);
+                            }
+                            if (perp.consoleEntries.Count > 0)
+                            {
+                                foreach (string entry in perp.consoleEntries)
+                                {
+                                    //consoleManager.AddConsoleMessage1(entry);
+                                }
+                            }
+                            quest.currentStep += 1;
+                            player.GetComponent<QuestController>().CheckForCompletion(quest);
+                         
+                        }
+                     
+                    }
+                }
+            }
+
             try {
                 dropSpawner.SpawnDrops();
             }

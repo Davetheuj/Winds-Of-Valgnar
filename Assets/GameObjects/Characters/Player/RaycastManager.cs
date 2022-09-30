@@ -119,7 +119,10 @@ public RectTransform quickInspectItemPanelTransform;
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                   
+                    if ((player.position - rayHitObject.transform.position).magnitude > dialogueController.dialogueDisappearDistance)
+                    {
+                        return;
+                    }
                     dialogueController.NPC = rayHitObject;
                     dialogueController.wasNPCStationary = rayHitObject.GetComponent<NPC>().isStationary;
                     rayHitObject.GetComponent<NPC>().isStationary = true;

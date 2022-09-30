@@ -44313,7 +44313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &993843024
 RectTransform:
   m_ObjectHideFlags: 0
@@ -77204,7 +77204,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1744926680}
   m_OnClick:
     m_PersistentCalls:
@@ -83071,7 +83071,7 @@ MonoBehaviour:
   mainCamera: {fileID: 1244102794}
   moveDirection: {x: 0, y: 0, z: 0}
   audio: {fileID: 1934587762}
-  audioDelayModifier: 15
+  audioDelayModifier: 7
   clampAngle: 80
   inputSensitivity: 200
   mouseX: 0
@@ -100758,18 +100758,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1622021414037329522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622021414037329533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7443c7414bcdf4516aa7da61e5a3647b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1622021414037329523
 RectTransform:
   m_ObjectHideFlags: 0
@@ -100829,7 +100817,6 @@ GameObject:
   - component: {fileID: 1622021414037329523}
   - component: {fileID: 1622021414037329520}
   - component: {fileID: 1622021414037329521}
-  - component: {fileID: 1622021414037329522}
   - component: {fileID: 1622021414037329527}
   m_Layer: 0
   m_Name: StatsPanel
@@ -104673,7 +104660,6 @@ GameObject:
   - component: {fileID: 7353752453859699934}
   - component: {fileID: 7353752453859699933}
   - component: {fileID: 7353752453859699932}
-  - component: {fileID: 7353752453859699935}
   - component: {fileID: 7353752453859699930}
   m_Layer: 0
   m_Name: InvAndAbilitiesPanel
@@ -104769,18 +104755,6 @@ RectTransform:
   m_AnchoredPosition: {x: -1448.1904, y: 0.022460938}
   m_SizeDelta: {x: 1448.0981, y: -0.04486084}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &7353752453859699935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7353752453859699920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7443c7414bcdf4516aa7da61e5a3647b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7353752454444161798
 MonoBehaviour:
   m_ObjectHideFlags: 0

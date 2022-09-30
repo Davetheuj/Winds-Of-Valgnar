@@ -29385,7 +29385,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 6c823a569ab4348479597ed4693bc618, type: 3}
 --- !u!33 &1380065025
@@ -36657,6 +36657,7 @@ GameObject:
   - component: {fileID: 1716003271}
   - component: {fileID: 1716003275}
   - component: {fileID: 1716003276}
+  - component: {fileID: 1716003277}
   m_Layer: 0
   m_Name: Goblin_rouge_b
   m_TagString: Creature
@@ -36822,10 +36823,10 @@ MonoBehaviour:
   player: {fileID: 0}
   isDefaultAgro: 1
   isStationary: 0
-  NPCPanelOffset: 4.79
-  maxHealth: 100
-  currentHealth: 100
-  baseAttackStrength: 10
+  NPCPanelOffset: 3
+  maxHealth: 50
+  currentHealth: 50
+  baseAttackStrength: 25
   resistanceMelee: 0
   resistanceRanged: 0
   resistanceMagic: 0
@@ -36833,14 +36834,14 @@ MonoBehaviour:
   honorGranted: 0
   popularityGranted: 0
   renownGranted: 0
-  attackRange: 3
+  attackRange: 4
   attackDelay: 3
   attackTimer: 2.1698883
-  moveSpeed: 20
+  moveSpeed: 10
   baseAgroRange: 15
-  roamRadius: 3
+  roamRadius: 2
   state: 2
-  spawnLocation: {x: 145, y: 8, z: 313}
+  spawnLocation: {x: -69.17, y: -0.01999998, z: 70.72}
   deltaNeutralMaxTime: 1
   neutralPositionMaxTime: 15
   neutPosTimeRandModifier: 6
@@ -36992,6 +36993,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1716003277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716003269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8408942f3650bba4c96436ba75d6188a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: Rat Killer
+  dialogueLineCounter: 0
+  dialogueLineIndex: 0
+  journalEntry: 
+  consoleEntries: []
+  minStepInQuest: 0
+  maxStepInQuest: 0
+  nonProgressText: 
 --- !u!4 &1718658493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d868e7bc6e0892c448e22104b9e8f352,
@@ -37614,6 +37635,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 898636132714816541, guid: e04507b77d61fcd4599598aa7385c676,
+        type: 3}
+      propertyPath: weaponStrength
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 898636132714816541, guid: e04507b77d61fcd4599598aa7385c676,
+        type: 3}
+      propertyPath: experienceModifier
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4479989640100468894, guid: e04507b77d61fcd4599598aa7385c676,
         type: 3}
@@ -39314,7 +39345,7 @@ MonoBehaviour:
   entity: {fileID: 0}
   time: 0
   isSpawned: 1
-  spawnTime: 60
+  spawnTime: 15
   spawnRadius: 1
   spawnOffset: {x: 0, y: 0, z: 0}
   spawnCount: 0
@@ -39326,15 +39357,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858466738}
-  m_LocalRotation: {x: 0, y: -0.6955994, z: 0, w: 0.71843}
-  m_LocalPosition: {x: -10.36, y: -0.02, z: 30.11}
+  m_LocalRotation: {x: -0, y: 0.028215168, z: -0, w: 0.9996019}
+  m_LocalPosition: {x: -69.17, y: -0.01999998, z: 70.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1716003270}
   m_Father: {fileID: 804274659}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -88.15, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 3.234, z: 0}
 --- !u!1001 &1860161363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40709,22 +40740,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d868e7bc6e0892c448e22104b9e8f352,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.953803
+      value: -8.642626
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d868e7bc6e0892c448e22104b9e8f352,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.21778321
+      value: -0.01999998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d868e7bc6e0892c448e22104b9e8f352,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.843071
+      value: 71.55705
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d868e7bc6e0892c448e22104b9e8f352,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.41396105
+      value: 0.074977644
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d868e7bc6e0892c448e22104b9e8f352,
         type: 3}
@@ -40734,7 +40765,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d868e7bc6e0892c448e22104b9e8f352,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9102946
+      value: -0.99718523
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d868e7bc6e0892c448e22104b9e8f352,
         type: 3}
@@ -40749,7 +40780,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d868e7bc6e0892c448e22104b9e8f352,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 131.092
+      value: -171.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d868e7bc6e0892c448e22104b9e8f352,
         type: 3}
@@ -40814,7 +40845,7 @@ MonoBehaviour:
   npcName: Brother Corwin
   player: {fileID: 0}
   isDefaultAgro: 0
-  isStationary: 0
+  isStationary: 1
   NPCPanelOffset: 3
   maxHealth: 5000
   currentHealth: 5000
@@ -40884,6 +40915,8 @@ MonoBehaviour:
   queryLines1:
   - Where am I?
   - Can I assist you?
+  - I've disposed of the rats.
+  - Is there anything else I can assist with?
   responseLines1:
   - How pecuiliar that you don't know that already... You're in the crypt of Undruil,
     it's a site that has been discovered quite recently and I've been tasked by my
@@ -40891,6 +40924,10 @@ MonoBehaviour:
   - Now that you mention it, I wouldn't mind a little bit of help with some physical
     labour, there are some pesky rats infesting the crypt. If you would dispose of
     them for me, I would be grateful.
+  - 'Great work! Now I can access deeper reaches of the temple without being so scared
+    all of the time! '
+  - You should go explore around the crypt for now, if you find anything interesting
+    or pecuiliar, report back to me so we can investigate it together.
   queryLines2: []
   responseLines2: []
   queryLines3: []
@@ -40905,10 +40942,77 @@ MonoBehaviour:
   responseLines7: []
   queryLines8: []
   responseLines8: []
-  NPCQuests: []
-  questLineCounters: 
+  NPCQuests:
+  - {fileID: 1919693040}
+  questLineCounters: 01000000
   dialogueLineCounters: 00000000
   defaultResponse: 'By the tendrils of Undruil! You''ve given me quite the scare! '
+--- !u!114 &1919693040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919693036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df1eca0bb4ef12469aee2aca631aee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: Rat Killer
+  questSeries: Temple of Undruil
+  numberInSeries: 0
+  stepSize: 2
+  currentStep: 0
+  rewardCoins: 0
+  rewardXP: 0
+  rewardItems: []
+  journalEntry1: Brother Corwin has tasked me to kill rats to assist him in researching
+    the Temple of Undruil.
+  isRepeatable: 0
+  manaReq: 0
+  healthReq: 0
+  intellectReq: 0
+  strengthReq: 0
+  wisdomReq: 0
+  dexterityReq: 0
+  spiritReq: 0
+  resolveReq: 0
+  luckReq: 0
+  charismaReq: 0
+  AlchemyReq: 0
+  PickpocketingReq: 0
+  SmithingReq: 0
+  CraftingReq: 0
+  CookingReq: 0
+  FishingReq: 0
+  WoodcuttingReq: 0
+  EnchantingReq: 0
+  renownReq: 0
+  popularityReq: 0
+  honorReq: 0
+--- !u!114 &1919693042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919693036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8408942f3650bba4c96436ba75d6188a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: Rat Killer
+  dialogueLineCounter: 0
+  dialogueLineIndex: 2
+  journalEntry: I've cleaned up the rats in the temple, now Brother Corwin can continue
+    his research with a modicum of peace and quiet!
+  consoleEntries: []
+  minStepInQuest: 1
+  maxStepInQuest: 1
+  nonProgressText: I don't think you've quite gotten them all yet, come back to me
+    when you've cleaned them all out!
 --- !u!4 &1920628579 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 91d652779ec7140488b6b8e360497937,

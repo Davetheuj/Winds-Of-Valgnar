@@ -62,7 +62,7 @@ public RectTransform quickInspectItemPanelTransform;
         if (Physics.Raycast(ray, out hit))
         {
             var rayHitObject = hit.transform.gameObject;
-            ////Debug.Log("hit with " + rayHitObject.name);
+            //Debug.Log("hit with " + rayHitObject.name);
 
 
 
@@ -72,6 +72,7 @@ public RectTransform quickInspectItemPanelTransform;
                 Item item = rayHitObject.GetComponent<Item>();
                 if(item.enabled == false)
                 {
+                    Debug.Log("item component not enabled, returning early");
                     return;
                 }
 

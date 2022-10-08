@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Assets.GameObjects
 {
@@ -13,12 +14,13 @@ namespace Assets.GameObjects
        // private AudioClip audioClip;
         bool started = false;
 
-        public void AssignProperties(AudioClip clip, float volume)
+        public void AssignProperties(AudioClip clip, float volume, AudioMixer audioMixer, string mixerGroup)
         {
-
             audioSource = this.gameObject.AddComponent<AudioSource>();
             audioSource.clip = clip;
             audioSource.volume = volume;
+            audioSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups(mixerGroup)[0];
+            
 
             audioSource.Play();
             started = true;

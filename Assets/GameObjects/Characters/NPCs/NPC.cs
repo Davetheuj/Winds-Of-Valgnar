@@ -413,7 +413,7 @@ public class NPC : MonoBehaviour
             {
                 try
                 {
-                    audioClipController.PlayInteractionClip();
+                    audioClipController.PlayClip();
                 }catch(NullReferenceException e)
                 {
                     //Debug.Log($"There's no audioClipController on {gameObject.name}");
@@ -508,10 +508,10 @@ public class NPC : MonoBehaviour
                     path1Locations.Add(finalPos);
                     continue;
                 }
-                Debug.Log($"Collider name: {collider.gameObject.name}, Pathing Object: {this.gameObject.name}");
+                //Debug.Log($"Collider name: {collider.gameObject.name}, Pathing Object: {this.gameObject.name}");
                 rotatedPos = (Quaternion.AngleAxis(30, Vector3.up) * (currentPos - collider.transform.position));
                 currentPos = collider.ClosestPoint(rotatedPos + collider.transform.position) + (localRadius*3.5f * rotatedPos.normalized);
-                Debug.LogWarning($"{collider.gameObject.name}");
+                //Debug.LogWarning($"{collider.gameObject.name}");
                 path1Locations.Add(currentPos);
             }
             else
@@ -537,7 +537,7 @@ public class NPC : MonoBehaviour
                 }
                 rotatedPos = (Quaternion.AngleAxis(-30, Vector3.up) * (currentPos - collider.transform.position));
                 currentPos = collider.ClosestPoint(rotatedPos + collider.transform.position) + (localRadius*3.5f * rotatedPos.normalized);
-                Debug.LogWarning($"{collider.gameObject.name}");
+                //Debug.LogWarning($"{collider.gameObject.name}");
                 path2Locations.Add(currentPos);
             }
             else

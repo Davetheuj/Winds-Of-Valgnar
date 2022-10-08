@@ -205,7 +205,7 @@ public RectTransform quickInspectItemPanelTransform;
         {
             console.AddConsoleMessage1($"{item.itemName} has been added to your inventory!");
         }
-        gameObject.GetComponent<AudioClipController>().PlayInteractionClip(0, .7f, false, 0, false, true, true);
+        gameObject.GetComponent<AudioClipController>().PlayClip(null, 0, .7f, false, 0, false, true, true, "Effects");
         inventoryObject.transform.localPosition = new Vector3(0, 0, 0);
         inventoryObject.transform.localScale = new Vector3(1,1,1);
 

@@ -111,7 +111,7 @@ public class EquipmentController : MonoBehaviour
             if (oldItem == itemToEquip)
             {
                 CalculateAndUpdateCummulativeEquipmentModifiers();
-                oldItem.GetComponent<AudioClipController>()?.PlayInteractionClip(0, 1, false, 0, false, true, true);
+                oldItem.GetComponent<AudioClipController>()?.PlayClip(null, 0, 1, false, 0, false, true, true);
                 return; //break early as we are just unequipping (the item being clicked is the item in the slot)
             }
         }
@@ -127,7 +127,7 @@ public class EquipmentController : MonoBehaviour
 
         CalculateAndUpdateCummulativeEquipmentModifiers();
         
-        itemToEquip.GetComponent<AudioClipController>()?.PlayInteractionClip(0, 1, false, 0, false, true, true);
+        itemToEquip.GetComponent<AudioClipController>()?.PlayClip(null, 0, 1, false, 0, false, true, true);
         
 
     }

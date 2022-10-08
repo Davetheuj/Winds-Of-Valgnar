@@ -4,11 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioClipController : MonoBehaviour
 {
     [Tooltip("This is set on Start()")]
     public AudioSource audioSource;
+    public string audioMixerGroup;
 
     public List<AudioClip> ambientClips = new List<AudioClip>();
     public List<AudioClip> interactionClips = new List<AudioClip>();
@@ -19,13 +21,20 @@ public class AudioClipController : MonoBehaviour
 
     private float timer;
 
+    
+    public AudioMixer mixer;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        
         //first try to set the audioSource to the one that is attached to the same component as the clip controller
         try
         {
             audioSource = gameObject.GetComponent<AudioSource>();
+            audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[0];
         }
         //if this doesnt work we'll look for an audioSource in the gameobject's children
         catch (Exception e)
@@ -34,6 +43,7 @@ public class AudioClipController : MonoBehaviour
             try
             {
                 audioSource = gameObject.GetComponentInChildren<AudioSource>();
+                audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[0];
             }
             catch (Exception e2)
             {
@@ -50,15 +60,19 @@ public class AudioClipController : MonoBehaviour
         defaultVolume = audioSource.volume;
     }
 
-    public void PlayAmbientClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false, bool freshObject = false)
+    public void PlayClip(List<AudioClip> clipList = null, int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false, bool freshObject = false, string audioMixerGroup = "Master")
     {
-        if(ambientClips.Count == 0)
+        if(clipList == null)
+        {
+            clipList = interactionClips;
+        }
+        if(clipList.Count == 0)
         {
             return;
         }
         if(clipIndex <= 0)
         {
-            clipIndex = new System.Random().Next(0, ambientClips.Count - 1);
+            clipIndex = new System.Random().Next(0, clipList.Count - 1);
         }
         if(volume < 0)
         {
@@ -71,113 +85,113 @@ public class AudioClipController : MonoBehaviour
                 GameObject tempObject = GameObject.Instantiate(new GameObject());
                 TemporaryAudioSource freshSource = tempObject.AddComponent<TemporaryAudioSource>();
                 //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
-                freshSource.AssignProperties(deinteractionClips[clipIndex], volume);
+                freshSource.AssignProperties(clipList[clipIndex], volume, mixer, audioMixerGroup);
                 return;
 
             }
             TemporaryAudioSource tempSource = this.gameObject.AddComponent<TemporaryAudioSource>();
             //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
-            tempSource.AssignProperties(ambientClips[clipIndex], volume);
+            tempSource.AssignProperties(clipList[clipIndex], volume, mixer, audioMixerGroup);
             return;   
         }
         if (stack)
         {
-            AddClipToStack(new StackableAudioClip(ambientClips[clipIndex], priority, volume));
+            AddClipToStack(new StackableAudioClip(clipList[clipIndex], priority, volume));
             return;
         }
 
-        audioSource.clip = ambientClips[clipIndex];
+        audioSource.clip = clipList[clipIndex];
         audioSource.volume = volume;
         audioSource.loop = loop;
         audioSource.Play();
         
     }
 
-    public void PlayInteractionClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false, bool freshObject = false)
-    {
-        if (interactionClips == null || interactionClips.Count == 0)
-        {
-            return;
-        }
-            if (clipIndex < 0)
-            {
-                clipIndex = new System.Random().Next(0, interactionClips.Count - 1);
-            }
-        if (volume < 0)
-        {
-            volume = defaultVolume;
-        }
-        if (createTemporarySource)
-        {
-            if (freshObject)
-            {
-                GameObject tempObject = new GameObject();
-                TemporaryAudioSource freshSource = tempObject.AddComponent<TemporaryAudioSource>();
-                //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
-                freshSource.AssignProperties(interactionClips[clipIndex], volume);
-                return;
+    //public void PlayInteractionClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false, bool freshObject = false)
+    //{
+    //    if (interactionClips == null || interactionClips.Count == 0)
+    //    {
+    //        return;
+    //    }
+    //        if (clipIndex < 0)
+    //        {
+    //            clipIndex = new System.Random().Next(0, interactionClips.Count - 1);
+    //        }
+    //    if (volume < 0)
+    //    {
+    //        volume = defaultVolume;
+    //    }
+    //    if (createTemporarySource)
+    //    {
+    //        if (freshObject)
+    //        {
+    //            GameObject tempObject = new GameObject();
+    //            TemporaryAudioSource freshSource = tempObject.AddComponent<TemporaryAudioSource>();
+    //            //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
+    //            freshSource.AssignProperties(interactionClips[clipIndex], volume);
+    //            return;
 
-            }
-            TemporaryAudioSource tempSource = this.gameObject.AddComponent<TemporaryAudioSource>();
-            //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
-            tempSource.AssignProperties(interactionClips[clipIndex], volume);
-            return;
-        }
-        if (stack)
-        {
-            AddClipToStack(new StackableAudioClip(interactionClips[clipIndex], priority, volume));
-            return;
-        }
+    //        }
+    //        TemporaryAudioSource tempSource = this.gameObject.AddComponent<TemporaryAudioSource>();
+    //        //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
+    //        tempSource.AssignProperties(interactionClips[clipIndex], volume);
+    //        return;
+    //    }
+    //    if (stack)
+    //    {
+    //        AddClipToStack(new StackableAudioClip(interactionClips[clipIndex], priority, volume));
+    //        return;
+    //    }
 
-        audioSource.clip = interactionClips[clipIndex];
-        audioSource.volume = volume;
-        audioSource.loop = loop;
-        audioSource.Play();
+    //    audioSource.clip = interactionClips[clipIndex];
+    //    audioSource.volume = volume;
+    //    audioSource.loop = loop;
+    //    audioSource.Play();
 
-    }
+    //}
 
-    public void PlayDeinteractionClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false, bool freshObject = false)
-    {
-        if (deinteractionClips.Count == 0)
-        {
-            return;
-        }
-        if (clipIndex <= 0)
-        {
-            clipIndex = new System.Random().Next(0, deinteractionClips.Count - 1);
-        }
-        if (volume < 0)
-        {
-            volume = defaultVolume;
-        }
-        if (createTemporarySource)
-        {
-            if (freshObject)
-            {
-                GameObject tempObject = GameObject.Instantiate(new GameObject());
-                TemporaryAudioSource freshSource = tempObject.AddComponent<TemporaryAudioSource>();
-                //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
-                freshSource.AssignProperties(deinteractionClips[clipIndex], volume);
-                return;
+    //public void PlayDeinteractionClip(int clipIndex = -1, float volume = -1, bool loop = false, int priority = -5000, bool stack = false, bool createTemporarySource = false, bool freshObject = false)
+    //{
+    //    if (deinteractionClips.Count == 0)
+    //    {
+    //        return;
+    //    }
+    //    if (clipIndex <= 0)
+    //    {
+    //        clipIndex = new System.Random().Next(0, deinteractionClips.Count - 1);
+    //    }
+    //    if (volume < 0)
+    //    {
+    //        volume = defaultVolume;
+    //    }
+    //    if (createTemporarySource)
+    //    {
+    //        if (freshObject)
+    //        {
+    //            GameObject tempObject = GameObject.Instantiate(new GameObject());
+    //            TemporaryAudioSource freshSource = tempObject.AddComponent<TemporaryAudioSource>();
+    //            //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
+    //            freshSource.AssignProperties(deinteractionClips[clipIndex], volume);
+    //            return;
 
-            }
-            TemporaryAudioSource tempSource = this.gameObject.AddComponent<TemporaryAudioSource>();
-            //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
-            tempSource.AssignProperties(deinteractionClips[clipIndex], volume);
-            return;
-        }
-        if (stack)
-        {
-            AddClipToStack(new StackableAudioClip(deinteractionClips[clipIndex], priority, volume));
-            return;
-        }
+    //        }
+    //        TemporaryAudioSource tempSource = this.gameObject.AddComponent<TemporaryAudioSource>();
+    //        //Assigning the properties will start the source, it's lifespan is dependent on the mediaDuration of the clip, after which time it will be destroyed
+    //        tempSource.AssignProperties(deinteractionClips[clipIndex], volume);
+    //        return;
+    //    }
+    //    if (stack)
+    //    {
+    //        AddClipToStack(new StackableAudioClip(deinteractionClips[clipIndex], priority, volume));
+    //        return;
+    //    }
 
-        audioSource.clip = deinteractionClips[clipIndex];
-        audioSource.volume = volume;
-        audioSource.loop = loop;
-        audioSource.Play();
+    //    audioSource.clip = deinteractionClips[clipIndex];
+    //    audioSource.volume = volume;
+    //    audioSource.loop = loop;
+    //    audioSource.Play();
 
-    }
+    //}
 
     private void Update()
     {

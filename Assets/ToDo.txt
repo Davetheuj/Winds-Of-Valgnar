@@ -1,10 +1,5 @@
 ﻿NPC Script Optimization
 Miasma Particle effects should look better
-*Make tooltip more noticeable
-*Tooltip on item pickup 
-*Change default assignment for torch equip positions/rotations
-*remove world-view item quick inspect on equip
-*close item quick-hover panel in the player interface when closed/opened
-*fix item quickhover UI (elements are overlapping when text is too long)
-*add console log for when player saves the game
-*add console log for successful lunge
+mouse sensitivity adjustments
+save/load settings
+unequip item if dropped while equipped

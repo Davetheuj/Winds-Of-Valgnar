@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InterfaceController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class InterfaceController : MonoBehaviour
     public GameObject WorldMapPanel;
     public GameObject SettingsPanel;
     public GameObject DevCanvas;
+    public GameObject MenuPanel;
 
     
     public GameObject inventoryGrid;
@@ -23,9 +25,15 @@ public class InterfaceController : MonoBehaviour
 
     public GameObject itemQuickHoverPanel;
 
+    public GameObject player;
+
+    //SettingsPanel
+    public Slider inputSensitivitySlider;
+    public Slider masterAudioSlider;
+
     public void Start()
     {
-      
+        
     }
     public void PlayerInformationToggle()
     {
@@ -97,6 +105,17 @@ public class InterfaceController : MonoBehaviour
         SettingsPanel.SetActive(!SettingsPanel.activeSelf);
     }
 
+    public void MenuToggle()
+    {
+        MenuPanel.SetActive(!MenuPanel.activeSelf);
+    }
+
+    public void SaveSettingsAndReturnToMenu()
+    {
+        SaveSettings();
+        SettingsPanel.SetActive(false);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -124,7 +143,7 @@ public class InterfaceController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SettingsToggle();
+            MenuToggle();
 
         }
         else if (Input.GetKeyDown(KeyCode.Tilde))
@@ -135,6 +154,18 @@ public class InterfaceController : MonoBehaviour
         {
             PlayerInformationToggle();
         }
+    }
+
+    public void SaveSettings()
+    {
+
+    }
+
+    public void ApplySettings()
+    {
+        player.GetComponent<AudioClipController>().mixer.SetFloat("MasterVolume", masterAudioSlider.value * 100);
+        player.GetComponent<PlayerControlAlpha>().inputSensitivity = inputSensitivitySlider.value*100;
+
     }
 
   

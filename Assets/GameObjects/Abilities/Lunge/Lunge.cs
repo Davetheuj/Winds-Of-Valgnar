@@ -18,7 +18,7 @@ public class Lunge : MonoBehaviour
 
         if (weaponModel != null)
         {
-            clipController.PlayInteractionClip(0, 1, false, 0, false, true, true);
+            clipController.PlayClip(clipController.interactionClips, 0, 1, false, 0, false, true, true);
             //Send message to main hand's Equipment Controller to compute damage, select a weapon animation to play,
 
 

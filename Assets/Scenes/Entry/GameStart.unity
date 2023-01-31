@@ -23896,6 +23896,7 @@ MonoBehaviour:
     m_Handle: 0
   statusController: {fileID: 1579579150}
   deathCanvas: {fileID: 1940055812}
+  persistentObjects: {fileID: 1592983812}
 --- !u!114 &537392569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79370,14 +79371,14 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1744926680}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2067671958}
-        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
-        m_MethodName: OnLoadbuttonPressed
+      - m_Target: {fileID: 537392568}
+        m_TargetAssemblyTypeName: SaveLoadManager, Assembly-CSharp
+        m_MethodName: FullLoad
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

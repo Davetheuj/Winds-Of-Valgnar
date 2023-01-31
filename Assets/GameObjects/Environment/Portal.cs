@@ -18,6 +18,7 @@ public class Portal : MonoBehaviour
             player.GetComponent<SceneSwitcher>().target.transform.SetParent(player.transform);
             player.GetComponent<SceneSwitcher>().destination = destPos;
             player.GetComponent<SceneSwitcher>().needsDestination = true;
+            player.GetComponent<StatsController>().zoneName = destScene;
            SceneManager.LoadScene(destScene);
             
         }

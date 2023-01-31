@@ -25,13 +25,19 @@ public class TipTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        if (this.gameObject.GetComponent<Item>() != null)
+        {
+            return;
+        }
         //Debug.Log($"Collided with {other.gameObject.name}");
-        if(other.gameObject.name == "Player")
+        if (other.gameObject.name == "Player")
         {
             //Debug.Log("tip triggered");
             controller.ShowTip(tipText, 5);
             
         }
+
         Destroy(this.gameObject);
     }
 

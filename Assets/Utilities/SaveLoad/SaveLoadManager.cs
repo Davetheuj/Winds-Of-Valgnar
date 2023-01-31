@@ -14,6 +14,7 @@ public class SaveLoadManager : MonoBehaviour
     private ConsoleManager console;
 
     public GameObject deathCanvas; //probably a more eloquent way to approach this...
+    public GameObject persistentObjects;
 
 
     /// <summary>
@@ -139,7 +140,7 @@ public class SaveLoadManager : MonoBehaviour
 
     public void FullLoad()
     {
-
+        persistentObjects.SetActive(true);
         Debug.Log("FullLoad() called from SL");
         StatsController playerStats= LoadPlayer();
         deathCanvas.SetActive(false);

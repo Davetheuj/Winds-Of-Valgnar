@@ -67,8 +67,8 @@ public class NewPlayerCanvasButtonController : MonoBehaviour
         try
         {
             //SceneManager.LoadScene(manager.player.GetComponent<StatsController>().zoneName);
-            SceneManager.LoadScene(player.zoneName);
-            slManager.LoadZone(player.zoneName);
+            //SceneManager.LoadScene(player.zoneName);
+            slManager.FullLoad();
         }
         catch (Exception e)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.GameObjects.Characters.Player.Scripts;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -51,6 +52,8 @@ public class SaveLoadManager : MonoBehaviour
 
     public StatsController LoadPlayer()
     {
+        Debug.Log("LoadPlayer() called from SL");
+        player.GetComponent<PlayerSettings>().SetPlayerSettingsFromLoad(WoVBinarySerializer.LoadPlayerSettings(player));
         //player = GameObject.Find("Player");
         PlayerData loadedPlayer = WoVBinarySerializer.LoadPlayer(player);
 
@@ -71,6 +74,7 @@ public class SaveLoadManager : MonoBehaviour
         player.GetComponent<JournalController>().SetJournalFromLoad(loadedPlayer.playerJournal);
         //Equipment
         //Other personalized settings?
+
         //Camera
 
 
@@ -110,20 +114,21 @@ public class SaveLoadManager : MonoBehaviour
         //Ground Items
         //Spawners
     }
-  public void LoadZone(string zoneName)
-    {
-        scene = SceneManager.GetSceneByName(zoneName);
-        player = GameObject.Find("Player");
-        //Debug.Log($"Loading {zoneName}, here is some stuff to show information is being saved correctly");
-        ZoneData loadedZone = WoVBinarySerializer.LoadZoneData(scene.name, player);
+  
+    //public void LoadZone(string zoneName)
+  //  {
+  //      scene = SceneManager.GetSceneByName(zoneName);
+  //      player = GameObject.Find("Player");
+  //      //Debug.Log($"Loading {zoneName}, here is some stuff to show information is being saved correctly");
+  //      ZoneData loadedZone = WoVBinarySerializer.LoadZoneData(scene.name, player);
 
-        foreach (float npcPositionX in loadedZone.NPCSPositionX)
-        {
-            //Debug.Log($"PositionX: {npcPositionX}");
-        }
-        //NPCS
-        //Ground Items
-    }
+  //      foreach (float npcPositionX in loadedZone.NPCSPositionX)
+  //      {
+  //          //Debug.Log($"PositionX: {npcPositionX}");
+  //      }
+  //      //NPCS
+  //      //Ground Items
+  //  }
 
     public void Start()
     {
@@ -134,9 +139,9 @@ public class SaveLoadManager : MonoBehaviour
 
     public void FullLoad()
     {
-        
-            
-            StatsController playerStats= LoadPlayer();
+
+        Debug.Log("FullLoad() called from SL");
+        StatsController playerStats= LoadPlayer();
         deathCanvas.SetActive(false);
         try
         {
@@ -146,7 +151,7 @@ public class SaveLoadManager : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log("Couldn't find zoneName in playerstatscontroller. Loading the predetermined start scene instead");
+            Debug.Log("Couldn't find zoneName in playerstatscontroller. Loading the predetermined start scene instead from SL");
             SceneManager.LoadScene("CryptOfTheAncients");
         }
 

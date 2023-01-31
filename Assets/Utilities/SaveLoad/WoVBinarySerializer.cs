@@ -5,6 +5,8 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.SceneManagement;
+using Assets.GameObjects.Characters.Player.Scripts;
+using Assets.Utilities.SaveLoad;
 
 public static class WoVBinarySerializer 
 {
@@ -124,10 +126,48 @@ public static class WoVBinarySerializer
 
     } //not in use
 
-    public static void SavePlayerSettings()
+    public static void SavePlayerSettings(GameObject player)
     {
-
+        Debug.Log("SavePlayerSettings() called from BS");
+        try
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(Application.persistentDataPath + "/SavedCharacters/" + player.GetComponent<StatsController>().playerName + "/PlayerSettings.WoV"));
+        }
+        catch (Exception e)
+        {
+            //Debug.Log(e);
+        }
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(Application.persistentDataPath + "/SavedCharacters/" + player.GetComponent<StatsController>().playerName + "/PlayerSettings.WoV", FileMode.Create);
+        SerializablePlayerSettings data = new SerializablePlayerSettings(player.GetComponent<PlayerSettings>());
+        formatter.Serialize(stream, data);
+        stream.Close();
     }
+
+    public static SerializablePlayerSettings LoadPlayerSettings(GameObject player)
+    {
+        Debug.Log("LoadPlayerSettings() called from BS");
+
+        if (File.Exists(Application.persistentDataPath + "/SavedCharacters/" + player.GetComponent<StatsController>().playerName + "/PlayerSettings.WoV"))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                FileStream stream = new FileStream(Application.persistentDataPath + "/SavedCharacters/" + player.GetComponent<StatsController>().playerName + "/PlayerSettings.WoV", FileMode.Open);
+
+                SerializablePlayerSettings playerSettings = formatter.Deserialize(stream) as SerializablePlayerSettings;
+                stream.Close();
+                //Debug.Log("Loaded the playerdata");
+                return playerSettings;
+
+            }
+            else
+            {
+                //Debug.Log("File does not exist");
+                return null;
+            }
+    }
+    
+
+   
     public static void SaveZoneDataPermanent()
     {
 

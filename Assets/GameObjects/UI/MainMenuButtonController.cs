@@ -30,19 +30,20 @@ public class MainMenuButtonController : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log(e);
+            Debug.LogError(e);
         }
 
         try
         {
             //SceneManager.LoadScene(manager.player.GetComponent<StatsController>().zoneName);
-            SceneManager.LoadScene(player.zoneName);
-            slManager.LoadZone(player.zoneName);
+            //SceneManager.LoadScene(player.zoneName);
+            slManager.FullLoad();
         }
         catch (Exception e)
         {
             Debug.Log("Couldn't find zoneName in playerstatscontroller. Loading the predetermined start scene instead");
             SceneManager.LoadScene(startScene);
+            slManager.SavePlayer();
         }
 
 

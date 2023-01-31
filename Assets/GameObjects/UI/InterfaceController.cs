@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.GameObjects.Characters.Player.Scripts;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -158,14 +159,44 @@ public class InterfaceController : MonoBehaviour
 
     public void SaveSettings()
     {
+        Debug.Log($"Saving player settings from Interface Controller  - passing argument of {player}");
+        WoVBinarySerializer.SavePlayerSettings(player);
+    }
+    
+    public void CancelSettings()
+    {
 
     }
 
     public void ApplySettings()
     {
-        player.GetComponent<AudioClipController>().mixer.SetFloat("MasterVolume", masterAudioSlider.value * 100);
-        player.GetComponent<PlayerControlAlpha>().inputSensitivity = inputSensitivitySlider.value*100;
+        Debug.Log("Applying Settings");
+        PlayerSettings settings = player.GetComponent<PlayerSettings>();
 
+        float masterAudioVolume = masterAudioSlider.value * 100;
+        player.GetComponent<AudioClipController>().mixer.SetFloat("MasterVolume", masterAudioVolume);
+        settings.masterAudioVolume = masterAudioVolume;
+
+        float inputSensitivity = inputSensitivitySlider.value * 100;
+        player.GetComponent<PlayerControlAlpha>().inputSensitivity = inputSensitivity;
+        settings.inputSensitivity = inputSensitivity;
+
+    }
+
+    public void UpdateSettingsUIFromLoad(PlayerSettings playerSettings)
+    {
+        Debug.Log("Updating Settings UI");
+        masterAudioSlider.value = playerSettings.masterAudioVolume / 100;
+
+        inputSensitivitySlider.value = playerSettings.inputSensitivity / 100;
+
+        ApplySettings();
+
+    }
+
+    public void CloseGame()
+    {
+        Application.Quit();
     }
 
   

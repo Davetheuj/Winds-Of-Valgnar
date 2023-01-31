@@ -85013,7 +85013,7 @@ MonoBehaviour:
   statusController: {fileID: 1579579150}
   equipmentController: {fileID: 1591287854}
   zoneName: CryptOfTheAncients
-  playerName: TestPlayer4
+  playerName: DemoPlayer
   time: 0
   currentMana: 500
   currentHealth: 100

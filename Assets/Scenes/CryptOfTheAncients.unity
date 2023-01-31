@@ -45295,6 +45295,7 @@ GameObject:
   - component: {fileID: 1891618082}
   - component: {fileID: 1891618081}
   - component: {fileID: 1891618084}
+  - component: {fileID: 1891618085}
   m_Layer: 0
   m_Name: QuestPerpTrigger
   m_TagString: Untagged
@@ -45386,6 +45387,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a66a4de89b0a6418a797e9f87310a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1891618085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891618080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16be41efad4790c4d94d86366eb89076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destPos: {x: 0, y: 0, z: 0}
+  destScene: Fairshire
 --- !u!4 &1892399370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 91d652779ec7140488b6b8e360497937,

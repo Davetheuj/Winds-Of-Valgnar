@@ -10,18 +10,18 @@ public class SceneSwitcher : MonoBehaviour
     public GameObject target;
     public SaveLoadManager manager;
     public bool needsDestination;
-    //public void OnLevelWasLoaded(int level)
-    //{
-    //    if (needsDestination)
-    //    {
-    //        gameObject.transform.position = destination;
-    //        needsDestination = false;
-    //    }
-    //    target.SetActive(false);
-    //    manager.LoadZone();
-    //}
-   
-   
+    public void OnLevelWasLoaded(int level)
+    {
+        if (needsDestination)
+        {
+            gameObject.transform.position = destination;
+            needsDestination = false;
+        }
+        target.SetActive(false);
+        manager.LoadZone();
+    }
+
+
 
 
 }

@@ -18,8 +18,12 @@ public class InventoryController : MonoBehaviour
                 return slot;
             }
         }
+       
+
 
         return null;
+        
+        
     }
     
 }

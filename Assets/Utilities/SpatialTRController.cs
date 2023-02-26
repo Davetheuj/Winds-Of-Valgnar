@@ -29,7 +29,7 @@ public class SpatialTRController : MonoBehaviour
 
     private bool initialized;
 
-    public Animator animator;
+
 
     
 
@@ -45,45 +45,20 @@ public class SpatialTRController : MonoBehaviour
 
         if (realTransitionTimeList[realTransitionTimeList.Count - 1] <= 0) //if the final transition timer has expired
         {
-            try
-            {
-                animator.SetBool("ShouldAnimate", true);
-            }
-            catch (NullReferenceException)
-            {
-                //Debug.Log("No animator component initialized (in SpatialTRController.cs)");
-            }
+           
             this.enabled = false;
             initialized = false;
-            
-            //try //attempt to disable the trigger from the weapon this is attached to if we have one
-            //{
-            //    gameObject.GetComponent<Weapon>().isAttacking = false;
-            //}
-            //catch (Exception)
-            //{
-            //    //Debug.Log("No collider component attached to this gameobject (in SpatialTRController.cs)");
-            //}
-
-            parentObject.localPosition = positionList[positionList.Count - 1];
-            parentObject.localRotation = Quaternion.Euler(rotationList[rotationList.Count - 1]);
-
-
-            positionList.RemoveAt(positionList.Count-1);
-            rotationList.RemoveAt(rotationList.Count - 1);
-            realTransitionTimeList.RemoveAt(realTransitionTimeList.Count - 1);
-            positionLerpSpeedList.RemoveAt(positionLerpSpeedList.Count - 1);
-            rotationLerpSpeedList.RemoveAt(rotationLerpSpeedList.Count - 1);
-
+            //parentObject.localPosition = initialPosition;
+            //parentObject.localRotation = Quaternion.Euler(initialRotation);
             return;
         }
 
         if (startDelay <= 0)
         {
             //sets the camera position
-            parentObject.localPosition = Vector3.Lerp(parentObject.localPosition, initialPosition + positionList[counter], positionLerpSpeedList[counter] * Time.deltaTime);
+            parentObject.localPosition = Vector3.Lerp(parentObject.localPosition, positionList[counter], positionLerpSpeedList[counter] * Time.deltaTime);
             //sets the camera rotatiom
-            parentObject.localRotation = Quaternion.Euler(Vector3.Lerp(parentObject.localRotation.eulerAngles, initialRotation + rotationList[counter], rotationLerpSpeedList[counter] * Time.deltaTime));
+            parentObject.localRotation = Quaternion.Euler(Vector3.Lerp(parentObject.localRotation.eulerAngles, rotationList[counter], rotationLerpSpeedList[counter] * Time.deltaTime));
             //keeping track of time
            realTransitionTimeList[counter] -= Time.deltaTime;
             //checking to see if property change is needed
@@ -101,26 +76,17 @@ public class SpatialTRController : MonoBehaviour
         realTransitionTimeList.Clear();
         realTransitionTimeList.AddRange(transitionTimeList);
         startDelay = initialStartDelay;
-        counter = 0;
+        
         parentObject = this.gameObject.transform;
         initialPosition = parentObject.localPosition;
         initialRotation = parentObject.localRotation.eulerAngles;
 
-        positionList.Add(initialPosition);
-        rotationList.Add(initialRotation);
-        realTransitionTimeList.Add(resetTime);
-        positionLerpSpeedList.Add(finalPositionLerpSpeed);
-        rotationLerpSpeedList.Add(finalRotationLerpSpeed);
+        parentObject.localPosition = positionList[0];
+        parentObject.localRotation = Quaternion.Euler(rotationList[0]);
+        counter = 1;
 
-        animator = this.gameObject.GetComponentInParent<Animator>();
-        try
-        {
-            animator.SetBool("ShouldAnimate", false);
-        }
-        catch (NullReferenceException)
-        {
-            //Debug.Log($"Could not find animator in gameobjects parent (SpatialTRController)");
-        }
+
+
 
     }
 }

@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CryptOfTheAncients.unity
     guid: b15f5372656fb344782f93701f3edbff
+  - enabled: 1
+    path: Assets/Scenes/Fairshire.unity
+    guid: ce9ddbd043a777540a0c2511a7ea2d49
+  - enabled: 0
+    path: Assets/Scenes/TerrainDemoScene.unity
+    guid: d61f6fdec3664b0478bd38a2e410dc17
+  - enabled: 0
+    path: Assets/Resources/HDRP_TreesAndFoliage/Scenes/DemoScene.unity
+    guid: b5fd8eef5bc154f40a2565af8c573829
   m_configObjects: {}

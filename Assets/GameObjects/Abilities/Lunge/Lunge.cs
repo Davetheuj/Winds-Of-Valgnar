@@ -27,8 +27,8 @@ public class Lunge : MonoBehaviour
             weapon = weaponModel.GetComponentInChildren<Weapon>();
             weaponModel.transform.parent = GameObject.Find("Main Camera").transform;
             //weapon.gameObject.GetComponent<Item>().inventoryButtonPrefab.GetComponent<Equipment>().SetDefaultLocalRotationAndPosition();
-            weaponModel.transform.localPosition = weaponModel.GetComponent<Item>().inventoryButtonPrefab.GetComponent<Equipment>().defaultLocalPosition;
-            weaponModel.transform.localRotation = Quaternion.Euler(weaponModel.GetComponent<Item>().inventoryButtonPrefab.GetComponent<Equipment>().defaultLocalRotation);
+            //weaponModel.transform.localPosition = weaponModel.GetComponent<Item>().inventoryButtonPrefab.GetComponent<Equipment>().defaultLocalPosition;
+            //weaponModel.transform.localRotation = Quaternion.Euler(weaponModel.GetComponent<Item>().inventoryButtonPrefab.GetComponent<Equipment>().defaultLocalRotation);
 
             weapon.SelectAndEnableRandomAnimation(trueParent);
 

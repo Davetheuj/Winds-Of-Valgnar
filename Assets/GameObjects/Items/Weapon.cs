@@ -45,6 +45,7 @@ public class Weapon : MonoBehaviour
 
             damage = CalculateDamage(npc);
             npc.DealDamageToNpc(damage);
+            
             Instantiate(hitParticle, col.ClosestPoint(transform.position), Quaternion.LookRotation(col.transform.position - col.ClosestPoint(transform.position)));
             
             console.AddConsoleMessage1($"You deal {damage} damage to {npc.npcName}!");

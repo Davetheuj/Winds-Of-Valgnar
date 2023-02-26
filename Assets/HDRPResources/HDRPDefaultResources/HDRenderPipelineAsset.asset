@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RenderPipelineSettings:
     supportShadowMask: 1
-    supportSSR: 0
-    supportSSRTransparent: 0
+    supportSSR: 1
+    supportSSRTransparent: 1
     supportSSAO: 1
-    supportSSGI: 0
+    supportSSGI: 1
     supportSubsurfaceScattering: 1
     sssSampleBudget:
       m_Values: 140000002800000050000000
@@ -25,7 +25,7 @@ MonoBehaviour:
         m_Id: With3Levels
     supportVolumetrics: 1
     supportVolumetricClouds: 0
-    supportLightLayers: 0
+    supportLightLayers: 1
     supportDistortion: 1
     supportTransparentBackface: 1
     supportTransparentDepthPrepass: 1
@@ -46,7 +46,7 @@ MonoBehaviour:
     supportMotionVectors: 1
     supportRuntimeAOVAPI: 0
     supportDitheringCrossFade: 1
-    supportTerrainHole: 0
+    supportTerrainHole: 1
     supportProbeVolume: 0
     probeVolumeMemoryBudget: 1024
     probeVolumeSHBands: 1
@@ -140,6 +140,7 @@ MonoBehaviour:
       singlePass: 1
       occlusionMesh: 1
       cameraJitter: 0
+      allowMotionBlur: 1
     postProcessQualitySettings:
       NearBlurSampleCount: 030000000500000008000000
       NearBlurMaxRadius:
@@ -181,7 +182,7 @@ MonoBehaviour:
       AOMaximumRadiusPixels: 200000002800000050000000
       AOBilateralUpsample: 000101
       AODirectionCount: 010000000200000004000000
-      ContactShadowSampleCount: 060000000a00000010000000
+      ContactShadowSampleCount: 060000000a00000006000000
       SSRMaxRaySteps: 100000002000000040000000
       SSGIRaySteps: 200000004000000080000000
       SSGIDenoise: 010101

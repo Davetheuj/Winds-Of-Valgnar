@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 5912247221034854342}
   - component: {fileID: 85582612061051711}
   - component: {fileID: 7650832865059683884}
-  - component: {fileID: 7650832865059683872}
   - component: {fileID: 7650832865059683873}
+  - component: {fileID: 201842669651107484}
+  - component: {fileID: 5062804677122167696}
   m_Layer: 0
   m_Name: HammerOfBal'fiur
   m_TagString: Untagged
@@ -28,9 +29,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805058215189901283}
-  m_LocalRotation: {x: -0.99842924, y: -0, z: -0, w: 0.05602824}
+  m_LocalRotation: {x: -0.9984291, y: 0, z: 0, w: 0.056030594}
   m_LocalPosition: {x: 11.96, y: 84.40261, z: 270.33728}
   m_LocalScale: {x: 104.36653, y: 104.36661, z: 104.36661}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,16 +56,19 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2547364863215670401, guid: aa91f982c713f4b1bb1e264b9c9406de, type: 3}
-  - {fileID: -5865070592281682320, guid: aa91f982c713f4b1bb1e264b9c9406de, type: 3}
-  - {fileID: -6477940958727351939, guid: aa91f982c713f4b1bb1e264b9c9406de, type: 3}
-  - {fileID: -8367705006879899164, guid: aa91f982c713f4b1bb1e264b9c9406de, type: 3}
+  - {fileID: 2100000, guid: bbf673a29b65e4d4d8dc0736c66ddc36, type: 2}
+  - {fileID: 2100000, guid: 388ad64e7f195474a8c8f7f4f65d15cb, type: 2}
+  - {fileID: 2100000, guid: 388ad64e7f195474a8c8f7f4f65d15cb, type: 2}
+  - {fileID: 2100000, guid: 388ad64e7f195474a8c8f7f4f65d15cb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,6 +89,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &7650832865059683884
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -92,24 +98,12 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805058215189901283}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4971647342079136417, guid: aa91f982c713f4b1bb1e264b9c9406de, type: 3}
---- !u!114 &7650832865059683872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805058215189901283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67509a1c618fc4fd4826117a9dadf2eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7650832865059683873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,9 +116,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30177e32a7dc14e9c89a39bf0226bbae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Hammer of Bal'fiur
+  itemName: Hammer Of Bal'fiur
   isStackable: 0
+  quantity: 0
   inventoryButtonPrefab: {fileID: 5308953661767106379, guid: 060954f70c0ae447c9b50dcb496b199a,
     type: 3}
   toolTip: {fileID: 0}
   toolTipText: {fileID: 0}
+--- !u!114 &201842669651107484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805058215189901283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d34789efef51694d8ea17a34c75f741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classification: Short_Swords
+  classMultiplier: 1
+  NPCResistanceModifier: resistanceMelee
+  isAttacking: 0
+  weaponStrength: 0
+  experienceModifier: 2
+  animations: []
+  hitParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
+    type: 3}
+--- !u!114 &5062804677122167696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805058215189901283}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e56dc9595d1ab4b8ce62612cbdc4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: 
+  startDelay: 0
+  initialStartDelay: 0
+  positionList:
+  - {x: 0.69, y: -0.25, z: 0.18}
+  - {x: 0.69, y: -0.25, z: 0.18}
+  positionLerpSpeedList:
+  - 5
+  - 5
+  rotationList:
+  - {x: 0, y: 65.51998, z: 0}
+  - {x: 0, y: -5.5, z: 0}
+  rotationLerpSpeedList:
+  - 10
+  - 10
+  transitionTimeList:
+  - 0.2
+  - 0.2
+  isFinished: 0
+  resetTime: 0.01
+  finalPositionLerpSpeed: 20
+  finalRotationLerpSpeed: 20

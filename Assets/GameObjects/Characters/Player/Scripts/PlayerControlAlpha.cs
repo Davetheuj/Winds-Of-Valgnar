@@ -138,6 +138,8 @@ public class PlayerControlAlpha : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime);
         audioTimer += Time.deltaTime;
 
+        
+
     }
 
     public void ToggleMouseRestriction()
@@ -153,4 +155,13 @@ public class PlayerControlAlpha : MonoBehaviour
         }
         canRotate = !canRotate;
     }
+
+    
+    
+
+
+
+
+
+
 }

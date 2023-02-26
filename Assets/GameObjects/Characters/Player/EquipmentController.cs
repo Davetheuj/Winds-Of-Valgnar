@@ -165,14 +165,12 @@ public class EquipmentController : MonoBehaviour
         nLuckTotal = 0;
         nCharismaTotal = 0;
 
-        //nArmorTotal = 0;
+        
         nCrushTotal = 0;
         nPierceTotal = 0;
         nSlashTotal = 0;
         nWeaponStrengthTotal = 0;
-        //nWaterTotal = 0;
-        //nElectricTotal = 0;
-        // nEarthTotal = 0;
+        
 
         foreach (GameObject item in slots)
         {
@@ -191,13 +189,11 @@ public class EquipmentController : MonoBehaviour
                 nCharismaTotal += item.transform.GetChild(0).GetComponent<Equipment>().modifierCharisma;
                 nWeaponStrengthTotal += item.transform.GetChild(0).GetComponent<Equipment>().weaponStrength;
 
-                //nArmorTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceArmor;
+                
                 nCrushTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceCrush;
                 nPierceTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistancePierce;
                 nSlashTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceSlash;
-                //nWaterTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceWater;
-                //nEarthTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceEarth;
-                //nElectricTotal += item.transform.GetChild(0).GetComponent<Equipment>().resistanceElectric;
+
             }
 
         }
@@ -212,14 +208,11 @@ public class EquipmentController : MonoBehaviour
          SetTextAndColor(nSpiritTotal, spiritTotal);
          SetTextAndColor(nStrengthTotal, strengthTotal);
          SetTextAndColor( nWisdomTotal, wisdomTotal);
-         //SetTextColor(nArmorTotal, armorTotal);
-        // SetTextColor( nEarthTotal, earthTotal);
-        // SetTextColor( nElectricTotal, electricTotal);
          SetTextAndColor( nSlashTotal, slashTotal);
          SetTextAndColor(nCrushTotal, crushTotal);
          SetTextAndColor( nPierceTotal, pierceTotal);
-        SetTextAndColor(nWeaponStrengthTotal, weaponStrength);
-        //SetTextColor(nWaterTotal, waterTotal);
+         SetTextAndColor(nWeaponStrengthTotal, weaponStrength);
+
 
         nHitpointsTotal += playerStats.maxHealth;
         nManaTotal += playerStats.maxMana;

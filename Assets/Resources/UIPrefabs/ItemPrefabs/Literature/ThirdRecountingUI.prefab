@@ -185,4 +185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entries:
   - Test Entry :)
-  boons: []
+  - Second Entry
+  boons:
+  - {fileID: 0}

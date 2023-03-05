@@ -9199,6 +9199,7 @@ GameObject:
   - component: {fileID: 157376826}
   - component: {fileID: 157376829}
   - component: {fileID: 157376830}
+  - component: {fileID: 157376831}
   m_Layer: 0
   m_Name: PlayerInfoCanvas
   m_TagString: Untagged
@@ -9366,6 +9367,26 @@ MonoBehaviour:
   error: {fileID: 1093784558}
   literatureUIPanel: {fileID: 1431420462}
   playerControl: {fileID: 1893046277}
+  audioClipController: {fileID: 157376831}
+--- !u!114 &157376831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157376824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a5776d01fd56d478e1c4577c89e011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  audioMixerGroup: Master
+  ambientClips: []
+  interactionClips:
+  - {fileID: 8300000, guid: 89196abc44cd903498f4ca946f92f396, type: 3}
+  deinteractionClips: []
+  mixer: {fileID: 24100000, guid: 10a5f6c299245e44fb5c18087a9c6c8a, type: 2}
 --- !u!1001 &158256305
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,6 +22,9 @@ public class LiteratureUIController : MonoBehaviour
     [SerializeField]
     private PlayerController playerControl;
 
+    [SerializeField]
+    private AudioClipController audioClipController;
+
 
     public void UpdateAndShowLiteratureUI(Literature literature)
     {
@@ -37,6 +40,7 @@ public class LiteratureUIController : MonoBehaviour
 
         CheckAvailableButtons();
         literatureUIPanel.SetActive(true);
+        audioClipController.PlayClip(null, 0, .9f, false, 0, false, true, true, "Effects");
 
 
     }

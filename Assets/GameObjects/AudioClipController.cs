@@ -10,7 +10,7 @@ public class AudioClipController : MonoBehaviour
 {
     [Tooltip("This is set on Start()")]
     public AudioSource audioSource;
-    public string audioMixerGroup;
+    public string audioMixerGroup = "Master";
 
     public List<AudioClip> ambientClips = new List<AudioClip>();
     public List<AudioClip> interactionClips = new List<AudioClip>();
@@ -34,7 +34,7 @@ public class AudioClipController : MonoBehaviour
         try
         {
             audioSource = gameObject.GetComponent<AudioSource>();
-            audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[0];
+            audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups(audioMixerGroup)[0];
         }
         //if this doesnt work we'll look for an audioSource in the gameobject's children
         catch (Exception e)
@@ -43,7 +43,7 @@ public class AudioClipController : MonoBehaviour
             try
             {
                 audioSource = gameObject.GetComponentInChildren<AudioSource>();
-                audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[0];
+                audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups(audioMixerGroup)[0];
             }
             catch (Exception e2)
             {

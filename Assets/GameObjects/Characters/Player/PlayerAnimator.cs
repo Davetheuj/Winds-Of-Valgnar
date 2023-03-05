@@ -6,11 +6,11 @@ public class PlayerAnimator : MonoBehaviour
 {
 
     public Animator animator;
-    public PlayerControlAlpha playerControl;
+    public PlayerController playerControl;
 
     void Start()
     {
-        playerControl = gameObject.GetComponent<PlayerControlAlpha>();
+        playerControl = gameObject.GetComponent<PlayerController>();
         animator = GetComponentInChildren<Animator>();
     }
 

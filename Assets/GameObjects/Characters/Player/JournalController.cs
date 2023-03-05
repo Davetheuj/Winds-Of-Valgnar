@@ -22,7 +22,7 @@ public class JournalController : MonoBehaviour
     /// </summary>
     /// <param name="entryText">the text to be displayed</param>
     /// <param name="broadcast">if 0 creates an update in console</param>
-    public void CreateNewEntry(string entryText,int broadcast)
+    public void CreateNewEntry(string entryText, int broadcast)
     {
         entries.Add(new JournalEntry(entryText));
         entryCounter = entries.Count-1;
@@ -87,17 +87,7 @@ public class JournalController : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void SetJournalFromLoad(SerializableJournalController loadedJournal)
     {
         entries = loadedJournal.entries;

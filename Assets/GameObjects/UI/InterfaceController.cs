@@ -178,7 +178,7 @@ public class InterfaceController : MonoBehaviour
         settings.masterAudioVolume = masterAudioVolume;
 
         float inputSensitivity = inputSensitivitySlider.value * 100;
-        player.GetComponent<PlayerControlAlpha>().inputSensitivity = inputSensitivity;
+        player.GetComponent<PlayerController>().inputSensitivity = inputSensitivity;
         settings.inputSensitivity = inputSensitivity;
 
     }

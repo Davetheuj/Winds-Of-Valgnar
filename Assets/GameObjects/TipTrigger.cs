@@ -41,7 +41,7 @@ public class TipTrigger : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void triggerToolTip()
+    public void TriggerToolTip()
     {
         controller.ShowTip(tipText, 5);
         Destroy(this);

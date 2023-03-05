@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class InventoryController : MonoBehaviour
 {
-   
-    public GameObject[] slots = new GameObject[30];
+    public GameObject slotHolder;
+    public List<GameObject> slots = new List<GameObject>();
     public int coins;
-   
 
+    private void Start()
+    {
+        foreach(Transform trans in slotHolder.transform)
+        {
+            slots.Add(trans.gameObject);
+        }
+    }
     public GameObject GetFirstEmptySlot()
     {
         foreach(GameObject slot in slots)
@@ -19,11 +25,7 @@ public class InventoryController : MonoBehaviour
             }
         }
        
-
-
-        return null;
-        
-        
+        return null; 
     }
     
 }

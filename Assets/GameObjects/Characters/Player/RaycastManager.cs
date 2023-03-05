@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class RaycastManager : MonoBehaviour
 {
     public Transform player;
-    public PlayerControlAlpha playerControl;
+    public PlayerController playerControl;
 
 public RectTransform quickInspectItemPanelTransform;
     public TMP_Text quickInspectItemPaneltext;
@@ -43,6 +43,8 @@ public RectTransform quickInspectItemPanelTransform;
 
     public DialoguePanelController dialogueController;
 
+    public ItemContainerController containerController;
+
     public ConsoleManager console;
 
     // Update is called once per frame
@@ -64,13 +66,10 @@ public RectTransform quickInspectItemPanelTransform;
             var rayHitObject = hit.transform.gameObject;
             //Debug.LogWarning("hit with " + rayHitObject.name);
 
-
-
-            //Item sequence
            if (rayHitObject.GetComponent<Item>() != null)
             {
                 Item item = rayHitObject.GetComponent<Item>();
-                if(item.enabled == false)
+                if(item.enabled == false) // generally only disabled while an item is equipped
                 {
                     Debug.Log("item component not enabled, returning early");
                     return;
@@ -131,6 +130,30 @@ public RectTransform quickInspectItemPanelTransform;
                     dialogueController.UpdateAndShowDialoguePanel();
                     playerControl.ToggleMouseRestriction();
                 }
+            }
+
+            if(rayHitObject.GetComponent<ItemContainer>() != null)
+            {
+                ItemContainer itemContainer = rayHitObject.GetComponent<ItemContainer>();
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if ((player.position - rayHitObject.transform.position).magnitude > containerController.containerDisappearDistance)
+                    {
+                        return;
+                    }
+                    containerController.UpdateAndShowItemContainerPanel(itemContainer);
+                    playerControl.ToggleMouseRestriction();
+
+                }
+                if (oldObject == rayHitObject)
+                {
+                    PositionItemPanelToMouse();
+                    return;
+                }
+                oldObject = rayHitObject;
+                quickInspectItemPaneltext.SetText(itemContainer.containerName);
+
+                PositionItemPanelToMouse();
             }
         }
 
@@ -212,7 +235,7 @@ public RectTransform quickInspectItemPanelTransform;
         //Check for quest components here
         if(hitObject.GetComponent<TipTrigger>() != null)
         {
-            hitObject.GetComponent<TipTrigger>().triggerToolTip();
+            hitObject.GetComponent<TipTrigger>().TriggerToolTip();
         }
         Destroy(hitObject);
 

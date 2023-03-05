@@ -3,3 +3,4 @@ Miasma Particle effects should look better
 mouse sensitivity adjustments
 save/load settings
 unequip item if dropped while equipped
+

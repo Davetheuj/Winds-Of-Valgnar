@@ -372,7 +372,7 @@ public class DialoguePanelController : MonoBehaviour
     {
         isShowing = false;
         dialoguePanel.SetActive(false);
-        player.GetComponent<PlayerControlAlpha>().ToggleMouseRestriction();
+        player.GetComponent<PlayerController>().ToggleMouseRestriction();
         if (!wasNPCStationary)
         {
             NPC.GetComponent<NPC>().isStationary = false;

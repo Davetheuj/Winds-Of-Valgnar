@@ -17,11 +17,6 @@ public class TipTrigger : MonoBehaviour
         controller = tipPanel.GetComponent<TipController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {

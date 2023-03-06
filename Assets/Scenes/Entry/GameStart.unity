@@ -4700,8 +4700,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.6710205, y: 21.067017}
-  m_SizeDelta: {x: 620.5681, y: 671.22}
+  m_AnchoredPosition: {x: -0.016998291, y: 15.970093}
+  m_SizeDelta: {x: 952.7146, y: 1018.2954}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &81341244
 MonoBehaviour:
@@ -4723,15 +4723,42 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '9:36 - 5th of Felling
+  m_text: 'Undruil, the god of Shadow, is a mysterious and elusive deity whose very
+    presence seems to shroud everything in a veil of darkness. His form is said to
+    be indistinct, a mere flicker of shadow that slips through the corners of one''s
+    vision like a trick of the light. Though he is seldom seen, his influence is
+    felt in the eerie quiet that descends upon a forest at twilight, or the sudden
+    chill that runs down one''s spine when walking through an abandoned alley.
 
+    
 
+    Undruil''s
+    realm is a place of infinite shadows, where darkness reigns supreme and even
+    the stars seem to dim in his presence. His followers believe that he embodies
+    the power of hidden knowledge and secrets, and that his shadowy influence can
+    be used to gain an advantage in any situation. Those who seek his favor often
+    meditate in dark places or study under moonless skies, hoping to tap into the
+    mysterious power that Undruil represents.
 
-    While on a raid of the goblin outpost an
-    odd farmer offered me a deal in exchange for my services. Upon securing the land
-    around his farmstead he has given me a pig. He also offered to slaughter the
-    pig and make some bacon, but I have decided to name the pig ''Derp'', and he
-    will be my companion for many journies around the sun.'
+    
+
+    Metaphorically, Undruil
+    embodies the idea of the unknown, the hidden, and the mysterious. He represents
+    the fear of the dark and the fear of the unknown, but also the allure of secrets
+    and the promise of hidden knowledge. His followers often speak of the "shadow
+    self," the part of oneself that is hidden and mysterious, and they believe that
+    by embracing this aspect of themselves, they can tap into Undruil''s power and
+    gain a greater understanding of the world around them.
+
+    
+
+    In the stories
+    told about Undruil, he is often portrayed as a trickster god, delighting in misdirection
+    and using his shadowy powers to conceal his true intentions. His followers are
+    cautioned to be wary of his whims and to never take his blessings for granted,
+    for like the shadows he embodies, his intentions are never fully revealed. And
+    yet, there is a sense of reverence and awe that surrounds the god of Shadow,
+    for his power and influence are undeniable, even if they remain shrouded in mystery.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7775,10 +7802,10 @@ RectTransform:
   m_Father: {fileID: 615956961}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 26.5, y: -70.67501}
-  m_SizeDelta: {x: 41, y: 41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &129134863
 GameObject:
@@ -15919,10 +15946,10 @@ RectTransform:
   m_Father: {fileID: 615956961}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 122.8, y: -29.675013}
-  m_SizeDelta: {x: 41, y: 41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &268200581
 MonoBehaviour:
@@ -27063,10 +27090,10 @@ RectTransform:
   m_Father: {fileID: 615956961}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 74.65, y: -29.675013}
-  m_SizeDelta: {x: 41, y: 41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &500148084
 MonoBehaviour:
@@ -27703,10 +27730,10 @@ RectTransform:
   m_Father: {fileID: 615956961}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 315.4, y: -29.675013}
-  m_SizeDelta: {x: 41, y: 41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &518948097
 MonoBehaviour:
@@ -34669,7 +34696,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -45233,8 +45260,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1893046270}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 157376830}
+        m_TargetAssemblyTypeName: LiteratureUIController, Assembly-CSharp
         m_MethodName: TurnPageBack
         m_Mode: 1
         m_Arguments:
@@ -56628,10 +56655,10 @@ RectTransform:
   m_Father: {fileID: 615956961}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 363.55, y: -29.675013}
-  m_SizeDelta: {x: 41, y: 41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1031214251
 MonoBehaviour:
@@ -58973,10 +59000,10 @@ RectTransform:
   m_Father: {fileID: 615956961}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 26.5, y: -29.675013}
-  m_SizeDelta: {x: 41, y: 41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1072631599
 MonoBehaviour:
@@ -75764,10 +75791,10 @@ RectTransform:
   m_Father: {fileID: 615956961}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 411.7, y: -29.675013}
-  m_SizeDelta: {x: 41, y: 41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1358577572
 MonoBehaviour:
@@ -87948,7 +87975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1592983813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89070,10 +89097,10 @@ RectTransform:
   m_Father: {fileID: 615956961}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 219.1, y: -29.675013}
-  m_SizeDelta: {x: 41, y: 41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1611153761
 MonoBehaviour:
@@ -89941,10 +89968,10 @@ RectTransform:
   m_Father: {fileID: 615956961}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 267.25, y: -29.675013}
-  m_SizeDelta: {x: 41, y: 41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1628333557
 MonoBehaviour:
@@ -92195,8 +92222,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1893046270}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 157376830}
+        m_TargetAssemblyTypeName: LiteratureUIController, Assembly-CSharp
         m_MethodName: TurnPageForward
         m_Mode: 1
         m_Arguments:
@@ -93727,10 +93754,10 @@ RectTransform:
   m_Father: {fileID: 615956961}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170.95, y: -29.675013}
-  m_SizeDelta: {x: 41, y: 41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1700774829
 MonoBehaviour:
@@ -101473,10 +101500,10 @@ RectTransform:
   m_Father: {fileID: 615956961}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 459.85, y: -29.675013}
-  m_SizeDelta: {x: 41, y: 41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1869749678
 MonoBehaviour:

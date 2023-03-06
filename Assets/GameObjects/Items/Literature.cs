@@ -5,6 +5,6 @@ using UnityEngine;
 public class Literature : MonoBehaviour
 {
     public List<string> entries;
-    public List<MonoBehaviour> boons;
+    public List<Script> boons;
 
 }

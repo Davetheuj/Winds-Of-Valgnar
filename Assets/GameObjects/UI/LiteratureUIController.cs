@@ -28,7 +28,7 @@ public class LiteratureUIController : MonoBehaviour
 
     public void UpdateAndShowLiteratureUI(Literature literature)
     {
-        foreach(MonoBehaviour boon in literature.boons)
+        foreach(Script boon in literature.boons)
         {
             
         }

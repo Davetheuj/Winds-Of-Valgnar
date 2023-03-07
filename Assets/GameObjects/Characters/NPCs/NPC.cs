@@ -381,7 +381,12 @@ public class NPC : MonoBehaviour
         }
        statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, fontSize);
         //statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, 14);
-       
+        if (!string.IsNullOrEmpty(hitClipName))
+        {
+            animator.Play(hitClipName);
+            Debug.Log($"Playing hit clip name for {npcName}");
+        }
+
     }
 
     private void DealDamageToPlayer(int maxDamage)

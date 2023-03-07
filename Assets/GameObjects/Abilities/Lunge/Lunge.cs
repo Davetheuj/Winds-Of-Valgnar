@@ -37,34 +37,4 @@ public class Lunge : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //if(weaponModel)
-        //clipController.PlayInteractionClip(0, 1, false, 0, false, true,true);
-        ////Send message to main hand's Equipment Controller to compute damage, select a weapon animation to play,
-
-         
-       
-        //Transform trueParent = weaponModel.transform.parent;
-        //weapon = weaponModel.GetComponentInChildren<Weapon>();
-        //weaponModel.transform.parent = GameObject.Find("Main Camera").transform;
-        ////weapon.gameObject.GetComponent<Item>().inventoryButtonPrefab.GetComponent<Equipment>().SetDefaultLocalRotationAndPosition();
-        //weaponModel.transform.localPosition = weaponModel.GetComponent<Item>().inventoryButtonPrefab.GetComponent<Equipment>().defaultLocalPosition;
-        //weaponModel.transform.localRotation = Quaternion.Euler(weaponModel.GetComponent<Item>().inventoryButtonPrefab.GetComponent<Equipment>().defaultLocalRotation);
-
-        //weapon.SelectAndEnableRandomAnimation(trueParent);
-        ////Destroy this gameobject
-        //Destroy(gameObject);
-
-    }
-
-
-
-    IEnumerator WaitAndDestroy()
-    {
-
-        yield return new WaitForSecondsRealtime(.025f);
-        Destroy(gameObject);
-    }
 }

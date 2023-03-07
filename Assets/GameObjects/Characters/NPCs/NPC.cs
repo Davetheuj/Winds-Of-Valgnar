@@ -203,10 +203,11 @@ public class NPC : MonoBehaviour
                     if (!string.IsNullOrEmpty(agressiveIdleClipName))
                     {
                         animator.Play(agressiveIdleClipName);
+                        Debug.Log($"{npcName} playing {agressiveIdleClipName} (aggressiveIdleClip)");
                     }
                     needsAnimationChange = false;
                     wasOutOfRange = false;
-                   //Debug.Log($"{npcName} playing {agressiveIdleClipName} (aggressiveIdleClip)");
+                   
                 }
                 
                 if (attackTimer >= attackDelay)
@@ -214,7 +215,7 @@ public class NPC : MonoBehaviour
                     if (!string.IsNullOrEmpty(attackClipName))
                     {
                         animator.Play(attackClipName);
-                        //Debug.Log($"{npcName} playing {attackClipName} (attackClip)");
+                        Debug.Log($"{npcName} playing {attackClipName} (attackClip)");
                     }
                     DealDamageToPlayer(baseAttackStrength);
                     attackTimer = 0;
@@ -242,6 +243,7 @@ public class NPC : MonoBehaviour
                 if (!string.IsNullOrEmpty(runClipName))
                 {
                     animator.Play(runClipName);
+                    Debug.Log($"{npcName} playing {runClipName} (runClip)");
                 }
                 if (!isStuck)
                 {
@@ -422,6 +424,7 @@ public class NPC : MonoBehaviour
                 needsAnimationChange = true;
             }
             state = 2;
+            isAttacked = false;
             
         }
     }

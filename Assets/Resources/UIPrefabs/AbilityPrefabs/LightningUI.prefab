@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 5876913682134180105}
   - component: {fileID: 5876913682134180104}
   - component: {fileID: 5876913682134180107}
+  - component: {fileID: -7913715122470193055}
   m_Layer: 0
-  m_Name: AbilityButton (19)
+  m_Name: LightningUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,6 +32,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1.9}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -63,6 +65,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.9596207, b: 0.7783019, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -90,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -143,3 +148,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d0e8a98743d404eb91ad7bb088471c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7913715122470193055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5876913682134180109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c940f4e7301461ba7bdc6ce0768d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 2782653126747434311, guid: a7b92bfc791feb7409b402df0fafa33e, type: 3}
+  manaCost: 0
+  healthCost: 0
+  isTargeted: 0
+  currentAbility: {fileID: 0}

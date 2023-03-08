@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 334581628860332195}
   - component: {fileID: 334581628860332194}
   - component: {fileID: 6322674493026617527}
-  m_Layer: 0
-  m_Name: AbilityButton (31)
+  m_Layer: 5
+  m_Name: LungeUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,9 +29,10 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334581628860332192}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1.9}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -64,6 +65,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -91,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -159,5 +163,5 @@ MonoBehaviour:
   ability: {fileID: 1414222583094221135, guid: 579acb24e5df15849bd00b3b6dad1dcd, type: 3}
   manaCost: 0
   healthCost: 0
-  isTargeted: 1
+  isTargeted: 0
   currentAbility: {fileID: 0}

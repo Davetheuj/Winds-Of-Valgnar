@@ -26,6 +26,8 @@ public class InterfaceController : MonoBehaviour
 
     public GameObject itemQuickHoverPanel;
 
+    public GameObject abilityQuickHoverPanel;
+
     public GameObject player;
 
     //SettingsPanel

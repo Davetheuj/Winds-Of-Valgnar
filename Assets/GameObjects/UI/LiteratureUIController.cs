@@ -28,10 +28,14 @@ public class LiteratureUIController : MonoBehaviour
 
     public void UpdateAndShowLiteratureUI(Literature literature)
     {
-        foreach(Script boon in literature.boons)
+        Debug.Log("Called UdpateAndShowLiteratureUI");
+        foreach(GameObject boon in literature.boons)
         {
+            Instantiate(boon);
             
         }
+        literature.boons = new List<GameObject>(); //Removes old boons so they wont be given again
+
         entries = literature.entries;
         entryCounter = 0;
         journalPage.text = entries[entryCounter];

@@ -379,7 +379,7 @@ public class NPC : MonoBehaviour
         {
         fontSize = 12;
         }
-       statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, fontSize);
+       //statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, fontSize);
         //statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, 14);
         if (!string.IsNullOrEmpty(hitClipName))
         {
@@ -394,7 +394,7 @@ public class NPC : MonoBehaviour
         int damageDealt = (int)(UnityEngine.Random.value * maxDamage);
         player.GetComponent<StatsController>().currentHealth -= damageDealt;
         statusController.UpdateStatusUI();
-        statusController.SpawnDamageText(damageDealt, player, 0, 12);
+        //statusController.SpawnDamageText(damageDealt, player, 0, 12);
     }
     private void SpawnItem()
     {

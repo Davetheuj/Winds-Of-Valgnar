@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1473850629}
   - component: {fileID: 1473850634}
   - component: {fileID: 1473850635}
-  - component: {fileID: 294763887}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Untagged
@@ -152,7 +151,6 @@ MonoBehaviour:
   resetTime: 0.2
   finalPositionLerpSpeed: 20
   finalRotationLerpSpeed: 0
-  animator: {fileID: 0}
 --- !u!114 &1473850635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,18 +172,6 @@ MonoBehaviour:
   animations: []
   hitParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
     type: 3}
---- !u!114 &294763887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2646491910ec8d1489b4d4fb2c77a9fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &151766
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,11 +402,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2179cead1fd274c954e07dbcb99d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxIntensity: 700
-  minIntensity: 500
+  maxIntensity: 400
+  minIntensity: 300
   intensityRange: 30
   intensityLerpSpeed: 1
-  minTimeForChange: 0.1
+  minTimeForChange: 0.09
 --- !u!1001 &7842920292090242934
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -52,7 +52,7 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
     {
 
         baseItemInfoPanel.SetActive(false);
-        controller.equipmentHoverInfoPanel.SetActive(false);
+        //controller.equipmentHoverInfoPanel.SetActive(false);
         if(gameObject.transform.parent.parent.name == "ContainerPanel") //The object is in a container (not the player's inventory interface)
         {
             Debug.Log($"Index of {transform.parent.name} at {transform.parent.GetSiblingIndex()}");

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2782653126747434312}
+  - component: {fileID: 6608100277045640121}
   - component: {fileID: 2782653126747434314}
   - component: {fileID: 2782653126747434313}
   - component: {fileID: 2782653126747434319}
@@ -17,7 +18,6 @@ GameObject:
   - component: {fileID: 2782653126747434316}
   - component: {fileID: 2782653126747434315}
   - component: {fileID: 3601018721079059027}
-  - component: {fileID: 6608100277045640121}
   m_Layer: 0
   m_Name: Lightning
   m_TagString: Untagged
@@ -44,6 +44,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &6608100277045640121
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782653126747434311}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.18
+  m_Height: 10.75
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 5}
 --- !u!2083052967 &2782653126747434314
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -233,24 +247,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d52d9659ec3df44b00e2d34c17e597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  incrementDuration: 0
+  castDuration: 3
   incrementor: 0
   startPos: {fileID: 0}
   endPos: {fileID: 0}
---- !u!136 &6608100277045640121
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2782653126747434311}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.18
-  m_Height: 10.75
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 5}
 --- !u!1 &2782653126840246069
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 2782653126840246070}
   - component: {fileID: 2782653126840246072}
   - component: {fileID: 2782653126840246071}
+  - component: {fileID: 922501896488721685}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -468,6 +469,21 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+--- !u!114 &922501896488721685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782653126840246069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2179cead1fd274c954e07dbcb99d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxIntensity: 800
+  minIntensity: 300
+  minTimeForChange: 0.06
 --- !u!1 &2782653126846990947
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,6 +590,7 @@ GameObject:
   - component: {fileID: 2782653128318550484}
   - component: {fileID: 2782653128318550486}
   - component: {fileID: 2782653128318550485}
+  - component: {fileID: 7411908736018609395}
   m_Layer: 0
   m_Name: Point Light_1
   m_TagString: Untagged
@@ -780,6 +797,21 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+--- !u!114 &7411908736018609395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782653128318550483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2179cead1fd274c954e07dbcb99d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxIntensity: 800
+  minIntensity: 300
+  minTimeForChange: 0.06
 --- !u!1 &2782653128398748884
 GameObject:
   m_ObjectHideFlags: 0

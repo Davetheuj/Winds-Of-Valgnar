@@ -287,4 +287,5 @@ MonoBehaviour:
     up to his example. Though his standards are high, they are not unattainable,
     and those who strive to follow the Nelyakian way believe that they can achieve
     greatness and fulfill their destiny as warriors and champions.
-  boons: []
+  boons:
+  - {fileID: 1593892696230572677, guid: 9ab019f27ecc16a47bfd7a44a27334cc, type: 3}

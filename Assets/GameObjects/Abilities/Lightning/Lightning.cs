@@ -5,7 +5,7 @@ using UnityEngine;
 public class Lightning : MonoBehaviour
 {
 
-    public float incrementDuration;
+    public float castDuration;
     public int incrementor;
     private float time;
     public Transform startPos;
@@ -25,6 +25,10 @@ public class Lightning : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
+        if (time > castDuration)
+        {
+            DestroyImmediate(this.gameObject);
+        }
     }
 
 

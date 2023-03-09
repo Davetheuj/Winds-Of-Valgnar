@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5876913682134180104}
   - component: {fileID: 5876913682134180107}
   - component: {fileID: -7913715122470193055}
+  - component: {fileID: -8008630732486088789}
   m_Layer: 0
   m_Name: LightningUI
   m_TagString: Untagged
@@ -161,7 +162,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 2782653126747434311, guid: a7b92bfc791feb7409b402df0fafa33e, type: 3}
-  manaCost: 0
+  manaCost: 50
   healthCost: 0
   isTargeted: 0
   currentAbility: {fileID: 0}
+--- !u!114 &-8008630732486088789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5876913682134180109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7a43df6fdbd741459ab43333cf6e921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: Beam Lightning
+  infoText: Casts a beam of lightning, over 10 feet in front of the player, that
+    does damage over time to any enemies within it's volume.

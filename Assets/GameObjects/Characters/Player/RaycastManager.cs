@@ -46,6 +46,8 @@ public RectTransform quickInspectItemPanelTransform;
     public ItemContainerController containerController;
 
     public ConsoleManager console;
+    
+    private float doorInteractionDistance = 7f;
 
     // Update is called once per frame
     void Update()
@@ -71,7 +73,7 @@ public RectTransform quickInspectItemPanelTransform;
                 Item item = rayHitObject.GetComponent<Item>();
                 if(item.enabled == false) // generally only disabled while an item is equipped
                 {
-                    Debug.Log("item component not enabled, returning early");
+                    //Debug.Log("item component not enabled, returning early");
                     return;
                 }
 
@@ -100,8 +102,6 @@ public RectTransform quickInspectItemPanelTransform;
                 }
 
                 PositionItemPanelToMouse();
-
-
 
             }
 
@@ -153,6 +153,23 @@ public RectTransform quickInspectItemPanelTransform;
                 oldObject = rayHitObject;
                 quickInspectItemPaneltext.SetText(itemContainer.containerName);
 
+                PositionItemPanelToMouse();
+            }
+
+            if (rayHitObject.GetComponent<Door>() != null)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    
+                    if ((player.position - rayHitObject.transform.position).magnitude > doorInteractionDistance)
+                    {
+                        
+                        return;
+                    }
+                    rayHitObject.GetComponent<Door>().OpenDoor();
+                    return;
+                }
+                quickInspectItemPaneltext.SetText(rayHitObject.GetComponent<Door>().doorName);
                 PositionItemPanelToMouse();
             }
         }
@@ -239,7 +256,7 @@ public RectTransform quickInspectItemPanelTransform;
         }
         Destroy(hitObject);
 
-
     }
    
 }
+

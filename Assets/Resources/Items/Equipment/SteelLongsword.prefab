@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 6293618560013619220}
   - component: {fileID: 7296144556960728039}
   - component: {fileID: 1105054982695320104}
-  - component: {fileID: 693085912815614808}
+  - component: {fileID: 6692858542268654498}
+  - component: {fileID: 5331560860736185696}
   m_Layer: 0
   m_Name: SteelLongsword
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 2702563508899882153}
   m_LocalRotation: {x: -0.70188785, y: -0.08575207, z: 0.70188785, w: 0.08575207}
   m_LocalPosition: {x: 3.161774, y: 1.229418, z: -4.4745684}
-  m_LocalScale: {x: 2.08, y: 2.08, z: 2.08}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -141,7 +142,46 @@ MonoBehaviour:
   animations: []
   hitParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
     type: 3}
---- !u!114 &693085912815614808
+--- !u!114 &6692858542268654498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2702563508899882153}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e56dc9595d1ab4b8ce62612cbdc4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: Lunge
+  startDelay: 0
+  initialStartDelay: 0
+  positionList:
+  - {x: 1.8, y: -1.6, z: -3}
+  - {x: 1.8, y: -1.6, z: 1.5}
+  - {x: 1.8, y: -1.6, z: -3}
+  positionLerpSpeedList:
+  - 0
+  - 30
+  - 30
+  rotationList:
+  - {x: 0.57373047, y: -0.14251056, z: 0.102196924, w: 0.80004996}
+  - {x: 0.57373047, y: -0.14251056, z: 0.102196924, w: 0.80004996}
+  - {x: 0.57373047, y: -0.14251056, z: 0.102196924, w: 0.80004996}
+  rotationLerpSpeedList:
+  - 10
+  - 10
+  - 10
+  transitionTimeList:
+  - 5
+  - 0.2
+  - 0.2
+  isFinished: 0
+  resetTime: 0.2
+  finalPositionLerpSpeed: 20
+  finalRotationLerpSpeed: 0
+--- !u!114 &5331560860736185696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,21 +197,26 @@ MonoBehaviour:
   startDelay: 0
   initialStartDelay: 0
   positionList:
-  - {x: 0, y: -1, z: 0}
-  - {x: 0.25, y: -1, z: 1.5}
+  - {x: 1.1344589, y: -1.97494, z: 0.7}
+  - {x: 1.1755468, y: -1.7808435, z: 1.2000101}
+  - {x: 0.26, y: -1.04, z: 0.48}
   positionLerpSpeedList:
-  - 10
-  - 10
+  - 200
+  - 200
+  - 200
   rotationList:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: -0.07461358, y: -0.017036613, z: -0.1851949, w: 0.979717}
+  - {x: 0.19729938, y: -0.1067415, z: -0.18090269, w: 0.9575768}
+  - {x: 0.5962887, y: -0.175119, z: -0.11598664, w: 0.77480334}
   rotationLerpSpeedList:
-  - 0
-  - 0
+  - 400
+  - 400
+  - 400
   transitionTimeList:
-  - 0.3
+  - 0.1
+  - 0.1
   - 0.3
   isFinished: 0
-  resetTime: 0.2
-  finalPositionLerpSpeed: 20
+  resetTime: 0
+  finalPositionLerpSpeed: 0
   finalRotationLerpSpeed: 0

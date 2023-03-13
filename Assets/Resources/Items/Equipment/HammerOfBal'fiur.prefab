@@ -160,21 +160,26 @@ MonoBehaviour:
   startDelay: 0
   initialStartDelay: 0
   positionList:
-  - {x: 0.69, y: -0.25, z: 0.18}
-  - {x: 0.69, y: -0.25, z: 0.18}
+  - {x: 0.8, y: -0.76, z: -1.3}
+  - {x: 0.8, y: -0.76, z: 1.5}
+  - {x: 0.8, y: -0.76, z: -2}
   positionLerpSpeedList:
-  - 5
-  - 5
+  - 0
+  - 30
+  - 30
   rotationList:
-  - {x: 0, y: 65.51998, z: 0}
-  - {x: 0, y: -5.5, z: 0}
+  - {x: 0.57780457, y: -0.15289415, z: 0.111267656, w: 0.7939678}
+  - {x: 0.5778046, y: -0.15289415, z: 0.111267656, w: 0.7939678}
+  - {x: 0.5778046, y: -0.15289415, z: 0.111267656, w: 0.7939678}
   rotationLerpSpeedList:
   - 10
   - 10
+  - 10
   transitionTimeList:
+  - 5
   - 0.2
   - 0.2
   isFinished: 0
-  resetTime: 0.01
+  resetTime: 0.2
   finalPositionLerpSpeed: 20
-  finalRotationLerpSpeed: 20
+  finalRotationLerpSpeed: 0

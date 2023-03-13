@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5552361926028216409}
   - component: {fileID: 898636132714816541}
   - component: {fileID: -6314485058708994334}
+  - component: {fileID: -4914435919066235236}
   m_Layer: 0
   m_Name: Dagger
   m_TagString: Untagged
@@ -167,8 +168,8 @@ MonoBehaviour:
   - 10
   - 10
   rotationList:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0, w: 0.25}
+  - {x: 0, y: 0, z: 0, w: 1.6764743e+22}
   rotationLerpSpeedList:
   - 0
   - 0
@@ -178,4 +179,29 @@ MonoBehaviour:
   isFinished: 0
   resetTime: 0.2
   finalPositionLerpSpeed: 20
+  finalRotationLerpSpeed: 0
+--- !u!114 &-4914435919066235236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4479989640100468894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e56dc9595d1ab4b8ce62612cbdc4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: 
+  startDelay: 0
+  initialStartDelay: 0
+  positionList: []
+  positionLerpSpeedList: []
+  rotationList:
+  - {x: 0, y: 0, z: 0, w: 0}
+  rotationLerpSpeedList: []
+  transitionTimeList: []
+  isFinished: 0
+  resetTime: 0
+  finalPositionLerpSpeed: 0
   finalRotationLerpSpeed: 0

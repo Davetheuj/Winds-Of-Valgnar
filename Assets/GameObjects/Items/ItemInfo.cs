@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.GameObjects.Items;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -26,7 +27,7 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
     public static GameObject CurrentElement;
     //public static GameObject equipmentPanel;
     //public GameObject EquipmentHoverInfoPanel;
-    private EquipmentController controller;
+    private EquipmentController equipmentController;
     private InventoryController inventoryController;
     private ItemContainerController itemContainerController;
     private ConsoleManager console;
@@ -41,7 +42,7 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
         baseItemWeightText = secondaryPanel.transform.Find("WeightPanel").transform.Find("Weight").GetComponent<TMP_Text>();
         baseItemUseText = secondaryPanel.transform.Find("UseTextPanel").transform.Find("ClickText").GetComponent<TMP_Text>();
         //equipmentPanel = GameObject.Find("EquipmentPanel").gameObject;
-        controller = GameObject.Find("Player").GetComponent<EquipmentController>();
+        equipmentController = GameObject.Find("Player").GetComponent<EquipmentController>();
         inventoryController = GameObject.Find("Player").GetComponent<InventoryController>();
         console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
         itemContainerController = GameObject.Find("ItemHoverCanvas").GetComponent<ItemContainerController>();
@@ -78,12 +79,17 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
         {
             if (gameObject.GetComponent<Equipment>() != null)
             {
-               controller.EquipItem(this.gameObject);
+               equipmentController.EquipItem(this.gameObject);
                 return;
             }
             if(gameObject.GetComponent<Literature>() != null)
             {
                 literatureUIController.UpdateAndShowLiteratureUI(GetComponent<Literature>());
+                return;
+            }
+            if (gameObject.GetComponent<Consumable>() != null)
+            {
+                gameObject.GetComponent<Consumable>().enabled = true;
                 return;
             }
         }
@@ -104,20 +110,20 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
             baseItemUseText.text = "<Click> to equip";
             //Now doing the stuff for the equipment panel
             Equipment equipmentTemp = gameObject.GetComponent<Equipment>();
-            controller.SetTextAndColor(equipmentTemp.modifierHitPoints, controller.hitpoints);
-            controller.SetTextAndColor(equipmentTemp.modifierCharisma, controller.charisma);
-            controller.SetTextAndColor(equipmentTemp.modifierDexterity, controller.dexterity);
-            controller.SetTextAndColor(equipmentTemp.modifierIntelligence, controller.intelligence);
-            controller.SetTextAndColor(equipmentTemp.modifierLuck, controller.luck);
-            controller.SetTextAndColor(equipmentTemp.modifierMana, controller.mana);
-            controller.SetTextAndColor(equipmentTemp.modifierResolve, controller.resolve);
-            controller.SetTextAndColor(equipmentTemp.modifierSpirit, controller.spirit);
-            controller.SetTextAndColor(equipmentTemp.modifierStrength, controller.strength);
-            controller.SetTextAndColor(equipmentTemp.modifierWisdom, controller.wisdom);
-            controller.SetTextAndColor(equipmentTemp.resistanceCrush, controller.crush);
-            controller.SetTextAndColor(equipmentTemp.resistancePierce, controller.pierce);
-            controller.SetTextAndColor(equipmentTemp.resistanceSlash, controller.slash);
-            controller.SetTextAndColor(equipmentTemp.weaponStrength, controller.weaponStrength);
+            equipmentController.SetTextAndColor(equipmentTemp.modifierHitPoints, equipmentController.hitpoints);
+            equipmentController.SetTextAndColor(equipmentTemp.modifierCharisma, equipmentController.charisma);
+            equipmentController.SetTextAndColor(equipmentTemp.modifierDexterity, equipmentController.dexterity);
+            equipmentController.SetTextAndColor(equipmentTemp.modifierIntelligence, equipmentController.intelligence);
+            equipmentController.SetTextAndColor(equipmentTemp.modifierLuck, equipmentController.luck);
+            equipmentController.SetTextAndColor(equipmentTemp.modifierMana, equipmentController.mana);
+            equipmentController.SetTextAndColor(equipmentTemp.modifierResolve, equipmentController.resolve);
+            equipmentController.SetTextAndColor(equipmentTemp.modifierSpirit, equipmentController.spirit);
+            equipmentController.SetTextAndColor(equipmentTemp.modifierStrength, equipmentController.strength);
+            equipmentController.SetTextAndColor(equipmentTemp.modifierWisdom, equipmentController.wisdom);
+            equipmentController.SetTextAndColor(equipmentTemp.resistanceCrush, equipmentController.crush);
+            equipmentController.SetTextAndColor(equipmentTemp.resistancePierce, equipmentController.pierce);
+            equipmentController.SetTextAndColor(equipmentTemp.resistanceSlash, equipmentController.slash);
+            equipmentController.SetTextAndColor(equipmentTemp.weaponStrength, equipmentController.weaponStrength);
             //controller.SetTextColor(equipmentTemp.resistanceArmor, controller.armor);
             //controller.SetTextColor(equipmentTemp.resistanceEarth, controller.earth);
             //controller.SetTextColor(equipmentTemp.resistanceElectric, controller.electric);
@@ -161,7 +167,7 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
         //controller.equipmentHoverInfoPanel.SetActive(false);
         if(CurrentElement.GetComponent<Equipment>())
         {
-            controller.CalculateAndUpdateCummulativeEquipmentModifiers();
+            equipmentController.CalculateAndUpdateCummulativeEquipmentModifiers();
         }
     }
 }

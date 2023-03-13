@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     {
 
         float yStore = moveDirection.y; //get this from the old Update's moveDirection so we can continue to accelerate
-        moveDirection = new Vector3(0, yStore, 0);
+        moveDirection = new Vector3(0, 0, 0);
 
         if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Escape))
         {
@@ -86,19 +86,19 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKey(KeyCode.A))
             {
-                moveDirection = -1 * transform.right;
+                moveDirection += -1 * transform.right;
             }
             if (Input.GetKey(KeyCode.D))
             {
-                moveDirection = transform.right;
+                moveDirection += transform.right;
             }
             if ((Input.GetMouseButton(1) && Input.GetMouseButton(0)) || Input.GetKey(KeyCode.W)) // allows for players to move with just mouse buttons so they can free up left hand
             {
-                moveDirection = (transform.forward);
+                moveDirection += (transform.forward);
             }
             if (Input.GetKey(KeyCode.S))
             {
-                moveDirection = -1 * transform.forward;
+                moveDirection += -1 * transform.forward;
             }
         }
 

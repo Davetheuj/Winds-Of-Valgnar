@@ -142,7 +142,7 @@ MonoBehaviour:
   positionLerpSpeedList:
   - 10
   rotationList:
-  - {x: 0, y: 45, z: -90}
+  - {x: 0, y: 45, z: -90, w: 0.00000021083248}
   rotationLerpSpeedList:
   - 2
   transitionTimeList:
@@ -218,7 +218,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9485294, g: 0.59393716, b: 0.27200472, a: 1}
-  m_Intensity: 58.705822
+  m_Intensity: 20.267008
   m_Range: 50
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 737.7191
+  m_Intensity: 254.68274
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -402,10 +402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2179cead1fd274c954e07dbcb99d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxIntensity: 400
-  minIntensity: 300
-  intensityRange: 30
-  intensityLerpSpeed: 1
+  maxIntensity: 150
+  minIntensity: 100
   minTimeForChange: 0.09
 --- !u!1001 &7842920292090242934
 PrefabInstance:

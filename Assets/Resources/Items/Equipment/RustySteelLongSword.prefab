@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 7367826854918431051}
   - component: {fileID: -51408466142094549}
   - component: {fileID: 8380087789927089270}
-  - component: {fileID: 5926656256459939485}
   - component: {fileID: 2118372942790570561}
+  - component: {fileID: 5926656256459939485}
+  - component: {fileID: -9026590126851089392}
   m_Layer: 0
   m_Name: RustySteelLongSword
   m_TagString: Untagged
@@ -120,40 +121,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 27961946c867547469b35d9040263ee3, type: 3}
---- !u!114 &5926656256459939485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7379333873882131667}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4e56dc9595d1ab4b8ce62612cbdc4cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationName: 
-  startDelay: 0
-  initialStartDelay: 0
-  positionList:
-  - {x: 0, y: -1, z: 0}
-  - {x: 0.25, y: -1, z: 1.5}
-  positionLerpSpeedList:
-  - 10
-  - 10
-  rotationList:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  rotationLerpSpeedList:
-  - 0
-  - 0
-  transitionTimeList:
-  - 0.3
-  - 0.3
-  isFinished: 0
-  resetTime: 0.2
-  finalPositionLerpSpeed: 20
-  finalRotationLerpSpeed: 0
 --- !u!114 &2118372942790570561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,3 +142,81 @@ MonoBehaviour:
   animations: []
   hitParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
     type: 3}
+--- !u!114 &5926656256459939485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379333873882131667}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e56dc9595d1ab4b8ce62612cbdc4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: 
+  startDelay: 0
+  initialStartDelay: 0
+  positionList:
+  - {x: 1.69, y: -1.48, z: -3}
+  - {x: 1.69, y: -1.48, z: 1.5}
+  - {x: 1.69, y: -1.48, z: -3}
+  positionLerpSpeedList:
+  - 0
+  - 30
+  - 30
+  rotationList:
+  - {x: 0.57373047, y: -0.14251056, z: 0.102196924, w: 0.80004996}
+  - {x: 0.57373047, y: -0.14251056, z: 0.102196924, w: 0.80004996}
+  - {x: 0.57373047, y: -0.14251056, z: 0.102196924, w: 0.80004996}
+  rotationLerpSpeedList:
+  - 10
+  - 10
+  - 10
+  transitionTimeList:
+  - 5
+  - 0.2
+  - 0.2
+  isFinished: 0
+  resetTime: 0.2
+  finalPositionLerpSpeed: 20
+  finalRotationLerpSpeed: 0
+--- !u!114 &-9026590126851089392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379333873882131667}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e56dc9595d1ab4b8ce62612cbdc4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: 
+  startDelay: 0
+  initialStartDelay: 0
+  positionList:
+  - {x: 1.1344589, y: -1.97494, z: 0.7}
+  - {x: 1.1755468, y: -1.7808435, z: 1.2000101}
+  - {x: 0.26, y: -1.04, z: 0.48}
+  positionLerpSpeedList:
+  - 200
+  - 200
+  - 200
+  rotationList:
+  - {x: -0.07461358, y: -0.017036613, z: -0.1851949, w: 0.979717}
+  - {x: 0.19729938, y: -0.1067415, z: -0.18090269, w: 0.9575768}
+  - {x: 0.5962887, y: -0.175119, z: -0.11598664, w: 0.77480334}
+  rotationLerpSpeedList:
+  - 400
+  - 400
+  - 400
+  transitionTimeList:
+  - 0.1
+  - 0.1
+  - 0.3
+  isFinished: 0
+  resetTime: 0
+  finalPositionLerpSpeed: 0
+  finalRotationLerpSpeed: 0

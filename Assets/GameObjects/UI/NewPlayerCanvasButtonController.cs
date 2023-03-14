@@ -53,37 +53,10 @@ public class NewPlayerCanvasButtonController : MonoBehaviour
         VerifyLastName();
         SetPlayerStats();
         
-        //SetAmbientMusicVolume(.3f);
-        persistentObjects.SetActive(true);
-
-        //try
-        //{
-        //    player = slManager.LoadPlayer();
-        //}
-        //catch (Exception e)
-        //{
-        //    Debug.Log(e);
-        //}
-
-        //try
-        //{
-        //    //SceneManager.LoadScene(manager.player.GetComponent<StatsController>().zoneName);
-        //    //SceneManager.LoadScene(player.zoneName);
-        //    slManager.FullLoad();
-        //}
-        //catch (Exception e)
-        //{
-        //    Debug.Log("Couldn't find zoneName in playerstatscontroller. Loading the predetermined start scene instead");
-        //    SceneManager.LoadScene(startScene);
-        //}
-
         persistentObjects.SetActive(true);
         SceneManager.LoadScene(startScene);
         slManager.SavePlayer();
         WoVBinarySerializer.SavePlayerSettings(playerStats.gameObject);
-
-
-        
         PlayerSettings ps = GameObject.Find("Player").GetComponent<PlayerSettings>();
         interfaceController.UpdateSettingsUI(ps);
 

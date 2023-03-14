@@ -162,12 +162,14 @@ public class InterfaceController : MonoBehaviour
     public void SaveSettings()
     {
         Debug.Log($"Saving player settings from Interface Controller  - passing argument of {player}");
+        ApplySettings();
         WoVBinarySerializer.SavePlayerSettings(player);
     }
     
     public void CancelSettings()
     {
         player.GetComponent<PlayerSettings>().SetPlayerSettingsFromLoad(WoVBinarySerializer.LoadPlayerSettings(player));
+        UpdateSettingsUI(player.GetComponent<PlayerSettings>());
         SettingsPanel.SetActive(false);
 
     }

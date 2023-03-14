@@ -58,6 +58,8 @@ public class NewPlayerCanvasButtonController : MonoBehaviour
         slManager.SavePlayer();
         WoVBinarySerializer.SavePlayerSettings(playerStats.gameObject);
         PlayerSettings ps = GameObject.Find("Player").GetComponent<PlayerSettings>();
+        Debug.Log(ps.masterAudioVolume + ":audioVolume");
+        Debug.Log(ps.inputSensitivity + ":inputSensitivity");
         interfaceController.UpdateSettingsUI(ps);
 
 

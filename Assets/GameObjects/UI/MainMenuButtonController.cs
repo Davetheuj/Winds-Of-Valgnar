@@ -13,6 +13,7 @@ public class MainMenuButtonController : MonoBehaviour
 
     public SaveLoadManager slManager;
 
+    [SerializeField]
     private StatsController player;
 
     public String startScene = "CryptOfTheAncients";
@@ -20,31 +21,31 @@ public class MainMenuButtonController : MonoBehaviour
 
     public void OnDemoButtonPressed()
     {
-        //SceneManager.LoadSceneAsync("Loading");
-        SetAmbientMusicVolume(.3f);
-        persistentObjects.SetActive(true);
+        //SetAmbientMusicVolume(.3f);
+        //persistentObjects.SetActive(true);
 
-        try
-        {
-            player = slManager.LoadPlayer();
-        }
-        catch (Exception e)
-        {
-            Debug.LogError(e);
-        }
+        //try
+        //{
+           
+        //    player = slManager.LoadPlayer();
+        //}
+        //catch (Exception e)
+        //{
 
-        try
-        {
+        //    Debug.LogError(e);
+        //}
+
+      
             //SceneManager.LoadScene(manager.player.GetComponent<StatsController>().zoneName);
             //SceneManager.LoadScene(player.zoneName);
-            slManager.FullLoad();
-        }
-        catch (Exception e)
-        {
-            Debug.Log("Couldn't find zoneName in playerstatscontroller. Loading the predetermined start scene instead");
-            SceneManager.LoadScene(startScene);
-            slManager.SavePlayer();
-        }
+            //slManager.FullLoad();
+      
+            ////Debug.Log(e.StackTrace);
+            ////Debug.Log("Couldn't find zoneName in playerstatscontroller. Loading the predetermined start scene instead");
+            ////SceneManager.LoadScene(startScene);
+            //slManager.SavePlayer();
+            //WoVBinarySerializer.SavePlayerSettings(player.gameObject);
+        
 
 
         //SceneManager.UnloadSceneAsync("GameStart");

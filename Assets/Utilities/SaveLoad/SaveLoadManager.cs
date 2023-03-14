@@ -27,7 +27,11 @@ public class SaveLoadManager : MonoBehaviour
         //player = GameObject.Find("Player");
         WoVBinarySerializer.SavePlayer(player);
         WoVBinarySerializer.TransferTempToPerm(player.GetComponent<StatsController>().playerName);
-        console.AddConsoleMessage1("Save successful!");
+        try
+        {
+            console.AddConsoleMessage1("Save successful!");
+        }
+        catch(Exception e){ }
         //Debug.Log("Saved the player");
         
     }

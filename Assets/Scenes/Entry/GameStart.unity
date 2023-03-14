@@ -1489,7 +1489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0000076293945, y: -513}
+  m_AnchoredPosition: {x: -0.0000076293945, y: -424}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &28893097
@@ -15265,7 +15265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &323817039
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32586,7 +32586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &722483764
 RectTransform:
   m_ObjectHideFlags: 0
@@ -73165,7 +73165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1535160889
 AudioListener:
   m_ObjectHideFlags: 0
@@ -75752,6 +75752,7 @@ MonoBehaviour:
   nameInputField: {fileID: 915061704}
   slManager: {fileID: 537392568}
   startScene: CryptOfTheAncients
+  interfaceController: {fileID: 420057938}
 --- !u!1 &1592983812
 GameObject:
   m_ObjectHideFlags: 0
@@ -81334,7 +81335,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0000076293945, y: -424}
+  m_AnchoredPosition: {x: -0.0000076293945, y: -513}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1708327743
@@ -81889,7 +81890,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0000076293945, y: -600.6}
+  m_AnchoredPosition: {x: -0.0000076293945, y: -339}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1721408564
@@ -82942,7 +82943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1744926678
 RectTransform:
   m_ObjectHideFlags: 0
@@ -89494,8 +89495,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a12ad4b36a53ceb459d9d0e003c72c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterAudioVolume: 1
-  inputSensitivity: 1
+  masterAudioVolume: -10
+  inputSensitivity: 75
   interfaceController: {fileID: 420057938}
 --- !u!114 &1893046286
 MonoBehaviour:
@@ -97268,6 +97269,7 @@ MonoBehaviour:
   loadCanvas: {fileID: 1047544662}
   persistentObjects: {fileID: 1592983812}
   slManager: {fileID: 537392568}
+  player: {fileID: 1893046268}
   startScene: CryptOfTheAncients
 --- !u!1 &2075714980
 GameObject:

@@ -22,7 +22,7 @@ namespace Assets.GameObjects.Characters.Player.Scripts
             masterAudioVolume = loadedSettings.masterAudioVolume;
             inputSensitivity = loadedSettings.inputSensitivity;
 
-            interfaceController.UpdateSettingsUIFromLoad(this);
+            interfaceController.UpdateSettingsUI(this);
         }
     }
 }

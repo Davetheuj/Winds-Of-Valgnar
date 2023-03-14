@@ -167,6 +167,8 @@ public class InterfaceController : MonoBehaviour
     
     public void CancelSettings()
     {
+        player.GetComponent<PlayerSettings>().SetPlayerSettingsFromLoad(WoVBinarySerializer.LoadPlayerSettings(player));
+        SettingsPanel.SetActive(false);
 
     }
 
@@ -185,7 +187,7 @@ public class InterfaceController : MonoBehaviour
 
     }
 
-    public void UpdateSettingsUIFromLoad(PlayerSettings playerSettings)
+    public void UpdateSettingsUI(PlayerSettings playerSettings)
     {
         Debug.Log("Updating Settings UI");
         masterAudioSlider.value = playerSettings.masterAudioVolume / 100;

@@ -44,7 +44,7 @@ public class LiteratureUIController : MonoBehaviour
 
         CheckAvailableButtons();
         literatureUIPanel.SetActive(true);
-        audioClipController.PlayClip(null, 0, .9f, false, 0, false, true, true, "Effects");
+        audioClipController.PlayClip(null, -1, 1, false, 0, false, true, true, "Effects");
 
 
     }
@@ -59,6 +59,7 @@ public class LiteratureUIController : MonoBehaviour
         }
         entryCounter++;
         journalPage.text = entries[entryCounter];
+        audioClipController.PlayClip(null, -1, 1, false, 0, false, true, true, "Effects");
         CheckAvailableButtons();
         pageCounter.text = "" + (entryCounter + 1);
     }
@@ -73,6 +74,7 @@ public class LiteratureUIController : MonoBehaviour
         }
         entryCounter--;
         journalPage.text = entries[entryCounter];
+        audioClipController.PlayClip(null, -1, 1, false, 0, false, true, true, "Effects");
 
         CheckAvailableButtons();
         pageCounter.text = "" + (entryCounter + 1);

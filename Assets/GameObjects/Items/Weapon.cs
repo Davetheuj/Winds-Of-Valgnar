@@ -52,6 +52,7 @@ public class Weapon : MonoBehaviour
 
             GameObject.Find("Player").GetComponent<StatsController>().GrantXPAndCheckIfLevelGained(damage * experienceModifier, classification);
             //isAttacking = false;
+            gameObject.GetComponent<AudioClipController>().PlayClip(null, 0, .3f, false, 0, false, true, true, "Effects");
         }
 
     }

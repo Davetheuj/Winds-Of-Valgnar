@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4224592332296465811}
   - component: {fileID: 2077143847846803320}
   - component: {fileID: 6019397155552975780}
+  - component: {fileID: -5986831193383760002}
   m_Layer: 0
   m_Name: RustySteelDagger
   m_TagString: Untagged
@@ -157,8 +158,6 @@ MonoBehaviour:
   - 0.2
   isFinished: 0
   resetTime: 0.2
-  finalPositionLerpSpeed: 20
-  finalRotationLerpSpeed: 0
 --- !u!114 &6019397155552975780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,3 +179,22 @@ MonoBehaviour:
   animations: []
   hitParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
     type: 3}
+--- !u!114 &-5986831193383760002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2919564193855145270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a5776d01fd56d478e1c4577c89e011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  audioMixerGroup: Master
+  ambientClips: []
+  interactionClips:
+  - {fileID: 8300000, guid: 67d81265682ee884dba3c0f07fb41fcf, type: 3}
+  deinteractionClips: []
+  mixer: {fileID: 24100000, guid: 10a5f6c299245e44fb5c18087a9c6c8a, type: 2}

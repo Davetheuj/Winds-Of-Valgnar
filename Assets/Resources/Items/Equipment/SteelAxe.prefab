@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7765444344784895809}
   - component: {fileID: 7765444344784895808}
   - component: {fileID: 7765444344784895811}
+  - component: {fileID: 9156994973232519381}
   m_Layer: 0
   m_Name: SteelAxe
   m_TagString: Untagged
@@ -138,8 +139,6 @@ MonoBehaviour:
   - 0.1
   isFinished: 0
   resetTime: 0
-  finalPositionLerpSpeed: 0
-  finalRotationLerpSpeed: 0
 --- !u!114 &7765444344784895808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,3 +179,22 @@ MonoBehaviour:
     type: 3}
   toolTip: {fileID: 0}
   toolTipText: {fileID: 0}
+--- !u!114 &9156994973232519381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7764716225430081585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a5776d01fd56d478e1c4577c89e011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  audioMixerGroup: Effects
+  ambientClips: []
+  interactionClips:
+  - {fileID: 8300000, guid: 67d81265682ee884dba3c0f07fb41fcf, type: 3}
+  deinteractionClips: []
+  mixer: {fileID: 24100000, guid: 10a5f6c299245e44fb5c18087a9c6c8a, type: 2}

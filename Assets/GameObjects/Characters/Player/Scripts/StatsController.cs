@@ -126,7 +126,7 @@ public class StatsController : MonoBehaviour
         {
           
             this.gameObject.GetComponent<DeathController>().ExecuteDeathRoutine();
-            audioController.PlayClip(audioController.deinteractionClips, 0, 1, false, 0, false, true, true, "Effects");
+            //audioController.PlayClip(audioController.deinteractionClips, 0, 1, false, 0, false, true, true, "Effects");
             //this.gameObject.GetComponent<DeathController>().isDead = true;
         }
     }
@@ -280,15 +280,19 @@ public class StatsController : MonoBehaviour
 
 
         int xpLeft = CheckIfLevelGained(totalXP, (int)skillLevel.GetValue(this));
-        while (xpLeft <= 0) //level gained
+        if (xpLeft <= 0)
         {
-            skillLevel.SetValue(this, (int)skillLevel.GetValue(this) + 1);
-            skillXP.SetValue(this, xpLeft*-1);
-            xpLeft = CheckIfLevelGained((int)skillXP.GetValue(this), (int)skillLevel.GetValue(this));
-            console.AddConsoleMessage1($"Your skill has increased with {getStatName(baseStatName)}!");
-            console.AddConsoleMessage1($"You are now level <color={Colors.gold}> {(int)skillLevel.GetValue(this)}</color>!");
             audioController.PlayClip(null, 1, 1, false, 0, false, true, true, "Effects");
 
+            while (xpLeft <= 0) //level gained
+            {
+                skillLevel.SetValue(this, (int)skillLevel.GetValue(this) + 1);
+                skillXP.SetValue(this, xpLeft * -1);
+                xpLeft = CheckIfLevelGained((int)skillXP.GetValue(this), (int)skillLevel.GetValue(this));
+               
+            }
+            console.AddConsoleMessage1($"Your skill has increased with {getStatName(baseStatName)}!");
+            console.AddConsoleMessage1($"You are now level <color={Colors.gold}> {(int)skillLevel.GetValue(this)}</color>!");
         }
         
     }

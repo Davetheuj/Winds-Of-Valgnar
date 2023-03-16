@@ -12,13 +12,14 @@ public class SceneSwitcher : MonoBehaviour
     public bool needsDestination;
     public void OnLevelWasLoaded(int level)
     {
+        
+        target.SetActive(false);
+        manager.LoadZone();
         if (needsDestination)
         {
             gameObject.transform.position = destination;
             needsDestination = false;
         }
-        target.SetActive(false);
-        manager.LoadZone();
     }
 
 

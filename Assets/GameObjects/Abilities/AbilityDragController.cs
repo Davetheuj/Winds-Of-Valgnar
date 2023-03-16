@@ -21,7 +21,7 @@ public class AbilityDragController : MonoBehaviour, IBeginDragHandler, IDragHand
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        abilityBookPanel = GameObject.Find("AbilityGrid");
+        abilityBookPanel = GameObject.Find("AbilitiesGrid");
         
         if (transform.parent.transform.parent.gameObject.Equals(abilityBookPanel))
         {

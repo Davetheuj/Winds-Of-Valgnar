@@ -11872,6 +11872,25 @@ MonoBehaviour:
   destPos: {x: 0, y: 0, z: 0}
   destScene: Fairshire
   isPortal: 1
+--- !u!114 &276898914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276898912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a5776d01fd56d478e1c4577c89e011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  audioMixerGroup: Master
+  ambientClips: []
+  interactionClips:
+  - {fileID: 8300000, guid: 6418641cad22bb743b55956e124a7a40, type: 3}
+  deinteractionClips: []
+  mixer: {fileID: 24100000, guid: 10a5f6c299245e44fb5c18087a9c6c8a, type: 2}
 --- !u!4 &277296010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 91d652779ec7140488b6b8e360497937,

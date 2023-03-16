@@ -13,9 +13,11 @@ public class Door : MonoBehaviour
 
     public bool isPortal;
 
-
+    private AudioClipController audioController;
     public void OpenDoor()
     {
+        audioController.PlayClip(audioController.interactionClips, -1, 1, false, 500, false, true, true, "Effects");
+
         if (isPortal)
         {
             GameObject.Find("SaveLoadManager").GetComponent<SaveLoadManager>().SaveZone();
@@ -32,5 +34,6 @@ public class Door : MonoBehaviour
     public void Start()
     {
         player = GameObject.Find("Player");
+        audioController = gameObject.GetComponent<AudioClipController>();
     }
 }

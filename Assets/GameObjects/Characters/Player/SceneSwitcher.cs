@@ -14,7 +14,7 @@ public class SceneSwitcher : MonoBehaviour
     {
         
         target.SetActive(false);
-        manager.LoadZone();
+       
         if (needsDestination)
         {
             gameObject.transform.position = destination;

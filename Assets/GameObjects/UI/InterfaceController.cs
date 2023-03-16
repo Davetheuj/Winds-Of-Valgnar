@@ -28,6 +28,9 @@ public class InterfaceController : MonoBehaviour
 
     public GameObject abilityQuickHoverPanel;
 
+    public GameObject literatureUIPanel;
+    public GameObject worldItemHoverPanel;
+
     public GameObject player;
 
     //SettingsPanel
@@ -42,6 +45,9 @@ public class InterfaceController : MonoBehaviour
     {
         statsPanelController.UpdateStatsUI();
         itemQuickHoverPanel.SetActive(false);
+        literatureUIPanel.SetActive(false);
+        worldItemHoverPanel.SetActive(false);
+        abilityQuickHoverPanel.SetActive(false);
         playerInformationCanvas.SetActive(!playerInformationCanvas.activeSelf);
         
 

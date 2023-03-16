@@ -19436,6 +19436,8 @@ MonoBehaviour:
   playerInformationCanvas: {fileID: 157376824}
   itemQuickHoverPanel: {fileID: 1268899396}
   abilityQuickHoverPanel: {fileID: 558708841}
+  literatureUIPanel: {fileID: 1431420462}
+  worldItemHoverPanel: {fileID: 1856113629}
   player: {fileID: 1893046267}
   inputSensitivitySlider: {fileID: 823859071}
   masterAudioSlider: {fileID: 473850565}
@@ -87553,6 +87555,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1856113629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2838920690528921301, guid: 7f4d9c221f72e442c8bca301829a3b12,
+    type: 3}
+  m_PrefabInstance: {fileID: 1856113626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1856378098
 GameObject:
   m_ObjectHideFlags: 0

@@ -392,9 +392,8 @@ public class NPC : MonoBehaviour
     private void DealDamageToPlayer(int maxDamage)
     {
         int damageDealt = (int)(UnityEngine.Random.value * maxDamage);
-        player.GetComponent<StatsController>().currentHealth -= damageDealt;
-        statusController.UpdateStatusUI();
-        //statusController.SpawnDamageText(damageDealt, player, 0, 12);
+        player.GetComponent<StatsController>().DealDamageToPlayer(damageDealt);
+        player.GetComponent<StatsController>().statusController.ActivateBloodVignette();
     }
     private void SpawnItem()
     {

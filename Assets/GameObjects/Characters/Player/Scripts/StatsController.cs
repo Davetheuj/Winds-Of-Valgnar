@@ -103,13 +103,15 @@ public class StatsController : MonoBehaviour
     public int xpIllusion;
     public int xpRestoration;
 
-   
+    private AudioClipController audioController;
 
 
     void Start()
     {
         console = GameObject.Find("ConsolePanel").GetComponent<ConsoleManager>();
+        audioController = gameObject.GetComponent<AudioClipController>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -124,6 +126,7 @@ public class StatsController : MonoBehaviour
         {
           
             this.gameObject.GetComponent<DeathController>().ExecuteDeathRoutine();
+            audioController.PlayClip(audioController.deinteractionClips, 0, 1, false, 0, false, true, true, "Effects");
             //this.gameObject.GetComponent<DeathController>().isDead = true;
         }
     }
@@ -284,6 +287,7 @@ public class StatsController : MonoBehaviour
             xpLeft = CheckIfLevelGained((int)skillXP.GetValue(this), (int)skillLevel.GetValue(this));
             console.AddConsoleMessage1($"Your skill has increased with {getStatName(baseStatName)}!");
             console.AddConsoleMessage1($"You are now level <color={Colors.gold}> {(int)skillLevel.GetValue(this)}</color>!");
+            audioController.PlayClip(null, 1, 1, false, 0, false, true, true, "Effects");
 
         }
         
@@ -302,6 +306,14 @@ public class StatsController : MonoBehaviour
             }
         }
         return newString.ToString();
+    }
+
+
+    public void DealDamageToPlayer(int damageDealt)
+    {
+        currentHealth -= damageDealt;
+        statusController.UpdateStatusUI();
+        audioController.PlayClip(audioController.ambientClips, 0, 1, false, 0, false, true, true, "Effects");
     }
 
 

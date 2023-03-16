@@ -27,6 +27,31 @@ public class StatusController : MonoBehaviour
 
     public GameObject damageText;
 
+    public Image bloodImage;
+    private float bloodTimer;
+    public float bloodMaxTime;
+    public float bloodStartAlpha;
+    private float bloodAlpha;
+    public bool wasDamaged;
+    public float bloodLerpSpeed;
+
+
+    private void Update()
+    {
+        if (wasDamaged)
+        {
+            bloodAlpha = Mathf.MoveTowards(bloodAlpha, 0, bloodLerpSpeed * Time.deltaTime);
+            bloodImage.color = new Color(1, 1, 1, bloodAlpha);
+            bloodTimer += Time.deltaTime;
+            if(bloodTimer >= bloodMaxTime)
+            {
+                wasDamaged = false;
+
+            }
+        }
+    }
+
+
 
 
 
@@ -91,6 +116,14 @@ public class StatusController : MonoBehaviour
 
 
 
+    }
+
+    public void ActivateBloodVignette()
+    {
+        bloodTimer = 0;
+        bloodAlpha = bloodStartAlpha;
+        wasDamaged = true;
+        bloodImage.color = new Color(1, 1, 1, bloodAlpha);
     }
 
     

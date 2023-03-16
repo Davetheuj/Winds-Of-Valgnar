@@ -65,7 +65,8 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   audioMixerGroup: Effects
   ambientClips: []
-  interactionClips: []
+  interactionClips:
+  - {fileID: 8300000, guid: 0cf4b519020ad52449b0d89ec61cb669, type: 3}
   deinteractionClips: []
   mixer: {fileID: 24100000, guid: 10a5f6c299245e44fb5c18087a9c6c8a, type: 2}
 --- !u!114 &7535392573126774957

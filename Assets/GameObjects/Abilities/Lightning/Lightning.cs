@@ -15,8 +15,9 @@ public class Lightning : MonoBehaviour
     void Start()
     {
         transform.parent = GameObject.Find("Main Camera").transform;
-        transform.position  = transform.parent.position + new Vector3(0, -.5f, 1);
         transform.rotation = transform.parent.rotation;
+        transform.position  = transform.parent.position + new Vector3(0, -.5f, 1);
+        
 
 
     }
@@ -40,13 +41,13 @@ public class Lightning : MonoBehaviour
             NPC npc = collision.gameObject.GetComponent<NPC>();
 
             
-            npc.DealDamageToNpc(10);
+            npc.DealDamageToNpc(1);
 
             //Instantiate(hitParticle, col.ClosestPoint(transform.position), Quaternion.LookRotation(col.transform.position - col.ClosestPoint(transform.position)));
 
             //console.AddConsoleMessage1($"You deal {damage} damage to {npc.npcName}!");
 
-            GameObject.Find("Player").GetComponent<StatsController>().GrantXPAndCheckIfLevelGained(100 , "Destruction");
+            GameObject.Find("Player").GetComponent<StatsController>().GrantXPAndCheckIfLevelGained(3 , "Destruction");
             //isAttacking = false;
         }
 

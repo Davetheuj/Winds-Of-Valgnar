@@ -308,9 +308,6 @@ public class NPC : MonoBehaviour
                         {
                             animator.Play(walkClipName);
                         }
-                        
-                        
-                        
                         needsAnimationChange = false;
                     }
                     if (deltaRoamTimer > deltaNeutralMaxTime)
@@ -360,9 +357,6 @@ public class NPC : MonoBehaviour
 
         moveDirection.y = Physics.gravity.y;
         characterController.Move(moveDirection*Time.deltaTime*actualMoveSpeed);
-        
-        
-        
     }
 
 
@@ -371,16 +365,7 @@ public class NPC : MonoBehaviour
     {
         isAttacked = true;
         currentHealth -= damage;
-        //Debug.Log($"player position {player.transform.position}" +
-        //    $"npc position: {transform.position}" +
-        //    $"Resulting font size: {(transform.position-player.transform.position).magnitude}");
-        float fontSize = (transform.position - player.transform.position).magnitude * 2f;
-        if(fontSize < 12)
-        {
-        fontSize = 12;
-        }
-       //statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, fontSize);
-        //statusController.SpawnDamageText(damage, this.gameObject, NPCPanelOffset, 14);
+
         if (!string.IsNullOrEmpty(hitClipName))
         {
             animator.Play(hitClipName);
@@ -495,7 +480,7 @@ public class NPC : MonoBehaviour
         path2Locations.Add(initialPos);
         int aCounter = 0;
 
-        while(!foundRightPath && aCounter<500)
+        while(!foundRightPath && aCounter<10000)
         {
             //cast a ray to identify the object that is currently being collided with
             if (Physics.Linecast(currentPos,finalPos, out RaycastHit hitInfo))
@@ -513,6 +498,10 @@ public class NPC : MonoBehaviour
                 currentPos = collider.ClosestPoint(rotatedPos + collider.transform.position) + (localRadius*3.5f * rotatedPos.normalized);
                 //Debug.LogWarning($"{collider.gameObject.name}");
                 path1Locations.Add(currentPos);
+                if((path1Locations[path1Locations.Count-1] - path1Locations[path1Locations.Count-2]).magnitude <= .01)
+                {
+                    Debug.LogWarning("NPC Right Path Calculation is potentially stuck");
+                }
             }
             else
             {
@@ -521,9 +510,10 @@ public class NPC : MonoBehaviour
             }
             aCounter++;
         }
-        //Debug.Log($"Found Right Path - {path1Locations.Count - 2} intermediate points - {Pathing.PathLength(path1Locations)} length");
+        Debug.LogWarning($"Found Right Path - {path1Locations.Count - 2} intermediate points - {Pathing.PathLength(path1Locations)} length");
         currentPos = initialPos;
-        while (!foundLeftPath && aCounter<1000)
+        aCounter = 0;
+        while (!foundLeftPath && aCounter<10000)
         {
             //cast a ray to identify the object that is currently being collided with
             if (Physics.Linecast(currentPos, finalPos, out RaycastHit hitInfo))
@@ -539,15 +529,20 @@ public class NPC : MonoBehaviour
                 currentPos = collider.ClosestPoint(rotatedPos + collider.transform.position) + (localRadius*3.5f * rotatedPos.normalized);
                 //Debug.LogWarning($"{collider.gameObject.name}");
                 path2Locations.Add(currentPos);
+                if ((path2Locations[path2Locations.Count - 1] - path2Locations[path2Locations.Count - 2]).magnitude <= .01)
+                {
+                    Debug.LogWarning("NPC Left Path Calculation is potentially stuck");
+                }
             }
             else
             {
                 foundLeftPath = true;
                 path2Locations.Add(finalPos);
+                
             }
             aCounter++;
         }
-       //Debug.Log($"Found Left Path - {path2Locations.Count - 2} intermediate points - {Pathing.PathLength(path2Locations)} length");
+       Debug.LogWarning($"Found Left Path - {path2Locations.Count - 2} intermediate points - {Pathing.PathLength(path2Locations)} length");
         if (Pathing.PathLength(path1Locations) <= Pathing.PathLength(path2Locations)){
             foreach (Vector3 pos in path1Locations)
             {

@@ -30,17 +30,18 @@ public class TipTrigger : MonoBehaviour
         {
             //Debug.Log("tip triggered");
             controller.ShowTip(tipText, 5);
-            
-        }
+            Destroy(this.gameObject);
 
-        Destroy(this.gameObject);
+        }
+        
+
     }
 
     public void TriggerToolTip()
     {
         tipPanel = GameObject.Find("NotificationCanvas");
         controller = tipPanel.GetComponent<TipController>();
-        controller.ShowTip(tipText, 5);
+        controller.ShowTip(tipText, 10);
         Destroy(this);
     }
 

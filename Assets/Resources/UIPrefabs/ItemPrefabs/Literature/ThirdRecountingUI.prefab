@@ -289,3 +289,4 @@ MonoBehaviour:
     greatness and fulfill their destiny as warriors and champions.
   boons:
   - {fileID: 1593892696230572677, guid: 9ab019f27ecc16a47bfd7a44a27334cc, type: 3}
+  - {fileID: 1593892696230572677, guid: 01eec48cb89085a4c86a73e55e68bcd5, type: 3}

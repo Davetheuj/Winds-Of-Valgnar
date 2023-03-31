@@ -27,5 +27,22 @@ public class InventoryController : MonoBehaviour
        
         return null; 
     }
+
+    public GameObject FindObjectByNameContains(string contains)
+    {
+        foreach(GameObject slot in slots)
+        {
+            if(slot.transform.childCount >= 1)
+            {
+                if (slot.GetComponentInChildren<ItemInfo>().gameObject.name.Contains(contains))
+                {
+                    Debug.Log("Inventory contains item");
+                    return slot.GetComponentInChildren<ItemInfo>().gameObject;
+                }
+            }
+        }
+        return null;
+
+    }
     
 }

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SceneSwitcher : MonoBehaviour
 {
     public Vector3 destination; //set this in the inspector in the script attached to the portal
+    public float destinationRotation;
     public GameObject target;
     public SaveLoadManager manager;
     public bool needsDestination;
@@ -18,6 +19,7 @@ public class SceneSwitcher : MonoBehaviour
         if (needsDestination)
         {
             gameObject.transform.position = destination;
+            gameObject.transform.rotation = Quaternion.Euler(0,destinationRotation,0);
             needsDestination = false;
         }
     }

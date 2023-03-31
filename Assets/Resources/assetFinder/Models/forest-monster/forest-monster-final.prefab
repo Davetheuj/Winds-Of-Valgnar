@@ -224,7 +224,7 @@ MonoBehaviour:
   neutralPositionMaxTime: 15
   neutPosTimeRandModifier: 6
   maxIdleTime: 5
-  deltaNeutralRandModifier: 1
+  deltaNeutralRandModifier: 10
   rotationLerpModifier: 1
   statusController: {fileID: 0}
   maxStuckTime: 1
@@ -235,9 +235,9 @@ MonoBehaviour:
   walkClipName: Walk
   neutralIdleClipName: Idle
   agressiveIdleClipName: Idle
-  runClipName: Run
-  deathClipName: Die
-  hitClipName: Die
+  runClipName: Walk
+  deathClipName: Dying
+  hitClipName: Hit
 --- !u!143 &8816060559218235403
 CharacterController:
   m_ObjectHideFlags: 0

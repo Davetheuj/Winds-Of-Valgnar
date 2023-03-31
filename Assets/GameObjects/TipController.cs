@@ -26,7 +26,7 @@ public class TipController : MonoBehaviour
         }
     }
 
-    public void ShowTip(string text, float timer)
+    public void ShowTip(string text, float timer = 5)
     {
         tipText.text = text;
         this.timer = 0;

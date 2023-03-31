@@ -11,7 +11,6 @@ namespace Assets.GameObjects
     class TemporaryAudioSource : MonoBehaviour
     {
         private AudioSource audioSource;
-       // private AudioClip audioClip;
         bool started = false;
 
         public void AssignProperties(AudioClip clip, float volume, AudioMixer audioMixer, string mixerGroup)
@@ -24,11 +23,6 @@ namespace Assets.GameObjects
 
             audioSource.Play();
             started = true;
-        }
-
-        void Start()
-        {
-            
         }
 
         void Update()

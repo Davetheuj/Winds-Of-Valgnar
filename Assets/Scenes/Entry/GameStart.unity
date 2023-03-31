@@ -22611,8 +22611,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 521.1063, y: -273.41318}
-  m_SizeDelta: {x: 689.5178, y: 254.5882}
+  m_AnchoredPosition: {x: 451.08752, y: -223.2464}
+  m_SizeDelta: {x: 1121.8418, y: 564.3379}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &492557757
 MonoBehaviour:
@@ -26729,10 +26729,10 @@ RectTransform:
   m_Father: {fileID: 492557755}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.394, y: 94.74502}
-  m_SizeDelta: {x: 371.107, y: 28.8432}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.000005722046, y: -85.519}
+  m_SizeDelta: {x: 489.351, y: 97.234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &591080965
 MonoBehaviour:
@@ -26781,8 +26781,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
-  m_fontSizeBase: 26
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -76595,8 +76595,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5958816579030360461, guid: d52abfc05749c4eeb92e7e9896a576c8,
         type: 3}
+      propertyPath: m_Intensity
+      value: 104429.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958816579030360461, guid: d52abfc05749c4eeb92e7e9896a576c8,
+        type: 3}
       propertyPath: m_ShadowResolution.m_Level
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 104429.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
+        type: 3}
+      propertyPath: m_ColorTemperature
+      value: 5318
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d52abfc05749c4eeb92e7e9896a576c8, type: 3}
@@ -88982,7 +88997,6 @@ GameObject:
   - component: {fileID: 1893046277}
   - component: {fileID: 1893046276}
   - component: {fileID: 1893046268}
-  - component: {fileID: 1893046275}
   - component: {fileID: 1893046274}
   - component: {fileID: 1893046273}
   - component: {fileID: 1893046270}
@@ -88994,6 +89008,7 @@ GameObject:
   - component: {fileID: 1893046284}
   - component: {fileID: 1893046285}
   - component: {fileID: 1893046286}
+  - component: {fileID: 1893046275}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -89159,6 +89174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {x: 222, y: 10, z: 117}
+  destinationRotation: 0
   target: {fileID: 158256306}
   manager: {fileID: 537392568}
   needsDestination: 0
@@ -93094,8 +93110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.6177, y: -32.573708}
-  m_SizeDelta: {x: 664.6993, y: 162.5686}
+  m_AnchoredPosition: {x: 7.768, y: -61.637}
+  m_SizeDelta: {x: 923.016, y: 419.341}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1970022562
 MonoBehaviour:
@@ -93144,8 +93160,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
-  m_fontSizeBase: 26
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -9,6 +9,8 @@ public class Door : MonoBehaviour
 
     public string doorName;
     public Vector3 destPos;
+    [Tooltip("Just the y angle")]
+    public float destRot; 
     public string destScene;
 
     public bool isPortal;
@@ -16,13 +18,14 @@ public class Door : MonoBehaviour
     private AudioClipController audioController;
     public void OpenDoor()
     {
-        audioController.PlayClip(audioController.interactionClips, -1, 1, false, 500, false, true, true, "Effects");
+        audioController?.PlayClip(audioController.interactionClips, -1, 1, false, 500, false, true, true, "Effects");
 
         if (isPortal)
         {
             GameObject.Find("SaveLoadManager").GetComponent<SaveLoadManager>().SaveZone();
             player.GetComponent<SceneSwitcher>().target.transform.SetParent(player.transform);
             player.GetComponent<SceneSwitcher>().destination = destPos;
+            player.GetComponent<SceneSwitcher>().destinationRotation = destRot;
             player.GetComponent<SceneSwitcher>().needsDestination = true;
             player.GetComponent<StatsController>().zoneName = destScene;
             SceneManager.LoadScene(destScene);
